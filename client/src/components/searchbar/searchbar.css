@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "Sansation-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
+  }
+  
+  .searchItem1 {
+    position: relative;
+    display: flex;
+    height: 40px;
+    width: 400px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin-left: 0;
+
+  }
+
+  .searchItem2 {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 230px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    
+  }
+
+
+   .searchItem3 {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 270px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+  }
+
+  .searchItem4 {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px;
+  }
+  
+  .searchItem:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+
+  .searchItem1 input {
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+  }
+
+  .searchInput{
+width: 100%;
+  }
+
+  .searchInput::placeholder {
+    color: black; 
+    opacity: 1; 
+  }
+  
+  
+  .search{
+    display: flex;
+    margin: 100px 500px 50px 500px;
+    padding: 15px 10px 5px 10px;
+    border-radius: 20px;
+    border: 1px solid white; 
+  }
+
+  .icon-input-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 14px;
+  }
+
+  .icon-people-warapper{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .icon-date-wrapper{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 14px;
+  }
+
+  .searchText{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+

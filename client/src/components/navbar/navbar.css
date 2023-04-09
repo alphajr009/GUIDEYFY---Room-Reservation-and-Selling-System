@@ -115,3 +115,41 @@
 .btn-reg:hover {
   background-color: #3a7cc2;
 }
+
+.search {
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px 0px 25px;
+}
+
+.searchItem {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 15px;
+  margin: 0 10px;
+}
+
+.searchItem:not(:last-child) {
+  margin-right: 10px;
+}
+
+
+.searchItem input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  /* margin-left: 10px; */
+}
+
+.search{
+  padding: 20px 10px 20px 0px;
+  border-radius: 10px;
+  margin: 100px 10px 0px 40px;
+  border: 1px solid white;
+}

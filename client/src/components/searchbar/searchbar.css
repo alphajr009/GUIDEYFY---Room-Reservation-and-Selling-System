@@ -1,117 +1,85 @@
 @font-face {
-    font-family: "Sansation-Bold";
-    font-style: normal;
-    font-weight: 700;
-    src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
-  }
-  
-  .searchItem1 {
-    position: relative;
-    display: flex;
-    height: 40px;
-    width: 400px;
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 0 15px;
-    margin-left: 0;
+  font-family: "Sansation-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
+}
 
-  }
+.searchItem1 {
+  position: relative;
+  display: flex;
+  height: 40px;
+  width: 400px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 0 15px;
+  margin-left: 0;
 
-  .searchItem2 {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: 230px;
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 0 15px;
-    margin: 0 10px 10px 10px;
-    
-  }
+}
+
+.searchItem2 {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 230px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 0 15px;
+  margin: 0 10px 10px 10px;
+
+}
 
 
-   .searchItem3 {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: 270px;
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 0 15px;
-  }
+.searchItem3 {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 330px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 0 15px;
+}
 
-  .searchItem4 {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    background-color: white;
-    color: black;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 0 15px;
-    margin: 0 10px;
-  }
-  
-  .searchItem:not(:last-child) {
-    margin-right: 10px;
-  }
-  
 
-  .searchItem1 input {
-    border: none;
-    outline: none;
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 16px;
-    color: black;
-  }
+.searchItem4 :hover {
+  background-color: #4e86c2;
+}
 
-  .searchInput{
-width: 100%;
-  }
+.searchItem:not(:last-child) {
+  margin-right: 10px;
+}
+
 
   .searchInput::placeholder {
     color: black; 
     opacity: 1; 
   }
   
-  
-  .search{
-    display: flex;
-    margin: 100px 500px 50px 500px;
-    padding: 15px 10px 5px 10px;
-    border-radius: 20px;
-    border: 1px solid white; 
-    
-  }
 
-  .icon-input-wrapper {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    gap: 14px;
-  }
 
-  .icon-people-warapper{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    gap: 14px;
-    width: 100%;
-  }
+.searchItem1 input {
+  border: none;
+  outline: none;
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  color: black;
+}
 
-  .icon-date-wrapper{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    gap: 14px;
-  }
+.searchInput {
+  width: 100%;
+}
+
+.searchInput::placeholder {
+  color: black;
+  opacity: 1;
+}
+
 
   .searchText{
     font-family: "Sansation-Bold", sans-serif;
@@ -124,7 +92,7 @@ width: 100%;
     
     position: absolute;
     padding: 20px 6px 20px 6px;
-    top: 158px;
+    top: 58px;
     background-color: white ;
     color: black;
     border-radius:5px ;
@@ -167,3 +135,91 @@ width: 100%;
   cursor: not-allowed;
 }
 
+
+.search {
+  display: flex;
+  padding: 15px 10px 5px 10px;
+  border-radius: 20px;
+  border: 1px solid white;
+  position: absolute;
+  left: 50%;
+  margin-top: 100px;
+  transform: translateX(-50%);
+}
+
+.icon-input-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 14px;
+}
+
+.icon-people-warapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 14px;
+  width: 100%;
+}
+
+.icon-date-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 14px;
+}
+
+.searchText {
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  width: 100%;
+}
+
+
+.customRangePicker .ant-picker-input>input::placeholder {
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+.customRangePicker {
+  border: none;
+}
+
+.customRangePicker .ant-picker-input {
+  width: auto;
+}
+
+.btn-search {
+  display: flex;
+  align-items: center;
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 11px;
+   height: 40px;
+  padding: 0 15px;
+  margin-left: 0.8rem;
+  cursor: pointer;
+}
+
+.optionbtn{
+
+  margin-top: 20px;
+}
+
+.btn-done{
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  background-color: #30379a;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  width: 210px;
+  margin-left: 0.8rem;
+  cursor: pointer;
+}

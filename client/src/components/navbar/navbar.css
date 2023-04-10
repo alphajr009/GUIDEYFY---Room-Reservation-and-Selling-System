@@ -4,6 +4,9 @@
   font-weight: 700;
   src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
 }
+.nav {
+  overflow-x: hidden;
+}
 
 .navbar {
   display: flex;
@@ -30,9 +33,10 @@
 
 .searchbar-wrapper {
   position: absolute;
-  left: 52%;
+  left: 50%;
   top: 230px;
   transform: translateX(-50%);
+  
 }
 
 .navbar-logo {
@@ -123,3 +127,6 @@
 .btn-reg:hover {
   background-color: #3a7cc2;
 }
+
+
+

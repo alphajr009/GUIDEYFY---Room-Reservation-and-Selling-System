@@ -1,67 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 import './searchbar.css'
 import { DatePicker, Space } from 'antd';
-import moment from 'moment'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faLocationArrow, faPerson, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function Searchbar() {
     const { RangePicker } = DatePicker;
-    const [rooms, setrooms] = useState([])
-    const [fromdate, setfromdate] = useState()
-    const [todate, settodate] = useState()
-    const [duplicaterooms, setduplicaterooms] = useState([])
+    const [destination, setDestination] = useState('');
+    const optionsRef = useRef(null);
 
-    function filterByDate(dates) {
-        const dateFrom = new Date(dates[0]);
-        const dateTo = new Date(dates[1]);
-        setfromdate(moment(dateFrom).format('DD-MM-YYYY'))
-        settodate(moment(dateTo).format('DD-MM-YYYY'))
-
-        var temprooms = []
-
-        for (const room of duplicaterooms) {
-            var availability = true;
-
-            if (room.currentbookings.length > 0) {
-                for (const booking of room.currentbookings) {
-
-                    const start = moment(booking.fromdate, 'DD-MM-YYYY');
-                    const end = moment(booking.todate, 'DD-MM-YYYY');
-
-                    if (moment(dateFrom).isBetween(start, end) ||
-                        moment(dateTo).isBetween(start, end)
-
-                        ||
-                        (moment(start).isBetween(dateFrom, dateTo) ||
-                            moment(end).isBetween(dateFrom, dateTo))
-
-                        ||
-                        (
-                            moment(dateFrom).isSame(start) &&
-                            moment(dateTo).isSame(end)
-                        )
-                        ||
-                        (
-                            moment(dateFrom).isSameOrAfter(start) &&
-                            moment(dateTo).isSameOrBefore(end))
-                    ) {
-                        availability = false;
-                        break;
-                    }
-                }
-            }
-            if (availability) {
-                temprooms.push(room)
-            }
-        }
-        setrooms(temprooms)
-    }
+    const handleDestinationChange = (e) => {
+        setDestination(e.target.value);
+    };
 
 
-    function clearRange() {
+    const handleSearch = () => {
+        // Perform filtering here based on the destination and other input values
+        // You may need to call an API or filter the data in the parent component, then pass the filtered data down as props
+
+        // Redirect to the /home route after filtering
         window.location.assign('/home');
-    }
+    };
+
+
 
 
     const [openOptions, setOpenOptions] = useState(false);
@@ -83,6 +44,9 @@ function Searchbar() {
 
     };
 
+
+  
+
     return (
 
         < div className='search'>
@@ -92,8 +56,11 @@ function Searchbar() {
                     <FontAwesomeIcon icon={faLocationArrow} className='searchIcon' />
                     <input
                         type="text"
-                        placeholder="Where's your destination ?"
-                        className="searchInput" />
+                        placeholder="Where's your destination?"
+                        className="searchInput"
+                        value={destination}
+                        onChange={handleDestinationChange}
+                    />
                 </div>
             </div>
 
@@ -103,7 +70,7 @@ function Searchbar() {
                     <FontAwesomeIcon icon={faPerson} className='searchIcon' />
 
                     <span onClick={() => setOpenOptions(!openOptions)} className='searchText'>{`${options.adult} adult · ${options.childern} children · ${options.room} room`}</span>
-                    {openOptions && <div className='options'>
+                    {openOptions && <div  className='options'>
 
                         <div className='optionItem'>
                             <span className='optionText'>Adult</span>
@@ -134,8 +101,7 @@ function Searchbar() {
                             </div>
                         </div>
 
-                        <div className="optionItem
-                            ">
+                        <div className="optionItem">
                             <span className="optionText">Room</span>
                             <div className="optionCounter">
                                 <button
@@ -150,6 +116,11 @@ function Searchbar() {
 
                         </div>
 
+                        <div className="optionbtn">
+                        <button onClick={() => setOpenOptions(false)} className='btn-done'>Done</button>
+
+                        </div>
+
                     </div>}
                 </div>
 
@@ -158,14 +129,20 @@ function Searchbar() {
             <div className='searchItem3'>
                 <div className="icon-date-wrapper">
                     <FontAwesomeIcon icon={faCalendar} className='searchIcon' />
-                    <RangePicker format='DD-MM-YYYY' onChange={filterByDate} onCalendarChange={(dates) => !dates ? clearRange() : null} />
-                    {/* <span className='searchText'>Check-in-date — Check-out-date</span> */}
+                    <RangePicker
+                        format='DD-MM-YYYY'
+                        placeholder={['Check-in date', 'Check-out date']}
+                        className="customRangePicker"
+                    />
                 </div>
 
             </div>
 
             <div className='searchItem4'>
-                <FontAwesomeIcon icon={faSearch} className='searchIcon' />
+                <button className='btn-search' onClick={handleSearch}>
+                    <FontAwesomeIcon icon={faSearch} className='searchIcon' />
+                </button>
+
             </div>
 
         </div>

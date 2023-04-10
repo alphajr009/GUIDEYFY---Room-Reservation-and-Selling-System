@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser, faBed, faBook } from "@fortawesome/free-solid-svg-icons";
 import AdminListItems from '../adminListItems/AdminListItems';
 
-function AdminNavbar() {
+function AdminNavbar({ setActiveTab, activeTab }) {
   return (
     <div className="admin_nav">
       <div className="admin_navbar">
@@ -19,8 +19,8 @@ function AdminNavbar() {
               <div className="user_icon">
                 <FontAwesomeIcon icon={faCircleUser} className='user' />
               </div>
-            </div>
-            <AdminListItems/>
+            </div >
+            <AdminListItems setActiveTab={setActiveTab} activeTab={activeTab} />
           </div>
         </div>
       </div>

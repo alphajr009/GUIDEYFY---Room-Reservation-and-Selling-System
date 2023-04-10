@@ -1,71 +1,59 @@
-import React from 'react'
-import './adminListItems.css'
-import {faBook, faHotel, faChartLine, faUser, faUsers, faUserGroup, faBlog, faNewspaper } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import './adminListItems.css';
+import { faBook, faHotel, faChartLine, faUserGroup, faUsers, faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const handleAdminItemClick = (itemName) => {
-    let url = '/';
-    if (itemName === 'booking') {
-      url = '/booking';
-    } else if (itemName === 'rooms') {
-      url = '/rooms';
-    } else if (itemName === 'finance') {
-      url = '/finance';
-    } else if (itemName === 'users') {
-      url = '/users';
-    } else if (itemName === 'sellers') {
-      url = '/sellers';
-    } else if (itemName === 'blogs') {
-      url = '/blogs';
-    }
-    window.location.assign(url);
-  };
-  
-function AdminListItems() {
+function AdminListItems({ setActiveTab, activeTab }) {
     return (
-
-
-            <div className='list_container'>
-                <div className='listitem'>
-                    <div className="adminlistItem" onClick={handleAdminItemClick}>
-                        <FontAwesomeIcon icon={faBook} />
-                        <h1>Boooking</h1>
-                    </div>
-
-                    <div className="adminlistItem"  onClick={handleAdminItemClick}>
-                        <FontAwesomeIcon icon={faHotel} />
-                        <h1>Rooms</h1>
-                    </div>
-
-
-                    <div className="adminlistItem"onClick={handleAdminItemClick}  >
-                        <FontAwesomeIcon icon={faChartLine} />
-                        <h1>Finance</h1>
-                    </div>
-
-
-                    <div className="adminlistItem" onClick={handleAdminItemClick} >
-                        <FontAwesomeIcon icon={faUserGroup} />
-                        <h1>Users</h1>
-                    </div>
-
-
-                    <div className="adminlistItem" onClick={handleAdminItemClick}>
-                        <FontAwesomeIcon icon={faUsers} />
-                        <h1>Sellers</h1>
-                    </div>
-
-                    <div className="adminlistItem" onClick={handleAdminItemClick}>
-                        <FontAwesomeIcon icon={faNewspaper} />
-                        <h1>Blogs</h1>
-                    </div>
-
+        <div className='list_container'>
+            <div className="listitem">
+                <div
+                    className={`adminlistItem ${activeTab === 'booking' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('booking')}
+                >
+                    <FontAwesomeIcon icon={faBook} />
+                    <h1>Booking</h1>
                 </div>
+                <div
+                    className={`adminlistItem ${activeTab === 'rooms' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('rooms')}
+                >
+                    <FontAwesomeIcon icon={faHotel} />
+                    <h1>Rooms</h1>
+                </div>
+                <div
+                    className={`adminlistItem ${activeTab === 'finance' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('finance')}
+                >
+                    <FontAwesomeIcon icon={faChartLine} />
+                    <h1>Finance</h1>
+                </div>
+                <div
+                    className={`adminlistItem ${activeTab === 'users' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('users')}
+                >
+                    <FontAwesomeIcon icon={faUserGroup} />
+                    <h1>Users</h1>
+                </div>
+                <div
+                    className={`adminlistItem ${activeTab === 'sellers' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('sellers')}
+                >
+                    <FontAwesomeIcon icon={faUsers} />
+                    <h1>Sellers</h1>
+                </div>
+                <div
+                    className={`adminlistItem ${activeTab === 'blogs' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('blogs')}
+                >
+                    <FontAwesomeIcon icon={faNewspaper} />
+                    <h1>Blogs</h1>
+                </div>
+               
+
             </div>
-
-
-
-    )
+        </div>
+    );
 }
 
-export default AdminListItems
+export default AdminListItems;

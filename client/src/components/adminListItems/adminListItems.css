@@ -1,15 +1,16 @@
 .list_container {
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 40px;
+    margin-bottom: 0px;
     align-items: center;
 }
 
 .listitem {
     display: flex;
     justify-content: center;
-    gap: 80px;
+    gap: 30px;
     cursor: pointer;
+    
 }
 
 .adminlistItem {
@@ -17,8 +18,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100px;
-    width: 90px;
+    height: 80px;
+    width: 60px;
     border-radius: 5px;
     gap: 80px;
     font-size: 28px;
@@ -33,10 +34,23 @@
 }
 
 .adminlistItem:hover {
-    background-color: #3a7cc2;
-    border-radius: 5px;
-    height: 90px;
-    width: 90px;
+    background-color: #4e5293;
+    border-radius: 12px;
+    height: 60px;
+    width: 60px;
     padding: 10px;
   }
+
+/* ...existing styles... */
+
+/* Add these styles at the end of the file */
+.adminlistItem.active {
+    background-color: #4e5293;
+    border-radius: 12px;
+    height: 60px;
+    width: 60px;
+    padding: 10px;
+  }
+  
+  
   

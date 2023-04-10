@@ -64,6 +64,25 @@ function Searchbar() {
     }
 
 
+    const [openOptions, setOpenOptions] = useState(false);
+    const [options, setOptions] = useState({
+        adult: 1,
+        childern: 0,
+        room: 1,
+
+    });
+
+    const handleOption = (name, operation) => {
+
+        setOptions(prev => {
+            return {
+                ...prev,
+                [name]: operation === "i" ? options[name] + 1 : options[name] - 1
+            };
+        });
+
+    };
+
     return (
 
         < div className='search'>
@@ -78,10 +97,60 @@ function Searchbar() {
                 </div>
             </div>
 
+
             <div className='searchItem2'>
                 <div className="icon-people-warapper">
                     <FontAwesomeIcon icon={faPerson} className='searchIcon' />
-                    <span className='searchText'>1 adult · 0 children · 1 room</span>
+
+                    <span onClick={() => setOpenOptions(!openOptions)} className='searchText'>{`${options.adult} adult · ${options.childern} children · ${options.room} room`}</span>
+                    {openOptions && <div className='options'>
+
+                        <div className='optionItem'>
+                            <span className='optionText'>Adult</span>
+                            <div className="optionCounter">
+                                <button
+                                    disabled={options.adult <= 0}
+                                    className="optionCounterButton"
+                                    onClick={() => handleOption("adult", "d")}>-</button>
+                                <span className="optionCounterNumber">{options.adult}</span>
+                                <button
+                                    className="optionCounterButton"
+                                    onClick={() => handleOption("adult", "i")}> +</button>
+                            </div>
+                        </div>
+
+                        <div className="optionItem
+                            ">
+                            <span className="optionText">Childern</span>
+                            <div className="optionCounter">
+                                <button
+                                    disabled={options.childern <= 0}
+                                    className="optionCounterButton"
+                                    onClick={() => handleOption("childern", "d")}> -</button>
+                                <span className="optionCounterNumber">{options.childern}</span>
+                                <button
+                                    className="optionCounterButton"
+                                    onClick={() => handleOption("childern", "i")}> +</button>
+                            </div>
+                        </div>
+
+                        <div className="optionItem
+                            ">
+                            <span className="optionText">Room</span>
+                            <div className="optionCounter">
+                                <button
+                                    disabled={options.room <= 1}
+                                    className="optionCounterButton"
+                                    onClick={() => handleOption("room", "d")}> -</button>
+                                <span className="optionCounterNumber">{options.room}</span>
+                                <button
+                                    className="optionCounterButton"
+                                    onClick={() => handleOption("room", "i")}> +</button>
+                            </div>
+
+                        </div>
+
+                    </div>}
                 </div>
 
             </div>

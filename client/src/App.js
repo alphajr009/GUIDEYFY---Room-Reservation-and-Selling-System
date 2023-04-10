@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
@@ -21,7 +21,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
-      {/* <Footer /> */}
+      <Footer />
 
 
     </div>

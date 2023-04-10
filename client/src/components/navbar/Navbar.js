@@ -3,7 +3,11 @@ import './navbar.css';
 import logo from '../../images/logo.png';
 import Searchbar from '../searchbar/Searchbar';
 
+
+
 function Navbar() {
+
+ 
   return (
     <div className="nav">
       <div className="navbar">
@@ -26,9 +30,11 @@ function Navbar() {
       </div>
       
     </div>
-    <div className="searchbar-wrapper">
-            <Searchbar />
-          </div>
+ 
+        <div className="searchbar-wrapper">
+          <Searchbar />
+        </div>
+  
     </div>
     
 

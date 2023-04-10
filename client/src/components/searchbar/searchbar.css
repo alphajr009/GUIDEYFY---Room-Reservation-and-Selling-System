@@ -87,6 +87,7 @@ width: 100%;
     padding: 15px 10px 5px 10px;
     border-radius: 20px;
     border: 1px solid white; 
+    
   }
 
   .icon-input-wrapper {
@@ -116,6 +117,53 @@ width: 100%;
     font-family: "Sansation-Bold", sans-serif;
     font-size: 16px;
     width: 100%;
+    cursor:pointer;
   }
   
+  .options{
+    
+    position: absolute;
+    padding: 20px 6px 20px 6px;
+    top: 158px;
+    background-color: white ;
+    color: black;
+    border-radius:5px ;
+    -webkit-box-shadow:0px 0px 10px -5px rgba(0,0,0,0.4);
+    box-shadow :0px 0px 10px -5px rgba(0,0,0,0.4);
+    cursor: pointer;
+
+}
+.optionItem{
+
+  width: 210px;
+  display: flex;
+  justify-content:space-between ;
+  margin: 10px;
+
+}
+
+.optionCounter{
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: black;
+}
+
+.optionCounterButton{
+
+  width :40px;
+  height: 40px;
+  border :1px solid gray;
+  color : #4444AA;
+  cursor: pointer;
+  background-color: white;
+
+
+}
+
+.optionCounterButton:disabled{
+  cursor: not-allowed;
+}
 

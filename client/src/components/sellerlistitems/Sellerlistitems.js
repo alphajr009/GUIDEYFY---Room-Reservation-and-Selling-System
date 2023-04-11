@@ -1,6 +1,6 @@
 import React from 'react'
 import './sellerlistitems.css'
-import { faHotel, faNewspaper, faHouse, faBook,  faChartSimple,  faGift, faMoneyBillWave,  faBookOpen } from "@fortawesome/free-solid-svg-icons";
+import { faHotel, faNewspaper, faHouse, faBook,  faChartSimple,  faGift, faBookOpen, faMoneyBills } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Sellerlistitems({ setActiveTab, activeTab }) {
@@ -54,7 +54,7 @@ function Sellerlistitems({ setActiveTab, activeTab }) {
                 className={`sellerlistItem ${activeTab === 'payments' ? 'active' : ''}`}
                 onClick={() => setActiveTab('payments')}
             >
-                <FontAwesomeIcon icon={faMoneyBillWave} />
+                <FontAwesomeIcon icon={faMoneyBills} />
                 <h1>Payments</h1>
             </div>
 

@@ -22,6 +22,8 @@
     font-size: 26px;
     padding: 10px;
     cursor: pointer;
+    width: 65px; 
+    height: 55px; 
 }
 
 .sellerlistItem h1 {
@@ -32,7 +34,7 @@
 .sellerlistItem:hover {
     background-color: #4e5293;
     border-radius: 12px;
-    height: 65px;
+    height: 55px;
     width: 65px;
     padding: 10px;
 }
@@ -40,6 +42,6 @@
 .sellerlistItem.active {
     background-color: #4e5293;
     border-radius: 12px;
-    height: 65px;
+    height: 55px;
     width: 65px;
 }

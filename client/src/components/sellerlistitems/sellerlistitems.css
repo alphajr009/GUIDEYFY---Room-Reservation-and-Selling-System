@@ -1,53 +1,45 @@
-.list_container {
+.seller_container {
     width: 100%;
     margin-top: 40px;
     margin-bottom: 0px;
     align-items: center;
 }
 
-.listitem {
+.selleritems {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 50px;
     cursor: pointer;
     
 }
-
-.adminlistItem {
+.sellerlistItem {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 80px;
-    width: 60px;
     border-radius: 5px;
-    gap: 80px;
-    font-size: 28px;
+    font-size: 26px;
     padding: 10px;
     cursor: pointer;
 }
 
-.adminlistItem h1 {
+.sellerlistItem h1 {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 14px;
-
 }
 
-.adminlistItem:hover {
+.sellerlistItem:hover {
     background-color: #4e5293;
     border-radius: 12px;
-    height: 60px;
-    width: 60px;
+    height: 65px;
+    width: 65px;
     padding: 10px;
-  }
+}
 
-.adminlistItem.active {
+.sellerlistItem.active {
     background-color: #4e5293;
     border-radius: 12px;
-    height: 60px;
-    width: 60px;
-    padding: 10px;
-  }
-  
-  
-  
+    height: 65px;
+    width: 65px;
+}

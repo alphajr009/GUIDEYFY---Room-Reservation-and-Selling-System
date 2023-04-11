@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../images/logo_admin.png';
 import './adminNavbar.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser, faBed, faBook } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import AdminListItems from '../adminListItems/AdminListItems';
 
 function AdminNavbar({ setActiveTab, activeTab }) {

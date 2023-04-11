@@ -3,6 +3,7 @@ import Footer from './components/footer/Footer';
 import Homescreen from './pages/homepage/Homescreen';
 import Roomscreen from './pages/roompage/Roomscreen';
 import Adminscreen from './pages/adminpage/Adminscreen';
+import Sellerscreen from './pages/sellerpage/Sellerscreen'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
           <Route path="/home" element={<Homescreen />} exact />
           <Route path="/room" element={<Roomscreen />} exact />
           <Route path="/admin" element={<Adminscreen />} exact />
-
+          <Route path="/seller" element={<Sellerscreen />} exact />
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}

@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Sansation-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
+  }
+  
+  .seller_nav {
+    overflow-x: hidden;
+  }
+  
+  .seller_navbar {
+    display: flex;
+    width: 100%;
+    padding: 20px 28px 0px 24px;
+    background-color: #30379B;
+    background-size: cover;
+  }
+  
+  .seller_navContainer {
+    width: 100%;
+    color: aliceblue;
+    align-items: center;
+    margin-top: 2px;
+    justify-content: space-between;
+    align-items: flex-start;
+  } 
+  
+  .seller_navbar-logo-container {
+    position: relative;
+    align-items: center;
+  }
+  
+  .seller_navbar-logo-and-text {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+  }
+  
+  .seller_navbar-logo {
+    margin-left: 40px;
+    height: 41px;
+    width: 144px;
+  }
+  
+  .seller_navbar-text {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .seller_navbar-text h1 {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-right: 105px;
+    margin-top: 14px;
+  }
+  
+  .seller_icons{
+    display: flex;
+    align-items: center;
+  }
+  
+  .user {
+    color: white;
+    height: 35px;
+    width: 36px;
+    margin-top: 2px;
+    margin-right: 40px;
+  }
+  
+  .bell {
+    color: white;
+    height: 35px;
+    width: 36px;
+    margin-top: 2px;
+    margin-right: 40px;
+  }
+   
+  

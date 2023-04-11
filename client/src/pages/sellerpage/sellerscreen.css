@@ -1,0 +1,9 @@
+.sellerscreen{
+    display: flex;
+    flex-direction: column;
+    min-height: 150vh;
+}
+
+.sellercontainer{
+    flex-grow: 1;
+}

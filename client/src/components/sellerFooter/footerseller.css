@@ -5,7 +5,7 @@
     src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
 }
 
-.footer {
+.footerseller {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -15,73 +15,33 @@
     padding-bottom: 5px;
 }
 
-.footer-logo {
+.sellerfooter-logo {
     height: 53px;
     width: 375px;
 }
 
-.logo-container {
+.sellerlogo-container {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.button-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 8px 10px 8px 10px;
-    border-radius: 20px;
-    border: 1px solid white;
-    position: absolute;
-    left: 50%;
-    margin-top: 110px;
-    transform: translateX(-50%);
-    width: 400px;
-    height: 60px;
-}
 
-
-.button-txt {
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 16px;
-    color: white;
-    height: 38px;
-    width: 189px;
-}
-
-.button-list{
-    background-color: #FFFFFF;
-    color: #787878;
-    border: 1px solid;
-    border-color: white;
-    border-radius: 5px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 16px;
-    width: 168px;
-    height: 38px;
-    margin-top: 8px;
-}
-
-
-
-
-.line {
+.sellerline {
     width: 100%;
     height: 0px;
     background-color: rgb(196, 196, 196);
-    margin-top: 137px;
+    margin-top: 30px;
   }
 
-  .footer-bottom {
+  .sellerfooter-bottom {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
 
-.links{
+.sellerlinks{
     margin-top: 45px;
     display: flex;
     flex-direction: row;
@@ -89,13 +49,13 @@
     margin-left: 50px;
 }  
 
-.textlinks{
+.sellertextlinks{
     color: white;
     cursor: pointer;
     font-size: 14px;
 }
 
-.socialmedia{
+.sellersocialmedia{
     margin-top: 45px;
     display: flex;
     flex-direction: row;
@@ -105,25 +65,25 @@
     cursor: pointer;
 }  
 
-.sicon{
+.sellericon{
     font-size: 24px;
   }
 
-.copyright{
+.sellercopyright{
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
 }   
 
-.copywrite-txt{
+.sellercopywrite-txt{
  color: white;
  font-size: 13px;
 }  
   
-.textlinks:hover{
+.sellertextlinks:hover{
     color: #cbcbcb;
 }
 
-.sicon:hover{
+.sellericon:hover{
     color: #cbcbcb ;
 }

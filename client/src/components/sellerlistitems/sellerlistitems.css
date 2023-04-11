@@ -1,0 +1,47 @@
+.seller_container {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    align-items: center;
+}
+
+.selleritems {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    cursor: pointer;
+    
+}
+.sellerlistItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 26px;
+    padding: 10px;
+    cursor: pointer;
+    width: 65px; 
+    height: 55px; 
+}
+
+.sellerlistItem h1 {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 14px;
+}
+
+.sellerlistItem:hover {
+    background-color: #4e5293;
+    border-radius: 12px;
+    height: 55px;
+    width: 65px;
+    padding: 10px;
+}
+
+.sellerlistItem.active {
+    background-color: #4e5293;
+    border-radius: 12px;
+    height: 55px;
+    width: 65px;
+}

@@ -1,0 +1,10 @@
+.homescreen {
+    display: flex;
+    flex-direction: column;
+    min-height: 150vh;
+  }
+  
+  .homescreen-content {
+    flex-grow: 1;
+  }
+  

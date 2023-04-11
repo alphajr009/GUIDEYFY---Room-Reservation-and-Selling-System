@@ -3,8 +3,14 @@
     "start": "concurrently \"nodemon server\" \"cd client && npm start\""
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "antd": "^5.4.0",
     "concurrently": "^8.0.1",
     "express": "^4.18.2",
+    "font-awesome": "^4.7.0",
     "mongoose": "^7.0.3",
     "nodemon": "^2.0.22"
   }

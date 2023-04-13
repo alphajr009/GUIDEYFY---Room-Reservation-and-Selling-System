@@ -6,8 +6,6 @@ import Registermodal from '../regsitermodal/Registermodal';
 import Signinmodal from '../signinmodal/Signinmodal';
 
 
-
-
 function Navbar() {
 
  

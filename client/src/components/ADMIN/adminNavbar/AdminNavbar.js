@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../images/logo_admin.png';
+import logo from '../../../images/logo_admin.png';
 import './adminNavbar.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";

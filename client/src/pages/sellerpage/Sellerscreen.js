@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import './sellerscreen.css'
 import { Layout } from "antd";
 import Sellernavbar from '../../components/SELLER/sellernavbar/Sellernavbar'
-import Footerseller from '../../components/sellerFooter/Footerseller';
+import Footerseller from '../../components/SELLER/sellerFooter/Footerseller';
 import Home from './homes/Home';
 import Reservations from './reservation/Reservations';
 import Reviews from './reviewss/Reviews';

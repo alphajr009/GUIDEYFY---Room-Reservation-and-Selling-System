@@ -1,6 +1,6 @@
 import React from 'react';
 import './navbar.css';
-import logo from '../../images/logo.png';
+import logo from '../../../images/logo.png';
 import Searchbar from '../searchbar/Searchbar';
 import Registermodal from '../regsitermodal/Registermodal';
 import Signinmodal from '../signinmodal/Signinmodal';

@@ -1,6 +1,6 @@
 import React from 'react';
 import './usernavbar.css';
-import logo from '../../images/logo_admin.png';
+import logo from '../../../images/logo_admin.png';
 import { faBell, faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

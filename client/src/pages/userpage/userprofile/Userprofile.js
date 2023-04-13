@@ -1,6 +1,6 @@
 import React from 'react';
 import './userprofile.css';
-import Usernavbar from '../../../components/usernavbar/Usernavbar';
+import Usernavbar from '../../../components/USER/usernavbar/Usernavbar';
 import user_image from '../../../images/user_image.png'
 import Personaldetails from '../personaldetails/Personaldetail'
 import Security from '../securitys/Security';

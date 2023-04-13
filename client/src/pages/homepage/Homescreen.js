@@ -1,6 +1,6 @@
 import React from 'react';
 import './homescreen.css';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../../components/USER/navbar/Navbar';
 import Footer from '../../components/USER/footer/Footer';
 
 function Homescreen() {

@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import Footer from './components/footer/Footer';
 import Homescreen from './pages/homepage/Homescreen';
 import Roomscreen from './pages/roompage/Roomscreen';
 import Adminscreen from './pages/adminpage/Adminscreen';
@@ -23,7 +22,7 @@ function App() {
           <Route path="/user" element={<Userscreen />} exact />
         </Routes>
       </BrowserRouter>
-      {/* <Footer /> */}
+     
 
 
     </div>

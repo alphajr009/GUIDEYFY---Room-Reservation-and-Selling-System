@@ -1,7 +1,8 @@
 import { React, useState } from 'react'
 import { Layout } from "antd";
 import './userscreen.css';
-import Userprofile from '../../components/userprofile/Userprofile'
+import Userprofile from './userprofile/Userprofile'
+import Footer from '../../components/USER/footer/Footer'
 
 
 function Userscreen() {
@@ -13,6 +14,7 @@ function Userscreen() {
       <div className="userer">
       </div>
     </div>
+    <Footer/>
   </div>
   )
 }

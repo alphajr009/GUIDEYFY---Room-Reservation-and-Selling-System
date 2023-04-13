@@ -1,16 +1,17 @@
 import { React, useState } from 'react'
 import './sellerscreen.css'
 import { Layout } from "antd";
-import Sellernavbar from '../../components/sellernavbar/Sellernavbar'
-import Blog from './Blog'
-import Home from './Home'
-import Payments from './Payments'
-import Promotion from './Promotion'
-import Reservations from './Reservations'
-import Property from './Property'
-import Analytics from './Analytics'
-import Reviews from './Reviews'
+import Sellernavbar from '../../components/SELLER/sellernavbar/Sellernavbar'
 import Footerseller from '../../components/sellerFooter/Footerseller';
+import Home from './homes/Home';
+import Reservations from './reservation/Reservations';
+import Reviews from './reviewss/Reviews';
+import Property from './property/Property';
+import Payments from './payments/Payments'
+import Blog from './blog/Blog'
+import Analytics from './analytics/Analytics'
+import Promotion from './promotion/Promotion'
+
 
 
 function Sellerscreen() {
@@ -24,7 +25,7 @@ function Sellerscreen() {
           <div className="seller_main">
             <Layout.Content>
               {activeTab === "home" && <Home />}
-              {activeTab === "reservations" && <Reservations />}
+              {activeTab === "reservations" && <Reservations/>}
               {activeTab === "property" && <Property />}
               {activeTab === "promotions" && <Promotion />}
               {activeTab === "blog" && <Blog />}

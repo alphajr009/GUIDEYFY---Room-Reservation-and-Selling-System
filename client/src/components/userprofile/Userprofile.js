@@ -4,7 +4,7 @@ import Usernavbar from '../usernavbar/Usernavbar';
 import user_image from '../../images/user_image.png'
 import Personaldetails from './Personaldetail'
 import Security from './Security';
-import Help  from './Help';
+import Help from './Help';
 
 function Userprofile({ setActiveButton, activeButton }) {
     return (
@@ -24,22 +24,22 @@ function Userprofile({ setActiveButton, activeButton }) {
                             </div>
                             <div className='button_wrapper'>
                                 <button className={`btn btn-person_details ${activeButton === 'personaldetails' ? 'active' : ''}`}
-                                    onClick={() => setActiveButton('personaldetails')}>Person_details</button>
+                                    onClick={() => setActiveButton('personaldetails')}>Person Details</button>
 
                                 <button className={`btn btn-security ${activeButton === 'security' ? 'active' : ''}`}
                                     onClick={() => setActiveButton('security')}>Security</button>
 
                                 <button className={`btn btn-help_and_contact ${activeButton === 'help' ? 'active' : ''}`}
-                                    onClick={() => setActiveButton('help')}>Help and contacts</button>
+                                    onClick={() => setActiveButton('help')}>Help and Contact us</button>
 
                             </div>
                         </div>
                     </div>
 
                     <div className='details_container'>
-                    {activeButton === 'personaldetails' && <Personaldetails />}
-                    {activeButton === 'help' && <Help />}
-                    {activeButton === 'security' && <Security />}
+                        {activeButton === 'personaldetails' && <Personaldetails />}
+                        {activeButton === 'help' && <Help />}
+                        {activeButton === 'security' && <Security />}
 
 
                     </div>

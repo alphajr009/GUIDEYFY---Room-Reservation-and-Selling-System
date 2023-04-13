@@ -1,0 +1,93 @@
+@font-face {
+    font-family: "Sansation-Regular";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://fonts.animaapp.com/Sansation-Regular") format('truetype');
+}
+
+
+.btn-signin-modal {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-left: 0.8rem;
+    cursor: pointer;
+}
+
+
+.signin-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.modal-signintoguidefy-h2 {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 20px;
+}
+
+.formsigninto-txt-custom .ant-form-item-label>label {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 14px;
+}
+
+.signinmodal-custom-input {
+    font-family: "Sansation-Regular", sans-serif;
+    background-color: #E1E1E1 !important;
+    font-size: 15px;
+    height: 40px;
+}
+
+.formsigninto-txt-custom input {
+    background-color: #E1E1E1;
+    color: #000000;
+}
+
+.signin-btn-forget {
+    color: #646464;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.modal-signin-button {
+    text-align: center;
+    width: 100%;
+    margin-top: -12px;
+}
+
+.signinmodal-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+
+.signinmodal-btn-signin {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    background-color: #4444AA;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 228px;
+    height: 46px;
+}
+
+
+.signin-btn-forget:hover {
+    color: #000000;
+
+}
+
+.forgot-password-wrapper {
+    margin-top: -20px;
+}
+

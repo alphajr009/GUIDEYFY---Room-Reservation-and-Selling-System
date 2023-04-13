@@ -5,6 +5,14 @@
   src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
 }
 
+@font-face {
+  font-family: "Sansation-Regular";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.animaapp.com/Sansation-Regular") format('truetype');
+}
+
+
 .searchItem1 {
   position: relative;
   display: flex;
@@ -224,3 +232,9 @@
   margin-left: 0.8rem;
   cursor: pointer;
 }
+
+.ant-picker .ant-picker-input >input{
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 17px;
+}
+

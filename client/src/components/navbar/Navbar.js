@@ -2,7 +2,8 @@ import React from 'react';
 import './navbar.css';
 import logo from '../../images/logo.png';
 import Searchbar from '../searchbar/Searchbar';
-
+import Registermodal from '../regsitermodal/Registermodal';
+import Signinmodal from '../signinmodal/Signinmodal';
 
 
 function Navbar() {
@@ -24,8 +25,8 @@ function Navbar() {
 
         <div className="navbar-buttons">
           <button className='btn-list'>List your property</button>
-          <button className='btn-reg'>Register</button>
-          <button className='btn-sign'>Sign in</button>
+          <Registermodal />
+          <Signinmodal/>
         </div>
       </div>
       

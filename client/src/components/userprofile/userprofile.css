@@ -1,0 +1,128 @@
+@font-face {
+    font-family: "Sansation-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
+  }
+.userprofile_container {
+    display: flex;
+    margin-left: 38px;
+    margin-top: 50px;
+    width: 330px;
+  }
+  
+  .profile_container {
+    display: flex;
+    width: auto;
+    gap: 20px;
+  }
+
+  
+  .user_box {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 30px 20px 30px;
+  }
+
+
+  
+  .user_image_and_name_wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 0px;
+    width: 330px;
+    height: 580px;
+    background-color: white;
+    border-radius: 17px;
+    box-shadow: 0 0 3px 3px #dad9d9;
+  }
+  
+  .user_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user_img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+  }
+  
+  .user_image_and_name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    margin-top: 40px;
+    width: 220px;
+    height: 220px;
+    background-color: white;
+    border-radius: 17px;
+    box-shadow: 0 0 3px 3px #dad9d9;
+  }
+  
+  .user_name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+    margin-top: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    text-align: center
+  }
+  
+  .button_wrapper {
+    position: absolute;
+    margin-top: 219px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .button_wrapper button {
+    margin-bottom: 20px;
+  }
+  .button_wrapper button {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    padding: 15px 30px;
+    width: 130%;
+    border-radius: 10px;
+    border: none;
+  }
+.details_container {
+  flex: 7;
+}
+
+
+.btn:hover {
+  background-color:  #E1E1E1;
+  color: black;
+  cursor: pointer;
+ 
+}
+
+.btn.active {
+  background-color: #5252c6;
+  cursor: pointer;
+  color: white;
+}
+
+
+.btn{
+  color: #686868;
+}

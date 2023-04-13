@@ -111,12 +111,19 @@
 
 
 .btn:hover {
-  background-color:  #4444AA;
+  background-color:  #E1E1E1;
+  color: black;
   cursor: pointer;
  
 }
 
 .btn.active {
-  background-color: #4444AA;
+  background-color: #5252c6;
   cursor: pointer;
+  color: white;
+}
+
+
+.btn{
+  color: #686868;
 }

@@ -8,6 +8,9 @@ const roomsRoute = require('./routes/roomRoute')
 const userRoute = require('./routes/usersRoute')
 const sellerRoute = require('./routes/sellerRoute')
 const blogRoute = require('./routes/blogRoute')
+const cors = require('cors');
+app.use(cors());
+
 
 app.use(express.json())
 

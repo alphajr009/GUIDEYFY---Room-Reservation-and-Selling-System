@@ -10,13 +10,13 @@ function Usernavbar() {
       <div className="user_navbar">
         <div className="user_navContainer">
           <div className="user_navbar-logo-container">
-            <div className="user_navbar-logo-and-icon">
+            <a href="/home" className="user_navbar-logo-and-icon">
               <img className="user_navbar-logo" src={logo} alt="Logo" />
               <div className="user_icon">
                 <FontAwesomeIcon icon={faBell} className='bell' />
                 <FontAwesomeIcon icon={faCircleUser} className='user' />
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

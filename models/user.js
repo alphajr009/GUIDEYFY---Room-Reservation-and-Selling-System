@@ -22,22 +22,12 @@ const userSchema = mongoose.Schema({
         type: String, 
         required: true
     },
-
-    address : {
-        type: String,
-        required: false 
+    
+    birthday: {
+        type: Array,
+        required: true
     },
     
-    gender:{
-        type: String, 
-        required: false
-    },
-    
-    birthday : {
-        type: String,
-        required: true 
-    },
-
     password:{
         type: String, required: true
     },

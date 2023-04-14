@@ -12,7 +12,9 @@ function AdminNavbar({ setActiveTab, activeTab }) {
         <div className='admin_navContainer'>
           <div className="admin_navbar-logo-container">
             <div className="admin_navbar-logo-and-text">
+              <a href='/home'>
               <img className="admin_navbar-logo" src={logo} alt="Logo" />
+              </a>
               <div className="admin_navbar-text">
                 <h1>Admin Terminal</h1>
               </div>

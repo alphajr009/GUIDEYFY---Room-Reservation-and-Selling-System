@@ -13,7 +13,9 @@ function Sellernavbar({ setActiveTab, activeTab }) {
         <div className='seller_navContainer'>
           <div className="seller_navbar-logo-container">
             <div className="seller_navbar-logo-and-text">
+            <a href= '/home'>
               <img className="seller_navbar-logo" src={logo} alt="Logo" />
+              </a>
               <div className="seller_navbar-text">
                 <h1>Seller Central</h1>
               </div>

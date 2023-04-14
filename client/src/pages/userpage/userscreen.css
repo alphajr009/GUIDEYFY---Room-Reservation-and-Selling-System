@@ -1,3 +1,9 @@
 .userscreen{
-     min-height: 150vh;
+     display: flex;
+     flex-direction: column;
+     min-height: 220vh;
+}
+
+.userscreen-content{
+     flex-grow: 1;
 }

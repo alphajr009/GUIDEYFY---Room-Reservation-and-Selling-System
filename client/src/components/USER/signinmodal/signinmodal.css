@@ -1,10 +1,17 @@
 @font-face {
+    font-family: "Sansation-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url('../../../fonts/sansation.Bold.ttf') format('truetype');
+  }
+  
+  @font-face {
     font-family: "Sansation-Regular";
     font-style: normal;
     font-weight: 700;
-    src: url("https://fonts.animaapp.com/Sansation-Regular") format('truetype');
-}
-
+    src: url("../../../fonts/sansation.Regular.ttf") format('truetype');
+  }
+  
 
 .btn-signin-modal {
     font-family: "Sansation-Bold", sans-serif;

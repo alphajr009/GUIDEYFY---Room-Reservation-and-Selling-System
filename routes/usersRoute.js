@@ -11,7 +11,7 @@ router.post("/register", async (req, res) => {
             password: req.body.password,
             fname: req.body.fname,
             lname: req.body.lname,
-            birthday:req.body.birthday
+            birthday:req.body.birthday   
 
         });
 
@@ -28,6 +28,4 @@ router.post("/register", async (req, res) => {
 
 
 module.exports = router
-
-
 

@@ -48,31 +48,33 @@ function Registermodal() {
   const [uday, setday] = useState('')
   const [uyear, setyear] = useState('')
 
-  const [loading, setloading] = useState(false)
-  const [error, seterror] = useState()
-  const [success, setsuccess] = useState('')
 
 
-  async function register() {
-    const user = {
-      email,
-      password,
-      fname,
-      lname,
-      birthday: [umonth, uday, uyear]
-    }
-    try {
-      setloading(true);
-      const response = await axios.post('/api/users/register', user);
-      const result = response.data;
-      setloading(false);
-      setsuccess(true);
-    } catch (error) {
-      console.log(error);
-      setloading(false);
-      seterror(true);
+
+async function register() {
+  console.log('Register function called');
+  const user = {
+    email,
+    password,
+    fname,
+    lname,
+    birthday: [umonth, uday, uyear],
+  };
+
+  console.log(user);
+
+  try {
+    const response = await axios.post('http://localhost:5000/api/users/register', user);
+    console.log('Response:', response.data);
+  } catch (error) {
+    if (error.response) {
+      console.log('Error1:');
+    } else {
+      console.log('Error2:');
     }
   }
+}
+
 
   return (
     <>
@@ -125,7 +127,7 @@ function Registermodal() {
                 />
               </Form.Item>
 
-              
+
               <Form.Item
                 className='form-txt-custom'
                 label="Confirm Password"
@@ -315,6 +317,8 @@ function Registermodal() {
             </p>
           </>
         )}
+
+        
       </Modal>
     </>
   );

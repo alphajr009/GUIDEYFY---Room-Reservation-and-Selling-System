@@ -1,6 +1,5 @@
 import React from 'react';
 import './userprofile.css';
-import Usernavbar from '../../../components/USER/usernavbar/Usernavbar';
 import user_image from '../../../images/user_image.png'
 import Personaldetails from '../personaldetails/Personaldetail'
 import Security from '../securitys/Security';
@@ -9,7 +8,6 @@ import Help from '../help/Help';
 function Userprofile({ setActiveButton, activeButton }) {
     return (
         <div>
-            <Usernavbar />
             <div className='userprofile_container'>
                 <div className='profile_container'>
                     <div className='user_services'>

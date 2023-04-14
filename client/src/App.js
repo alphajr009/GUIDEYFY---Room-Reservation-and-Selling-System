@@ -22,7 +22,7 @@ function App() {
           <Route path="/user" element={<Userscreen />} exact />
         </Routes>
       </BrowserRouter>
-     
+
 
 
     </div>

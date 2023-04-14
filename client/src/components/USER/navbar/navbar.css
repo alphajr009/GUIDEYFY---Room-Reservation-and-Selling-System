@@ -2,7 +2,7 @@
   font-family: "Sansation-Bold";
   font-style: normal;
   font-weight: 700;
-  src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
+  src: url('../../../fonts/sansation.Bold.ttf') format('truetype');
 }
 
 .navbar {

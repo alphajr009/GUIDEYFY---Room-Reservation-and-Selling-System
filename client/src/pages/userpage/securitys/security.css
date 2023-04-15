@@ -1,0 +1,14 @@
+.user-p-security{
+    display: flex;
+    flex-direction: column;
+    width: 720px;
+    height: 455px;
+    padding-top: 34px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 60px;
+    border-radius: 17px;
+    box-shadow: 0 0 3px 3px #dad9d9 ;
+    margin-left: 60px;
+    margin-top: 10px;
+}

@@ -1,6 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './personaldetails.css';
+import { Select } from 'antd';
+
+
+
 function Personaldetail() {
+
+  const [selectedNationality, setSelectedNationality] = useState('');
+  const [selectedGender, setSelectedGender] = useState('');
+
+  const { Option } = Select;
+
+  const nationalities = [
+    'Afghan', 'Albanian', 'Algerian', 'American', 'Andorran', 'Angolan', 'Antiguans', 'Argentinean', 'Armenian', 'Australian',
+    'Austrian', 'Azerbaijani', 'Bahamian', 'Bahraini', 'Bangladeshi', 'Barbadian', 'Barbudans', 'Batswana', 'Belarusian', 'Belgian',
+    'Belizean', 'Beninese', 'Bhutanese', 'Bolivian', 'Bosnian', 'Brazilian', 'British', 'Bruneian', 'Bulgarian', 'Burkinabe', 'Burmese',
+    'Burundian', 'Cambodian', 'Cameroonian', 'Canadian', 'Cape Verdean', 'Central African', 'Chadian', 'Chilean', 'Chinese', 'Colombian', 'Comoran', 'Congolese', 'Costa Rican', 'Croatian', 'Cuban', 'Cypriot', 'Czech', 'Danish', 'Djibouti', 'Dominican', 'Dutch',
+    'East Timorese', 'Ecuadorean', 'Egyptian', 'Emirian', 'Equatorial Guinean', 'Eritrean', 'Estonian', 'Ethiopian', 'Fijian', 'Filipino', 'Finnish', 'French', 'Gabonese', 'Gambian', 'Georgian', 'German', 'Ghanaian', 'Greek', 'Grenadian', 'Guatemalan', 'Guinea-Bissauan', 'Guinean', 'Guyanese', 'Haitian', 'Herzegovinian', 'Honduran', 'Hungarian', 'I-Kiribati', 'Icelander', 'Indian',
+    'Indonesian', 'Iranian', 'Iraqi', 'Irish', 'Israeli', 'Italian', 'Ivorian', 'Jamaican', 'Japanese', 'Jordanian', 'Kazakhstani', 'Kenyan',
+    'Kittian and Nevisian', 'Kuwaiti', 'Kyrgyz', 'Laotian', 'Latvian', 'Lebanese', 'Liberian', 'Libyan', 'Liechtensteiner', 'Lithuanian', 'Luxembourger',
+    'Macedonian', 'Malagasy', 'Malawian', 'Malaysian', 'Maldivan', 'Malian', 'Maltese', 'Marshallese', 'Mauritanian', 'Mauritian', 'Mexican', 'Micronesian',
+    'Moldovan', 'Monacan', 'Mongolian', 'Moroccan', 'Mosotho', 'Motswana', 'Mozambican', 'Namibian', 'Nauruan', 'Nepalese', 'New Zealander', 'Nicaraguan',
+    'Nigerian', 'Nigerien', 'North Korean', 'Northern Irish', 'Norwegian', 'Omani', 'Pakistani', 'Palauan', 'Panamanian', 'Papua New Guinean', 'Paraguayan', 'Peruvian', 'Polish', 'Portuguese',
+    'Qatari', 'Romanian', 'Russian', 'Rwandan', 'Saint Lucian', 'Salvadoran', 'Samoan', 'San Marinese', 'Sao Tomean', 'Saudi', 'Senegalese', 'Serbian', 'Seychellois', 'Sierra Leonean', 'Singaporean', 'Slovakian',
+    'Slovenian', 'Solomon Islander', 'Somali', 'South African', 'South Korean', 'Spanish', 'Sri Lankan', 'Sudanese', 'Surinamer', 'Swazi', 'Swedish', 'Swiss', 'Syrian', 'Taiwanese', 'Tajik', 'Tanzanian', 'Thai', 'Togolese', 'Tongan', 'Trinidadian/Tobagonian', 'Tunisian', 'Turkish', 'Tuvaluan', 'Ugandan', 'Ukrainian', 'Uruguayan', 'Uzbekistani', 'Vanuatu',
+    'Venezuelan', 'Vietnamese', 'Welsh', 'Yemenite', 'Zambian', 'Zimbabwean'
+  ];
+
+  const handleNationalityChange = (value) => {
+    setSelectedNationality(value);
+  };
+
+  const handleGenderChange = (value) => {
+    setSelectedGender(value);
+  };
+
+
+
   return (
 
     <div className='user-profile-personaldetails'>
@@ -48,15 +84,63 @@ function Personaldetail() {
             <p className='userpro-bc-editpopup-address'>Edit</p>
           </div>
         </div>
-        {/* Name Box Container */}
-        <div className="user-profile-box2">5</div>
-        {/* Name Box Container */}
-        <div className="user-profile-box2">6</div>
-        {/* Name Box Container */}
-        <div className="user-profile-box2">7</div>
+
+        {/* Birthday Box Container */}
+        <div className="user-profile-box2">
+          <div className="user-profile-box-container-bday">
+            <p className='user-profile-box-containerp'>Birthday</p>
+            <div className='userp-bc-bday'>
+              <p className='user-profile-bc-bday'>1999/03/27</p>
+            </div>
+          </div>
+        </div>
+        {/* Nationality Box Container */}
+        <div className="user-profile-box2">
+          <div className="user-profile-box-container-nationality">
+            <p className='user-profile-box-containerp'>Nationality</p>
+            <div className='userp-bc-nationality'>
+              <Select
+                className="userp-nationality-select"
+                placeholder="Nationality"
+                style={{ width: '125px' }}
+                value={selectedNationality}
+                onChange={handleNationalityChange}
+              >
+                {nationalities.map(nationality => (
+                  <Option key={nationality}>
+                    {nationality}
+                  </Option>
+                ))}
+              </Select>
+            </div>
+          </div>
+        </div>
+        {/* Gender Box Container */}
+        <div className="user-profile-box2">
+          <div className="user-profile-box-container-gender">
+            <p className='user-profile-box-containerp'>Gender</p>
+            <div className='userp-bc-gender'>
+              <Select
+                className="userp-gender-select"
+                placeholder="Gender"
+                style={{ width: '125px' }}
+                value={selectedGender}
+                onChange={handleGenderChange}
+              >
+                <Option key="male">Male</Option>
+                <Option key="female">Female</Option>
+                <Option key="other">Other</Option>
+              </Select>
+            </div>
+          </div>
+        </div>
+        <div className="user-profile-savechanges-btn">
+          <button className='userp-btn-savaechange' type="primary" htmlType="submit">
+            Save change
+          </button>
+        </div>
+
       </div>
-      {/* Name Box Container */}
-      <div className="user-profile-btn-container"></div>
     </div>
   );
 }

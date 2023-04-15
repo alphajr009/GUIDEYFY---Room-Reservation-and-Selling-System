@@ -1,0 +1,71 @@
+@font-face {
+    font-family: "Sansation-Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
+    
+  }
+
+  .bs_js{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 20px !important;
+    border-radius: 5px !important;
+    padding: 20px !important;
+    width:400%;
+    height: 500px !important;
+  }
+  .btn_js{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 12px;
+    background-color: #5252c6;
+    color: white !important;
+    box-shadow: none !important;
+    padding: 15px 30px;
+    width: 20%;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    top: 30px;
+    left: 550px;
+    margin-right: 30px;
+   
+   }
+   
+.btn_js:hover {
+  background-color:  #E1E1E1;
+  color: black;
+  cursor: pointer;
+ 
+}
+
+   .bs_js_1{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 0px !important;
+    border-radius: 5px !important;
+    padding: 30px !important;
+    width:auto;
+    height: 10px !important;
+    background-color:  #E1E1E1;
+  }
+  .bs_js_2{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 10px !important;
+    border-radius: 5px !important;
+    padding: 30px !important;
+    width:auto;
+    height: 10px !important;
+    background-color:  #E1E1E1;
+  }
+  .bs_help_js_3{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 20px !important;
+    border-radius: 5px !important;
+    padding: 30px !important;
+    width:auto;
+    height: 200px !important;
+    background-color:  #E1E1E1;
+  }
+ 
+  .label_js{
+    font-family: "Sansation-Bold";
+  }

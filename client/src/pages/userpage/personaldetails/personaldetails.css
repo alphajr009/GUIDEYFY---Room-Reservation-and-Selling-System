@@ -10,6 +10,7 @@
   border-radius: 17px;
   box-shadow: 0 0 3px 3px #dad9d9 ;
   margin-left: 60px;
+  margin-top: 10px;
 }
 
 .user-profile-mainh1txt{
@@ -24,7 +25,7 @@
 }
 
 .user-profile-box{
-  width: 680px;
+  width: auto;
   height: 68px;
   border-radius: 13px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -45,12 +46,13 @@
 }
 
 .user-profile-box-container{
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-top: 11px;
   padding-left: 25px;
-  gap: 120px;
+
 }
 
 .user-profile-box-container-displayn{
@@ -59,7 +61,6 @@
   flex-direction: row;
   padding-top: 11px;
   padding-left: 25px;
-  gap: 60px;
 }
 
 .user-profile-box-container-address{
@@ -102,6 +103,21 @@
   display: flex;
   flex-direction: row;
   gap: 9px;
+  margin-left: -220px;
+}
+
+.userp-bc-emailc{
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  margin-left: -30px;
+}
+
+.userp-bc-displayc{
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  margin-left: 63px;
 }
 
 .userp-bc-address{
@@ -122,13 +138,13 @@
 }
 
 .userpro-bc-editpopup {
-  margin-left: 198px;
   font-family: "Sansation-Bold", sans-serif;
   font-size: 14px;
   color: #525252;
   text-decoration: underline;
   cursor: pointer;
   padding-top: 2.5px;
+  margin-right: 20px;
 }
 
 .userpro-bc-editpopup-address {
@@ -160,6 +176,7 @@
   text-decoration: underline;
   cursor: pointer;
   padding-top: 2.5px;
+  margin-right: 20px;
 }
 
 
@@ -191,6 +208,12 @@
   font-family: "Sansation-Regular", sans-serif;
   font-size: 16px;
 }
+
+.userp-bc-emailc p{
+  font-family: "Sansation-Regular", sans-serif;
+  font-size: 16px;
+}
+
 
 .userp-bc-address p{
   font-family: "Sansation-Regular", sans-serif;

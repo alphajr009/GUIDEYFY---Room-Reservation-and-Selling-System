@@ -11,7 +11,9 @@ router.post("/register", async (req, res) => {
             password: req.body.password,
             fname: req.body.fname,
             lname: req.body.lname,
-            birthday:req.body.birthday   
+            birthday:req.body.birthday,
+            displayName: req.body.fname,
+
 
         });
 
@@ -52,6 +54,24 @@ router.post("/login", async (req, res) => {
     }
 
 });
+
+
+
+router.post("/getuserbyid", async (req, res) => {
+
+    const userid = req.body.userid
+
+    try {
+        const user = await User.find({ _id: userid })
+        res.send(user)
+
+    } catch (error) {
+        return res.status(400).json({ error })
+
+    }
+});
+
+
 
 
 module.exports = router

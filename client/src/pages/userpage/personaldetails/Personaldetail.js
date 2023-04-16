@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './personaldetails.css';
 import { Select } from 'antd';
+import axios from 'axios'
 
 
 
@@ -8,6 +9,7 @@ function Personaldetail() {
 
   const [selectedNationality, setSelectedNationality] = useState('');
   const [selectedGender, setSelectedGender] = useState('');
+  const [userData, setuserData] = useState([])
 
   const { Option } = Select;
 
@@ -26,6 +28,48 @@ function Personaldetail() {
     'Slovenian', 'Solomon Islander', 'Somali', 'South African', 'South Korean', 'Spanish', 'Sri Lankan', 'Sudanese', 'Surinamer', 'Swazi', 'Swedish', 'Swiss', 'Syrian', 'Taiwanese', 'Tajik', 'Tanzanian', 'Thai', 'Togolese', 'Tongan', 'Trinidadian/Tobagonian', 'Tunisian', 'Turkish', 'Tuvaluan', 'Ugandan', 'Ukrainian', 'Uruguayan', 'Uzbekistani', 'Vanuatu',
     'Venezuelan', 'Vietnamese', 'Welsh', 'Yemenite', 'Zambian', 'Zimbabwean'
   ];
+
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
+  const [displayname, setDisplayname] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthday, setBirthday] = useState('');
+ 
+
+  const user = JSON.parse(localStorage.getItem("currentUser"))
+
+    useEffect(() => {
+
+        const user = JSON.parse(localStorage.getItem("currentUser"))
+
+        if (!user) {
+            window.location.href = "/home"
+        }
+
+    }, [])
+
+
+    useEffect(() => {
+      (async () => {
+        try {
+          const response = await axios.post('http://localhost:5000/api/users/getuserbyid', { userid: user._id });
+          const data = response.data[0]; 
+          setFname(data.fname);
+          setLname(data.lname);
+          setEmail(data.email);
+          setDisplayname(data.displayName);
+          
+          const birthdayString = `${data.birthday[0]}/${data.birthday[1]}/${data.birthday[2]}`;
+          setBirthday(birthdayString);
+    
+          console.log(data); 
+        } catch (error) {
+          console.log('error');
+        }
+      })();
+    }, []);
+    
+
 
   const handleNationalityChange = (value) => {
     setSelectedNationality(value);
@@ -48,8 +92,8 @@ function Personaldetail() {
           <div className="user-profile-box-container">
             <p className='user-profile-box-containerp'>Name</p>
             <div className='userp-bc-namec'>
-              <p className='user-profile-bc-fname'>Sahan</p>
-              <p className='user-profile-bc-lname'>Maleesha</p>
+              <p className='user-profile-bc-fname'>{fname}</p>
+              <p className='user-profile-bc-lname'>{lname}</p>
             </div>
             <p className='userpro-bc-editpopup'>Edit</p>
           </div>
@@ -58,8 +102,8 @@ function Personaldetail() {
         <div className="user-profile-box">
           <div className="user-profile-box-container-displayn">
             <p className='user-profile-box-containerp'>Display Name</p>
-            <div className='userp-bc-namec'>
-              <p className='user-profile-bc-fname'>Alpha</p>
+            <div className='userp-bc-displayc'>
+              <p className='user-profile-bc-fname'>{displayname}</p>
             </div>
             <p className='userpro-bc-editpopup-displayn'>Edit</p>
           </div>
@@ -68,8 +112,8 @@ function Personaldetail() {
         <div className="user-profile-box">
           <div className="user-profile-box-container">
             <p className='user-profile-box-containerp'>Email</p>
-            <div className='userp-bc-namec'>
-              <p className='user-profile-bc-fname'>sahanmaleesha234@gmail.com </p>
+            <div className='userp-bc-emailc'>
+              <p className='user-profile-bc-fname'>{email} </p>
             </div>
             <p className='userpro-bc-editpopup-email'>Edit</p>
           </div>
@@ -90,7 +134,7 @@ function Personaldetail() {
           <div className="user-profile-box-container-bday">
             <p className='user-profile-box-containerp'>Birthday</p>
             <div className='userp-bc-bday'>
-              <p className='user-profile-bc-bday'>1999/03/27</p>
+              <p className='user-profile-bc-bday'>{birthday}</p>
             </div>
           </div>
         </div>

@@ -36,7 +36,7 @@ function Signinmodal() {
 
         };
 
-        console.log(user);
+
 
         try {
       

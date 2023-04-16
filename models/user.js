@@ -38,7 +38,17 @@ const userSchema = mongoose.Schema({
     
     isUser:{
         type: Boolean, default:true
+    },
+    nationality :{
+        type: String, 
+        required: false
+    },
+    gender :{
+        type: String, 
+        required: false
     }
+
+    
 
 },{
     timestamps: true,

@@ -1,7 +1,33 @@
 import React from 'react'
 import './security.css'
+import axios from 'axios'
+import Swal from 'sweetalert2'
+
 
 function Security() {
+
+  const user = JSON.parse(localStorage.getItem("currentUser"))
+
+  function logout() {
+    localStorage.removeItem('currentUser');
+    window.location.href = '/home'
+}
+
+
+async function deleteUser() {
+
+   const _id = user._id;
+  try {
+      const res = (await axios.patch('http://localhost:5000/api/users/deleteuser', { _id })).data;
+      console.log("User Deleted Successfully");
+      logout();
+      window.location.href = '/home'
+  } catch (error) {
+      console.log(error)
+      
+  }
+}
+
   return (
     <div className='user-p-security'>
       <div className="user-p-boxall">
@@ -29,7 +55,7 @@ function Security() {
               and sign you out from all devices.</p>
             </div>
             <div className='userp-secure-btn-container'>
-              <button className='user-psecure-bc-password-btn' type="primary" htmlType="submit">
+              <button className='user-psecure-bc-password-btn' onClick={logout}>
                 Sign out
               </button>
             </div>
@@ -44,7 +70,32 @@ function Security() {
               including your personal information and history. This cannot be undone. Please proceed with caution.</p>
             </div>
             <div className='userp-secure-btn-container'>
-              <button className='user-psecure-bc-password-btn' type="primary" htmlType="submit">
+              <button  className='user-psecure-bc-password-btn' onClick={() => {
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You won't be able to revert this!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            cancelButtonText: 'Cancel',
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, delete User!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+
+                                deleteUser(user._id)
+                                Swal.fire(
+                                    'Deleted!',
+                                    'User has been deleted.',
+                                    'success'
+                                )
+                                .then(result => {
+                                    localStorage.clear();
+                                    window.location.href = '/home'
+                                })
+                            }
+                        })
+                    } }  >
                 Delete Account
               </button>
             </div>

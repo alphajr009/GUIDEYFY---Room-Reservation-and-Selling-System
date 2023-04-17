@@ -66,7 +66,7 @@ function Signinmodal() {
             </button>
 
             <Modal
-                visible={isModalVisible}
+                open={isModalVisible}
                 closable={false}
                 onCancel={handleCancel}
                 footer={null}

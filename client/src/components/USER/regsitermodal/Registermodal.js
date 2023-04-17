@@ -7,7 +7,7 @@ import { faArrowLeft, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import './registermodal.css';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import SuccessAnimation from '../../STYLES/sucessfulanimation/SuccessAnimation'
+import SuccessAnimation from '../../STYLES/SuccessAnimation'
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 
@@ -155,7 +155,7 @@ function Registermodal() {
       </button>
 
       <Modal
-        visible={isModalVisible}
+        open={isModalVisible}
         closable={false}
         onCancel={handleCancel}
         footer={null}

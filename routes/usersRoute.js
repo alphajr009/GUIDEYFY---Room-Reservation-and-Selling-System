@@ -38,7 +38,8 @@ router.post("/login", async (req, res) => {
         if (user) {
 
             const temp = {
-                name: user.name,
+                fname: user.fname,
+                lname: user.lname,
                 email: user.email,
                 isAdmin: user.isAdmin,
                 isUser: user.isUser,
@@ -71,6 +72,23 @@ router.post("/getuserbyid", async (req, res) => {
     }
 });
 
+
+router.patch('/deleteuser', async (req, res) => {
+
+    const { _id } = req.body;
+
+    try {
+
+        const user = await User.findByIdAndRemove(_id);
+
+        if (!user) return res.status(404).send('User not found');
+        res.send('User deleted successfully');
+    } catch (error) {
+        console.log(error);
+        res.status(400).send('Error deleting User');
+    }
+
+});
 
 
 

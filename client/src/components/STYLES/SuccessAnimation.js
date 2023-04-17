@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Lottie from 'lottie-react';
-import successAnimationData from '../../../animations/successAnimation2.json';
+import successAnimationData from '../../animations/successAnimation2.json';
 
 function SuccessAnimation() {
   const [isStopped, setIsStopped] = useState(false);

@@ -41,9 +41,11 @@
   border-radius: 13px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   background-color:#F8F8F8 ;
-  margin-left: 20px;
+
   margin-bottom: 20px;
 }
+
+
 
 .user-profile-box-container{
   width: auto;
@@ -56,45 +58,52 @@
 }
 
 .user-profile-box-container-displayn{
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-top: 11px;
   padding-left: 25px;
 }
 
 .user-profile-box-container-address{
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-top: 11px;
   padding-left: 25px;
 }
 
 .user-profile-box-container-nationality{
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-top: 11px;
   padding-left: 25px;
 }
 
 .user-profile-box-container-gender{
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-top: 11px;
   padding-left: 25px;
 }
 
 
 .user-profile-box-container-bday{
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-top: 11px;
   padding-left: 25px;
 }
+
+.user-profile-box-containerp{}
 
 
 
@@ -117,24 +126,24 @@
   display: flex;
   flex-direction: row;
   gap: 9px;
-  margin-left: 63px;
+  margin-left: -13px;
 }
 
 .userp-bc-address{
-  margin-left: 100px;
+  margin-left: 78px;
 }
 
 
 .userp-bc-nationality{
-  margin-left: 85px;
+  margin-right: 26px;
 }
 
 .userp-bc-gender{
-  margin-left: 112px;
+  margin-right: 26px;
 }
 
 .userp-bc-bday{
-  margin-left: 105px;
+  margin-right: 70px;
 }
 
 .userpro-bc-editpopup {
@@ -155,6 +164,7 @@
   text-decoration: underline;
   cursor: pointer;
   padding-top: 2.5px;
+  margin-right: 20px;
 }
 
 
@@ -166,6 +176,7 @@
   text-decoration: underline;
   cursor: pointer;
   padding-top: 2.5px;
+  margin-right: 20px;
 }
 
 .userpro-bc-editpopup-email{
@@ -204,10 +215,23 @@
   font-size: 16px;
 }
 
+.user-profile-box-containerpdis{
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  width: 110px;
+}
+
+
 .userp-bc-namec p{
   font-family: "Sansation-Regular", sans-serif;
   font-size: 16px;
 }
+
+.userp-bc-displayc p{
+  font-family: "Sansation-Regular", sans-serif;
+  font-size: 16px;
+}
+
 
 .userp-bc-emailc p{
   font-family: "Sansation-Regular", sans-serif;

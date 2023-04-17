@@ -22,8 +22,8 @@ function AdminListItems({ setActiveTab, activeTab }) {
                     <h1>Rooms</h1>
                 </div>
                 <div
-                    className={`adminlistItem ${activeTab === 'finance' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('finance')}
+                    className={`adminlistItem ${activeTab === 'payment' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('payment')}
                 >
                     <FontAwesomeIcon icon={faChartLine} />
                     <h1>Payments</h1>

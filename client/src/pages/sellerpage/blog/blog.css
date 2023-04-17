@@ -58,11 +58,11 @@
     cursor: pointer;
 }
 .seller-central-create-blog-tab-container.active {
-    color: Black;
+    color: black;
   }
   
   .seller-central-blogs-tab-container.active {
-    color: Black;
+    color: black;
   }
   
   .seller-central-create-blog-tab-container:not(.active) {

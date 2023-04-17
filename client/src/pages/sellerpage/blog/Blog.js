@@ -45,7 +45,6 @@ const blogs = [
   }
 ];
 
-
   return (
     <div className='seller-central-blogs-container'>
       {/* tab container */}

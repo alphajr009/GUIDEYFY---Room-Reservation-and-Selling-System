@@ -62,7 +62,7 @@ function Personaldetail() {
           const birthdayString = `${data.birthday[0]}/${data.birthday[1]}/${data.birthday[2]}`;
           setBirthday(birthdayString);
     
-          console.log(data); 
+         
         } catch (error) {
           console.log('error');
         }
@@ -90,18 +90,24 @@ function Personaldetail() {
         {/* Name Box Container */}
         <div className="user-profile-box">
           <div className="user-profile-box-container">
-            <p className='user-profile-box-containerp'>Name</p>
-            <div className='userp-bc-namec'>
-              <p className='user-profile-bc-fname'>{fname}</p>
-              <p className='user-profile-bc-lname'>{lname}</p>
+            <div className='user-profile-box-containerp'>
+              <p className='user-profile-box-containerp'>Name</p>
             </div>
-            <p className='userpro-bc-editpopup'>Edit</p>
+            <div className='userp-bc-namec'>
+              <p className='user-profile-bc-fname'>{fname} {lname}</p>
+              {/* <p className='user-profile-bc-lname'>{lname}</p> */}
+            </div>
+            <div className='userpro-bc-editpopup1'>
+              <p className='userpro-bc-editpopup'>Edit</p>
+            </div>
           </div>
         </div>
         {/* Display Name Box Container */}
         <div className="user-profile-box">
           <div className="user-profile-box-container-displayn">
-            <p className='user-profile-box-containerp'>Display Name</p>
+            <div className='user-profile-box-containerpidisplay'>
+              <p className='user-profile-box-containerpdis'>Display Name</p>
+            </div>
             <div className='userp-bc-displayc'>
               <p className='user-profile-bc-fname'>{displayname}</p>
             </div>

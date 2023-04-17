@@ -109,3 +109,13 @@
     background-color: #28309b;
   }
   
+.swal2-container.swal2-center>.swal2-popup{
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 17px;
+  border-radius: 12px;
+ } 
+
+ .swal2-title{
+  font-family: "Sansation-Bold", sans-serif;
+    font-size: 14px;
+ } 

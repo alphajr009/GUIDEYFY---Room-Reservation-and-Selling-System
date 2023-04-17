@@ -1,10 +1,10 @@
-.seller-central-payments-container{
+.seller-central-payments-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.seller-payment-tab-container{
+.seller-payment-tab-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,10 +18,11 @@
     margin-top: 100px;
     transform: translateX(-50%);
     text-align: center;
-    cursor: pointer;;
+    cursor: pointer;
+    ;
 }
 
-.seller-central-funds-tab{
+.seller-central-funds-tab {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 18px;
     display: flex;
@@ -39,7 +40,7 @@
     cursor: pointer;
 }
 
-.seller-central-payments-tab{
+.seller-central-payments-tab {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 18px;
     display: flex;
@@ -58,24 +59,195 @@
 }
 
 
-.funds-and-payments-methods{
+.funds-and-payments-methods {
     margin-top: 250px;
 }
 
-.seller-central-funds-tab.active{
+.seller-central-funds-tab.active {
     color: Black;
 }
 
-.seller-central-funds-tab:not(.active){
+.seller-central-funds-tab:not(.active) {
     background-color: white;
     color: darkgray;
 }
 
-.seller-central-payments-tab.active{
+.seller-central-payments-tab.active {
     color: Black;
 }
 
-.seller-central-payments-tab:not(.active){
+.seller-central-payments-tab:not(.active) {
     background-color: white;
     color: darkgray;
+}
+
+
+.total-box-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+.total-box-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+
+.total-box-text-1 {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 24px;
+    color: black;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    width: 550px;
+}
+
+.total-box-text-2 {
+    margin-top: 100px;
+    font-size: 22px;
+    font-family: "Sansation-Bold", sans-serif;
+    color: black;
+}
+
+.seller-central-funds-box-container {
+    width: 640px;
+    height: 250px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-btn-review-payment {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-left: 200px;
+    width: 40%;
+    height: 50px;
+    padding: 14px 0px;
+    border-radius: 9px;
+    border: none;
+    border-color: #30379B;
+    background-color: #30379B;
+    color: azure;
+    cursor: pointer;
+}
+
+.btn-btn-review-payment:hover {
+
+    border-color: #3c42a1;
+    background-color: #3c42a1;
+    color: azure;
+}
+
+.seller-central-payments-methods-box-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .payment-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+  }
+ 
+  .payments-box-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px;
+  }
+
+  .payment-container-name {
+    font-family: "Sansation-Bold", sans-serif;
+    display: flex;
+    margin-right: 100px;
+  }
+  .payment-stripe-account-name {
+    font-family: "Sansation-Regular", sans-serif;
+    display: flex;
+    margin-right: 100px;
+  }
+  
+  .payment-edit-popup1 {
+    font-family: "Sansation-Bold", sans-serif;
+    display: flex;
+    margin-left: 90px;
+  }
+  .payment-container-name p,
+  .payment-stripe-account-name p,
+  .payment-edit-popup1 p {
+    margin: 0;
+  }
+  
+  .payment-container-stripe {
+    text-align: center;
+  }    
+
+  .payment-stripe-email{
+    font-family: "Sansation-Regular", sans-serif;
+    display: flex;
+    justify-content: space-between
+  }
+
+.payment-container-email{
+    font-family: "Sansation-Bold", sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-edit-popup2{
+    font-family: "Sansation-Bold", sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+.payments-box-container{
+    height: 68px;
+    border-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color:#F8F8F8 ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding: 0px 10px 0px 10px;
+   
+}
+
+.seller-central-top-payment{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: black;
+    text-align: center;
+    margin-top: -40px;
+    border-bottom: 2px solid black;
+}
+
+.seller-central-payments-methods-box-container{
+    width: 640px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3) 
+
 }

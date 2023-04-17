@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 
-.seller-central-tab-review-reservation {
+.seller-central-review-reservation {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 18px;
     display: flex;
@@ -39,7 +39,7 @@
     cursor: pointer;
 }
 
-.seller-central-tab-confirm-reservation {
+.seller-central-confirm-reservation {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 18px;
     display: flex;
@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-.seller-central-tab-cancel-reservation {
+.seller-central-cancel-reservation {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 18px;
     display: flex;
@@ -79,6 +79,7 @@
     margin-top: 250px;
     width: 90%;
 }
+
 
 :root {
     --red-2: rgba(299, 4, 4, 0.108);
@@ -115,4 +116,28 @@
     color: green;
     background-color:var(--harlequin-2);
     border-color: lightgreen;
+}
+
+.seller-central-review-reservation.active{
+    color: Black;
+}
+
+.seller-central-review-reservation:not(.active){
+    color: darkgray;
+}
+
+
+.seller-central-confirm-reservation.active{
+    color: Black;
+}
+
+.seller-central-confirm-reservation:not(.active){
+    color: darkgray;
+}
+
+.seller-central-cancel-reservation.active{
+    color: Black;
+}
+.seller-central-cancel-reservation:not(.active){
+    color: darkgray;
 }

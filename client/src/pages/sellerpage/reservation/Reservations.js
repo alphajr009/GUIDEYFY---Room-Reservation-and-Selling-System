@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Button } from 'antd';
+import { Table } from 'antd';
 import './reservation.css';
 
 function Reservations() {
@@ -61,7 +61,7 @@ function Reservations() {
       dataIndex: 'delete',
       render: (text, record) => (
         <button className='btn-seller-reservation-cancel'
-          onClick={() =>  cancelReservation(record._id)}>
+          onClick={() => cancelReservation(record._id)}>
           Delete
         </button>
       ),
@@ -211,38 +211,60 @@ function Reservations() {
 
     //tab and table continer
     <div className='seller-central-reservation-container'>
-      {/* table container */}
+      {/* tab container */}
       <div className="seller-central-reservation-tab">
+        
         {/* continer for Review Reservation */}
-        <div className='seller-central-review-reservation' onClick={() => setActiveTab('Review Reservations')}>
+        <div
+          className={`seller-central-review-reservation
+         ${activeTab === 'Review Reservations' ? 'active' : ''}`}
+         onClick={() => setActiveTab('Review Reservations')}
+         >  
           <span className='seller-central-tab-review-reservation'>Review Reservations</span>
         </div>
-         {/* continer for Confirmed Reservation */}
-        <div className='seller-central-confirm-reservation' onClick={() => setActiveTab('Confirmed Reservations')}>
+
+
+        {/* continer for Confirmed Reservation */}
+        <div 
+        className={`seller-central-confirm-reservation
+         ${activeTab === 'Confirmed Reservations' ? 'active' : ''}`} 
+         onClick={() => setActiveTab('Confirmed Reservations')}
+         >
           <span className='seller-central-tab-confirm-reservation'>Confirmed Reservations</span>
         </div>
-         {/* continer for Cancel Reservation */}
-        <div className='seller-central-cancel-reservation' onClick={() => setActiveTab('Cancel Reservations')}>
+
+
+
+        {/* continer for Cancel Reservation */}
+        <div className=
+        {`seller-central-cancel-reservation
+        ${activeTab === 'Cancel Reservations' ? 'active' : ''}`}
+        onClick={() => setActiveTab('Cancel Reservations')}
+        >
           <span className='seller-central-tab-cancel-reservation'>Cancel Reservations</span>
         </div>
       </div>
+
+
       {/* container for table */}
       <div className='seller-central-reservation-table'>
-        <div className='seller-central-review-reservation-table'>
-        {activeTab === 'Review Reservations' && (
-          <Table columns={columns} dataSource={data} pagination={false} />
-        )}
+          {activeTab === 'Review Reservations' && (
+              <div className='seller-central-review-reservation-table'>
+            <Table columns={columns} dataSource={data} pagination={false} />
         </div>
-        <div className='seller-central-confirm-table'>
-        {activeTab === 'Confirmed Reservations' && (
-          <Table columns={confirmedReservationsColumns} dataSource={confirmedReservations} pagination={false} />
-        )}
+           )}
+        
+          {activeTab === 'Confirmed Reservations' && (
+            <div className='seller-central-confirm-table'>
+            <Table columns={confirmedReservationsColumns} dataSource={confirmedReservations} pagination={false} />
         </div>
-        <div className='seller-central-cancel-table'>
-        {activeTab === 'Cancel Reservations' && (
-          <Table columns={canceledReservationsColumns} dataSource={canceledReservations} pagination={false} />
-        )}
-        </div>
+          )}
+          {activeTab === 'Cancel Reservations' && (
+             <div className='seller-central-cancel-table'>
+            <Table columns={canceledReservationsColumns} dataSource={canceledReservations} pagination={false} />
+             </div>
+          )}
+       
       </div>
     </div>
   );

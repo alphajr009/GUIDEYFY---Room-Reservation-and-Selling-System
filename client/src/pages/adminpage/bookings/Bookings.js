@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './bookings.css'
 import { Table } from 'antd';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHotel, faIdBadge, faListNumeric, faMagnifyingGlass, faP, faPerson,faRestroom,faSearch, faSearchMinus } from '@fortawesome/free-solid-svg-icons'
+import { faHotel, faIdBadge, faListNumeric, faMagnifyingGlass, faP, faPerson, faRestroom, faSearch, faSearchMinus } from '@fortawesome/free-solid-svg-icons'
 import { Select } from 'antd';
 
 function Bookings() {
@@ -34,68 +34,74 @@ function Bookings() {
     window.location.assign('/booking');
   };
 
-const handleroomname = (e) => {
+  const handleroomname = (e) => {
     setroomname(e.target.value);
   };
   const booking = [
     {
       _id: "1",
-      name: "Deluxe Room",
+      username: "Deluxe Room",
       customerid: "33",
       roomname: "SS",
       fromdate: "2022.2.2",
       tpdate: "2002.2.2",
-      status:<button className='admin-terminal-booking-confirm'>Confirm</button>
+      status: <button className='admin-terminal-booking-confirm'>Confirm</button>
     },
     {
       _id: "2",
-      name: "Deluxe Room",
+      username: "Deluxe Room",
       customerid: "33",
       roomname: "SS",
       fromdate: "2022.2.2",
-      tpdate: "2002.2.2",
-      status:<button className='admin-terminal-booking-cancel'>Cancel</button>
+      todate: "2002.2.2",
+      status: <button className='admin-terminal-booking-cancel'>Cancel</button>
     }
 
 
-    
+
   ];
-  
+
 
   const columns = [
     {
-        title: 'Booking ID',
-        dataIndex: '_id',
-        key: '_id',
+      title: 'Booking ID',
+      dataIndex: '_id',
+      key: '_id',
     },
     {
-        title: 'Customer Name',
-        dataIndex: 'name',
-        key: 'name',
+      title: 'Customer Name',
+      dataIndex: 'username',
+      key: 'username',
     },
     {
-        title: 'Customer ID',
-        dataIndex: 'customerid',
-        key: 'customerid',
+      title: 'Customer ID',
+      dataIndex: 'customerid',
+      key: 'customerid',
     },
     {
-        title: 'Room Name',
-        dataIndex: 'roomname',
-        key: 'roomname',
+      title: 'Room Name',
+      dataIndex: 'roomname',
+      key: 'roomname',
     },
     {
-        title: 'From Date',
-        dataIndex: 'fromdate',
-        key: 'fromdate',
+      title: 'From Date',
+      dataIndex: 'fromdate',
+      key: 'fromdate',
     },
     {
-        title: 'Status',
-        dataIndex: 'status',
-        key: 'status',
-        
+      title: 'To Date',
+      dataIndex: 'todate',
+      key: 'todate',
     },
-  
-];
+
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
+
+    },
+
+  ];
 
   return (
     // container for table and searchbar
@@ -124,7 +130,7 @@ const handleroomname = (e) => {
             onChange={handlecustomer}
           />
         </div>
-          {/* container for customer id */}
+        {/* container for customer id */}
         <div className="admin-terminal-bookings-cid">
           <FontAwesomeIcon icon={faIdBadge} className="bookings-cid" />
           <input
@@ -135,7 +141,7 @@ const handleroomname = (e) => {
             onChange={handlecustomerid}
           />
         </div>
-           {/* container for room name */}
+        {/* container for room name */}
         <div className="admin-terminal-bookings-roomname">
           <FontAwesomeIcon icon={faHotel} className="bookings-roomname" />
           <input
@@ -146,21 +152,21 @@ const handleroomname = (e) => {
             onChange={handleroomname}
           />
         </div>
-      
-          {/* container for booking status */}
+
+        {/* container for booking status */}
         <div className="admin-terminal-bookings-status">
           <FontAwesomeIcon icon={faListNumeric} className="bookings-bstatus" />
           <Select
-                className="bookings-status-admin-terminal"
-                placeholder="Booking Status"
-                style={{ width: '125px' }}
-                value={bookingstatus}
-                onChange={handleBookingStatus}
-              >
-                <Option key="b-confirm">Confirm</Option>
-                <Option key="b-cancel">Cancel</Option>
-               
-              </Select>
+            className="bookings-status-admin-terminal"
+            placeholder="Booking Status"
+            style={{ width: '125px' }}
+            value={bookingstatus}
+            onChange={handleBookingStatus}
+          >
+            <Option key="b-confirm">Confirm</Option>
+            <Option key="b-cancel">Cancel</Option>
+
+          </Select>
         </div>
         {/* container fors search*/}
         <div className='admin-bookings-filter-search'>
@@ -170,7 +176,7 @@ const handleroomname = (e) => {
         </div>
       </div>
       <div className='admin-rooms-table'>
-        <Table  dataSource={booking} columns={columns} className='admin-terminal-room-table'/>
+        <Table dataSource={booking} columns={columns} className='admin-terminal-room-table' />
       </div>
     </div>
   )

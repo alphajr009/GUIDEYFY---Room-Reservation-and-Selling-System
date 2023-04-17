@@ -1,14 +1,303 @@
-.p_details{
-    border-collapse: collapse;
-    margin: 100px 0;
-    font-size: 20px;
-    min-width: 1200px;
-  }
-  .p_details td{
-    padding: 20px 20px;
-  }
-  .p_details tr{
-    background-color: white;
-    border-radius: 17px;
-    box-shadow: 0 0 3px 3px burlywood;
-  }  
+.user-profile-personaldetails {
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  height: 755px;
+  padding-top: 34px;
+  padding-bottom: 40px;
+  padding-left: 36px;
+  padding-right: 60px;
+  border-radius: 17px;
+  box-shadow: 0 0 3px 3px #dad9d9 ;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+.user-profile-mainh1txt{
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-profile-boxesall{
+  margin-top: 40px;
+}
+
+.user-profile-box{
+  width: auto;
+  height: 68px;
+  border-radius: 13px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color:#F8F8F8 ;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.user-profile-box2{
+  width: 340px;
+  height: 66px;
+  border-radius: 13px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color:#F8F8F8 ;
+
+  margin-bottom: 20px;
+}
+
+
+
+.user-profile-box-container{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 11px;
+  padding-left: 25px;
+
+}
+
+.user-profile-box-container-displayn{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 11px;
+  padding-left: 25px;
+}
+
+.user-profile-box-container-address{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 11px;
+  padding-left: 25px;
+}
+
+.user-profile-box-container-nationality{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 11px;
+  padding-left: 25px;
+}
+
+.user-profile-box-container-gender{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 11px;
+  padding-left: 25px;
+}
+
+
+.user-profile-box-container-bday{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 11px;
+  padding-left: 25px;
+}
+
+.user-profile-box-containerp{}
+
+
+
+
+.userp-bc-namec{
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  margin-left: -220px;
+}
+
+.userp-bc-emailc{
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  margin-left: -30px;
+}
+
+.userp-bc-displayc{
+  display: flex;
+  flex-direction: row;
+  gap: 9px;
+  margin-left: -13px;
+}
+
+.userp-bc-address{
+  margin-left: 78px;
+}
+
+
+.userp-bc-nationality{
+  margin-right: 26px;
+}
+
+.userp-bc-gender{
+  margin-right: 26px;
+}
+
+.userp-bc-bday{
+  margin-right: 70px;
+}
+
+.userpro-bc-editpopup {
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 14px;
+  color: #525252;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-top: 2.5px;
+  margin-right: 20px;
+}
+
+.userpro-bc-editpopup-address {
+  margin-left: 222px;
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 14px;
+  color: #525252;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-top: 2.5px;
+  margin-right: 20px;
+}
+
+
+.userpro-bc-editpopup-displayn {
+  margin-left: 343px;
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 14px;
+  color: #525252;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-top: 2.5px;
+  margin-right: 20px;
+}
+
+.userpro-bc-editpopup-email{
+  margin-left: 92px;
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 14px;
+  color: #525252;
+  text-decoration: underline;
+  cursor: pointer;
+  padding-top: 2.5px;
+  margin-right: 20px;
+}
+
+
+.userpro-bc-editpopup:hover {
+  color: #000000;
+}
+
+.userpro-bc-editpopup-displayn:hover {
+  color: #000000;
+}
+
+.userpro-bc-editpopup-email:hover{
+  color: #000000;
+}
+
+
+.userpro-bc-editpopup-address:hover{
+  color: #000000;
+}
+
+
+
+.user-profile-box-containerp{
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+}
+
+.user-profile-box-containerpdis{
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  width: 110px;
+}
+
+
+.userp-bc-namec p{
+  font-family: "Sansation-Regular", sans-serif;
+  font-size: 16px;
+}
+
+.userp-bc-displayc p{
+  font-family: "Sansation-Regular", sans-serif;
+  font-size: 16px;
+}
+
+
+.userp-bc-emailc p{
+  font-family: "Sansation-Regular", sans-serif;
+  font-size: 16px;
+}
+
+
+.userp-bc-address p{
+  font-family: "Sansation-Regular", sans-serif;
+  font-size: 16px;
+}
+
+.userp-bc-bday p{
+  font-family: "Sansation-Regular", sans-serif;
+  font-size: 16px;
+}
+
+.ant-select-selector {
+  background-color: #E1E1E1 !important;
+  color: #000000 !important;
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.ant-select-selection-placeholder {
+  line-height: 40px !important;
+  font-size: 14px;
+  font-family: "Sansation-Bold", sans-serif;
+}
+
+
+.ant-select{
+  font-family: "Sansation-Bold", sans-serif;
+}
+
+
+.user-profile-savechanges-btn{
+   display: flex;
+    justify-content: right;
+    margin-top: 55px;
+
+}
+
+.userp-btn-savaechange{
+  font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    background-color: #4444AA;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 12px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 158px;
+    height: 49px;
+}
+
+.userp-btn-savaechange:hover{
+  background-color: #28309b;
+}
+
+.ant-select .ant-select-selection-item{
+  font-family: "Sansation-Regular", sans-serif;
+    font-size: 16px;
+}
+
+
+.ant-select-single .ant-select-selector .ant-select-selection-item{
+  line-height: 40px;
+}

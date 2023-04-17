@@ -1,0 +1,175 @@
+.admin-terminal-rooms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-terminal-room-name-and-room-id {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.rooms-hotelicon {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.rooms-listnumericicon {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.admin-terminal-search-bar-rooms-room-name .rooms-hotelicon,
+.admin-terminal-rooms-room-id .rooms-listnumericicon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.admin-terminal-search-bar-rooms-room-name {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  width: 400px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 0 15px;
+  margin: 0 10px 10px 10px;
+}
+
+
+.admin-terminal-search-bar-rooms-room-name input {
+  border: none;
+  outline: none;
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+.admin-terminal-rooms-room-id {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  width: 350px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 0 15px;
+  margin: 0 10px 10px 10px;
+
+}
+
+.admin-terminal-rooms-room-id input {
+  border: none;
+  outline: none;
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+
+.admin-rooms-filter-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: 40px;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  margin: 0 10px 10px 10px;
+}
+
+.admin-rooms-filter-search .rooms-search {
+  height: 18px;
+  width: 18px;
+}
+
+
+.btn-search-rooms-admin-terminal {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.admin-terminal-room-name-and-room-id {
+  display: flex;
+  padding: 13px 10px 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #4444AA;
+  background-color: #4444AA;
+  position: absolute;
+  left: 50%;
+  margin-top: 100px;
+  transform: translateX(-50%);
+}
+
+.table-bordered {
+  margin-top: 2000px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+}
+
+.table-bordered thead tr {
+  height: 30px;
+  border-radius: 13px 13px 13px 13px;
+  background-color: #4444AA;
+  color: azure;
+  text-align: left;
+}
+
+.admin-rooms-table {
+  margin-top: 250px;
+  width: 90%;
+  border-collapse: collapse;
+}
+
+:root {
+  --red-2: rgba(299,4,4,0.108);
+}
+.admin-terminal-rooms-delete {
+  background-color: var(--red-2);
+  border-color: red;
+  border-radius: 4px;
+  font-family: "Sansation-Bold", sans-serif;
+  color: red;
+  height:30px;
+  width:80px;
+  border-radius: 3px;
+}
+
+
+
+
+.admin-rooms-table td {
+  font-size: 15px;
+  font-family: "Sansation-Bold", sans-serif;
+
+}
+
+.ant-table-wrapper .ant-table-thead >tr>th, :where(.css-dev-only-do-not-override-1vtf12y).ant-table-wrapper .ant-table-thead >tr>td {
+  position: relative;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 600;
+  text-align: start;
+  background: #30379B;
+  border-bottom: 1px solid #f0f0f0;
+  color: #fafafa;
+  font-size: 15px;
+  font-family: "Sansation-Bold", sans-serif;
+
+
+}

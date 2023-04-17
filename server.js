@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 
 
 const app =express();
@@ -8,6 +9,15 @@ const roomsRoute = require('./routes/roomRoute')
 const userRoute = require('./routes/usersRoute')
 const sellerRoute = require('./routes/sellerRoute')
 const blogRoute = require('./routes/blogRoute')
+
+const corsOptions = {
+    origin: 'http://localhost:3000', 
+    optionsSuccessStatus: 200,
+  };
+  
+  app.use(cors(corsOptions));
+  
+
 
 app.use(express.json())
 

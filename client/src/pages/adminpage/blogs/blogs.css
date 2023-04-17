@@ -1,0 +1,202 @@
+.admin-terminal-blogs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blogs-blogid-icon,
+.blogs-sid,
+.blogs-name,
+.blogs-search{
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+.admin-terminal-blogs-blog-id.blogs-blogid-icon,
+.admin-terminal-blogs-b-name.blogs-name,
+.admin-terminal-blogs-sid.blogs-sid{
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.admin-terminal-search-bar-blogs-blog-id{
+    display: flex;
+    align-items: center;
+    height: 38px;
+    width: 220px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+
+}
+
+.admin-terminal-blogs-bname{
+    display: flex;
+    align-items: center;
+    height: 38px;
+    width: 250px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+}
+
+.admin-terminal-blogs-seller-id{
+    display: flex;
+    align-items: center;
+    height: 38px;
+    width: 220px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+
+}
+
+.admin-terminal-blogs-b-name{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.admin-terminal-blogs-b-name input{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.admin-terminal-blogs-blog-id{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.admin-terminal-blogs-blog-id input{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.admin-terminal-blogs-sid{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+
+.admin-terminal-blogs-sid input{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.admin-blogs-filter-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 40px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px
+}
+.admin-blogs-filter-search {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+
+.admin-blogs-filter-search.blogs-search {
+    height: 18px;
+    width: 18px;
+}
+
+.btn-blogs-search-admin-terminal {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.admin-terminal-blog-id-blog-name-seller-id{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 13px 10px 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #4444AA;
+    background-color: #4444AA;
+    position: absolute;
+    left: 50%;
+    margin-top: 100px;
+    transform: translateX(-50%)
+}
+
+
+.admin-blogs-table{
+    margin-top: 250px;
+    width: 90%;
+    border-collapse: collapse
+}
+
+.admin-blogs-table{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.ant-table-wrapper .ant-table-thead >tr>th, :where(.css-dev-only-do-not-override-1vtf12y).ant-table-wrapper .ant-table-thead >tr>td {
+    position: relative;
+    color: rgba(0, 0, 0, 0.88);
+    font-weight: 600;
+    text-align: start;
+    background: #30379B;
+    border-bottom: 1px solid #f0f0f0;
+    color: #fafafa;
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+  
+  
+  }
+  :root {
+    --red-2: rgba(299,4,4,0.108);
+  }
+
+  .btn-delete-blogs{
+    font-family: "Sansation-Bold", sans-serif;
+    color: red;
+    height:30px;
+    width:80px;
+    background-color: var(--red-2);
+    border-color: red;
+    border-radius: 4px;
+  }

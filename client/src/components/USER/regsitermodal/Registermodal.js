@@ -127,11 +127,9 @@ function Registermodal() {
       birthday: [umonth, uday, uyear],
     };
 
-    console.log(user);
 
     try {
       const response = await axios.post('http://localhost:5000/api/users/register', user);
-      console.log('Response:', response.data);
     } catch (error) {
       if (error.response) {
         console.log('Error1:');

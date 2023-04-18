@@ -413,7 +413,6 @@ function SellerRegister() {
     
         try {
           const response = await axios.post('http://localhost:5000/api/sellers/sregister', user);
-          console.log('Response:', response.data);
         } catch (error) {
           if (error.response) {
             console.log('Error1:');

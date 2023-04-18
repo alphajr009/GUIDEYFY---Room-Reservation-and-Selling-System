@@ -17,19 +17,19 @@ const sellerSchema = mongoose.Schema({
         required: true
     },
 
-    address : {
-        type: String,
-        required: false 
-    },
-    
-    gender:{
-        type: String, 
-        required: false
-    },
-
-    birthday : {
+    stripeemail : {
         type: String,
         required: true 
+    },
+    
+    stripename:{
+        type: String, 
+        required: true
+    },
+
+      phonenumber:{
+        type: String, 
+        required: true
     },
 
     password:{

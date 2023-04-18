@@ -5,7 +5,11 @@ import './sellerregister.css'
 import { Modal, Input, Form, Select } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { faArrowLeft, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+
 
 
 
@@ -36,7 +40,7 @@ const SlidingPanel1 = ({ email, setEmail, onNext, className }) => {
                             >
                                 <Input className="signinmodal-custom-input"
                                     value={email}
-
+                                    onChange={(e) => { setEmail(e.target.value) }}
                                 />
                             </Form.Item>
                         </Form>
@@ -75,7 +79,7 @@ const SlidingPanel1 = ({ email, setEmail, onNext, className }) => {
     );
 };
 
-const SlidingPanel2 = ({ onNext, onPrev, className }) => {
+const SlidingPanel2 = ({ setPhonenumber, phonenumber, setLname, lname, setFname, fname, onNext, onPrev, className }) => {
     return (
         <div className={`sellReg-slidingpane2 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox">
@@ -108,6 +112,8 @@ const SlidingPanel2 = ({ onNext, onPrev, className }) => {
                                 rules={[{ required: true, message: 'Please input your First Name!' }]}
                             >
                                 <Input className="signinmodal-custom-input"
+                                    value={fname}
+                                    onChange={(e) => { setFname(e.target.value) }}
 
 
                                 />
@@ -126,6 +132,8 @@ const SlidingPanel2 = ({ onNext, onPrev, className }) => {
                                 rules={[{ required: true, message: 'Please input your Last Name!' }]}
                             >
                                 <Input className="signinmodal-custom-input"
+                                    value={lname}
+                                    onChange={(e) => { setLname(e.target.value) }}
 
 
                                 />
@@ -137,12 +145,14 @@ const SlidingPanel2 = ({ onNext, onPrev, className }) => {
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="Phone Number"
-                                name="email"
+                                name="phonenumber"
                                 labelCol={{ span: 24 }}
                                 wrapperCol={{ span: 24 }}
                                 rules={[{ required: true, message: 'Please input your email!' }]}
                             >
                                 <Input className="signinmodal-custom-input"
+                                    value={phonenumber}
+                                    onChange={(e) => { setPhonenumber(e.target.value) }}
 
 
                                 />
@@ -161,7 +171,7 @@ const SlidingPanel2 = ({ onNext, onPrev, className }) => {
     );
 };
 
-const SlidingPanel3 = ({ onNext, onPrev, className }) => {
+const SlidingPanel3 = ({ setStripename, stripename, setStripemail, stripeemail, onNext, onPrev, className }) => {
     return (
         <div className={`sellReg-slidingpane3 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox">
@@ -188,12 +198,14 @@ const SlidingPanel3 = ({ onNext, onPrev, className }) => {
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="Stripe Username"
-                                name="email"
+                                name="stripeUsername"
                                 labelCol={{ span: 24 }}
                                 wrapperCol={{ span: 24 }}
                                 rules={[{ required: true, message: 'Please input your email!' }]}
                             >
                                 <Input className="signinmodal-custom-input"
+                                    value={stripename}
+                                    onChange={(e) => { setStripename(e.target.value) }}
 
 
                                 />
@@ -203,12 +215,14 @@ const SlidingPanel3 = ({ onNext, onPrev, className }) => {
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="Stripe Email"
-                                name="email"
+                                name="stripeemail"
                                 labelCol={{ span: 24 }}
                                 wrapperCol={{ span: 24 }}
                                 rules={[{ required: true, message: 'Please input your email!' }]}
                             >
                                 <Input className="signinmodal-custom-input"
+                                    value={stripeemail}
+                                    onChange={(e) => { setStripemail(e.target.value) }}
 
 
                                 />
@@ -238,7 +252,9 @@ const SlidingPanel3 = ({ onNext, onPrev, className }) => {
     );
 };
 
-const SlidingPanel4 = ({ onPrev, className }) => {
+const SlidingPanel4 = ({ onRegister,isLoading,setIsLoading,setcpassword, cpassword, setpassword, password, onPrev, className }) => {
+
+    
     return (
         <div className={`sellReg-slidingpane4 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox">
@@ -273,6 +289,8 @@ const SlidingPanel4 = ({ onPrev, className }) => {
                                 <Input.Password
                                     className="regmodal-custom-input"
                                     iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                                    value={password}
+                                    onChange={(e) => { setpassword(e.target.value) }}
                                 />
                             </Form.Item>
 
@@ -299,14 +317,29 @@ const SlidingPanel4 = ({ onPrev, className }) => {
                                 <Input.Password
                                     className="regmodal-custom-input"
                                     iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                                    value={cpassword}
+                                    onChange={(e) => { setcpassword(e.target.value) }}
                                 />
                             </Form.Item>
                         </Form>
                     </div>
                     <div className="sremail-agree-btn">
-                        <button className='reg-btn-agree'  >
-                            Agree and continue
-                        </button>
+                                      <button
+                    className={`reg-btn-agree ${isLoading ? 'buttonload' : ''}`}
+                    type="primary"
+                    htmlType="submit"
+                    onClick={onRegister}
+  
+                  >
+                    {isLoading ? (
+                      <div >
+                        Setting Up
+                        <FontAwesomeIcon className='regmodal-settingup-loading' icon="spinner" spin />
+                      </div>
+                    ) : (
+                      'Agree and continue'
+                    )}
+                  </button>
                     </div>
                 </div>
                 {/* Footer */}
@@ -332,7 +365,25 @@ const SlidingPanel4 = ({ onPrev, className }) => {
 function SellerRegister() {
 
     const [email, setEmail] = useState('')
+    const [fname, setFname] = useState('')
+    const [lname, setLname] = useState('')
+    const [phonenumber, setPhonenumber] = useState('')
+    const [stripeemail, setStripemail] = useState('')
+    const [stripename, setStripename] = useState('')
+    const [password, setpassword] = useState('')
+    const [cpassword, setcpassword] = useState('')
+
+    const [isLoading, setIsLoading] = useState(false);
+    React.useEffect(() => {
+        AOS.init({
+          duration: 2000,
+        });
+      }, [isLoading]);
+
+
+
     const [activePanel, setActivePanel] = useState(1);
+
     const [prevPanel, setPrevPanel] = useState(null);
 
     const handleNext = () => {
@@ -346,39 +397,82 @@ function SellerRegister() {
     };
 
 
+    async function sregister() {
+        setIsLoading(true);
+        console.log('Register function called');
+        const user = {
+            password,
+            stripename,
+            stripeemail,
+            lname,
+            fname,
+            email,
+            phonenumber,
+        };
+    
+    
+        try {
+          const response = await axios.post('http://localhost:5000/api/sellers/sregister', user);
+          console.log('Response:', response.data);
+        } catch (error) {
+          if (error.response) {
+            console.log('Error1:');
+          } else {
+            console.log('Error2:');
+          }
+        }
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1500);
+      }
+    
+
 
 
     return (
         <div className='sellerRegister'>
             <Usernavbarblog />
             <div className="sellerRegister-wrapper">
-            <SlidingPanel1
+                <SlidingPanel1
                     email={email}
                     setEmail={setEmail}
                     onNext={handleNext}
-                    className={`${
-                        activePanel === 1 ? "active slide-in-from-right" : activePanel < 1 ? "slide-out-right" : "slide-out-left"
-                    }`}
+                    className={`${activePanel === 1 ? "active slide-in-from-right" : activePanel < 1 ? "slide-out-right" : "slide-out-left"
+                        }`}
                 />
                 <SlidingPanel2
+                    fname={fname}
+                    setFname={setFname}
+                    lname={lname}
+                    setLname={setLname}
+                    phonenumber={phonenumber}
+                    setPhonenumber={setPhonenumber}
                     onNext={handleNext}
                     onPrev={handlePrev}
-                    className={`${
-                        activePanel === 2 ? "active slide-in-from-right" : activePanel < 2 ? "slide-out-right" : "slide-out-left"
-                    }`}
+                    className={`${activePanel === 2 ? "active slide-in-from-right" : activePanel < 2 ? "slide-out-right" : "slide-out-left"
+                        }`}
                 />
                 <SlidingPanel3
+                    stripeemail={stripeemail}
+                    setStripemail={setStripemail}
+                    stripename={stripename}
+                    setStripename={setStripename}
                     onNext={handleNext}
                     onPrev={handlePrev}
-                    className={`${
-                        activePanel === 3 ? "active slide-in-from-right" : activePanel < 3 ? "slide-out-right" : "slide-out-left"
-                    }`}
+                    className={`${activePanel === 3 ? "active slide-in-from-right" : activePanel < 3 ? "slide-out-right" : "slide-out-left"
+                        }`}
                 />
                 <SlidingPanel4
+                    password={password}
+                    setpassword={setpassword}
+                    cpassword={cpassword}
+                    setcpassword={setcpassword}
+                    isLoading={isLoading}
+                    setIsLoading={setIsLoading}
                     onPrev={handlePrev}
-                    className={`${
-                        activePanel === 4 ? "active slide-in-from-right" : "slide-out-right"
-                    }`}
+                    onRegister={sregister}
+                    className={`${activePanel === 4 ? "active slide-in-from-right" : "slide-out-right"
+                        }`}
                 />
 
             </div>

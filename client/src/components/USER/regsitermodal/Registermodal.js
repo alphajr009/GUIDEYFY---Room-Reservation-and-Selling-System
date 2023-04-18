@@ -84,14 +84,12 @@ function Registermodal() {
 
   async function Login() {
 
-    console.log('Register function called');
     const user = {
         email,
         password,
 
     };
 
-    console.log(user);
 
     try {
   

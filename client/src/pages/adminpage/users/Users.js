@@ -32,18 +32,22 @@ function Users() {
 
   const handleFilter = () => {
     let tempUsers = [...users];
+  
+    if (customerid !== '') {
+      tempUsers = tempUsers.filter(user => user._id.includes(customerid));
+    }
+  
     if (displayname !== '') {
       tempUsers = tempUsers.filter(user => user.displayName.toLowerCase().includes(displayname.toLowerCase()));
     }
-    if (customerid !== '') {
-      tempUsers = tempUsers.filter(user => user._id === customerid);
+  
+    if (isAdmin !== null) {
+      tempUsers = tempUsers.filter(user => user.isAdmin === (isAdmin === 'true'));
     }
-    if (isAdmin !== '') {
-      tempUsers = tempUsers.filter(user => user.isAdmin.toString() === isAdmin);
-    }
+  
     setFilteredUsers(tempUsers);
   }
-
+  
 
   const columns = [
     {

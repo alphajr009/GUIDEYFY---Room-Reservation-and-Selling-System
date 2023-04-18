@@ -33,7 +33,7 @@ function Rooms() {
       tempRooms = tempRooms.filter(room => room.title.toLowerCase().includes(title.toLowerCase()));
     }
     if (roomid !== '') {
-      tempRooms = tempRooms.filter(room => room._id === roomid);
+      tempRooms = tempRooms.filter(room => room._id.includes(roomid));
     }
     setFilteredRooms(tempRooms)
   }

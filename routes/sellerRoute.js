@@ -28,6 +28,32 @@ router.post("/sregister", async (req, res) => {
 
 });
 
+router.post("/slogin", async (req, res) => {
+
+    const { lemail, lpassword } = req.body
+
+    try {
+        const user = await Seller.findOne({ email: lemail, password: lpassword })
+        if (user) {
+
+            const temp = {
+                fname: user.fname,
+                lname: user.lname,
+                email: user.email,
+                _id: user._id,
+            }
+            res.send(temp);
+        }
+        else {
+            return res.status(400).json({ message: 'Login Failed' });
+        }
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+
+});
+
+
 
 
 

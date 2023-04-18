@@ -13,7 +13,7 @@ import axios from 'axios';
 
 
 
-const SlidingPanel1 = ({ email, setEmail, onNext, className }) => {
+const SlidingPanel1 = ({ email, setEmail, onNext, className, onSign }) => {
     return (
         <div className={`sellReg-slidingpane1 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox-1">
@@ -57,7 +57,7 @@ const SlidingPanel1 = ({ email, setEmail, onNext, className }) => {
                     <h3 >Already a seller ?</h3>
                 </div>
                 <div className="srb-footer-Signin">
-                    <button className="srb-footer-Signin-btn">
+                    <button className="srb-footer-Signin-btn" onClick={onSign}>
                         Sign in
                     </button>
                 </div>
@@ -252,9 +252,9 @@ const SlidingPanel3 = ({ setStripename, stripename, setStripemail, stripeemail, 
     );
 };
 
-const SlidingPanel4 = ({ onRegister,isLoading,setIsLoading,setcpassword, cpassword, setpassword, password, onPrev, className }) => {
+const SlidingPanel4 = ({ onRegister, isLoading, setIsLoading, setcpassword, cpassword, setpassword, password, onPrev, className }) => {
 
-    
+
     return (
         <div className={`sellReg-slidingpane4 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox">
@@ -324,22 +324,22 @@ const SlidingPanel4 = ({ onRegister,isLoading,setIsLoading,setcpassword, cpasswo
                         </Form>
                     </div>
                     <div className="sremail-agree-btn">
-                                      <button
-                    className={`reg-btn-agree ${isLoading ? 'buttonload' : ''}`}
-                    type="primary"
-                    htmlType="submit"
-                    onClick={onRegister}
-  
-                  >
-                    {isLoading ? (
-                      <div >
-                        Setting Up
-                        <FontAwesomeIcon className='regmodal-settingup-loading' icon="spinner" spin />
-                      </div>
-                    ) : (
-                      'Agree and continue'
-                    )}
-                  </button>
+                        <button
+                            className={`reg-btn-agree ${isLoading ? 'buttonload' : ''}`}
+                            type="primary"
+                            htmlType="submit"
+                            onClick={onRegister}
+
+                        >
+                            {isLoading ? (
+                                <div >
+                                    Setting Up
+                                    <FontAwesomeIcon className='regmodal-settingup-loading' icon="spinner" spin />
+                                </div>
+                            ) : (
+                                'Agree and continue'
+                            )}
+                        </button>
                     </div>
                 </div>
                 {/* Footer */}
@@ -362,6 +362,90 @@ const SlidingPanel4 = ({ onRegister,isLoading,setIsLoading,setcpassword, cpasswo
 };
 
 
+
+const SlidingPanel5 = ({ lemail, lpassword,setLpassword,setLemail, onLogin, className,onSignUp }) => {
+    return (
+        <div className={`sellReg-slidingpane3 sellReg-slidingpane ${className}`}>
+            <div className="sr-wrapper-cbox">
+                <div className='back-button-seller-reg-wrap'>
+                    <FontAwesomeIcon
+                        className="back-button-seller-reg"
+                        icon={faArrowLeft}
+                        onClick={onSignUp}
+                    />
+                </div>
+                {/* Header */}
+                <div className="sr-cbox-header-wrapper">
+                    <div className="srheaer-title">
+                        <h1 >Sign in to your Seller Account</h1>
+                    </div>
+                </div>
+                {/* Email Box */}
+                <div className="srbemailbox-wrapper-2">
+                    <div className="sremailinput-wrapper">
+                        <Form>
+                            <Form.Item
+                                className='formsigninto-txt-custom'
+                                label="Email"
+                                name="selleremail"
+                                labelCol={{ span: 24 }}
+                                wrapperCol={{ span: 24 }}
+                                rules={[{ required: true, message: 'Please input your email!' }]}
+                            >
+                                <Input className="signinmodal-custom-input"
+                                value={lemail}
+                                onChange={(e) => { setLemail(e.target.value) }}
+
+
+                                />
+                            </Form.Item>
+                        </Form>
+                        <Form>
+                            <Form.Item
+                                className='form-txt-custom'
+                                label="Password"
+                                name="password"
+                                labelCol={{ span: 24 }}
+                                wrapperCol={{ span: 24 }}
+                                rules={[{ required: true, message: 'Please input your password.' }]}
+                            >
+                                <Input.Password
+                                    className="regmodal-custom-input"
+                                    iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                                value={lpassword}
+                                onChange={(e) => { setLpassword(e.target.value) }}
+                                />
+                            </Form.Item>
+                        </Form>
+                    </div>
+
+                    <div className="sremail-continue-btn">
+                        <button className='reg-btn-continue'  onClick={onLogin} >
+                            Sign in
+                        </button>
+                    </div>
+                </div>
+                {/* Footer */}
+                <div className="srb-footer-terms-1">
+
+                    <p className="srb-footer-terms-text">
+                        By signing in or creating an account, you agree with our{' '}
+                        <a href="/terms" target="_blank" rel="noopener noreferrer">
+                            Terms & conditions
+                        </a>{' '}
+                        and{' '}
+                        <a href="/privacy" target="_blank" rel="noopener noreferrer">
+                            Privacy statement
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    );
+};
+
+
 function SellerRegister() {
 
     const [email, setEmail] = useState('')
@@ -372,13 +456,15 @@ function SellerRegister() {
     const [stripename, setStripename] = useState('')
     const [password, setpassword] = useState('')
     const [cpassword, setcpassword] = useState('')
+    const [lemail, setLemail] = useState('')
+    const [lpassword, setLpassword] = useState('')
 
     const [isLoading, setIsLoading] = useState(false);
     React.useEffect(() => {
         AOS.init({
-          duration: 2000,
+            duration: 2000,
         });
-      }, [isLoading]);
+    }, [isLoading]);
 
 
 
@@ -396,6 +482,16 @@ function SellerRegister() {
         setActivePanel(activePanel - 1);
     };
 
+    const handleSign = () => {
+        setPrevPanel(activePanel);
+        setActivePanel(5);
+    };
+
+    const handleSignup = () => {
+        setActivePanel(1);
+    };
+
+
 
     async function sregister() {
         setIsLoading(true);
@@ -409,22 +505,56 @@ function SellerRegister() {
             email,
             phonenumber,
         };
-    
-    
+
+
         try {
-          const response = await axios.post('http://localhost:5000/api/sellers/sregister', user);
+            const response = await axios.post('http://localhost:5000/api/sellers/sregister', user);
         } catch (error) {
-          if (error.response) {
-            console.log('Error1:');
-          } else {
-            console.log('Error2:');
-          }
+            if (error.response) {
+                console.log('Error1:');
+            } else {
+                console.log('Error2:');
+            }
         }
         setTimeout(() => {
-          setIsLoading(false);
+            setIsLoading(false);
         }, 1500);
-      }
-    
+    }
+
+
+    async function sLogin() {
+
+        console.log('Login function called');
+        const user = {
+            lemail,
+            lpassword,
+        };
+
+
+
+        try {
+      
+            const { data, status } = await axios.post('http://localhost:5000/api/sellers/slogin', user);
+
+            if (status === 200) {
+                await localStorage.removeItem('currentUser');
+                localStorage.setItem('currentUser', JSON.stringify(data));
+                window.location.href = '/seller'
+            } else {
+                
+            }
+
+        } catch (error) {
+            if (error.response) {
+                console.log('Error1:');
+            } else {
+                console.log('Error2:');
+            }
+
+        }
+    }
+
+
 
 
 
@@ -436,6 +566,7 @@ function SellerRegister() {
                     email={email}
                     setEmail={setEmail}
                     onNext={handleNext}
+                    onSign={handleSign}
                     className={`${activePanel === 1 ? "active slide-in-from-right" : activePanel < 1 ? "slide-out-right" : "slide-out-left"
                         }`}
                 />
@@ -471,6 +602,18 @@ function SellerRegister() {
                     onPrev={handlePrev}
                     onRegister={sregister}
                     className={`${activePanel === 4 ? "active slide-in-from-right" : "slide-out-right"
+                        }`}
+                />
+                <SlidingPanel5
+                    lpassword={lpassword}
+                    setLpassword={setLpassword}
+                    lemail={lemail}
+                    setLemail={setLemail}
+                    onPrev={handlePrev}
+                    onSignUp={handleSignup}
+                    onRegister={sregister}
+                    onLogin={sLogin}
+                    className={`${activePanel === 5 ? "active slide-in-from-right" : "slide-out-right"
                         }`}
                 />
 

@@ -33,13 +33,21 @@ function NavbarToggler() {
         {
             key: '3',
             label: (
+                <button className='nav-toggle-lits-btns' onClick={() => window.location.href = "/registerseller"}>
+                    Selling
+                </button>
+            ),
+        },
+        {
+            key: '4',
+            label: (
                 <button className='nav-toggle-lits-btns' onClick={() => window.location.href = "/help"} >
                     Help
                 </button>
             ),
         },
         {
-            key: '4',
+            key: '5',
             label: (
                 <button className='nav-toggle-lits-btns'  onClick={logout}>
                     Sign out

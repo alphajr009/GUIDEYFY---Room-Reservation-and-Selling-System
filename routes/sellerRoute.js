@@ -54,6 +54,21 @@ router.post("/slogin", async (req, res) => {
 });
 
 
+router.post("/getsellerbyid", async (req, res) => {
+
+    const userid = req.body.userid
+
+    try {
+        const user = await Seller.find({ _id: userid })
+        res.send(user)
+
+    } catch (error) {
+        return res.status(400).json({ error })
+
+    }
+});
+
+
 
 
 

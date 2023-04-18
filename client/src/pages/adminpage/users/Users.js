@@ -41,15 +41,13 @@ function Users() {
       tempUsers = tempUsers.filter(user => user.displayName.toLowerCase().includes(displayname.toLowerCase()));
     }
   
-    if (isAdmin !== '') {
-      const isAdminBool = isAdmin === 'true';
-      tempUsers = tempUsers.filter(user => user.isAdmin === isAdminBool);
+    if (isAdmin !== null) {
+      tempUsers = tempUsers.filter(user => user.isAdmin === (isAdmin === 'true'));
     }
   
     setFilteredUsers(tempUsers);
   }
   
-
 
   const columns = [
     {

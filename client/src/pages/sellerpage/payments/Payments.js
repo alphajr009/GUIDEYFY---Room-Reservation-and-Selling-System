@@ -4,8 +4,8 @@ import axios from 'axios'
 
 function Payments() {
 
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
+  const[stripename,setStripename]=useState('');
+  const[stripeemail,setstripeemail]=useState('');
   const [email, setEmail] = useState('');
   const [activeTab, setActiveTab] = useState('funds');
 
@@ -15,11 +15,10 @@ function Payments() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post('http://localhost:5000/api/users/getuserbyid', { userid: user._id });
+        const response = await axios.post('http://localhost:5000/api/sellers/getsellerbyid', { userid: user._id });
         const data = response.data[0];
-        setFname(data.fname);
-        setLname(data.lname);
-        setEmail(data.email)
+        setStripename(data.stripename);
+        setstripeemail(data.stripeemail)
 
       } catch (error) {
         console.log('error');
@@ -77,32 +76,34 @@ function Payments() {
         {activeTab === 'payments methods' && (
           
           <div className='seller-central-payments-methods-box-container'>
-            <div className="seller-central-top-payment">
-              <span className='payout-profile'>Payout Profile</span>
-            </div>
-           
+            <div className="seller-central-top-payment">Payout Profile</div>
              <div className='payment-box'>
+
               <div className="payments-box-container">
+                <div className="payment-box-texts-1">
                 <div className='payment-container-name'>
                   <p className='payment-container-stripe'>Stripe Account Name</p>
                 </div>
                 <div className='payment-stripe-account-name'>
-                  <p className='payment-stripe-account-fname'>{fname} {lname}</p>
+                  <p className='payment-stripe-account-fname'>{stripename}</p>
                 </div>
-                <div className='payment-edit-popup1'>
+                <div className='payment-edit-popup-1'>
                   <p className='payment-edit-popup1'>Edit</p>
+                </div>
                 </div>
               </div>
 
               <div className="payments-box-container">
+              <div className="payment-box-texts-2">
                 <div className='payment-container-email'>
                   <p className='payment-container-stripe-email'>Stripe Account Email</p>
                 </div>
                 <div className='payment-stripe-email'>
-                  <p className='payment-email'>{email}</p>
+                  <p className='payment-email'>{stripeemail}</p>
                 </div>
-                <div className='payment-edit-popup2'>
+                <div className='payment-edit-popup-2'>
                   <p className='payment-edit-popup2'>Edit</p>
+                </div>
                 </div>
               </div>
             </div> 

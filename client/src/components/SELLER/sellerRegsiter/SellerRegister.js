@@ -1,19 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Footer from '../../USER/footer/Footer';
 import Usernavbarblog from '../../USER/userNavbarblog/Usernavbarblog'
 import './sellerregister.css'
-import { Modal, Input, Form, Select } from 'antd';
+import { Input, Form, Modal } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { faArrowLeft, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
+import SuccessAnimation from '../../STYLES/SuccessAnimation'
+
 
 
 
 
 const SlidingPanel1 = ({ email, setEmail, onNext, className, onSign }) => {
+
+    const formRef = useRef();
+    const handleContinueClick = async () => {
+        try {
+            await formRef.current.validateFields(['email']);
+            onNext();
+        } catch (error) {
+        }
+    };
+
     return (
         <div className={`sellReg-slidingpane1 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox-1">
@@ -29,7 +41,8 @@ const SlidingPanel1 = ({ email, setEmail, onNext, className, onSign }) => {
                 {/* Email Box */}
                 <div className="srbemailbox-wrapper">
                     <div className="sremailinput-wrapper">
-                        <Form>
+                        <Form
+                            ref={formRef}>
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="Email Address"
@@ -46,7 +59,7 @@ const SlidingPanel1 = ({ email, setEmail, onNext, className, onSign }) => {
                         </Form>
                     </div>
                     <div className="sremail-continue-btn">
-                        <button className='reg-btn-continue' onClick={onNext} >
+                        <button className='reg-btn-continue' onClick={handleContinueClick} >
                             Continue
                         </button>
                     </div>
@@ -80,6 +93,16 @@ const SlidingPanel1 = ({ email, setEmail, onNext, className, onSign }) => {
 };
 
 const SlidingPanel2 = ({ setPhonenumber, phonenumber, setLname, lname, setFname, fname, onNext, onPrev, className }) => {
+
+    const formRef = useRef();
+
+    const handleContinueClick = async () => {
+        try {
+            await formRef.current.validateFields(['fname', 'lname', 'phonenumber']);
+            onNext();
+        } catch (error) {
+        }
+    };
     return (
         <div className={`sellReg-slidingpane2 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox">
@@ -101,8 +124,10 @@ const SlidingPanel2 = ({ setPhonenumber, phonenumber, setLname, lname, setFname,
                 </div>
                 {/* First Name */}
                 <div className="srbemailbox-wrapper">
-                    <div className="sremailinput-wrapper">
-                        <Form>
+                    <Form
+                        ref={formRef}>
+                        <div className="sremailinput-wrapper">
+
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="First Name"
@@ -114,15 +139,13 @@ const SlidingPanel2 = ({ setPhonenumber, phonenumber, setLname, lname, setFname,
                                 <Input className="signinmodal-custom-input"
                                     value={fname}
                                     onChange={(e) => { setFname(e.target.value) }}
-
-
                                 />
                             </Form.Item>
-                        </Form>
-                    </div>
-                    {/* Last Name */}
-                    <div className="sremailinput-wrapper-1">
-                        <Form>
+
+                        </div>
+                        {/* Last Name */}
+                        <div className="sremailinput-wrapper-1">
+
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="Last Name"
@@ -134,14 +157,12 @@ const SlidingPanel2 = ({ setPhonenumber, phonenumber, setLname, lname, setFname,
                                 <Input className="signinmodal-custom-input"
                                     value={lname}
                                     onChange={(e) => { setLname(e.target.value) }}
-
-
                                 />
                             </Form.Item>
-                        </Form>
-                    </div>
-                    <div className="sremailinput-wrapper-1">
-                        <Form>
+
+                        </div>
+                        <div className="sremailinput-wrapper-1">
+
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="Phone Number"
@@ -153,14 +174,13 @@ const SlidingPanel2 = ({ setPhonenumber, phonenumber, setLname, lname, setFname,
                                 <Input className="signinmodal-custom-input"
                                     value={phonenumber}
                                     onChange={(e) => { setPhonenumber(e.target.value) }}
-
-
                                 />
                             </Form.Item>
-                        </Form>
-                    </div>
+
+                        </div>
+                    </Form>
                     <div className="sremail-continue-btn">
-                        <button className='reg-btn-continue' onClick={onNext} >
+                        <button className='reg-btn-continue' onClick={handleContinueClick} >
                             Continue
                         </button>
                     </div>
@@ -172,6 +192,18 @@ const SlidingPanel2 = ({ setPhonenumber, phonenumber, setLname, lname, setFname,
 };
 
 const SlidingPanel3 = ({ setStripename, stripename, setStripemail, stripeemail, onNext, onPrev, className }) => {
+
+    const formRef = useRef();
+
+    const handleContinueClick = async () => {
+        try {
+            await formRef.current.validateFields(['stripeUsername', 'stripeemail']);
+            onNext();
+        } catch (error) {
+        }
+    };
+
+
     return (
         <div className={`sellReg-slidingpane3 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox">
@@ -193,8 +225,10 @@ const SlidingPanel3 = ({ setStripename, stripename, setStripemail, stripeemail, 
                 </div>
                 {/* Email Box */}
                 <div className="srbemailbox-wrapper-2">
-                    <div className="sremailinput-wrapper">
-                        <Form>
+                    <Form
+                        ref={formRef}>
+                        <div className="sremailinput-wrapper">
+
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="Stripe Username"
@@ -206,12 +240,10 @@ const SlidingPanel3 = ({ setStripename, stripename, setStripemail, stripeemail, 
                                 <Input className="signinmodal-custom-input"
                                     value={stripename}
                                     onChange={(e) => { setStripename(e.target.value) }}
-
-
                                 />
                             </Form.Item>
-                        </Form>
-                        <Form>
+
+
                             <Form.Item
                                 className='formsigninto-txt-custom'
                                 label="Stripe Email"
@@ -223,15 +255,14 @@ const SlidingPanel3 = ({ setStripename, stripename, setStripemail, stripeemail, 
                                 <Input className="signinmodal-custom-input"
                                     value={stripeemail}
                                     onChange={(e) => { setStripemail(e.target.value) }}
-
-
                                 />
                             </Form.Item>
-                        </Form>
-                    </div>
+
+                        </div>
+                    </Form>
 
                     <div className="sremail-continue-btn">
-                        <button className='reg-btn-continue' onClick={onNext} >
+                        <button className='reg-btn-continue' onClick={handleContinueClick} >
                             Continue
                         </button>
                     </div>
@@ -254,6 +285,15 @@ const SlidingPanel3 = ({ setStripename, stripename, setStripemail, stripeemail, 
 
 const SlidingPanel4 = ({ onRegister, isLoading, setIsLoading, setcpassword, cpassword, setpassword, password, onPrev, className }) => {
 
+    const formRef = useRef();
+
+    const handleContinueClick = async () => {
+        try {
+            await formRef.current.validateFields(['confirmPassword', 'password']);
+            onRegister();
+        } catch (error) {
+        }
+    };
 
     return (
         <div className={`sellReg-slidingpane4 sellReg-slidingpane ${className}`}>
@@ -277,7 +317,8 @@ const SlidingPanel4 = ({ onRegister, isLoading, setIsLoading, setcpassword, cpas
                 {/* Email Box */}
                 <div className="srbemailbox-wrapper">
                     <div className="sremailinput-wrapper">
-                        <Form>
+                        <Form
+                            ref={formRef}>
                             <Form.Item
                                 className='form-txt-custom'
                                 label="Password"
@@ -328,7 +369,7 @@ const SlidingPanel4 = ({ onRegister, isLoading, setIsLoading, setcpassword, cpas
                             className={`reg-btn-agree ${isLoading ? 'buttonload' : ''}`}
                             type="primary"
                             htmlType="submit"
-                            onClick={onRegister}
+                            onClick={handleContinueClick}
 
                         >
                             {isLoading ? (
@@ -363,7 +404,7 @@ const SlidingPanel4 = ({ onRegister, isLoading, setIsLoading, setcpassword, cpas
 
 
 
-const SlidingPanel5 = ({ lemail, lpassword,setLpassword,setLemail, onLogin, className,onSignUp }) => {
+const SlidingPanel5 = ({ lemail, lpassword, setLpassword, setLemail, onLogin, className, onSignUp }) => {
     return (
         <div className={`sellReg-slidingpane3 sellReg-slidingpane ${className}`}>
             <div className="sr-wrapper-cbox">
@@ -393,8 +434,8 @@ const SlidingPanel5 = ({ lemail, lpassword,setLpassword,setLemail, onLogin, clas
                                 rules={[{ required: true, message: 'Please input your email!' }]}
                             >
                                 <Input className="signinmodal-custom-input"
-                                value={lemail}
-                                onChange={(e) => { setLemail(e.target.value) }}
+                                    value={lemail}
+                                    onChange={(e) => { setLemail(e.target.value) }}
 
 
                                 />
@@ -412,15 +453,15 @@ const SlidingPanel5 = ({ lemail, lpassword,setLpassword,setLemail, onLogin, clas
                                 <Input.Password
                                     className="regmodal-custom-input"
                                     iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                                value={lpassword}
-                                onChange={(e) => { setLpassword(e.target.value) }}
+                                    value={lpassword}
+                                    onChange={(e) => { setLpassword(e.target.value) }}
                                 />
                             </Form.Item>
                         </Form>
                     </div>
 
                     <div className="sremail-continue-btn">
-                        <button className='reg-btn-continue'  onClick={onLogin} >
+                        <button className='reg-btn-continue' onClick={onLogin} >
                             Sign in
                         </button>
                     </div>
@@ -446,6 +487,8 @@ const SlidingPanel5 = ({ lemail, lpassword,setLpassword,setLemail, onLogin, clas
 };
 
 
+
+
 function SellerRegister() {
 
     const [email, setEmail] = useState('')
@@ -458,6 +501,13 @@ function SellerRegister() {
     const [cpassword, setcpassword] = useState('')
     const [lemail, setLemail] = useState('')
     const [lpassword, setLpassword] = useState('')
+
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
 
     const [isLoading, setIsLoading] = useState(false);
     React.useEffect(() => {
@@ -485,6 +535,7 @@ function SellerRegister() {
     const handleSign = () => {
         setPrevPanel(activePanel);
         setActivePanel(5);
+        setIsModalVisible(false);
     };
 
     const handleSignup = () => {
@@ -509,6 +560,7 @@ function SellerRegister() {
 
         try {
             const response = await axios.post('http://localhost:5000/api/sellers/sregister', user);
+            setIsModalVisible(true);
         } catch (error) {
             if (error.response) {
                 console.log('Error1:');
@@ -533,7 +585,7 @@ function SellerRegister() {
 
 
         try {
-      
+
             const { data, status } = await axios.post('http://localhost:5000/api/sellers/slogin', user);
 
             if (status === 200) {
@@ -541,7 +593,7 @@ function SellerRegister() {
                 localStorage.setItem('currentUser', JSON.stringify(data));
                 window.location.href = '/seller'
             } else {
-                
+
             }
 
         } catch (error) {
@@ -617,6 +669,36 @@ function SellerRegister() {
                         }`}
                 />
 
+                <Modal
+                    open={isModalVisible}
+                    closable={false}
+                    // onCancel={handleCancel}
+                    footer={null}
+                    width="342px"
+                    className="signin-modal-1"
+                    bodyStyle={{ borderRadius: '17px' }}
+                    style={{ position: 'absolute', right: '40%', top: '15%', width: '438px' }}
+
+                >
+                    <>
+                        <>
+                        <div className="srheaer-title-5">
+                        <h1>Welcome to GUIDEYFY </h1>
+                    </div>
+                           
+                            <SuccessAnimation />
+                            <div className='sellr-reg-modal-btn-footer'>
+                                <h2>Your account setup successful</h2>
+                                <button className='reg-btn-continue' onClick={handleSign} >
+                                    Sign In
+                                </button>
+                            </div>
+                        </>
+
+                    </>
+
+
+                </Modal>
             </div>
             <Footer />
         </div>

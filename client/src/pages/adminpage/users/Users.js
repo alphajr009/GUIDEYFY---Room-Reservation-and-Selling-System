@@ -13,6 +13,8 @@ function Users() {
   const [displayname, setDisplayname] = useState('');
   const [users, setusers] = useState([])
   const [filteredUsers, setFilteredUsers] = useState([])
+  const [loading, setloading] = useState(false)
+  const [error, seterror] = useState()
 
 
   const { Option } = Select;
@@ -82,14 +84,17 @@ function Users() {
     (async () => {
 
       try {
-
+        setloading(true)
         const data = (await axios.get('http://localhost:5000/api/users/getallusers')).data
         setusers(data.users)
         setFilteredUsers(data.users);
+        setloading(false)
 
 
       } catch (error) {
         console.log(error)
+        setloading(false)
+        seterror(error)
 
       }
     })();
@@ -155,7 +160,8 @@ function Users() {
           dataSource={filteredUsers}
           pagination={{ pageSize: 10 }}
           rowKey="_id"
-          className='admin-terminal-room-table' />
+          className='admin-terminal-room-table'
+          footer={() => <div className="no-of-users">{`Total  ${users.length} rooms `}</div>} />
       </div>
     </div>
 

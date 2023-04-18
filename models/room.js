@@ -39,6 +39,10 @@ const roomSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    type: {
+        type: String,
+        required: true
+    },
    
     sellerid: {
         type: String,

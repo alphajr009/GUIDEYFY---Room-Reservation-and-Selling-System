@@ -106,6 +106,7 @@ function Payments() {
       console.log(error)
       setloading(false)
     }
+    window.location.href = '/seller'
   }
 
   return (

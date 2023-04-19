@@ -1,15 +1,83 @@
 import React, { useState, useEffect } from 'react';
 import './payments.css'
 import axios from 'axios'
+import { Modal, Form, Input,notification,} from 'antd';
+import {
+  CheckCircleOutlined,
+  DeleteFilled
+} from '@ant-design/icons';
+
 
 function Payments() {
 
-  const[stripename,setStripename]=useState('');
-  const[stripeemail,setstripeemail]=useState('');
-  const [email, setEmail] = useState('');
+  const [stripename, setStripename] = useState('');
+  const [stripeemail, setstripeemail] = useState('');
   const [activeTab, setActiveTab] = useState('funds');
 
+
+  const [open, setOpen] = useState(false);
+  const [loading, setloading] = useState(false);
+  const [error, seterror] = useState();
+  const [formValid, setFormValid] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+
+  const formRef = React.useRef(null);
+
+
+  const onReset = () => {
+    formRef.current?.resetFields();
+  };
+
+  const onFinish = async () => {
+    try {
+      await formRef.current?.validateFields();
+      setFormValid(true);
+    } catch (error) {
+      setFormValid(false);
+    }
+  };
+
+
   const user = JSON.parse(localStorage.getItem("currentUser"))
+
+  const showModal = () => {
+    setOpen(true);
+  };
+
+  const handleCancel = () => {
+    console.log('Clicked cancel button');
+    setOpen(false);
+  };
+
+  const handleOk = () => {
+    changeUserDetails(formRef.current.getFieldValue(""))
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setOpen(false);
+      setConfirmLoading(false);
+    }, 2000);
+    notification.open({
+      message: 'Your Profile is Updated',
+      description: '',
+      placement: 'topRight',
+      icon: <CheckCircleOutlined />
+    });
+  };
+
+  const handleEmail = () => {
+   changeUserDetails(formRef.current.getFieldValue("Name"))
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setOpen(false);
+      setConfirmLoading(false);
+    }, 2000);
+    notification.open({
+      message: 'Your Profile is Updated',
+      description: '',
+      placement: 'topRight',
+      icon: <CheckCircleOutlined />
+    });
+  };
 
 
   useEffect(() => {
@@ -26,6 +94,32 @@ function Payments() {
     })();
   }, []);
 
+
+
+  async function changeUserDetails(stripename) {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    if (!currentUser) throw new Error('User not found in local storage');
+
+    const _id = currentUser._id;
+    try {
+      const res = (await axios.patch('http://localhost:5000/api/sellers/editseller', { _id,stripename})).data;
+      console.log("User details updated successfully");
+
+      localStorage.setItem("currentUser", JSON.stringify({
+        _id: currentUser._id,
+        stripename: stripename ? stripename : currentUser.stripename,
+        // stripeemail: stripeemail ? stripeemail : currentUser.stripeemail,
+
+      }));
+
+
+
+
+    } catch (error) {
+      console.log(error)
+      setloading(false)
+    }
+  }
 
   return (
     // container for tab,funds,payments methods
@@ -69,18 +163,20 @@ function Payments() {
             </div>
             <button className='btn-btn-review-payment' type="primary" htmlType="submit">Review Payment</button>
           </div>
+
         )
         }
 
-        {/* modal for payment methods */}
-        {activeTab === 'payments methods' && (
-          
-          <div className='seller-central-payments-methods-box-container'>
-            <div className="seller-central-top-payment">Payout Profile</div>
-             <div className='payment-box'>
+      </div>
+      {/* modal for payment methods */}
+      {activeTab === 'payments methods' && (
 
-              <div className="payments-box-container">
-                <div className="payment-box-texts-1">
+        <div className='seller-central-payments-methods-box-container'>
+          <div className="seller-central-top-payment">Payout Profile</div>
+          <div className='payment-box'>
+
+            <div className="payments-box-container">
+              <div className="payment-box-texts-1">
                 <div className='payment-container-name'>
                   <p className='payment-container-stripe'>Stripe Account Name</p>
                 </div>
@@ -88,12 +184,32 @@ function Payments() {
                   <p className='payment-stripe-account-fname'>{stripename}</p>
                 </div>
                 <div className='payment-edit-popup-1'>
-                  <p className='payment-edit-popup1'>Edit</p>
-                </div>
+                  <p className='payment-edit-popup1' onClick={showModal} >Edit</p>
+
+                  <Modal
+                    title="Edit Your Stripe Account Name"
+                    open={open}
+                    onOk={handleOk}
+                    confirmLoading={confirmLoading}
+                    onCancel={handleCancel}
+                  >
+                    <Form ref={formRef} stripename="control-ref" onFinish={(values) => changeUserDetails(values.Name)}
+                      size='large'
+                      initialValues={{ Name: user.stripename}}>
+                      <Form.Item
+                        name="Name"
+                        label="Name"
+                      >
+                        <Input placeholder={user.stripename} />
+                      </Form.Item>
+                     
+                    </Form>
+                  </Modal>
                 </div>
               </div>
+            </div>
 
-              <div className="payments-box-container">
+            <div className="payments-box-container">
               <div className="payment-box-texts-2">
                 <div className='payment-container-email'>
                   <p className='payment-container-stripe-email'>Stripe Account Email</p>
@@ -103,15 +219,14 @@ function Payments() {
                 </div>
                 <div className='payment-edit-popup-2'>
                   <p className='payment-edit-popup2'>Edit</p>
-                </div>
+
                 </div>
               </div>
-            </div> 
+            </div>
           </div>
-        )
-        }
-
-      </div>
+        </div>
+      )
+      }
     </div>
   )
 }

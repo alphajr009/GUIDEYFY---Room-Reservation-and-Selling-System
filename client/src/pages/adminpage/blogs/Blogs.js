@@ -31,19 +31,6 @@ function Blogs() {
   };
 
 
-  const blogs = [
-    {
-      _id: "1",
-      blogname: "Deluxe Room",
-      sellerid: "33",
-      roomid: "123",
-      roomname: "2022.2.2",
-      action: <button className='btn-delete-blogs'>Delete</button>
-    },
-
-
-  ];
-
   const columns = [
     {
       title: 'Blog ID',
@@ -52,12 +39,12 @@ function Blogs() {
     },
     {
       title: 'Blog Name',
-      dataIndex: 'blogname',
-      key: 'blogname',
+      dataIndex: 'title',
+      key: 'title',
     },
     {
       title: 'Seller ID',
-      dataIndex: 'sellerid',
+      dataIndex: '_id',
       key: 'sellerid',
     },
     {
@@ -67,8 +54,8 @@ function Blogs() {
     },
     {
       title: 'Room Name',
-      dataIndex: 'roomname',
-      key: 'roomname',
+      dataIndex: 'title',
+      key: 'title',
     },
     {
       title: 'Action',
@@ -125,7 +112,7 @@ function Blogs() {
         </div>
       </div>
       <div className='admin-blogs-table'>
-        <Table dataSource={blogs} columns={columns} className='admin-terminal-blogs-table' />
+        <Table  columns={columns} className='admin-terminal-blogs-table' />
       </div>
     </div>
   )

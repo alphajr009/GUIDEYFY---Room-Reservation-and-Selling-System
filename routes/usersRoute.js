@@ -101,6 +101,24 @@ router.get("/getallusers", async (req, res) => {
 
 });
 
+router.patch('/changeadmin', async (req, res) => {
+
+    const { _id, isAdmin } = req.body;
+
+    try {
+
+        const user = await User.findById(_id);
+        user.isAdmin = true;
+        await user.save();
+        res.send('Admin Status updated successfully');
+    } catch (error) {
+        console.log(error);
+        res.status(400).send('Error updating Admin Status');
+    }
+
+});
+
+
 
 
 

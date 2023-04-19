@@ -37,30 +37,7 @@ function Bookings() {
   const handleroomname = (e) => {
     setroomname(e.target.value);
   };
-  const booking = [
-    {
-      _id: "1",
-      username: "Deluxe Room",
-      customerid: "33",
-      roomname: "SS",
-      fromdate: "2022.2.2",
-      tpdate: "2002.2.2",
-      status: <button className='admin-terminal-booking-confirm'>Confirm</button>
-    },
-    {
-      _id: "2",
-      username: "Deluxe Room",
-      customerid: "33",
-      roomname: "SS",
-      fromdate: "2022.2.2",
-      todate: "2002.2.2",
-      status: <button className='admin-terminal-booking-cancel'>Cancel</button>
-    }
-
-
-
-  ];
-
+ 
 
   const columns = [
     {
@@ -176,7 +153,7 @@ function Bookings() {
         </div>
       </div>
       <div className='admin-rooms-table'>
-        <Table dataSource={booking} columns={columns} className='admin-terminal-room-table' />
+        <Table columns={columns} className='admin-terminal-room-table' />
       </div>
     </div>
   )

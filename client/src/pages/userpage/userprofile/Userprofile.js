@@ -6,6 +6,8 @@ import Security from '../securitys/Security';
 import Help from '../help/Help';
 
 function Userprofile({ setActiveButton, activeButton }) {
+
+    const user = JSON.parse(localStorage.getItem("currentUser"))
     return (
         <div>
             <div className='userprofile_container'>
@@ -17,7 +19,7 @@ function Userprofile({ setActiveButton, activeButton }) {
                                     <div className='user_image'>
                                         <img src={user_image} alt='user' className='user_img' />
                                     </div>
-                                    <h1 className='user_name'>Sahan Mallesha</h1>
+                                    <h1 className='user_name'>{user.fname} {user.lname}</h1>
                                 </div>
                             </div>
                             <div className='button_wrapper'>

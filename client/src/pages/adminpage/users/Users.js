@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIdBadge, faListNumeric, faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Select } from 'antd';
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import './users.css'
 
 function Users() {
@@ -32,22 +33,22 @@ function Users() {
 
   const handleFilter = () => {
     let tempUsers = [...users];
-  
+
     if (customerid !== '') {
       tempUsers = tempUsers.filter(user => user._id.includes(customerid));
     }
-  
+
     if (displayname !== '') {
       tempUsers = tempUsers.filter(user => user.displayName.toLowerCase().includes(displayname.toLowerCase()));
     }
-  
+
     if (isAdmin !== null) {
       tempUsers = tempUsers.filter(user => user.isAdmin === (isAdmin === 'true'));
     }
-  
+
     setFilteredUsers(tempUsers);
   }
-  
+
 
   const columns = [
     {
@@ -76,7 +77,31 @@ function Users() {
         if (users.isAdmin) {
           return <button className='admin-terminal-users-isAdmin-yes'>Yes</button>
         } else {
-          return <button className='admin-terminal-isAdmin-users-no'>No</button>
+          return <button className='admin-terminal-isAdmin-users-no' onClick={() => {
+            Swal.fire({
+              title: 'Confirm making this user an Admin?',
+              icon: 'question',
+              showCancelButton: true,
+              cancelButtonText: 'Cancel',
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, do it!'
+            })
+              .then((result) => {
+                if (result.isConfirmed) {
+
+                  updateAdmin(users._id, true)
+                  Swal.fire(
+                    'Updated!',
+                    `${users.fname} is now an Admin`,
+                    'success'
+                  )
+                    .then(result => {
+                      window.location.reload();
+                    })
+                }
+              })
+          }}>No</button>
         }
       }
 
@@ -103,6 +128,20 @@ function Users() {
       }
     })();
   }, []);
+
+
+
+  async function updateAdmin(_id, isAdmin) {
+
+
+    try {
+      const res = (await axios.patch('http://localhost:5000/api/users/changeadmin', { _id, isAdmin })).data;
+      console.log("Admin update Successfully");
+    } catch (error) {
+      console.log(error)
+      setloading(false)
+    }
+  }
 
   useEffect(() => {
     handleFilter();
@@ -144,11 +183,11 @@ function Users() {
             className="admin-terminal-IsAdmin"
             placeholder="IsAdmin"
             style={{ width: '125px' }}
+            value={isAdmin}
             onChange={handleuserposition}
           >
             <Option key="isAdmin-yes">Yes</Option>
             <Option key="isAdmin-no">No</Option>
-
           </Select>
         </div>
         {/* container fors search*/}
@@ -165,7 +204,7 @@ function Users() {
           pagination={{ pageSize: 10 }}
           rowKey="_id"
           className='admin-terminal-room-table'
-          footer={() => <div className="no-of-users">{`Total  ${users.length} rooms `}</div>} />
+          footer={() => <div className="no-of-users">{`Total  ${users.length} users `}</div>} />
       </div>
     </div>
 

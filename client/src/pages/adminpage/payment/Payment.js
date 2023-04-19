@@ -109,7 +109,7 @@ function Payment() {
                                 Total Funds
                             </span>
                             <span className='total-funds-of-payment-summary'>
-                               Rs.60000
+                               Rs.60000000000000000
                             </span>
                         </div>
 
@@ -118,7 +118,7 @@ function Payment() {
                                 Fees
                             </span>
                             <span className='total-fees-of-payment-summary'>
-                               Rs.60000
+                               Rs600000000000000
                             </span>
                         </div>
                     </div>

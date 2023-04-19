@@ -18,19 +18,33 @@ router.post("/getblogsbysellerid", async(req,res)=>{
 });
 
 
-router.post("/addblogs", async (req, res) => {
+
+
+router.post("/addblog", async (req, res) => {
+
+    const newblog = new Blog(
+        {
+            title: req.body.title,
+            description: req.body.description,
+            imageurls: req.body.imageurls,
+
+        });
 
     try {
-        const newblog = new Blog(req.body)
-        await newblog.save()
-        res.send('New Blog Added successfully');
-   
+        const blog = await newblog.save();
+        return res.send('Blog Created Successfully');
     } catch (error) {
-        return res.status(400).json({ error })
-       
-
+        console.log("error in route")
+        console.log(newblog)
+        return res.status(400).json({ error });
     }
+
 });
+
+
+
+
+
 
 module.exports = router
 

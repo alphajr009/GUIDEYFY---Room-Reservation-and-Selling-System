@@ -4,13 +4,47 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faLocationArrow, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import uploadImgIcon from '../../../images/uploadImgIcon.png'
 import { Input, Form } from 'antd';
+import axios from 'axios';
 
 function CreateBlog() {
+
     const [activeSlide, setActiveSlide] = useState(1);
 
     const goToSlide = (slideNumber) => {
         setActiveSlide(slideNumber);
     };
+
+    const [title, settitle] = useState('')
+    const [description, setdescription] = useState('')
+
+
+
+    async function createroom() {
+
+        console.log('Room Create Function Called');
+        const user = {
+            description,
+            title,
+            imageurls: [],
+        };
+
+
+        try {
+            const response = await axios.post('http://localhost:5000/api/blogs/addblog', user);
+        } catch (error) {
+            if (error.response) {
+                console.log('Error1:');
+            } else {
+                console.log('Error2:');
+            }
+        }
+
+    }
+
+
+
+
+
 
     return (
         <div className="slider-container">
@@ -107,24 +141,42 @@ function CreateBlog() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="crb-s2-blog-title-wrap">
-                                    <div className="createblog-dis-namebox">
-
-                                        <div className="createblog-dis-namebox-container">
-                                            <Form.Item
-                                                className='createblog-dis-namebox-conatiner-p'
-                                                label="Name:"
-                                                name="name"
-                                                rules={[{ required: true, message: 'Please input your email!' }]}
-                                            >
-                                                <Input className="createblog-dis-custom-input" />
-                                            </Form.Item>
-
+                                <Form>
+                                    <div className="crb-s2-blog-title-wrap">
+                                        <div className="createblog-dis-namebox">
+                                            <div className="createblog-dis-namebox-container">
+                                                <Form.Item
+                                                    className='createblog-dis-namebox-conatiner-p'
+                                                    label="Title:"
+                                                    name="title"
+                                                    rules={[{ required: true, message: 'Please input your Title!' }]}
+                                                >
+                                                    <Input className="createblog-dis-custom-input"
+                                                        value={title}
+                                                        onChange={(e) => { settitle(e.target.value) }}
+                                                    />
+                                                </Form.Item>
+                                            </div>
+                                        </div>
+                                        <div className="userp-help-messagebox">
+                                            <div className="userp-help-namebox-container">
+                                                <Form.Item
+                                                    className='userp-help-namebox-conatiner-p'
+                                                    label="Discription:"
+                                                    name="description"
+                                                    rules={[{ required: true, message: 'Please input your blog discription!' }]}
+                                                >
+                                                    <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={3000} className="userp-helpmsg-custom-input"
+                                                        value={description}
+                                                        onChange={(e) => { setdescription(e.target.value) }} />
+                                                </Form.Item>
+                                            </div>
                                         </div>
                                     </div>
+                                </Form>
+                                <div className="crb-s2-blog-create-btn">
+                                    <button className='crb-slide1-roomslect-down-btn' onClick={createroom} >Create</button>
                                 </div>
-                                <div className="crb-s2-blog-discription"></div>
-                                <div className="crb-s2-blog-create-btn"></div>
                             </div>
 
                         </div>
@@ -139,5 +191,3 @@ export default CreateBlog;
 
 
 
-
-{/* <button >Previous</button> */ }

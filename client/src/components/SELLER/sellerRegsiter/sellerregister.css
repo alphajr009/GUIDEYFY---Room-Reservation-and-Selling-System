@@ -74,6 +74,12 @@
     margin-right: auto;
 }
 
+.srheaer-title-5 h1{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 25px;
+    margin-left: 20px;
+}
+
 .srheaer-title h1{
     font-family: "Sansation-Bold", sans-serif;
     font-size: 25px;
@@ -193,6 +199,19 @@
     cursor: pointer;
   }
 
+
+  .signin-modal-1 {
+    position: absolute;
+}
+
+.sellr-reg-modal-btn-footer{
+    text-align: center;
+}
+
+.sellr-reg-modal-btn-footer h2{
+    font-family: "Sansation-Bold", sans-serif;
+    margin-top: 16px;
+}
 
   
   

@@ -18,7 +18,7 @@ const blogSchema = mongoose.Schema({
     },
     roomnanme:{
         type: String,
-        required: true
+        required: false
     },
     sellerid :{
         type:String,

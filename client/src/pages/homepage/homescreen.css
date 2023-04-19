@@ -1,7 +1,7 @@
 .homescreen {
   display: flex;
   flex-direction: column;
-  min-height: 375vh;
+  min-height: 355vh;
 }
 
 .homescreen-content {

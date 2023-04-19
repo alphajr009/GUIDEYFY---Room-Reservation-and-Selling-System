@@ -58,7 +58,7 @@
 
   .slide2 {
     width: 717px;
-    height: 617px;
+    height: 750px;
     padding-top: 17px;
     padding-bottom: 40px;
     padding-left: 36px;
@@ -177,7 +177,7 @@
 
 .createblog-dis-namebox{
     width: 780px;
-    height: 68px;
+    height: 78px;
     border-radius: 13px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     background-color:#F8F8F8 ;
@@ -208,6 +208,18 @@
     font-size: 15px;
     height: 40px;
     width: 630px;
-    margin-left: 30px;
+    margin-left: 50px;
 }
-  
+
+.crb-s2-blog-title-wrap{
+  margin-left: -17px;
+}
+
+.crb-s2-blog-create-btn{
+  text-align: center;
+  margin-right: 110px;
+}
+
+.ant-form-item-with-help .ant-form-item-explain{
+  margin-left: 50px;
+}

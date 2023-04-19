@@ -1,6 +1,8 @@
 import { React, useState } from 'react'
 import './blog.css'
 import { Table} from 'antd';
+import CreateBlog from './CreateBlog';
+
 
 function Blog() {
 
@@ -46,39 +48,37 @@ const blogs = [
 ];
 
   return (
-    <div className='seller-central-blogs-container'>
-      {/* tab container */}
-      <div className="seller-central-blogs-tab">
-        {/* container for create blog */}
-        <div
-          className={`seller-central-create-blog-tab-container ${activeTab === 'create blog' ? 'active' : ''}`}
-          onClick={() => setActiveTab('create blog')}
-        >
-          <span className='seller-central-tab-text-create-blog'>Create Blog</span>
-        </div>
-
-        {/* container for Blogs tab */}
-        <div
-          className={`seller-central-blogs-tab-container ${activeTab === 'blog' ? 'active' : ''}`}
-          onClick={() => setActiveTab('blog')}
-        >
-          <span className='seller-central-tab--text-blogs'>Blogs</span>
-        </div>
-      </div>
-
-        {activeTab === 'create blog' && (
-          <div className='seller-central-create-blogs-sellers'>
-            <h1>Blog</h1>
+    <div className='seller-central-blogs'>
+      <div className='seller-central-blogs-container'>
+        {/* tab container */}
+        <div className="seller-central-blogs-tab">
+          {/* container for create blog */}
+          <div
+            className={`seller-central-create-blog-tab-container ${activeTab === 'create blog' ? 'active' : ''}`}
+            onClick={() => setActiveTab('create blog')}
+          >
+            <span className='seller-central-tab-text-create-blog'>Create Blog</span>
           </div>
-        )}
-
-        {activeTab === 'blog' && (
-          <div className='seller-central-table-blogs-sellers'>
-             <Table  dataSource={blogs} columns={columns} className='seller-cental-table-for-blog'/>
+          {/* container for Blogs tab */}
+          <div
+            className={`seller-central-blogs-tab-container ${activeTab === 'blog' ? 'active' : ''}`}
+            onClick={() => setActiveTab('blog')}
+          >
+            <span className='seller-central-tab--text-blogs'>Blogs</span>
           </div>
-        )}
-
-      </div>
+        </div>
+          {activeTab === 'create blog' && (
+            <div className='seller-central-create-blogs-sellers'>
+              <CreateBlog/>
+            </div>
+          )}
+          {activeTab === 'blog' && (
+            <div className='seller-central-table-blogs-sellers'>
+               <Table  dataSource={blogs} columns={columns} className='seller-cental-table-for-blog'/>
+            </div>
+          )}
+        </div>
+    </div>
   )
 }
 

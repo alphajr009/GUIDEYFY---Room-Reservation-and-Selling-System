@@ -24,18 +24,18 @@ function Payments() {
   const formRef = React.useRef(null);
 
 
-  const onReset = () => {
-    formRef.current?.resetFields();
-  };
+  // const onReset = () => {
+  //   formRef.current?.resetFields();
+  // };
 
-  const onFinish = async () => {
-    try {
-      await formRef.current?.validateFields();
-      setFormValid(true);
-    } catch (error) {
-      setFormValid(false);
-    }
-  };
+  // const onFinish = async () => {
+  //   try {
+  //     await formRef.current?.validateFields();
+  //     setFormValid(true);
+  //   } catch (error) {
+  //     setFormValid(false);
+  //   }
+  // };
 
 
   const user = JSON.parse(localStorage.getItem("currentUser"))
@@ -44,39 +44,26 @@ function Payments() {
     setOpen(true);
   };
 
+
+
+  const handleOk = () => {
+    changeUserDetails(formRef.current.getFieldValue("Name"))
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setOpen(false);
+      setConfirmLoading(false);
+    }, 2000);
+    notification.open({
+      message: 'Your Profile is Updated',
+      description: '',
+      placement: 'topRight',
+      icon: <CheckCircleOutlined />
+    });
+  };
+
   const handleCancel = () => {
     console.log('Clicked cancel button');
     setOpen(false);
-  };
-
-  const handleOk = () => {
-    changeUserDetails(formRef.current.getFieldValue(""))
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setOpen(false);
-      setConfirmLoading(false);
-    }, 2000);
-    notification.open({
-      message: 'Your Profile is Updated',
-      description: '',
-      placement: 'topRight',
-      icon: <CheckCircleOutlined />
-    });
-  };
-
-  const handleEmail = () => {
-   changeUserDetails(formRef.current.getFieldValue("Name"))
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setOpen(false);
-      setConfirmLoading(false);
-    }, 2000);
-    notification.open({
-      message: 'Your Profile is Updated',
-      description: '',
-      placement: 'topRight',
-      icon: <CheckCircleOutlined />
-    });
   };
 
 

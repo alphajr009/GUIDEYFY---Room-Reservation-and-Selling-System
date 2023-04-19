@@ -51,7 +51,8 @@ function Reservations() {
       dataIndex: 'confirm',
       render: (text, record) => (
         <button className='btn-seller-reservation-confirm'
-          onClick={() => confirmReservation(record._id)}>
+          // onClick={() => confirmReservation(record._id)}
+          >
           Confirm
         </button>
       ),
@@ -61,7 +62,8 @@ function Reservations() {
       dataIndex: 'delete',
       render: (text, record) => (
         <button className='btn-seller-reservation-cancel'
-          onClick={() => cancelReservation(record._id)}>
+          // onClick={() => cancelReservation(record._id)}
+          >
           Delete
         </button>
       ),
@@ -154,57 +156,23 @@ function Reservations() {
     ];
 
 
+  // const confirmReservation = (id) => {
+  //   const newData = [...data];
+  //   const index = newData.findIndex((item) => id === item._id);
+  //   newData[index].status = 'confirmed';
+  //   setData(newData);
+  //   setConfirmedReservations([...confirmedReservations, newData[index]]);
+  //   cancelReservation(id);
+  // };
 
-
-  const [data, setData] = useState([
-    {
-      _id: '101',
-      roomname: 'Deluxe Room',
-      fromdate: '2023-05-01',
-      todate: '2023-05-05',
-      totaldays: 5,
-      amount: '$500',
-      status: '',
-    },
-    {
-      _id: '102',
-      roomname: 'Standard Room',
-      fromdate: '2023-05-02',
-      todate: '2023-05-06',
-      totaldays: 4,
-      amount: '$550',
-      status: '',
-    },
-    {
-      _id: '103',
-      roomname: 'Suite Room',
-      fromdate: '2023-05-03',
-      todate: '2023-05-08',
-      totaldays: 5,
-      amount: '$700',
-      status: '',
-    },
-  ]);
-
-
-
-  const confirmReservation = (id) => {
-    const newData = [...data];
-    const index = newData.findIndex((item) => id === item._id);
-    newData[index].status = 'confirmed';
-    setData(newData);
-    setConfirmedReservations([...confirmedReservations, newData[index]]);
-    cancelReservation(id);
-  };
-
-  const cancelReservation = (id) => {
-    const newData = data.filter((item) => id !== item._id);
-    setData(newData);
-    const canceledReservation = data.find((item) => id === item._id);
-    if (canceledReservation.status !== 'confirmed') {
-      setCanceledReservations([...canceledReservations, canceledReservation]);
-    }
-  };
+  // const cancelReservation = (id) => {
+  //   const newData = data.filter((item) => id !== item._id);
+  //   setData(newData);
+  //   const canceledReservation = data.find((item) => id === item._id);
+  //   if (canceledReservation.status !== 'confirmed') {
+  //     setCanceledReservations([...canceledReservations, canceledReservation]);
+  //   }
+  // };
 
 
   return (
@@ -250,18 +218,18 @@ function Reservations() {
       <div className='seller-central-reservation-table'>
           {activeTab === 'Review Reservations' && (
               <div className='seller-central-review-reservation-table'>
-            <Table columns={columns} dataSource={data} pagination={false} />
+            <Table columns={columns}  pagination={false} />
         </div>
            )}
         
           {activeTab === 'Confirmed Reservations' && (
             <div className='seller-central-confirm-table'>
-            <Table columns={confirmedReservationsColumns} dataSource={confirmedReservations} pagination={false} />
+            <Table columns={confirmedReservationsColumns}  pagination={false} />
         </div>
           )}
           {activeTab === 'Cancel Reservations' && (
              <div className='seller-central-cancel-table'>
-            <Table columns={canceledReservationsColumns} dataSource={canceledReservations} pagination={false} />
+            <Table columns={canceledReservationsColumns}  pagination={false} />
              </div>
           )}
        
@@ -272,3 +240,6 @@ function Reservations() {
 
 
 export default Reservations;
+
+//dataSource={canceledReservations}
+//dataSource={confirmedReservations}

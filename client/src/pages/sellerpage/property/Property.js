@@ -1,42 +1,45 @@
-import { React, useState } from 'react'
-import './property.css'
+import React from 'react';
+import './property.css';
 
 function Property() {
-
-  
-  const [activeTab, setActiveTab] = useState('create blog');
   return (
-
-    <div className='seller-central-property-container'>
-      {/* tab container */}
-      <div className="seller-central-property-tab">
-        {/* container for create blog */}
-        <div
-          className={`seller-central-property-tab-container ${activeTab === 'Create Property' ? 'active' : ''}`}
-          onClick={() => setActiveTab('Create Property')}
-        >
-          <span className='seller-central-tab-text-create-property'>Create Property</span>
-        </div>
-
-        {/* container for Blogs tab */}
-        <div
-          className={`seller-central-tab-property-container ${activeTab === 'Current Property' ? 'active' : ''}`}
-          onClick={() => setActiveTab('Current Property')}
-        >
-          <span className='seller-central-tab--text-property'>Current Property</span>
-        </div>
+    <div className="wrapper">
+      <div className="title">
+        Create New Property
       </div>
-
-        {activeTab === 'Create Property' && (
-          <div className='seller-central-create-properties-sellers'>
-            <h1>properties</h1>
+      <div className="form">
+        <div className="inputfield">
+          <label htmlFor="roomName">Room Name</label>
+          <input type="text" id="firstName" placeholder="Please Enter Room Name"className="input" />
+        </div>  
+        <div className="inputfield">
+          <label htmlFor="rentperday">Rent Perday</label>
+          <input type="text" id="lastName" placeholder="What is daily Rentel Amount?" className="input" />
+        </div>  
+        <div className="inputfield">
+          <label htmlFor="MaxCount">Max Count</label>
+          <input type="text" id="MaxCount"placeholder="How Many Guest Count?" className="input" />
+        </div>  
+        <div className="inputfield">
+          <label htmlFor="PhoneNumber">Phone Number</label>
+          <input type="text" id="PhoneNumber" placeholder="What is your Prefrred phone number?" className="input" />
+        </div> 
+        <div className="inputfield">
+          <label htmlFor="type">Type</label>
+          <div className="custom_select">
+            <select id="Type">
+              <option value="">Choose the Type of Room</option>
+              <option value="Deluxe">Deluxe</option>
+              <option value="Non-Deluxe">Non-Deluxe</option>
+            </select>
           </div>
-        )}
-
-      
-
       </div>
-  )
+        <div className="inputfield">
+          <input type="submit" value="Continue" className="btn" />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Property
+export default Property;

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './createblog.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faLocationArrow, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import uploadImgIcon from '../../../images/uploadImgIcon.png'
 import { Input, Form } from 'antd';
 import axios from 'axios';
+import ImageUploader from '../../../components/SELLER/ImageUploader/ImageUploader'
 
 function CreateBlog() {
 
@@ -17,12 +17,20 @@ function CreateBlog() {
     const [title, settitle] = useState('')
     const [description, setdescription] = useState('')
 
+    const [imageurls, setImageurls] = useState(Array(4).fill(''));
+
+    const onImageUpload = (index, base64Image) => {
+        const newImageurls = [...imageurls];
+        newImageurls[index] = base64Image;
+        setImageurls(newImageurls);
+    };
+
 
 
     async function createroom() {
 
         console.log('Room Create Function Called');
-        const user = {
+        const newblog = {
             description,
             title,
             imageurls: [],
@@ -30,7 +38,7 @@ function CreateBlog() {
 
 
         try {
-            const response = await axios.post('http://localhost:5000/api/blogs/addblog', user);
+            const response = await axios.post('http://localhost:5000/api/blogs/addblog', newblog);
         } catch (error) {
             if (error.response) {
                 console.log('Error1:');
@@ -43,13 +51,14 @@ function CreateBlog() {
 
 
 
-
-
-
     return (
         <div className="slider-container">
             <div className="create-blog-slider-box">
                 <div className="slide-container">
+
+                    {/* Slide 1 */}
+
+
                     <div className={`slide ${activeSlide === 1 ? 'active' : 'hidden'}`}>
                         {/* Slide 1 content */}
                         <div className='slide1'>
@@ -57,7 +66,7 @@ function CreateBlog() {
                                 <div className="slide1-sbar-box">
 
                                     <div className="create-blog-searchbar-extract">
-                                        {/* container for booking id */}
+                        
                                         <div className="admin-terminal-search-bar-blogs-blog-id">
                                             <FontAwesomeIcon icon={faLocationArrow} className="blogs-blogid-icon" />
                                             <input
@@ -90,6 +99,10 @@ function CreateBlog() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Slide 2 */}
+
+
                     <div className={`slide ${activeSlide === 2 ? 'active' : 'hidden'}`}>
                         <div className='slide2'>
                             {/* Slide 2 content*/}
@@ -104,41 +117,14 @@ function CreateBlog() {
                                 </div>
                                 <div className="crb-s2-images-upload">
                                     <div className="scrb-s2-iu-wrapper">
-                                        <div className="scrb-s2-iu-wrapper-box-main">
-                                            <div className="scrb-image-upload-icon">
-                                                <img src={uploadImgIcon} />
-                                            </div>
-                                            <div className="scrb-image-uploadimg-txt">
-                                                <h4>Upload Main Image</h4>
-                                            </div>
-                                        </div>
-                                        <div className="scrb-s2-iu-wrapper-box-main">
-                                            <div className="scrb-image-upload-icon">
-                                                <img src={uploadImgIcon} />
-                                            </div>
-                                            <div className="scrb-image-uploadimg-txt">
-                                                <h4>Upload  Image </h4>
-                                                <h4>2 </h4>
-                                            </div>
-                                        </div>
-                                        <div className="scrb-s2-iu-wrapper-box-main">
-                                            <div className="scrb-image-upload-icon">
-                                                <img src={uploadImgIcon} />
-                                            </div>
-                                            <div className="scrb-image-uploadimg-txt">
-                                                <h4>Upload Image </h4>
-                                                <h4>3 </h4>
-                                            </div>
-                                        </div>
-                                        <div className="scrb-s2-iu-wrapper-box-main">
-                                            <div className="scrb-image-upload-icon">
-                                                <img src={uploadImgIcon} />
-                                            </div>
-                                            <div className="scrb-image-uploadimg-txt">
-                                                <h4>Upload Image </h4>
-                                                <h4>4 </h4>
-                                            </div>
-                                        </div>
+                                        {Array(4)
+                                            .fill(0)
+                                            .map((_, index) => (
+                                                <ImageUploader key={index} index={index} onImageUpload={onImageUpload} />
+                                            ))}
+
+
+
                                     </div>
                                 </div>
                                 <Form>

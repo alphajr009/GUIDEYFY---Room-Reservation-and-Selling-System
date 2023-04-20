@@ -22,14 +22,12 @@ router.post("/getblogsbysellerid", async(req,res)=>{
 
 router.post("/addblog", async (req, res) => {
 
-    const newblog = new Blog(
-        {
-            title: req.body.title,
-            description: req.body.description,
-            imageurls: req.body.imageurls,
-
-        });
-
+    const newblog = new Blog({
+        title: req.body.title,
+        description: req.body.description,
+        imageurls: req.body.imageurls,
+    });
+    
     try {
         const blog = await newblog.save();
         return res.send('Blog Created Successfully');
@@ -38,6 +36,7 @@ router.post("/addblog", async (req, res) => {
         console.log(newblog)
         return res.status(400).json({ error });
     }
+    
 
 });
 

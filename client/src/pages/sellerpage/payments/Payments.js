@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './payments.css'
 import axios from 'axios'
-import { Modal, Form, Input,notification,} from 'antd';
+import { Modal, Form, Input, notification, } from 'antd';
 import {
   CheckCircleOutlined,
   DeleteFilled
@@ -16,6 +16,7 @@ function Payments() {
 
 
   const [open, setOpen] = useState(false);
+  const [openemail, setOpenemail] = useState(false);
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState();
   const [formValid, setFormValid] = useState(false);
@@ -24,24 +25,16 @@ function Payments() {
   const formRef = React.useRef(null);
 
 
-  // const onReset = () => {
-  //   formRef.current?.resetFields();
-  // };
-
-  // const onFinish = async () => {
-  //   try {
-  //     await formRef.current?.validateFields();
-  //     setFormValid(true);
-  //   } catch (error) {
-  //     setFormValid(false);
-  //   }
-  // };
-
 
   const user = JSON.parse(localStorage.getItem("currentUser"))
 
   const showModal = () => {
     setOpen(true);
+  };
+
+
+  const showEmailModal = () => {
+    setOpenemail(true);
   };
 
 
@@ -54,17 +47,40 @@ function Payments() {
       setConfirmLoading(false);
     }, 2000);
     notification.open({
-      message: 'Your Profile is Updated',
+      message: 'Your Account Name is updated',
       description: '',
       placement: 'topRight',
-      icon: <CheckCircleOutlined />
+      icon: <CheckCircleOutlined />,
+      className: "styles-notification"
     });
   };
+
+
+  const handleEmailOk = () => {
+    changeUserEmailDetails(formRef.current.getFieldValue("Email"))
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setOpenemail(false);
+      setConfirmLoading(false);
+    }, 2000);
+    notification.open({
+      message: 'Your Account Email is updated',
+      description: '',
+      placement: 'topRight',
+      icon: <CheckCircleOutlined />,
+      className: "styles-notification"
+    });
+  }
 
   const handleCancel = () => {
     console.log('Clicked cancel button');
     setOpen(false);
   };
+
+  const handleEmailCancel = () => {
+    console.log('Clicked cancel button');
+    setOpenemail(false);
+  }
 
 
   useEffect(() => {
@@ -89,17 +105,15 @@ function Payments() {
 
     const _id = currentUser._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/sellers/editseller', { _id,stripename})).data;
+      const res = (await axios.patch('http://localhost:5000/api/sellers/editseller', { _id, stripename })).data;
       console.log("User details updated successfully");
 
       localStorage.setItem("currentUser", JSON.stringify({
         _id: currentUser._id,
         stripename: stripename ? stripename : currentUser.stripename,
-        // stripeemail: stripeemail ? stripeemail : currentUser.stripeemail,
+
 
       }));
-
-
 
 
     } catch (error) {
@@ -108,6 +122,32 @@ function Payments() {
     }
     window.location.href = '/seller'
   }
+
+
+  async function changeUserEmailDetails(stripeemail) {
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    if (!currentUser) throw new Error('User not found in local storage');
+
+    const _id = currentUser._id;
+    try {
+      const res = (await axios.patch('http://localhost:5000/api/sellers/editseller', { _id, stripeemail })).data;
+      console.log("User details updated successfully");
+
+      localStorage.setItem("currentUser", JSON.stringify({
+        _id: currentUser._id,
+        // stripename: stripename ? stripename : currentUser.stripename,
+        stripeemail: stripeemail ? stripeemail : currentUser.stripeemail
+
+      }));
+
+
+    } catch (error) {
+      console.log(error)
+      setloading(false)
+    }
+    window.location.href = '/seller'
+  }
+
 
   return (
     // container for tab,funds,payments methods
@@ -175,22 +215,28 @@ function Payments() {
                   <p className='payment-edit-popup1' onClick={showModal} >Edit</p>
 
                   <Modal
-                    title="Edit Your Stripe Account Name"
+                    title="Enter Your Stripe Account Name"
                     open={open}
                     onOk={handleOk}
                     confirmLoading={confirmLoading}
+                    width="500px"
+                    className="payment-modal"
                     onCancel={handleCancel}
                   >
                     <Form ref={formRef} stripename="control-ref" onFinish={(values) => changeUserDetails(values.Name)}
                       size='large'
-                      initialValues={{ Name: user.stripename}}>
+                      initialValues={{ Name: user.stripename }}>
                       <Form.Item
+                        className='form-name'
+                        labelCol={{ span: 24 }}
+                        wrapperCol={{ span: 24 }}
+                        
                         name="Name"
                         label="Name"
                       >
                         <Input placeholder={user.stripename} />
                       </Form.Item>
-                     
+
                     </Form>
                   </Modal>
                 </div>
@@ -206,7 +252,33 @@ function Payments() {
                   <p className='payment-email'>{stripeemail}</p>
                 </div>
                 <div className='payment-edit-popup-2'>
-                  <p className='payment-edit-popup2'>Edit</p>
+                  <p className='payment-edit-popup2' onClick={showEmailModal} >Edit</p>
+
+                  <Modal
+                    title="Enter Your Stripe Account Email"
+                    open={openemail}
+                    onOk={handleEmailOk}
+                    confirmLoading={confirmLoading}
+                    onCancel={handleEmailCancel}
+                    width="500px"
+                    className="payment-modal"
+                    bodyStyle={{ borderRadius: '17px' }}
+                  >
+                    <Form ref={formRef} stripeemail="control-ref" onFinish={(values) => changeUserEmailDetails(values.Email)}
+                      size='large'
+                      initialValues={{ Email: user.stripeemail }}>
+                      <Form.Item
+                        className='form-email'
+                        labelCol={{ span: 24 }}
+                        wrapperCol={{ span: 24 }}
+                        name="Email"
+                        label="Email"
+                      >
+                        <Input placeholder={user.stripeemail} />
+                      </Form.Item>
+
+                    </Form>
+                  </Modal>
 
                 </div>
               </div>

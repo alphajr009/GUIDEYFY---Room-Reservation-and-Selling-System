@@ -1,0 +1,63 @@
+
+.seller-central-promotion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.seller-central-promotion-tab {
+    font-family: "Sansation-Bold", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 13px 10px 3px 10px;
+    border-radius: 10px;
+    border: 1px solid #4444AA;
+    background-color: #4444AA;
+    position: absolute;
+    left: 50%;
+    margin-top: 100px;
+    transform: translateX(-50%);
+    text-align: center;
+    cursor: pointer;
+}
+
+.seller-central-promotion-tab-container,
+.seller-central-current-promotion-container {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.seller-central-promotion-tab-container.active {
+    color: black;
+}
+
+.seller-central-promotion-tab-container:not(.active) {
+    color: darkgray;
+}
+
+.seller-central-current-promotion-container.active {
+    color: black
+}
+
+.seller-central-current-promotion-container:not(.active) {
+    color: darkgray;
+}
+
+.create-promotion-and-current-promotion {
+    margin-top: 250px;
+}

@@ -1,0 +1,14 @@
+.Current-title{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 90px;
+    color: #000000;
+    text-align: center;
+}
+
+.promotion-seller-cental-table{
+    margin-top: 250px;
+    width: 100%;
+    border-collapse: collapse
+}

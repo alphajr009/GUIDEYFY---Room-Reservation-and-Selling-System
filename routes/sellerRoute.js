@@ -120,7 +120,7 @@ router.patch("/editseller", async (req, res) => {
         if (!user) return res.status(404).json({ message: 'Seller not found' });
 
         if (stripename) user. stripename =  stripename;
-        // if (email) user.email = email;
+        if (stripeemail) user.stripeemail = stripeemail;
 
         await user.save();
         return res.json({ message: 'Seller details updated successfully' });

@@ -34,3 +34,31 @@ router.patch('/deleteroom', async (req, res) => {
 
 });
 
+
+router.post("/addroom", async (req, res) => {
+
+
+    try {
+        const newroom = new Room(req.body)
+        await newroom.save()
+        res.send('New room Added successfully');
+   
+    } catch (error) {
+        return res.status(400).json({ error })
+
+    }
+});
+
+
+router.post("/getroombysellerid", async (req, res) => {
+
+    const seller = req.body.sellerid
+
+    try {
+        const room = await Room.find({sellerid:seller})
+        return res.json({room})
+    } catch (error) {
+        return res.status(400).json({message: error})
+    }
+});
+

@@ -23,8 +23,7 @@ const blogSchema = mongoose.Schema({
     sellerid :{
         type:String,
         required: false
-    },
-    imageurls: []
+    }
 
     
 }, {

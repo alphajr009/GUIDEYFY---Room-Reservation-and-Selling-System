@@ -5,6 +5,9 @@ import Adminscreen from './pages/adminpage/Adminscreen';
 import Sellerscreen from './pages/sellerpage/Sellerscreen'
 import Userscreen from './pages/userpage/Userscreen';
 import SellerRegister from './components/SELLER/sellerRegsiter/SellerRegister';
+import Blogscreen from './pages/blogpage/Blogscreen';
+
+
 
 
 
@@ -23,6 +26,8 @@ function App() {
           <Route path="/seller" element={<Sellerscreen />} exact />
           <Route path="/profile" element={<Userscreen />} exact />
           <Route path="/registerseller" element={<SellerRegister />} exact />
+          <Route path="/blog" element={<Blogscreen />} exact />
+
         </Routes>
       </BrowserRouter>
 

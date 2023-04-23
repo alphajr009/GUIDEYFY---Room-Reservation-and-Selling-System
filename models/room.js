@@ -30,8 +30,6 @@ const roomSchema = mongoose.Schema({
     },
 
 
-    imageurls: [],
-
     services: [],
 
     currentbookings: [],

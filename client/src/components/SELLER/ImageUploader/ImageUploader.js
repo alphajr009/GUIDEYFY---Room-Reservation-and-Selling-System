@@ -2,24 +2,23 @@ import React, { useState } from 'react';
 import { Upload } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
-const getBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
-
 const ImageUploader = ({ index, onImageUpload }) => {
   const [fileList, setFileList] = useState([]);
 
-  const handleChange = async ({ file, fileList: newFileList }) => {
+  const handleChange = ({ file, fileList: newFileList }) => {
     setFileList(newFileList);
+    console.log("File object in handleChange:", file);
+  };
+  
+  const customRequest = ({ onSuccess, file }) => {
+    setFileList([...fileList, file]);
+    onImageUpload(index, file);
+    onSuccess();
+  };
 
-    if (file.status === 'done') {
-      const base64Image = await getBase64(file.originFileObj);
-      onImageUpload(index, base64Image);
-    }
+  const handleRemove = (file) => {
+    setFileList(fileList.filter((item) => item.uid !== file.uid));
+    onImageUpload(index, '');
   };
 
   const uploadButton = (
@@ -30,19 +29,18 @@ const ImageUploader = ({ index, onImageUpload }) => {
   );
 
   return (
-<Upload
-  listType="picture-card"
-  fileList={fileList}
-  onChange={handleChange}
-  onRemove={() => onImageUpload(index, '')}
-  showUploadList={{
-    showPreviewIcon: false,
-  }}
-  beforeUpload={() => false} // Add this line
->
-  {fileList.length >= 1 ? null : uploadButton}
-</Upload>
-
+    <Upload
+      listType="picture-card"
+      fileList={fileList}
+      onChange={handleChange}
+      onRemove={handleRemove}
+      customRequest={customRequest}
+      showUploadList={{
+        showPreviewIcon: false,
+      }}
+    >
+      {fileList.length >= 1 ? null : uploadButton}
+    </Upload>
   );
 };
 

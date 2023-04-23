@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require('cors');
 
 
-const app =express();
+const app = express();
 
 const dbconfig = require('./db')
 const roomsRoute = require('./routes/roomRoute')
@@ -12,20 +12,22 @@ const blogRoute = require('./routes/blogRoute')
 
 
 const corsOptions = {
-    origin: 'http://localhost:3000', 
-    optionsSuccessStatus: 200,
-  };
-  
-  app.use(cors(corsOptions));
-  
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+app.use("/uploads", express.static("uploads"));
+
+
 
 
 app.use(express.json())
 
 app.use('/api/rooms', roomsRoute)
 app.use('/api/users', userRoute)
-app.use('/api/sellers',sellerRoute )
-app.use('/api/blogs',blogRoute )
+app.use('/api/sellers', sellerRoute)
+app.use('/api/blogs', blogRoute)
 
 
 

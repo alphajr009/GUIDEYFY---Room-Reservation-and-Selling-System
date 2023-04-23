@@ -1,54 +1,130 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './createblog.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faLocationArrow, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { Input, Form } from 'antd';
+import { faLocationArrow, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { Input, Form, Radio, Pagination,Alert } from 'antd';
 import axios from 'axios';
-import ImageUploader from '../../../components/SELLER/ImageUploader/ImageUploader'
+import ImageUploader from '../../../components/SELLER/ImageUploader/ImageUploader';
 
 function CreateBlog() {
 
+    const user = JSON.parse(localStorage.getItem("currentUser"))
+    const [rooms, setrooms] = useState([]);
+
+
+    const [showAlert, setShowAlert] = useState(false);
+
     const [activeSlide, setActiveSlide] = useState(1);
 
-    const goToSlide = (slideNumber) => {
-        setActiveSlide(slideNumber);
-    };
+    const goToSlide = (slideNumber, selectedRoomId) => {
+        if (!selectedRoomId) {
+          setShowAlert(true);
+        } else {
+          setShowAlert(false);
+          setActiveSlide(slideNumber);
+        }
+      };
+
+      const goToSlideback = (slideNumber) => {
+          setActiveSlide(slideNumber);
+        
+      };
+      
+      
 
     const [title, settitle] = useState('')
     const [description, setdescription] = useState('')
 
     const [imageurls, setImageurls] = useState(Array(4).fill(''));
 
-    const onImageUpload = (index, base64Image) => {
-        const newImageurls = [...imageurls];
-        newImageurls[index] = base64Image;
-        setImageurls(newImageurls);
+    const [selectedRoomId, setSelectedRoomId] = useState(null);
+
+    const handleRoomChange = (e) => {
+        setSelectedRoomId(e.target.value);
     };
 
 
 
+    const onImageUpload = (index, imageFile) => {
+        setImageurls((prevImageurls) => {
+            const newImageurls = [...prevImageurls];
+            newImageurls[index] = imageFile;
+            console.log(`Image at index ${index}:`, imageFile);
+            return newImageurls;
+        });
+    };
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 9;
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const filteredRooms = rooms.filter((room) =>
+        room.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+
+
+    useEffect(() => {
+
+        (async () => {
+
+
+            try {
+
+                console.log(user._id)
+                const data = (await axios.post("http://localhost:5000/api/rooms/getroombysellerid", { sellerid: user._id })).data
+                setrooms(data.room);
+                console.log("Rooms fetched: ", data.rooms);
+                console.log(rooms)
+
+
+            } catch (error) {
+                console.log('Error:', error);
+            }
+
+        })();
+    }, []);
+
+
+
     async function createroom() {
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("room_id", selectedRoomId);
 
-        console.log('Room Create Function Called');
-        const newblog = {
-            description,
-            title,
-            imageurls: [],
-        };
+        imageurls.forEach((image, index) => {
+            if (image) {
+                formData.append("images", image, `${user._id}-${index}.jpg`);
+            }
+        });
 
+        console.log('imageurls:', imageurls);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/blogs/addblog', newblog);
+            const response = await axios.post("http://localhost:5000/api/blogs/addblog", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+            console.log(response.status);
         } catch (error) {
             if (error.response) {
-                console.log('Error1:');
+                console.log("Error1:");
             } else {
-                console.log('Error2:');
+                console.log("Error2:");
             }
         }
-
     }
-
 
 
     return (
@@ -62,25 +138,23 @@ function CreateBlog() {
                     <div className={`slide ${activeSlide === 1 ? 'active' : 'hidden'}`}>
                         {/* Slide 1 content */}
                         <div className='slide1'>
+                        {showAlert && (
+      <Alert message="Please select a room before proceeding." type="error" />
+    )}
                             <div className="createblog-slide1-sbar">
                                 <div className="slide1-sbar-box">
 
                                     <div className="create-blog-searchbar-extract">
-                        
-                                        <div className="admin-terminal-search-bar-blogs-blog-id">
+
+                                        <div className="createblog-search-bar-blogs-blog-id">
                                             <FontAwesomeIcon icon={faLocationArrow} className="blogs-blogid-icon" />
                                             <input
                                                 type="text"
                                                 placeholder="Search the Room "
                                                 className="admin-terminal-blogs-blog-id"
+                                                onChange={handleSearchChange}
 
                                             />
-                                        </div>
-                                        {/* container fors search*/}
-                                        <div className='admin-blogs-filter-search'>
-                                            <button className='btn-blogs-search-admin-terminal' >
-                                                <FontAwesomeIcon icon={faSearch} className="blogs-search" />
-                                            </button>
                                         </div>
                                     </div>
 
@@ -92,17 +166,47 @@ function CreateBlog() {
                                         <h1>Room Name</h1>
                                     </div>
                                 </div>
-                                <div className="crb-slide1-roomslect-down"></div>
+                                <div className="crb-slide1-roomslect-down">
+                                    {filteredRooms && filteredRooms.length > 0 && (
+                                        <Radio.Group
+                                            className="radio-array-createblog"
+                                            onChange={handleRoomChange}
+                                            value={selectedRoomId}
+                                        >
+                                            {filteredRooms
+                                                .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+                                                .map((room) => (
+                                                    <Radio key={room._id} value={room._id}>
+                                                        {room.title}
+                                                    </Radio>
+                                                ))}
+                                        </Radio.Group>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="pagination-container">
+                                <Pagination
+                                    current={currentPage}
+                                    onChange={handlePageChange}
+                                    pageSize={itemsPerPage}
+                                    total={rooms.length}
+                                    className="rooms-pagination"
+                                />
                             </div>
                             <div className='createblog-slide1-button'>
-                                <button className='crb-slide1-roomslect-down-btn' onClick={() => goToSlide(2)}>Select and Go</button>
+                                <button
+                                    className="crb-slide1-roomslect-down-btn"
+                                    onClick={() => goToSlide(2,selectedRoomId)}
+                                    
+                                >
+                                    Select and Go
+                                </button>
+
                             </div>
                         </div>
                     </div>
 
                     {/* Slide 2 */}
-
-
                     <div className={`slide ${activeSlide === 2 ? 'active' : 'hidden'}`}>
                         <div className='slide2'>
                             {/* Slide 2 content*/}
@@ -110,7 +214,7 @@ function CreateBlog() {
                                 <FontAwesomeIcon
                                     style={{ fontSize: '22px', cursor: 'pointer' }}
                                     icon={faArrowLeft}
-                                    onClick={() => goToSlide(1)}
+                                    onClick={() => goToSlideback(1)}
                                 />
                                 <div className="crb-s2-header">
                                     <h1>Upload your images:</h1>
@@ -122,9 +226,6 @@ function CreateBlog() {
                                             .map((_, index) => (
                                                 <ImageUploader key={index} index={index} onImageUpload={onImageUpload} />
                                             ))}
-
-
-
                                     </div>
                                 </div>
                                 <Form>

@@ -34,7 +34,7 @@
 }
 
 .slide.hidden {
-  transform: translateX(-9%);
+  transform: translateX(-13%);
   opacity: 0;
   visibility: hidden;
 }

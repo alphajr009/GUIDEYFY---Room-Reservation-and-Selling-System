@@ -66,7 +66,7 @@
 
 .slide2 {
   width: 717px;
-  height: 750px;
+  height: 850px;
   padding-top: 17px;
   padding-bottom: 40px;
   padding-left: 36px;
@@ -74,6 +74,10 @@
   border-radius: 17px;
   box-shadow: 0 0 3px 3px #dad9d9;
   margin-left: 1200px;
+}
+
+.createblog-category-select{
+  margin-left: 20px;
 }
 
 
@@ -206,6 +210,15 @@
 
 
 .createblog-dis-namebox {
+  width: 780px;
+  height: 78px;
+  border-radius: 13px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color: #F8F8F8;
+  margin-bottom: 20px;
+}
+
+.createblog-dis-select {
   width: 780px;
   height: 78px;
   border-radius: 13px;

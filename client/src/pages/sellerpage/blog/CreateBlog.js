@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './createblog.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationArrow, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { Input, Form, Radio, Pagination,Alert } from 'antd';
+import { Input, Form, Radio, Pagination, Alert, Select } from 'antd';
 import axios from 'axios';
 import ImageUploader from '../../../components/SELLER/ImageUploader/ImageUploader';
 
@@ -11,6 +11,8 @@ function CreateBlog() {
     const user = JSON.parse(localStorage.getItem("currentUser"))
     const [rooms, setrooms] = useState([]);
 
+    const { Option } = Select;
+
 
     const [showAlert, setShowAlert] = useState(false);
 
@@ -18,19 +20,19 @@ function CreateBlog() {
 
     const goToSlide = (slideNumber, selectedRoomId) => {
         if (!selectedRoomId) {
-          setShowAlert(true);
+            setShowAlert(true);
         } else {
-          setShowAlert(false);
-          setActiveSlide(slideNumber);
+            setShowAlert(false);
+            setActiveSlide(slideNumber);
         }
-      };
+    };
 
-      const goToSlideback = (slideNumber) => {
-          setActiveSlide(slideNumber);
-        
-      };
-      
-      
+    const goToSlideback = (slideNumber) => {
+        setActiveSlide(slideNumber);
+
+    };
+
+
 
     const [title, settitle] = useState('')
     const [description, setdescription] = useState('')
@@ -70,6 +72,27 @@ function CreateBlog() {
     const filteredRooms = rooms.filter((room) =>
         room.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    const [selectedCategory, setSelectedCategory] = useState('');
+
+    const categories = [
+        'Accommodation',
+        'Activities',
+        'Arts and Culture',
+        'Culture & Heritage',
+        'Destinations',
+        'Food & Drink',
+        'General',
+        'Guest Contributors',
+        'Politics',
+        'Transport',
+        'Weather',
+        'Wildlife',
+    ];
+
+    const handleCategoryChange = (value) => {
+        setSelectedCategory(value);
+    };
 
 
 
@@ -138,9 +161,9 @@ function CreateBlog() {
                     <div className={`slide ${activeSlide === 1 ? 'active' : 'hidden'}`}>
                         {/* Slide 1 content */}
                         <div className='slide1'>
-                        {showAlert && (
-      <Alert message="Please select a room before proceeding." type="error" />
-    )}
+                            {showAlert && (
+                                <Alert message="Please select a room before proceeding." type="error" />
+                            )}
                             <div className="createblog-slide1-sbar">
                                 <div className="slide1-sbar-box">
 
@@ -196,8 +219,8 @@ function CreateBlog() {
                             <div className='createblog-slide1-button'>
                                 <button
                                     className="crb-slide1-roomslect-down-btn"
-                                    onClick={() => goToSlide(2,selectedRoomId)}
-                                    
+                                    onClick={() => goToSlide(2, selectedRoomId)}
+
                                 >
                                     Select and Go
                                 </button>
@@ -228,8 +251,31 @@ function CreateBlog() {
                                             ))}
                                     </div>
                                 </div>
+
+
                                 <Form>
                                     <div className="crb-s2-blog-title-wrap">
+                                    <div className='createblog-dis-select'>
+                                    <Form.Item
+                                    className='createblog-dis-namebox-conatiner-p'
+                                    label="Category:"
+                                    name="category"
+                                    rules={[{ required: true, message: 'Please input your Title!' }]}>
+                                        <Select
+                                            className="createblog-category-select"
+                                            placeholder="Category"
+                                            style={{ width: '175px' }}
+                                            value={selectedCategory}
+                                            onChange={handleCategoryChange}
+                                        >
+                                            {categories.map(category => (
+                                                <Option key={category}>
+                                                    {category}
+                                                </Option>
+                                            ))}
+                                        </Select>
+                                    </Form.Item>
+                                </div>
                                         <div className="createblog-dis-namebox">
                                             <div className="createblog-dis-namebox-container">
                                                 <Form.Item

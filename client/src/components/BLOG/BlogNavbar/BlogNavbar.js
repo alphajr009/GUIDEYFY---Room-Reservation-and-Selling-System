@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../../images/logo.png';
 import Registermodal from '../../USER/regsitermodal/Registermodal';
-import Signinmodal from '../../USER/footer/Footer';
+import Signinmodal from '../../USER/signinmodal/Signinmodal';
 import NavbarToggler from '../../USER/navtoggler/NavbarToggler'
 import './blognavbar.css'
 

@@ -1,63 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIdBadge, faPerson, faUser, faSearch, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faIdBadge, faUser, faSearch, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { Select } from 'antd';
+import axios from 'axios'
 import './sellers.css'
+import Swal from 'sweetalert2'
+
+
 function Sellers() {
 
 
-  const [seller, setseller] = useState('');
-  const [sellername, setsellername] = useState('');
+
   const [sellerid, setsellerrid] = useState('');
-  const [isAdmin, setisAdmin] = useState('');
+  const [displayName, setDisplayname] = useState('');
+  const [sellerLevel, setsellerLevel] = useState('');
+  const [users, setusers] = useState([])
+  const [loading, setloading] = useState(false)
+  const [error, seterror] = useState()
+
+  const [filteredUsers, setFilteredUsers] = useState([])
 
 
   const { Option } = Select;
 
-
   const handleseller = (e) => {
-    setsellername(e.target.value);
+    setDisplayname(e.target.value);
   };
   const handlesellerid = (e) => {
     setsellerrid(e.target.value);
   };
 
-  const handleuserposition = (value) => {
-    setisAdmin(value);
-  };
-  const handlesearchsellers = () => {
-    window.location.assign('/sellers');
+  const handlesellerLevel = (value) => {
+    setsellerLevel(value);
+
   };
 
 
-  const sellers = [
-    {
-      _id: "1",
-      sellerName: "Saaw",
-      email: "p@gmail.com",
-      phonenumber: "323",
-      sellerlevel: <button className='admin-terminal-sellers-as-gold'>Gold</button>
-    },
-    {
-      _id: "2",
-      sellerName: "Saa",
-      email: "p@gmail.com",
-      phonenumber: "323",
-      sellerlevel: <button className='admin-terminal-sellers-as-silver'>Silver</button>
-    },
+  const handleFilter = () => {
+    let tempUsers = [...users];
 
-    {
-      _id: "2",
-      sellerName: "Saa",
-      email: "p@gmail.com",
-      phonenumber: "323",
-      sellerlevel: <button className='admin-terminal-sellers-as-platinum'>Platinum</button>
-
+    if (sellerid !== '') {
+      tempUsers = tempUsers.filter(seller => seller._id.includes(sellerid));
     }
 
+    if (displayName !== '') {
+      tempUsers = tempUsers.filter(seller => (seller.fname + ' ' + seller.lname).toLowerCase().includes(displayName.toLowerCase()));
+    }
 
-  ];
+    if (sellerLevel !== '') {
+      tempUsers = tempUsers.filter(seller => seller.sellerLevel === sellerLevel);
+    }
+
+    setFilteredUsers(tempUsers);
+  }
+
+
 
   const columns = [
     {
@@ -67,9 +65,13 @@ function Sellers() {
     },
     {
       title: 'Seller Name',
-      dataIndex: 'sellerName',
-      key: 'sellerName',
+      dataIndex: 'displayName',
+      key: 'displayName',
+      render: (text, record) => {
+        return `${record.fname} ${record.lname}`;
+      }
     },
+
     {
       title: 'Email',
       dataIndex: 'email',
@@ -83,18 +85,139 @@ function Sellers() {
     },
     {
       title: 'Seller Level',
-      dataIndex: 'sellerlevel',
-      key: 'sellerlevel',
-
+      dataIndex: 'sellerLevel',
+      key: 'sellerLevel',
+      render: (sellerLevel, users) => {
+        if (sellerLevel === 'Silver') {
+          return <button className='admin-terminal-sellers-as-silver'>Silver</button>;
+        } else if (sellerLevel === 'Gold') {
+          return <button className='admin-terminal-sellers-as-gold'>Gold</button>;
+        } else {
+          return <button className='admin-terminal-sellers-as-platinum'>Platinum</button>;
+        }
+      },
     },
+
     {
       title: 'isSuspend',
       dataIndex: 'isSuspend',
-      key: 'isSuspend'
+      key: 'isSuspend',
+      render: (_, users) => {
+        if (users.isSuspend) {
+          return <button className='seller-is-suspend'onClick={() =>
+             {
+
+            Swal.fire({
+              title: 'Confirm making this user as Seller?',
+              icon: "success",
+              timer: 5000,
+              showCancelButton: true,
+              cancelButtonText: 'Cancel',
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, Do it!'
+            }).then((result) => {
+              if (result.isConfirmed) {
+
+                updateAsSeller(users._id,false)
+                Swal.fire(
+                  'Suspended!',
+                  `${users.fname} is now a seller.`
+                ).then(result => {
+                  window.location.reload();
+                })
+                
+              }
+            })
+            
+          }}
+         
+          
+          >Yes</button>
+        } else {
+          return <button className='seller-is-not-suspend' onClick={() => {
+
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be suspend!",
+              icon: 'warning',
+              showCancelButton: true,
+              cancelButtonText: 'Cancel',
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, Suspend Seller!'
+            }).then((result) => {
+              if (result.isConfirmed) {
+
+                updateSuspend(users._id,true)
+                Swal.fire(
+                  'Suspended!',
+                  `${users.fname} Suspended Successfully.`
+                ).then(result => {
+                     window.location.reload();
+                })
+              }
+            })
+          }}>No</button>
+        }
+      }
     }
 
-
   ];
+
+
+
+  useEffect(() => {
+    (async () => {
+
+      try {
+        setloading(true)
+        const data = (await axios.get('http://localhost:5000/api/sellers/getallsellers')).data
+        setusers(data.users)
+        setFilteredUsers(data.users);
+        setloading(false)
+
+
+      } catch (error) {
+        console.log(error)
+        setloading(false)
+        seterror(error)
+
+      }
+    })();
+  }, []);
+
+  
+
+  async function updateSuspend(_id,isSuspend) {
+
+    try {
+      const res = (await axios.patch('http://localhost:5000/api/sellers/changesuspend', { _id,isSuspend })).data;
+    } catch (error) {
+      console.log(error)
+      setloading(false)
+    }
+  }
+
+
+  async function updateAsSeller(_id,isSuspend) {
+
+    try {
+      const res = (await axios.patch('http://localhost:5000/api/sellers/changeasseller', { _id,isSuspend })).data;
+    } catch (error) {
+      console.log(error)
+      setloading(false)
+    }
+  }
+
+
+
+
+  useEffect(() => {
+    handleFilter();
+  }, [displayName, sellerid, sellerLevel])
+
+
   return (
     // container for table and searchbar
     <div className="admin-terminal-sellers">
@@ -107,7 +230,7 @@ function Sellers() {
             type="text"
             placeholder="Seller Name"
             className="admin-terminal-sellers-name"
-            value={sellername}
+            value={displayName}
             onChange={handleseller}
           />
         </div>
@@ -124,34 +247,40 @@ function Sellers() {
           />
         </div>
 
-        {/* container for booking status */}
+        {/* container for bseller level */}
         <div className="admin-terminal-level-seller">
           <FontAwesomeIcon icon={faUsers} className="sellers-level" />
           <Select
-            className="admin-terminal-seller-level"
-            placeholder="Seller Level"
-            style={{ width: '125px' }}
-            value={isAdmin}
-            onChange={handleuserposition}
+            defaultValue='Seller Level'
+            style={{ width: 180 }}
+            onChange={handlesellerLevel}
+            value={sellerLevel}
           >
-            <Option key="seller-level-gold">Gold</Option>
-            <Option key="seller-level-platinum">Platinum</Option>
-            <Option key="seller-level-silver">Silver</Option>
-
+            <Option value='Silver'>Silver</Option>
+            <Option value='Gold'>Gold</Option>
+            <Option value='Platinum'>Platinum</Option>
           </Select>
         </div>
-        {/* container fors search*/}
+        {/* container for search*/}
         <div className='admin-sellers-filter-search'>
-          <button className='btn-sellers-search-admin-terminal' onClick={handlesearchsellers}>
+          <button className='btn-sellers-search-admin-terminal' onClick={handleFilter}>
             <FontAwesomeIcon icon={faSearch} className="r-sellers-search" />
           </button>
         </div>
       </div>
       <div className='admin-sellers-table'>
-        <Table dataSource={sellers} columns={columns} className='admin-terminal-room-table' />
+        <Table
+          dataSource={filteredUsers}
+          columns={columns}
+          rowKey='_id'
+          className='admin-terminal-room-table'
+          footer={() => <div className="no-of-sellers">{`Total  ${users.length} sellers `}</div>}
+        />
       </div>
     </div>
   )
 }
 
 export default Sellers
+
+

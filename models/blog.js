@@ -16,8 +16,14 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: false
     },
-
-    imageurls: []
+    roomnanme:{
+        type: String,
+        required: false
+    },
+    sellerid :{
+        type:String,
+        required: false
+    }
 
     
 }, {

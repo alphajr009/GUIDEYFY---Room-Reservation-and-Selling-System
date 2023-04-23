@@ -1,9 +1,3 @@
-@font-face {
-  font-family: "Sansation-Bold";
-  font-style: normal;
-  font-weight: 700;
-  src: url('../../../fonts/sansation.Bold.ttf') format('truetype');
-}
 
 .navbar {
   display: flex;

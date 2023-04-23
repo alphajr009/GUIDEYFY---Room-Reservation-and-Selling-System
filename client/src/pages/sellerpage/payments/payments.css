@@ -1,0 +1,419 @@
+.seller-central-payments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seller-payment-tab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 13px 10px 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #4444AA;
+    background-color: #4444AA;
+    position: absolute;
+    left: 50%;
+    margin-top: 100px;
+    transform: translateX(-50%);
+    text-align: center;
+    cursor: pointer;
+    ;
+}
+
+.seller-central-funds-tab {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.seller-central-payments-tab {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.funds-and-payments-methods {
+    margin-top: 250px;
+}
+
+.seller-central-funds-tab.active {
+    color: Black;
+}
+
+.seller-central-funds-tab:not(.active) {
+    background-color: white;
+    color: darkgray;
+}
+
+.seller-central-payments-tab.active {
+    color: Black;
+}
+
+.seller-central-payments-tab:not(.active) {
+    background-color: white;
+    color: darkgray;
+}
+
+
+.total-box-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+.total-box-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative
+}
+
+
+.total-box-text-1 {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 24px;
+    color: black;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    width: 550px;
+}
+
+.total-box-text-2 {
+    margin-top: 100px;
+    font-size: 22px;
+    font-family: "Sansation-Bold", sans-serif;
+    color: black;
+}
+
+.seller-central-funds-box-container {
+    width: 640px;
+    height: 250px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-btn-review-payment {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-left: 200px;
+    width: 40%;
+    height: 50px;
+    padding: 14px 0px;
+    border-radius: 9px;
+    border: none;
+    border-color: #30379B;
+    background-color: #30379B;
+    color: azure;
+    cursor: pointer;
+}
+
+.btn-btn-review-payment:hover {
+
+    border-color: #3c42a1;
+    background-color: #3c42a1;
+    color: azure;
+}
+
+.seller-central-payments-methods-box-container {
+    display: flex;
+    flex-direction: column;
+   width: 100%;
+}
+
+.seller-central-payments-methods-box-container {
+    display: flex;
+    width: 700px;
+    height: 300px;
+    padding-top: 34px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 60px;
+    border-radius: 17px;
+    box-shadow: 0 0 3px 3px #dad9d9;
+    flex-direction: column;
+}
+
+ .seller-central-top-payment {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+} 
+
+.payment-box {
+    display:block;
+}
+
+.payments-box-container {
+    width: 100%;
+    height: 68px;
+    flex-direction: column-reverse;
+    border-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #F8F8F8;
+    margin-bottom: 20px;
+}
+
+.payment-box-texts-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding-top: 11px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+
+
+ .payment-box-texts-2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding-top: 11px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.payment-container-stripe-email {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 15px;
+}
+
+
+.payment-container-stripe{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 15px;
+}
+.payment-stripe-account-fname{
+    display: flex;
+    text-align: start;
+}
+
+ .payment-email{
+    display: flex;
+    text-align: start;
+ }
+
+.seller-central-payments-methods-box-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .payment-box {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .payments-box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .payment-box-texts-1,
+  .payment-box-texts-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .payment-container-name,
+  .payment-container-email {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 15px;
+    display: flex;
+  
+    text-align: start;
+  }
+  
+  .payment-stripe-account-name,
+  .payment-stripe-email{
+    text-align: right;
+    width:28%;
+  }
+  
+  .payment-edit-popup-1,
+  .payment-edit-popup-2 {
+    text-align: left;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 14px;
+    color: #525252;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-top: 2.5px;
+    width: 7%;
+
+  }
+  
+
+  :where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary {
+    color: #fff;
+    background-color: #4444AA;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 14px;
+    line-height: 1.5714285714285714;
+    list-style: none;
+    font-family: 'Sansation-Bold';
+    pointer-events: none;
+    position: sticky;
+    top: 500px;
+    width: auto;
+    max-width: calc(100vw - 32px);
+    padding-bottom: 24px;
+}
+
+
+element.style {
+}
+
+user agent stylesheet
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+
+.anticon > * {
+    line-height: 1;
+}
+
+.anticon {
+    display: inline-block;
+    color: inherit;
+    font-style: oblique;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -0.125em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-close-x {
+    display: block;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 22px;
+    text-align: center;
+    text-transform: none;
+    text-rendering: auto;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-close {
+    position: absolute;
+    top: 17px;
+    inset-inline-end: 17px;
+    z-index: 1010;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.45);
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    background: transparent;
+    border-radius: 4px;
+    width: 22px;
+    height: 22px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.2s,background-color 0.2s;
+}
+
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
+    position: relative;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 13px;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    pointer-events: auto;
+    padding: 22px 26px;
+
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label >label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    height: 32px;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 16px;
+    font-weight: bold;
+}
+:where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary:not(:disabled):hover {
+    color: #fff;
+    background-color: #3e3ea4;
+}
+ .styles-notification {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Sansation-Bold';
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    font-size: 16px;
+  }
+  
+  .styles-notification .anticon-check-circle {
+    color: #52c41a;
+    font-size: 24px;
+    margin-right: 8px;
+  }
+   

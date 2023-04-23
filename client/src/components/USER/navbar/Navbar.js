@@ -27,7 +27,7 @@ function Navbar() {
           </div>
 
           <div className="navbar-buttons">
-            <button className='btn-list'>List your property</button>
+            <button className='btn-list' onClick={() => window.location.href = "/registerseller"} >List your property</button>
 
             {user ? (<>
               <NavbarToggler />

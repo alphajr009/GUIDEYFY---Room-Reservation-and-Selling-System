@@ -142,12 +142,12 @@
 }
 .admin-terminal-rooms-delete {
   background-color: var(--red-2);
-  border-color: red;
   border-radius: 4px;
   font-family: "Sansation-Bold", sans-serif;
   color: red;
   height:30px;
   width:80px;
+  border-color: red;
   border-radius: 3px;
 }
 
@@ -172,4 +172,10 @@
   font-family: "Sansation-Bold", sans-serif;
 
 
+}
+
+.no-of-rooms{
+  font-size: 16px;
+  font-family: "Sansation-Bold", sans-serif;
+  color:rgb(170, 42, 42);
 }

@@ -1,0 +1,119 @@
+.seller-central-blogs-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: none;
+}
+
+.seller-central-blogs-tab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 13px 10px 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #4444AA;
+    background-color: #4444AA;
+    position: absolute;
+    left: 50%;
+    margin-top: 100px;
+    transform: translateX(-50%);
+    text-align: center;
+    cursor: pointer;
+}
+
+.seller-central-create-blog-tab-container{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.seller-central-blogs-tab-container{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.seller-central-create-blog-tab-container.active {
+    color: black;
+  }
+  
+  .seller-central-blogs-tab-container.active {
+    color: black;
+  }
+  
+  .seller-central-create-blog-tab-container:not(.active) {
+    background-color: white;
+    color: darkgray;
+  }
+  
+  .seller-central-blogs-tab-container:not(.active) {
+    background-color: white;
+    color: darkgray;
+  }
+  
+  .seller-central-table-blogs-sellers{
+    margin-top: 250px;
+    width: 90%;
+    font-family: "Sansation-Bold", sans-serif;
+  }
+
+  .seller-central-table-blogs-sellers th{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+  }
+
+  .seller-central-table-blogs-sellers td{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+  }
+ 
+
+  :root {
+    --red-2: rgba(299,4,4,0.108);
+    --harlequin-2: rgba(68,213,0,0.109);
+    
+  }
+  .btn-edit-blogs-by-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    color: green;
+    height:30px;
+    width:80px;
+    background-color:var(--harlequin-2);
+    border-color: lightgreen;
+    border-radius: 4px;
+  }
+
+.btn-delete-blogs-by-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    color: red;
+    height:30px;
+    width:80px;
+    background-color: var(--red-2);
+    border-color: red;
+    border-radius: 4px;
+}

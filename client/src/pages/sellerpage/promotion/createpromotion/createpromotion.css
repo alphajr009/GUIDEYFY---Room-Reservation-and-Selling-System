@@ -59,7 +59,7 @@
   width:100%;
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-radio-group {
+.create-promotion-container :where(.css-dev-only-do-not-override-1vtf12y).ant-radio-group {
   box-sizing: border-box;
   margin: 0;
   padding-right: 80px;
@@ -71,7 +71,7 @@
    display: inline-block;
 }
 
- :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label >label::after {
+ .create-promotion-container :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label >label::after {
     content: "";
     position: relative;
     margin-block: 0;
@@ -79,7 +79,7 @@
     margin-inline-end: 8px;
 } 
 
- :where(.css-dev-only-do-not-override-1vtf12y).ant-picker-range {
+ .create-promotion-container :where(.css-dev-only-do-not-override-1vtf12y).ant-picker-range {
   position: relative;
   /* display: inline-flex; */
 } 
@@ -128,7 +128,7 @@
   margin-right: 140px;
 }
 
-.ant-picker .ant-picker-input >input {
+.create-promotion-container .ant-picker .ant-picker-input >input {
   font-family: "Sansation-Bold", sans-serif;
   font-size: 15px;
 }

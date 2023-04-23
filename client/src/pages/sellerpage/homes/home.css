@@ -1,0 +1,104 @@
+.SellerDiscriptionBarAvi {
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 12px;
+    vertical-align: center;
+    font-family: "Sansation-Bold", sans-serif;
+    width: 950px;
+    height: 65px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .SellerDiscriptionBarAvi th,
+  .SellerDiscriptionBarAvi td {
+    text-align: center;
+  }
+  
+  .GetStartedAvi{
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    padding: 5px;
+    vertical-align: center;
+    font-family: "Sansation-regular";
+    width: 280px;
+    height: 280px;
+    margin-top: 70px;
+    margin-left: 200px;
+    margin-right: 50px;
+    
+  }
+  
+
+.GetStartedAvi a{
+    color: black;
+  }
+  
+  /* Add right arrow to every link */
+  .GetStartedAvi a::after {
+    content: " >";
+  }
+  
+  /* Align all arrow signs */
+  .GetStartedAvi a::after {
+    display: inline-block;
+    margin-left:270px; /* adjust this value to your preference */
+    top: 50%;
+  }
+  .GetStartedAvi td {
+    border-bottom: 1px solid #B2A7A7;
+    border-collapse: collapse;
+    position: relative;
+    
+  }
+  .GetStartedAvi tr:last-child td {
+    border-bottom: none;
+  }
+  
+  
+  .GetStartedAvi th{
+    font-family: "Sansation-Bold", sans-serif;
+    font-weight: bold;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  
+  .CreateBlogButtonContainerAvi {
+    position: absolute;
+    top: 55%;
+    left: 19.8%;
+    transform: translate(-50%, -50%);
+  }
+  .CreateBlogButtonAvi {
+    background-color: #30379B;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    display: flex;
+    align-items: center;
+  }
+  
+  .CreateBlogButtonAvi i {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  .CreateBlogButtonAvi span {
+    margin-right: 8px;
+  }
+  
+  .CreateBlogButtonAvi:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }

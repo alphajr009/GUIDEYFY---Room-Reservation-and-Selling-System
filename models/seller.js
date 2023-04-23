@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const sellerSchema = mongoose.Schema({
 
+
     fname: {
         type: String,
         required: true
@@ -11,34 +12,44 @@ const sellerSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    
-    email :{
-        type: String, 
+   
+    email: {
+        type: String,
         required: true
     },
 
-    address : {
+    stripeemail: {
         type: String,
-        required: false 
-    },
-    
-    gender:{
-        type: String, 
-        required: false
+        required: true
     },
 
-    birthday : {
+    stripename: {
         type: String,
-        required: true 
+        required: true
     },
 
-    password:{
+    phonenumber: {
+        type: String,
+        required: true
+    },
+
+    password: {
         type: String, required: true
-    }
-},{
+    },
+
+    isSuspend: {
+        type: Boolean,
+        default: false
+    },
+
+    sellerLevel: {
+        type: String,
+        default: 'Silver'
+    },
+}, {
     timestamps: true,
 })
 
-const sellerModel = mongoose.model('sellers',sellerSchema)
+const sellerModel = mongoose.model('sellers', sellerSchema)
 
 module.exports = sellerModel

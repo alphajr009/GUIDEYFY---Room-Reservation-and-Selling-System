@@ -1,10 +1,14 @@
-import React from 'react'
-import './property.css'
+import React from 'react';
+import './property.css';
 
 function Property() {
   return (
-    <div>Property</div>
-  )
+    <div className="wrapper">
+      <div className="title">
+        Create New Property
+      </div>
+    </div>
+  );
 }
 
-export default Property
+export default Property;

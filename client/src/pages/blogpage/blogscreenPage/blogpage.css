@@ -1,0 +1,9 @@
+.blogpage{
+    display: flex;
+    flex-direction: column;
+    min-height: 200vh;
+}
+
+.blogpage-container{
+    flex-grow: 1;
+}

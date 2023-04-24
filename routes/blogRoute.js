@@ -23,6 +23,7 @@ router.post("/addblog", upload.array("images", 4), async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     roomid: req.body.room_id,
+    category: req.body.category,
   });
 
   try {

@@ -20,6 +20,10 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    category:{
+        type: String,
+        required: false
+    },
     sellerid :{
         type:String,
         required: false

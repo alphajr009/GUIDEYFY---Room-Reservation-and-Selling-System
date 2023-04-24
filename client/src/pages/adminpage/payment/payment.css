@@ -1,7 +1,7 @@
 .admin-terminal-payment-containers {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .tab-of-admin-payment {
@@ -57,6 +57,8 @@
     margin-top: 250px;
     width: 90%;
     font-family: "Sansation-Bold", sans-serif;
+    margin-left: 80px;
+
 }
 
 .table-of-payment-history th {
@@ -87,6 +89,9 @@
 .summary-of-payment {
     margin-top: 250px;
     text-align: left;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .summary-of-total-funds,
@@ -183,7 +188,7 @@
     display: flex;
     align-items: center;
     height: 38px;
-    width: 200px;
+    width: 220px;
     background-color: white;
     color: black;
     border: 1px solid #ccc;
@@ -267,7 +272,8 @@
 
 }
 
+
 .table-of-review-payment{
-    margin-top: 380px;
-    width:350%;
+    width:90%;
+    margin-top:350px
 }

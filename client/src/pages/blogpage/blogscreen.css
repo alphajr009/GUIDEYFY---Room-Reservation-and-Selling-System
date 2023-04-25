@@ -3,6 +3,7 @@
   flex-direction: column;
   min-height: 220vh;
   background-color: #f5f1f1;
+
 }
 
 .blogscreen-wrapper{
@@ -144,4 +145,10 @@
   cursor: pointer;
   width: 75px;
   height: 30px;
+}
+
+.blogscrn-pagnition{
+  padding-bottom: 20px;
+  text-align: right;
+  padding-right: 140px;
 }

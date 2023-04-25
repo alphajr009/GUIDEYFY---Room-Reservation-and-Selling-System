@@ -190,3 +190,8 @@
 .nounderline-blogpage{
     text-decoration: none;
 }
+
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-pagination .ant-pagination-item-active a {
+    color: #4444AA;
+}

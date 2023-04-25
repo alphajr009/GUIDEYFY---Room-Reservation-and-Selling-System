@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 
 
 
+
+
 function formatDescription(description) {
   return description.split('\n').map((line, index) => (
     <React.Fragment key={index}>
@@ -43,7 +45,7 @@ function BlogPage() {
 
       }
     })();
-  }, []);
+  }, [params.blogid]);
 
 
   useEffect(() => {
@@ -57,7 +59,7 @@ function BlogPage() {
         console.log(error);
       }
     })();
-  }, []);
+  }, [params.blogid]);
 
 
 
@@ -91,7 +93,7 @@ function BlogPage() {
               </div>
               <div className="blogpage-description1">
                 <div className='blog-img-wrapper'>
-                  <img className='blogimage-photo4' src={`http://localhost:5000/uploads/${params.blogid}-1.jpg`} />
+                  <img className='blogimage-photo4' src={`http://localhost:5000/uploads/${params.blogid}-3.jpg`} />
                 </div>
                 <p>{formatDescription(blog.description1)}</p>
               </div>

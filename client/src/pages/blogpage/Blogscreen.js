@@ -41,6 +41,14 @@ function Blogscreen() {
   const [filteredBlogs, setFilteredBlogs] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
 
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const onPageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const blogsPerPage = 8;
+
   const categories = [
     'Accommodation',
     'Activities',
@@ -140,10 +148,20 @@ function Blogscreen() {
           </div>
         </div>
         <div className="blogscreen-content">
-          {filteredBlogs.map((blog) => (
-            <Blog key={blog.id} blog={blog} />
-          ))}
+        {filteredBlogs
+            .slice((currentPage - 1) * blogsPerPage, currentPage * blogsPerPage)
+            .map((blog) => (
+              <Blog key={blog.id} blog={blog} />
+            ))}
         </div>
+      </div>
+      <div className='blogscrn-pagnition'>
+        <Pagination
+          current={currentPage}
+          pageSize={blogsPerPage}
+          total={filteredBlogs.length}
+          onChange={onPageChange}
+        />
       </div>
       <Footer />
     </div>

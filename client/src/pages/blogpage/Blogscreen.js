@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 function Blog({ blog }) {
 
-  const shortDescription = blog.description.substring(0, 700);
+  const shortDescription = blog.description1.substring(0, 700);
 
 
 
@@ -91,7 +91,7 @@ function Blogscreen() {
       try {
         const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data;
         setblogs(data.blogs);
-        setFilteredBlogs(data.blogs); // Set filteredBlogs state here
+        setFilteredBlogs(data.blogs); 
       } catch (error) {
         console.log(error);
       }

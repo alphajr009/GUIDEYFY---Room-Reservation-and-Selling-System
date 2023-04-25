@@ -35,7 +35,10 @@ function CreateBlog() {
 
 
     const [title, settitle] = useState('')
-    const [description, setdescription] = useState('')
+    const [description1, setdescription1] = useState('')
+    const [description2, setdescription2] = useState('')
+    const [description3, setdescription3] = useState('')
+    const [description4, setdescription4] = useState('')
 
     const [imageurls, setImageurls] = useState(Array(4).fill(''));
 
@@ -122,7 +125,10 @@ function CreateBlog() {
     async function createroom() {
         const formData = new FormData();
         formData.append("title", title);
-        formData.append("description", description);
+        formData.append("description1", description1);
+        formData.append("description2", description2);
+        formData.append("description3", description3);
+        formData.append("description4", description4);
         formData.append("room_id", selectedRoomId);
         formData.append("category", selectedCategory);
 
@@ -265,7 +271,7 @@ function CreateBlog() {
                                         <Select
                                             className="createblog-category-select"
                                             placeholder="Category"
-                                            style={{ width: '175px' }}
+                                            style={{ width: '175px' ,marginLeft:'30px'}}
                                             value={selectedCategory}
                                             onChange={handleCategoryChange}
                                         >
@@ -285,9 +291,10 @@ function CreateBlog() {
                                                     name="title"
                                                     rules={[{ required: true, message: 'Please input your Title!' }]}
                                                 >
-                                                    <Input className="createblog-dis-custom-input"
+                                                    <Input.TextArea className="createblog-dis-custom-input"
                                                         value={title}
                                                         onChange={(e) => { settitle(e.target.value) }}
+                                                        showCount maxLength={85}
                                                     />
                                                 </Form.Item>
                                             </div>
@@ -296,15 +303,57 @@ function CreateBlog() {
                                             <div className="userp-help-namebox-container">
                                                 <Form.Item
                                                     className='userp-help-namebox-conatiner-p'
-                                                    label="Discription:"
-                                                    name="description"
+                                                    label="Discription 1:"
+                                                    name="description1"
                                                     rules={[{ required: true, message: 'Please input your blog discription!' }]}
                                                 >
-                                                    <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={3000} className="userp-helpmsg-custom-input"
-                                                        value={description}
-                                                        onChange={(e) => { setdescription(e.target.value) }} />
+                                                    <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1300} className="userp-helpmsg-custom-input"
+                                                        value={description1}
+                                                        onChange={(e) => { setdescription1(e.target.value) }} />
                                                 </Form.Item>
-                                            </div>
+                                            </div> 
+                                        </div>
+                                        <div className="userp-help-messagebox">
+                                            <div className="userp-help-namebox-container">
+                                                <Form.Item
+                                                    className='userp-help-namebox-conatiner-p'
+                                                    label="Discription 2:"
+                                                    name="description2"
+                                                    rules={[{ required: true, message: 'Please input your blog discription!' }]}
+                                                >
+                                                    <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
+                                                        value={description2}
+                                                        onChange={(e) => { setdescription2(e.target.value) }} />
+                                                </Form.Item>
+                                            </div> 
+                                        </div>
+                                        <div className="userp-help-messagebox">
+                                            <div className="userp-help-namebox-container">
+                                                <Form.Item
+                                                    className='userp-help-namebox-conatiner-p'
+                                                    label="Discription 3:"
+                                                    name="description3"
+                                                    rules={[{ required: true, message: 'Please input your blog discription!' }]}
+                                                >
+                                                    <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
+                                                        value={description3}
+                                                        onChange={(e) => { setdescription3(e.target.value) }} />
+                                                </Form.Item>
+                                            </div> 
+                                        </div>
+                                        <div className="userp-help-messagebox">
+                                            <div className="userp-help-namebox-container">
+                                                <Form.Item
+                                                    className='userp-help-namebox-conatiner-p'
+                                                    label="Discription 4:"
+                                                    name="description4"
+                                                    rules={[{ required: true, message: 'Please input your blog discription!' }]}
+                                                >
+                                                    <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
+                                                        value={description4}
+                                                        onChange={(e) => { setdescription4(e.target.value) }} />
+                                                </Form.Item>
+                                            </div> 
                                         </div>
                                     </div>
                                 </Form>

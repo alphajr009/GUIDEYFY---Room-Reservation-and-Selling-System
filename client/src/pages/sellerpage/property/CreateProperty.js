@@ -306,13 +306,122 @@ function CreateProperty() {
 
                             <Form>
 
-                                
+                                <Form.Item
+                                    className='createproperty-slide1-form-custom'
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please enter Address Line 1 !"
+                                        }
+                                    ]}
+                                    label="Address Line 1"
+                                    name="addressline1"
+                                    labelCol={{ span: 8 }}
+                                    wrapperCol={{ span: 8 }}
+                                    labelAlign="left"
+                                >
+                                    <Input size="large"
+                                        style={{ width: '380px' }}
+                                        className='input-room-name'
+                                        placeholder="Address Line 1"
+
+                                    />
+                                </Form.Item>
+
+                                <Form.Item
+                                    className='createproperty-slide1-form-custom'
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please enter Address Line 2 !"
+                                        }
+                                    ]}
+                                    label="Address Line 2"
+                                    name="addressline2"
+                                    labelCol={{ span: 8 }}
+                                    wrapperCol={{ span: 8 }}
+                                    labelAlign="left"
+                                >
+                                    <Input size="large"
+                                        style={{ width: '380px' }}
+                                        className='input-room-name'
+                                        placeholder="Address Line 2"
+
+                                    />
+                                </Form.Item>
+
+                                <Form.Item
+                                    className='createproperty-slide1-form-custom'
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please enter Province !"
+                                        }
+                                    ]}
+                                    label="Province"
+                                    name="province"
+                                    labelCol={{ span: 8 }}
+                                    wrapperCol={{ span: 8 }}
+                                    labelAlign="left"
+                                >
+                                    <Input size="large"
+                                        style={{ width: '380px' }}
+                                        className='input-room-name'
+                                        placeholder="Name of Province"
+
+                                    />
+                                </Form.Item>
+
+                                <Form.Item
+                                    className='createproperty-slide1-form-custom'
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please enter District !"
+                                        }
+                                    ]}
+                                    label="District"
+                                    name="district"
+                                    labelCol={{ span: 8 }}
+                                    wrapperCol={{ span: 8 }}
+                                    labelAlign="left"
+                                >
+                                    <Input size="large"
+                                        style={{ width: '380px' }}
+                                        className='input-room-name'
+                                        placeholder="Name of District"
+
+                                    />
+                                </Form.Item>
+
+                                <Form.Item
+                                    className='createproperty-slide1-form-custom'
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please enter City Name !"
+                                        }
+                                    ]}
+                                    label="City"
+                                    name="city"
+                                    labelCol={{ span: 8 }}
+                                    wrapperCol={{ span: 8 }}
+                                    labelAlign="left"
+                                >
+                                    <Input size="large"
+                                        style={{ width: '380px' }}
+                                        className='input-room-name'
+                                        placeholder="Name of City"
+
+                                    />
+                                </Form.Item>
+
                             </Form>
 
 
                             <button
                                 className="createprop-down-btn-continue"
-                                onClick={() => goToSlide(4)}
+                                onClick={() => goToSlide(5)}
                             >
                                 Continue
                             </button>

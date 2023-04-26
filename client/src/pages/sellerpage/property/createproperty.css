@@ -53,7 +53,7 @@
 }
 
 .createproperty-slide4 {
-    width: 717px;
+    width: 580px;
     height: auto;
     padding-top: 17px;
     padding-bottom: 40px;
@@ -185,8 +185,18 @@ background-color: #EAEAEA;
     text-align: left;
 }
 
+.createproperty-slide4 .ant-form-item .ant-form-item-explain-error{
+    text-align: left;
+}
+
 
 .form-slide3-createblog .ant-form-item .ant-form-item-label >label {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+}
+
+
+.createproperty-slide4 .ant-form-item .ant-form-item-label >label {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 16px;
 }

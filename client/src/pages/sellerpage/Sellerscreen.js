@@ -17,6 +17,7 @@ import Promotion from './promotion/Promotion'
 function Sellerscreen() {
 
   const [activeTab, setActiveTab] = useState("home");
+  
   return (
     <div className='sellerscreen'>
       <div className='sellercontainer'>

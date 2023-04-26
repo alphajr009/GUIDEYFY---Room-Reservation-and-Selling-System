@@ -1,0 +1,189 @@
+@font-face {
+  font-family: "Sansation-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
+}
+
+@font-face {
+  font-family: "Sansation-Regular";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.animaapp.com/Sansation-Regular") format('truetype');
+}
+
+.PromotionForm {
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  margin: 10px auto;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.24);
+  border-radius: 30px;
+  padding: 50px;
+}
+
+.PF-title {
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 90px;
+  color: #000000;
+  text-align: center;
+}
+
+.createPromotionForm {
+  width: 100%;
+}
+
+.promotion-form-input {
+  font-family: "Sansation-Bold", sans-serif;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.createPromotionForm .ant-form-item .ant-form-item-label {
+  font-family: "Sansation-Bold", sans-serif;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.promotion-form-input label {
+  width: 200px;
+  color: #000000;
+  margin-right: 10px;
+}
+
+.pro-input,
+.promotion-form-input .textarea {
+  font-family: "Sansation-Bold", sans-serif;
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  background-color: #EAEAEA;
+  width: 383px;
+  height: 40px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.pro-input-2 {
+  font-family: "Sansation-Bold", sans-serif;
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  background-color: #EAEAEA;
+  width: 150px;
+  height: 40px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.promotion-form-input .textarea {
+  width: 100%;
+  height: 125px;
+  resize: none;
+}
+
+.pro-select-one {
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.pro-select-one:before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.pro-select-one select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+.pro-input:focus,
+.pro-input-2:focus .promotion-form-input .textarea:focus,
+.pro-select-one select:focus {
+  border: 1px solid #30379B;
+}
+
+/* .wrapper .form .inputfield .check {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+} */
+
+.pro-submit-btn {
+  width: 60%;
+  height: 50px;
+  margin-top: 70px;
+  margin-left: 156px;
+  margin-right: 80px;
+  margin-bottom: 50px;
+  padding: 8px 100px;
+  font-size: 15px;
+  border: 0px;
+  background: #30379B;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+  outline: none;
+}
+
+.pro-submit-btn:hover {
+  background: #594ef3;
+}
+
+.wrapper .form .inputfield:last-child {
+  margin-bottom: 0;
+}
+
+.promotion-charge {
+  font-family: "Sansation-Regular", sans-serif;
+  text-align: right;
+}
+
+.promotion-terms-con {
+  font-family: "Sansation-Regular", sans-serif;
+  text-align: center;
+}
+
+.pro-input-radioB {
+  cursor: pointer;
+}
+
+/* @media (max-width:420px) {
+  .wrapper .form .inputfield{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .inputfield label{
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+} */

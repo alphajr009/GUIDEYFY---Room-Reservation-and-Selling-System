@@ -131,6 +131,7 @@ function CreateBlog() {
         formData.append("description4", description4);
         formData.append("room_id", selectedRoomId);
         formData.append("category", selectedCategory);
+        formData.append("sellerid", user._id);
        
         imageurls.forEach((image, index) => {
             if (image) {

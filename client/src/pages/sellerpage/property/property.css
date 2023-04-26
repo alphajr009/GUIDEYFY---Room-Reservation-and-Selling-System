@@ -76,10 +76,11 @@
     color: darkgray;
 }
 
-.seller-central-create-property{
-    margin-top: 250px;
-}
 
 .seller-central-current-property{
     margin-top: 250px;
+}
+
+.seller-central-create-property{
+    text-align: center;
 }

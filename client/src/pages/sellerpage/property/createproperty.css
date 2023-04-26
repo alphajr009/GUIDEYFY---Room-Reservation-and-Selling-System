@@ -109,6 +109,7 @@
 }
 
 .createproperty-slide-container .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+    font-family: "Sansation-Regular", sans-serif;
     font-size: 15px;
 }
 
@@ -199,4 +200,10 @@ background-color: #EAEAEA;
 .createproperty-slide4 .ant-form-item .ant-form-item-label >label {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 16px;
+}
+
+
+.createproperty-slide1  .ant-select-selector{
+    background-color: #eaeaea !important;
+
 }

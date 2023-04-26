@@ -58,6 +58,12 @@ function Createpromotion() {
         <div className='attempt-to-use-form'>
           <Form>
             <Form.Item
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter a Attempt to use"
+                }
+              ]}
               label="Attempt to use"
               name="attempttouse"
               labelCol={{ span: 8 }}
@@ -79,6 +85,12 @@ function Createpromotion() {
         <div className='data-range-form'>
           <Form>
             <Form.Item
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter a Date Range"
+                }
+              ]}
               label="Date Range"
               name="attempttouse"
               labelCol={{ span: 8 }}
@@ -98,6 +110,13 @@ function Createpromotion() {
         <div className='radio-container'>
           <Form>
             <Form.Item
+
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter a Reduce Type"
+                }
+              ]}
               label="Reduce Type"
               name="reduceType"
               labelCol={{ span: 8 }}
@@ -114,7 +133,7 @@ function Createpromotion() {
               </div>
             </Form.Item>
 
-                {/* radio buttons container */}
+            {/* radio buttons container */}
             <div className='radio-input-container'>
               {reduceType === "percentage" && (
                 <Form.Item
@@ -157,7 +176,7 @@ function Createpromotion() {
                     className="input-promotion-amount"
                     placeholder="Rs"
                     value={reduceamount}
-                    onChange={(e) => {setreduceamount(e.target.value) }}
+                    onChange={(e) => { setreduceamount(e.target.value) }}
                   />
                 </Form.Item>
               )}
@@ -170,6 +189,12 @@ function Createpromotion() {
       <div className='max-amount-form'>
         <Form>
           <Form.Item
+           rules={[
+            {
+              required: true,
+              message: "Please enter a Maximum Amount"
+            }
+          ]}
             label="Maximum Amount"
             name="maxamount"
             labelCol={{ span: 8 }}
@@ -180,13 +205,13 @@ function Createpromotion() {
             <Input size="large"
               style={{ width: '70%' }}
               className='input-maximum-amount'
-              placeholder="Maximum Amount" 
+              placeholder="Maximum Amount"
               value={maximumAmount}
-              onChange={(e) => {setmaximunAmount(e.target.value) }}
-              />
+              onChange={(e) => { setmaximunAmount(e.target.value) }}
+            />
           </Form.Item>
         </Form>
-        
+
       </div>
       <div className='text-left'>
         <span className='charge'>You will be charged Rs.200 </span>

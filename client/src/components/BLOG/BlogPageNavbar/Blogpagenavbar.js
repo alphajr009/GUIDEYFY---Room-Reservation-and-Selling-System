@@ -3,10 +3,10 @@ import logo from '../../../images/logo.png';
 import Registermodal from '../../USER/regsitermodal/Registermodal';
 import Signinmodal from '../../USER/signinmodal/Signinmodal';
 import NavbarToggler from '../../USER/navtoggler/NavbarToggler'
-import './blognavbar.css'
+import './Blogpagenavbar.css'
 
 
-function BlogNavbar() {
+function Blogpagenavbar() {
 
   const user = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -18,10 +18,6 @@ function BlogNavbar() {
           <div className="navbar-logo-container">
             <img className="navbar-logo" src={logo} alt="Logo" />
 
-            <div className="navbar-text">
-              <h1>Let’s start the Guide</h1>
-              <p>Discover enchanted Sri Lanka and romantic getaway guide.</p>
-            </div>
 
           </div>
 
@@ -51,4 +47,4 @@ function BlogNavbar() {
   );
 }
 
-export default BlogNavbar;
+export default Blogpagenavbar;

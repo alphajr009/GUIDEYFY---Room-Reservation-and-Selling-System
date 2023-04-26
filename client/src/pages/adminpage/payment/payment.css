@@ -1,7 +1,7 @@
 .admin-terminal-payment-containers {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .tab-of-admin-payment {
@@ -53,21 +53,20 @@
     color: darkgray;
 }
 
-
-.table-of-review-payment,
 .table-of-payment-history {
     margin-top: 250px;
     width: 90%;
     font-family: "Sansation-Bold", sans-serif;
+    margin-left: 80px;
+
 }
 
-.table-of-review-payment th,
 .table-of-payment-history th {
     font-size: 15px;
     font-family: "Sansation-Bold", sans-serif;
 }
 
-.table-of-review-payment td,
+
 .table-of-payment-history td {
     font-size: 15px;
     font-family: "Sansation-Bold", sans-serif;
@@ -90,6 +89,9 @@
 .summary-of-payment {
     margin-top: 250px;
     text-align: left;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .summary-of-total-funds,
@@ -100,7 +102,7 @@
 }
 
 .summary-of-payment-box-1 {
-    margin-right:0px;
+    margin-right: 0px;
     width: 817px;
     height: 180px;
     display: block;
@@ -113,7 +115,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
-   
+
 
 
 .summary-of-total-funds {
@@ -125,29 +127,29 @@
 .total-funds-of-payment-summary {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 24px;
-    
+
 }
 
 .summary-of-total-fees,
-.total-fees-of-payment-summary{
+.total-fees-of-payment-summary {
     display: block;
     margin-left: 50px;
     margin-top: 20px;
 }
 
-.summary-of-total-fees{
+.summary-of-total-fees {
     font-family: "Sansation-Bold", sans-serif;
     margin-bottom: 70px;
     font-size: 30px;
 }
 
-.total-fees-of-payment-summary{
+.total-fees-of-payment-summary {
     font-family: "Sansation-Bold", sans-serif;
     margin-bottom: 70px;
     font-size: 24px;
 }
 
-.summary-of-payment-box-2{
+.summary-of-payment-box-2 {
     margin-top: 40px;
     margin-bottom: 50px;
     width: 817px;
@@ -161,4 +163,117 @@
     padding: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+.search-bar-and-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payments-payout-id-icon,
+.payments-review-seller-name {
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+.admin-terminal-search-bar-payout-id.payments-payout-id-icon,
+.admin-terminal-search-bar-review-payment-seller-name.payments-review-seller-name {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.admin-terminal-search-bar-payout-id{
+    display: flex;
+    align-items: center;
+    height: 38px;
+    width: 220px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+}
+
+.admin-terminal-search-bar-review-payment-seller-name{
+    display: flex;
+    align-items: center;
+    height: 38px;
+    width: 250px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+}
+
+.admin-terminal-payment-review-seller-name{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.admin-terminal-payments-payout-id{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.admin-payments-review-filter-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 40px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px
+
+}
+
+.admin-payments-review-filter-search.payments-review-search{
+    height: 18px;
+    width: 18px;
+}
+
+.btn-payment-review-search-admin-terminal{
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 13px 10px 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #4444AA;
+    background-color: #4444AA;
+    position: absolute;
+    left: 50%;
+    margin-top: 220px;
+    transform: translateX(-50%)
+
+}
+
+
+.table-of-review-payment{
+    width:90%;
+    margin-top:350px
 }

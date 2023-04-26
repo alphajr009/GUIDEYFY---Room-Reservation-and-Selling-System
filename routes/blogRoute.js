@@ -21,8 +21,13 @@ router.post("/addblog", upload.array("images", 4), async (req, res) => {
 
   const newblog = new Blog({
     title: req.body.title,
-    description: req.body.description,
+    description1: req.body.description1,
+    description2: req.body.description2,
+    description3: req.body.description3,
+    description4: req.body.description4,
     roomid: req.body.room_id,
+    category: req.body.category,
+    sellerid: req.body.sellerid,
   });
 
   try {
@@ -76,6 +81,41 @@ router.get("/getallblogs", async(req,res)=>{
       return res.status(400).json({message: error})
   }
 
+
+});
+
+
+router.post("/getblogbyid", async(req,res)=>{
+
+
+  const blogid = req.body.blogid
+
+  try {
+      const blog = await Blog.find({_id:blogid})
+      return res.json({blog})
+  } catch (error) {
+      return res.status(400).json({message: error})
+  }
+
+
+});
+
+
+router.patch('/deleteblog', async (req, res) => {
+
+  const { _id } = req.body;
+
+  try {
+
+      const  blog = await Blog.findByIdAndRemove(_id);
+
+      if (!blog) return res.status(404).send('Blog not found');
+      res.send('Room deleted successfully');
+
+  } catch (error) {
+      console.log(error);
+      res.status(400).send('Error deleting Blog');
+  }
 
 });
 

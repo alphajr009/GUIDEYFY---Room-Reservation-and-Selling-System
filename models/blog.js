@@ -7,16 +7,35 @@ const blogSchema = mongoose.Schema({
         required: true
     },
 
-    description: {
+    description1: {
         type: String,
         required: true
     },
+    description2: {
+        type: String,
+        required: true
+    },
+
+    description3: {
+        type: String,
+        required: true
+    },
+
+    description4: {
+        type: String,
+        required: true
+    },
+
 
     roomid: {
         type: String,
         required: false
     },
     roomnanme:{
+        type: String,
+        required: false
+    },
+    category:{
         type: String,
         required: false
     },

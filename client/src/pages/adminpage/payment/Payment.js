@@ -1,7 +1,8 @@
 import { React, useState } from 'react'
 import './payment.css'
 import { Table } from 'antd';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faIdBadge, faSearch, faUser } from '@fortawesome/free-solid-svg-icons'
 
 function Payment() {
 
@@ -89,6 +90,7 @@ function Payment() {
                     onClick={() => setActiveTab('Review Payments')}
                 >
                     <span className='tab-text-of-review-payments'>Review Payments</span>
+
                 </div>
                 {/* container for payment history */}
 
@@ -109,16 +111,15 @@ function Payment() {
                                 Total Funds
                             </span>
                             <span className='total-funds-of-payment-summary'>
-                               Rs.60000000000000000
+                                Rs.600000
                             </span>
                         </div>
-
                         <div className='summary-of-payment-box-2'>
                             <span className='summary-of-total-fees'>
                                 Fees
                             </span>
                             <span className='total-fees-of-payment-summary'>
-                               Rs600000000000000
+                                Rs6000
                             </span>
                         </div>
                     </div>
@@ -127,9 +128,37 @@ function Payment() {
 
 
             {activeTab === 'Review Payments' && (
-                <div className='table-of-review-payment'>
-                    <Table columns={reviewcolumns} />
+                <div className='search-bar-and-table-container'>
+                    <div className='search-bar-and-table'>
+                        <div className="search-bar">
+                            <div className="admin-terminal-search-bar-payout-id">
+                                <FontAwesomeIcon icon={faIdBadge} className="payments-payout-id-icon" />
+                                <input
+                                    type="text"
+                                    placeholder="Payout ID"
+                                    className="admin-terminal-payments-payout-id"
+                                />
+                            </div>
+                            <div className="admin-terminal-search-bar-review-payment-seller-name">
+                                <FontAwesomeIcon icon={faUser} className="payments-review-seller-name" />
+                                <input
+                                    type="text"
+                                    placeholder="Seller Name"
+                                    className="admin-terminal-payment-review-seller-name"
+                                />
+                            </div>
+                            <div className='admin-payments-review-filter-search'>
+                                <button className='btn-payment-review-search-admin-terminal'>
+                                    <FontAwesomeIcon icon={faSearch} className="payments-review-search" />
+                                </button>
+                            </div>
+                        </div>
+                         <div className='table-of-review-payment'>
+                     <Table columns={reviewcolumns} />
+                 </div>
+                    </div>
                 </div>
+                
             )}
 
 

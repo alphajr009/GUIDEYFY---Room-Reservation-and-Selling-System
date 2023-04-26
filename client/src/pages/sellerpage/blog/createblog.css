@@ -66,7 +66,7 @@
 
 .slide2 {
   width: 717px;
-  height: 850px;
+  height: auto;
   padding-top: 17px;
   padding-bottom: 40px;
   padding-left: 36px;
@@ -209,6 +209,14 @@
 }
 
 
+.createblog-dis-namebox-conatiner-p .ant-input-textarea-affix-wrapper.ant-input-affix-wrapper >textarea.ant-input{
+  margin-top: 5px;
+}
+
+.ant-input-textarea-affix-wrapper.ant-input-affix-wrapper >textarea.ant-input{
+  margin-top: 2px;
+}
+
 .createblog-dis-namebox {
   width: 780px;
   height: 78px;
@@ -251,7 +259,7 @@
   font-size: 15px;
   height: 40px;
   width: 630px;
-  margin-left: 50px;
+  margin-left: 60px;
 }
 
 .crb-s2-blog-title-wrap {
@@ -263,8 +271,14 @@
   margin-right: 110px;
 }
 
-.ant-form-item-with-help .ant-form-item-explain {
-  margin-left: 50px;
+.slide2 .ant-form-item-with-help .ant-form-item-explain {
+  text-align: left;
+  margin-left: 8px;
+}
+
+.createblog-dis-namebox-container .ant-form-item-with-help .ant-form-item-explain {
+  text-align: left;
+  margin-left: 60px;
 }
 
 .pagination-container {
@@ -285,4 +299,14 @@
   border-radius: 12px;
   padding: 0 15px;
   margin: 0 10px 10px 10px;
+}
+
+.crb-s2-images-upload :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select, :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select{
+  width:105px ;
+  height: 105px;
+}
+
+.crb-s2-images-upload :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-container, :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-container, :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-circle .ant-upload-list-item-container, :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload-list.ant-upload-list-picture-circle .ant-upload-list-item-container{
+  width:105px ;
+  height: 105px;
 }

@@ -131,7 +131,7 @@ function CreateBlog() {
         formData.append("description4", description4);
         formData.append("room_id", selectedRoomId);
         formData.append("category", selectedCategory);
-
+       
         imageurls.forEach((image, index) => {
             if (image) {
                 formData.append("images", image, `${user._id}-${index}.jpg`);
@@ -139,6 +139,7 @@ function CreateBlog() {
         });
 
         console.log('imageurls:', imageurls);
+        
 
         try {
             const response = await axios.post("http://localhost:5000/api/blogs/addblog", formData, {

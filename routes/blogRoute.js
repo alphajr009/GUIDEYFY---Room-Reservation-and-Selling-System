@@ -100,6 +100,25 @@ router.post("/getblogbyid", async(req,res)=>{
 });
 
 
+router.patch('/deleteblog', async (req, res) => {
+
+  const { _id } = req.body;
+
+  try {
+
+      const  blog = await Blog.findByIdAndRemove(_id);
+
+      if (!blog) return res.status(404).send('Blog not found');
+      res.send('Room deleted successfully');
+
+  } catch (error) {
+      console.log(error);
+      res.status(400).send('Error deleting Blog');
+  }
+
+});
+
+
 
 
 

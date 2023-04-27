@@ -9,6 +9,8 @@ function Personaldetail() {
 
         <div className='label_js'>
           <label for="name">First Name :</label>
+          
+          
         </div>
 
       </div>

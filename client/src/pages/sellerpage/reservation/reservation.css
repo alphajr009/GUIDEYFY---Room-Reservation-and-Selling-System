@@ -1,0 +1,146 @@
+.seller-central-reservation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seller-central-reservation-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 13px 10px 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #4444AA;
+    background-color: #4444AA;
+    position: absolute;
+    left: 50%;
+    margin-top: 100px;
+    transform: translateX(-50%);
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.seller-central-review-reservation {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.seller-central-confirm-reservation {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.seller-central-cancel-reservation {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.seller-central-reservation-table {
+    margin-top: 250px;
+    width: 90%;
+}
+
+
+:root {
+    --red-2: rgba(299, 4, 4, 0.108);
+}
+
+.btn-seller-reservation-cancel {
+    font-family: "Sansation-Bold", sans-serif;
+    color: red;
+    height: 30px;
+    width: 80px;
+    background-color: var(--red-2);
+    border-color: red;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-seller-reservation-cancel:hover {
+    color: red;
+    background-color: var(--red-2);
+    border-color: red;
+}
+
+.btn-seller-reservation-confirm{
+    font-family: "Sansation-Bold", sans-serif;
+    color: green;
+    height:30px;
+    width:80px;
+    background-color:var(--harlequin-2);
+    border-color: lightgreen;
+    border-radius: 4px;
+}
+
+.btn-seller-reservation-confirm:hover{
+    color: green;
+    background-color:var(--harlequin-2);
+    border-color: lightgreen;
+}
+
+.seller-central-review-reservation.active{
+    color: Black;
+}
+
+.seller-central-review-reservation:not(.active){
+    color: darkgray;
+}
+
+
+.seller-central-confirm-reservation.active{
+    color: Black;
+}
+
+.seller-central-confirm-reservation:not(.active){
+    color: darkgray;
+}
+
+.seller-central-cancel-reservation.active{
+    color: Black;
+}
+.seller-central-cancel-reservation:not(.active){
+    color: darkgray;
+}

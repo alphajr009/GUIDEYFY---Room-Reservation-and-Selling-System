@@ -190,7 +190,9 @@ function Blog() {
             <Table
               columns={columns}
               dataSource={blogs}
-              className='seller-cental-table-for-blog' />
+              className='seller-cental-table-for-blog'
+              rowKey="_id"
+              footer={() => <div className="no-of-blogs">{`Total  ${blogs.length} blogs `}</div>}/>
           </div>
         )}
       </div>

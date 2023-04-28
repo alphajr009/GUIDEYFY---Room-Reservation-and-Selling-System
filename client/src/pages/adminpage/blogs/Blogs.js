@@ -223,7 +223,10 @@ function Blogs() {
         <Table  
         columns={columns} 
         className='admin-terminal-blogs-table'
-        dataSource={filteredBlogs} />
+        dataSource={filteredBlogs}
+        rowKey="_id"
+        footer={() => <div className="no-of-blogs">{`Total  ${blogs.length} blogs `}</div>} 
+        />
       </div>
     </div>
   )

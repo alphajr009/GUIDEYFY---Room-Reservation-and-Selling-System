@@ -428,6 +428,8 @@ function CreateProperty() {
                         </div>
                     </div>
 
+                    {/* Slide 5 */}
+
                     <div className={`slide ${activeSlide === 5 ? 'active' : 'hidden'}`}>
                         <div className='createproperty-slide2'>
                             <button

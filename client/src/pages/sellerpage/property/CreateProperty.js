@@ -463,8 +463,6 @@ function CreateProperty() {
 
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

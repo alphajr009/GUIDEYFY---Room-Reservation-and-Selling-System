@@ -118,6 +118,54 @@ router.patch('/changeadmin', async (req, res) => {
 
 });
 
+router.patch("/editusername", async (req, res) => {
+    const { _id, fname, lname } = req.body;
+
+    try {
+        const user = await User.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        if (fname) user.fname = fname;
+        if (lname) user.lname = lname;
+
+        await user.save();
+        return res.json({ message: 'User details updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+
+router.patch("/edituseremail", async (req, res) => {
+    const { _id,email } = req.body;
+
+    try {
+        const user = await User.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        if (email) user.email = email;
+        
+
+        await user.save();
+        return res.json({ message: 'User email details updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+router.patch("/edituserdisplayname", async (req, res) => {
+    const { _id, displayName } = req.body;
+
+    try {
+        const user = await User.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        if (displayName) user.displayName = displayName; 
+
+        await user.save();
+        return res.json({ message: 'User display name updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
 
 
 

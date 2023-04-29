@@ -301,3 +301,166 @@
 .ant-select-single .ant-select-selector .ant-select-selection-item{
   line-height: 40px;
 }
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
+  position: initial;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 9px;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  pointer-events: auto;
+  padding: 20px 24px;
+}
+
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 16px;
+  line-height: 1.5714285714285714;
+  list-style: none;
+  font-family: 'Sansation-Bold';
+  position: relative;
+  top: 330px;
+  width: auto;
+  max-width: calc(100vw - 32px);
+  padding-bottom: 24px;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary {
+  color: #fff;
+  background-color: #4444AA;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-footer .ant-btn+.ant-btn:not(.ant-dropdown-trigger) {
+  margin-bottom: 0;
+  margin-inline-start: 12px;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y)[class^="ant-btn"], :where(.css-dev-only-do-not-override-1vtf12y)[class*=" ant-btn"] {
+  font-family: 'Sansation-Bold';
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label >label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  height: 32px;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  font-family: 'Sansation-Bold';
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-input-lg {
+  padding: 7px 11px;
+  font-size: 16px;
+  line-height: 2.0;
+  border-radius: 9px;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-input {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  line-height: 1.9;
+  list-style: none;
+  font-family: 'Sansation-Regular';
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  background-color: #ffffff;
+  background-image: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d9d9d9;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-input {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  line-height: 1.9;
+  list-style: none;
+  font-family: 'Sansation-Regular';
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  background-color: #ffffff;
+  background-image: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(0 0 0 / 29%);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-close-x {
+  display: block;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 22px;
+  text-align: center;
+  text-transform: none;
+  text-rendering: auto;
+  background-color: white;
+  color: white;
+}
+
+.style-noti-personal-details .anticon-check-circle {
+  color: #52c41a;
+  font-size: 24px;
+  margin-right: 8px;
+}
+ 
+:where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary {
+  color: #fff;
+  background-color: #4444AA;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary:not(:disabled):hover {
+  color: #fff;
+  background-color: #29298a;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-btn-default:not(:disabled):hover{
+  background-color: #ffffff;
+  border-color: #29298a;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  color:  #29298a;
+}
+
+.style-noti-personal-details {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Sansation-Bold';
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  font-size: 16px;
+}
+
+:where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  display: inline-block;
+  margin-inline-end: 4px;
+  color: white;
+  font-size: 14px;
+  font-family: SimSun,sans-serif;
+  line-height: 1;
+  content: "*";
+}

@@ -4,11 +4,11 @@ import AdminNavbar from '../../components/ADMIN/adminNavbar/AdminNavbar'
 import { Layout } from "antd";
 import Bookings from './bookings/Bookings'
 import Rooms from './rooms/Rooms'
-import Finance from './finance/Finance'
 import Users from './users/Users'
 import Sellers from './sellers/Sellers'
 import Blogs from './blogs/Blogs'
 import Footeradmin from '../../components/ADMIN/adminfooter/Footeradmin';
+import Payment from './payment/Payment';
 
 
 
@@ -27,7 +27,7 @@ function Adminscreen() {
             <Layout.Content>
               {activeTab === "booking" && <Bookings />}
               {activeTab === "rooms" && <Rooms />}
-              {activeTab === "finance" && <Finance />}
+              {activeTab === "payment" && <Payment />}
               {activeTab === "users" && <Users />}
               {activeTab === "sellers" && <Sellers />}
               {activeTab === "blogs" && <Blogs />}

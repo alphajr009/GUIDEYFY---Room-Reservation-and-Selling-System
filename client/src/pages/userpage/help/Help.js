@@ -42,7 +42,7 @@ function Help() {
               className='userp-help-namebox-conatiner-p'
               label="Message:"
               name="message"
-              rules={[{ required: true, message: 'Please input your email!' }]}
+              rules={[{ required: true, message: 'Please input your message!' }]}
             >
               <Input.TextArea  style={{ height: "245px",width:"626px" }} showCount maxLength={2000} className="userp-helpmsg-custom-input" />
             </Form.Item>

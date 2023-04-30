@@ -1,0 +1,8 @@
+.bloscreenavbar {
+    display: flex;
+    padding: 20px 28px 30px 24px;
+    background-color: white;
+    background-image: url('../../../images/navbg-1.png');
+    background-size: cover;
+  }
+  

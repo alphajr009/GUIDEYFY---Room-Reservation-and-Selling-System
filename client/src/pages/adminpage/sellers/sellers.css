@@ -112,9 +112,10 @@
     border: 1px solid #4444AA;
     background-color: #4444AA;
     position: absolute;
-    left: 50%;
+    justify-content: center;
+    align-items: center;
     margin-top: 100px;
-    transform: translateX(-50%);
+   
 }
 
 .admin-sellers-table{
@@ -180,3 +181,33 @@
     border-radius: 3px;
 }
 
+
+:root {
+    --red-2: rgba(299,4,4,0.108);
+    --harlequin-2: rgba(68,213,0,0.109);
+  }
+
+.seller-is-suspend{
+    font-family: "Sansation-Bold", sans-serif;
+    color: red;
+    height:30px;
+    width:80px;
+    background-color: var(--red-2);
+    border-color: red;
+    border-radius: 4px;
+}  
+
+.seller-is-not-suspend{
+    font-family: "Sansation-Bold", sans-serif;
+    color: green;
+    height:30px;
+    width:80px;
+    background-color:var(--harlequin-2);
+    border-color: lightgreen;
+    border-radius: 4px;
+}
+.no-of-sellers{
+    font-size: 16px;
+    font-family: "Sansation-Bold", sans-serif;
+    color:rgb(170, 42, 42);
+}

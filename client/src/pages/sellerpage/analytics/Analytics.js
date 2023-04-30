@@ -1,7 +1,5 @@
 import React from 'react'
 import './analytics.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUsers, faDollarSign, faHandHoldingDollar, faChartLine } from '@fortawesome/free-solid-svg-icons'
 
 function Analytics() {
   return (

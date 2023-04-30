@@ -12,10 +12,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 
 
-
-
-
-
 library.add(faSpinner);
 
 
@@ -84,14 +80,12 @@ function Registermodal() {
 
   async function Login() {
 
-    console.log('Register function called');
     const user = {
         email,
         password,
 
     };
 
-    console.log(user);
 
     try {
   
@@ -127,13 +121,12 @@ function Registermodal() {
       fname,
       lname,
       birthday: [umonth, uday, uyear],
+      
     };
 
-    console.log(user);
 
     try {
       const response = await axios.post('http://localhost:5000/api/users/register', user);
-      console.log('Response:', response.data);
     } catch (error) {
       if (error.response) {
         console.log('Error1:');

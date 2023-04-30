@@ -64,6 +64,31 @@
     margin-left: 29%;
 }
 
+.createproperty-slide5 {
+    width: 580px;
+    height: auto;
+    padding-top: 17px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 60px;
+    border-radius: 17px;
+    box-shadow: 0 0 3px 3px #dad9d9;
+    margin-left: 29%;
+}
+
+.createproperty-slide6 {
+    width: 550px;
+    height: auto;
+    padding-top: 17px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 60px;
+    border-radius: 17px;
+    box-shadow: 0 0 3px 3px #dad9d9;
+    margin-left: 29%;
+}
+
+
 
 
 
@@ -91,12 +116,29 @@
     margin-left: 41%;
 }
 
-.createproperty-slide2 .ant-row{
+.createproperty-slide5-headtxt {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 15px;
+    margin-bottom: 40px;
+    margin-top: 26px;
+    margin-left: 10px;
+}
+
+.createproperty-slide-headtxt {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 15px;
+    margin-bottom: 40px;
+    margin-top: 26px;
+    margin-left: 32%;
+}
+
+
+.createproperty-slide2 .ant-row {
     max-width: min-content;
 }
 
 
-.createproperty-slide-container .ant-form-item .ant-form-item-label >label {
+.createproperty-slide-container .ant-form-item .ant-form-item-label>label {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 16px;
 
@@ -106,6 +148,7 @@
 .createproperty-slide-container :where(.css-dev-only-do-not-override-1vtf12y).ant-input-lg {
     font-family: "Sansation-Regular", sans-serif;
     font-size: 15px;
+    border-color: #d9d9d9;
 }
 
 .createproperty-slide-container .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
@@ -113,17 +156,11 @@
     font-size: 15px;
 }
 
-.input-room-name{
-    background-color: #EAEAEA;
-}
 
 
-.createproperty-slide-container  .ant-input-affix-wrapper >input.ant-input {
 
-background-color: #EAEAEA;
-}
 
-.createproperty-slide1-form-custom{
+.createproperty-slide1-form-custom {
     margin-bottom: 40px;
 }
 
@@ -143,67 +180,115 @@ background-color: #EAEAEA;
     cursor: pointer;
     width: 160px;
     height: 44px;
-  
-  }
-  
 
-  .slide2-createprop-image-wrapper{
+}
+
+
+.slide2-createprop-image-wrapper {
     display: flex;
     flex-direction: column;
     gap: 50px;
-  }
+}
 
 
-  .image-wrapper-prop-1{
+.image-wrapper-prop-1 {
     display: flex;
     flex-direction: row;
-  }
-  
-  .image-wrapper-prop-2{
+}
+
+.image-wrapper-prop-2 {
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
-  }
+}
 
-  .createproperty-slide2 :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select, :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select{
-    width: 145px;
-    height: 145px;
-  }
-
-
-.createproperty-slide2 :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-container, :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-container, :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-circle .ant-upload-list-item-container, :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload-list.ant-upload-list-picture-circle .ant-upload-list-item-container{
+.createproperty-slide2 :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
     width: 145px;
     height: 145px;
 }
 
-.createblog-slide2-header-wrap{
+
+.createproperty-slide2 :where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-container,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload-list.ant-upload-list-picture-card .ant-upload-list-item-container,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload-list.ant-upload-list-picture-circle .ant-upload-list-item-container,
+:where(.css-dev-only-do-not-override-1vtf12y).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload-list.ant-upload-list-picture-circle .ant-upload-list-item-container {
+    width: 145px;
+    height: 145px;
+}
+
+.createblog-slide2-header-wrap {
     display: flex;
     flex-direction: row;
     margin-top: 5px;
 }
 
-.form-slide3-createblog .ant-form-item .ant-form-item-explain-error{
+.form-slide3-createblog .ant-form-item .ant-form-item-explain-error {
     text-align: left;
 }
 
-.createproperty-slide4 .ant-form-item .ant-form-item-explain-error{
+.createproperty-slide4 .ant-form-item .ant-form-item-explain-error {
     text-align: left;
 }
 
 
-.form-slide3-createblog .ant-form-item .ant-form-item-label >label {
+.form-slide3-createblog .ant-form-item .ant-form-item-label>label {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 16px;
 }
 
 
-.createproperty-slide4 .ant-form-item .ant-form-item-label >label {
+.createproperty-slide4 .ant-form-item .ant-form-item-label>label {
     font-family: "Sansation-Bold", sans-serif;
     font-size: 16px;
 }
 
 
-.createproperty-slide1  .ant-select-selector{
-    background-color: #eaeaea !important;
+.createproperty-slide1 .ant-select-selector {
+    background-color: white !important;
 
+}
+
+.createproperty-slide5 :where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox-wrapper {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 17px;
+}
+
+.slide5-checkbox-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+
+.createproperty-slide5 :where(.css-dev-only-do-not-override-1vtf12y).ant-checkbox-wrapper {
+    margin-inline-start: 8px;
+}
+
+.slide6-list-terms {
+    font-family: "Sansation-Regular", sans-serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+.slide6-list-terms-disc li {
+    margin-bottom: 20px;
+}
+
+.slide6-list-terms-disc{
+    margin-top: -30px;
+}
+
+.property-slide-container .ant-input-textarea-affix-wrapper.ant-input-affix-wrapper >textarea.ant-input{
+    background-color: white!important;
+}
+
+.form-slide3-createblog .ant-input-textarea-affix-wrapper.ant-input-affix-wrapper >textarea.ant-input {
+    margin-top: 0px;
+
+
+}
+
+.slide1-customselect-me :where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-explain-error{
+   margin-left: 116px;
 }

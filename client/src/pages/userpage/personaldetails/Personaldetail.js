@@ -130,7 +130,7 @@ function Personaldetail() {
         fname: fname ? fname : currentUser.fname,
         lname: lname ? lname : currentUser.lname,
       }));
-
+      location.reload();
 
     } catch (error) {
       console.log(error)

@@ -26,12 +26,13 @@ function Userprofile({ setActiveButton, activeButton }) {
                                 <button className={`btn btn-person_details ${activeButton === 'personaldetails' ? 'active' : ''}`}
                                     onClick={() => setActiveButton('personaldetails')}>Person Details</button>
 
+
                                 <button className={`btn btn-security ${activeButton === 'security' ? 'active' : ''}`}
                                     onClick={() => setActiveButton('security')}>Security</button>
 
+
                                 <button className={`btn btn-help_and_contact ${activeButton === 'help' ? 'active' : ''}`}
                                     onClick={() => setActiveButton('help')}>Help and Contact us</button>
-
                             </div>
                         </div>
                     </div>
@@ -40,9 +41,8 @@ function Userprofile({ setActiveButton, activeButton }) {
                         {activeButton === 'personaldetails' && <Personaldetails />}
                         {activeButton === 'help' && <Help />}
                         {activeButton === 'security' && <Security />}
-
-
                     </div>
+                    
                 </div>
             </div>
         </div>

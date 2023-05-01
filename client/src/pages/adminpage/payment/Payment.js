@@ -131,14 +131,14 @@ function Payment() {
                 <div className='search-bar-and-table-container'>
                     <div className='search-bar-and-table'>
                         <div className="search-bar">
-                            <div className="admin-terminal-search-bar-payout-id">
+                            {/* <div className="admin-terminal-search-bar-payout-id">
                                 <FontAwesomeIcon icon={faIdBadge} className="payments-payout-id-icon" />
                                 <input
                                     type="text"
                                     placeholder="Payout ID"
                                     className="admin-terminal-payments-payout-id"
                                 />
-                            </div>
+                            </div> */}
                             <div className="admin-terminal-search-bar-review-payment-seller-name">
                                 <FontAwesomeIcon icon={faUser} className="payments-review-seller-name" />
                                 <input

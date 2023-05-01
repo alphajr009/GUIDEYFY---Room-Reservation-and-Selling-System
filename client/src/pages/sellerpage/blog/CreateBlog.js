@@ -360,7 +360,7 @@ function CreateBlog() {
                                     </div>
                                 </Form>
                                 <div className="crb-s2-blog-create-btn">
-                                    <button className='crb-slide1-roomslect-down-btn' onClick={createroom} >Create</button>
+                                    <button className='crb-slide1-roomslect-down-btn' onClick={createroom}>Create</button>
                                 </div>
                             </div>
 

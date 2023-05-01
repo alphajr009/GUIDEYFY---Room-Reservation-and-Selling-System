@@ -16,9 +16,11 @@ function Blogs() {
   const [rooms, setRooms] = useState([]);
   const [title, settitle] = useState('');
   const [filteredBlogs, setFilteredBlogs] = useState([])
+  const[users,setusers]=useState([]);
+  const [displayName, setDisplayname] = useState('');
 
-  const handleblogid = (e) => {
-    setblogid(e.target.value);
+  const handlesellername = (e) => {
+    setDisplayname(e.target.value);
   };
 
   const handleblogname = (e) => {
@@ -37,12 +39,7 @@ function Blogs() {
     if (title !== '') {
       tempBlogs = tempBlogs.filter(blog => blog.title.toLowerCase().includes(title.toLowerCase()));
     }
-    if (blogid !== '') {
-      tempBlogs = tempBlogs.filter(blog => blog._id.includes(blogid));
-    }
-    if (sellerid !== '') {
-      tempBlogs = tempBlogs.filter(seller => seller._id.includes(sellerid));
-    }
+  
     setFilteredBlogs(tempBlogs)
   }
 
@@ -57,19 +54,28 @@ function Blogs() {
       dataIndex: 'title',
       key: 'title',
     },
+    // {
+    //   title: 'Seller ID',
+    //   dataIndex: '_id',
+    //   key: '_id',
+    //   render: (text, record) => {
+    //     return `${record.sellerid}`;
+    //   }
+    // },
     {
-      title: 'Seller ID',
-      dataIndex: '_id',
-      key: '_id',
-      render: (text, record) => {
-        return `${record.sellerid}`;
+      title: 'Seller Name',
+      dataIndex: 'displayName',
+      key: 'displayName',
+      render: (sellerid) => {
+        const sellername = users.find((u) => u.id === sellerid)
+          return sellername ? `${sellername.fname} ${sellername.lname}`: '';
       }
     },
-    {
-      title: 'Room ID',
-      dataIndex: 'roomid',
-      key: 'roomid',
-    },
+    // {
+    //   title: 'Room ID',
+    //   dataIndex: 'roomid',
+    //   key: 'roomid',
+    // },
     {
       title: 'Room Name',
       dataIndex: 'roomid',
@@ -82,7 +88,7 @@ function Blogs() {
     {
       title: 'Delete',
       dataIndex: ' ',
-      width: '9%',
+      width: '7%',
       key: 'x',
       render: (_, blogs) => (
         <button className='btn-delete-blogs-by-seller' onClick={() => {
@@ -168,8 +174,28 @@ function Blogs() {
   }, []);
 
   useEffect(() => {
+    (async () => {
+
+      try {
+        setloading(true)
+        const data = (await axios.get('http://localhost:5000/api/sellers/getallsellers')).data
+        setusers(data.users)
+        setloading(false)
+
+
+      } catch (error) {
+        console.log(error)
+        setloading(false)
+        seterror(error)
+
+      }
+    })();
+  }, []);
+
+
+  useEffect(() => {
     handleFilterBlogs();
-  }, [title,blogid,sellerid])
+  }, [title,displayName])
 
 
   return (
@@ -179,16 +205,16 @@ function Blogs() {
       {/* container for search bar */}
       <div className="admin-terminal-blog-id-blog-name-seller-id">
         {/* container for booking id */}
-        <div className="admin-terminal-search-bar-blogs-blog-id">
+        {/* <div className="admin-terminal-search-bar-blogs-blog-id">
           <FontAwesomeIcon icon={faPenSquare} className="blogs-blogid-icon" />
           <input
             type="text"
-            placeholder="Blog ID"
+            placeholder="Seller Name"
             className="admin-terminal-blogs-blog-id"
-            value={blogid}
-            onChange={handleblogid}
+            value={displayName}
+            onChange={handlesellername}
           />
-        </div>
+        </div> */}
         {/* container for customer name */}
         <div className="admin-terminal-blogs-bname">
           <FontAwesomeIcon icon={faNewspaper} className="blogs-name" />
@@ -201,7 +227,7 @@ function Blogs() {
           />
         </div>
         {/* container for customer id */}
-        <div className="admin-terminal-blogs-seller-id">
+        {/* <div className="admin-terminal-blogs-seller-id">
           <FontAwesomeIcon icon={faIdBadge} className="blogs-sid" />
           <input
             type="text"
@@ -210,7 +236,7 @@ function Blogs() {
             value={sellerid}
             onChange={handlesellerid}
           />
-        </div>
+        </div> */}
 
         {/* container fors search*/}
         <div className='admin-blogs-filter-search'>

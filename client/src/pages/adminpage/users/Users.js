@@ -165,7 +165,7 @@ function Users() {
         </div>
 
         {/* container for customer id */}
-        <div className="admin-terminal-users-cus-id">
+        {/* <div className="admin-terminal-users-cus-id">
           <FontAwesomeIcon icon={faIdBadge} className="users-cus-id" />
           <input
             type="text"
@@ -174,7 +174,7 @@ function Users() {
             value={customerid}
             onChange={handlecustomerid}
           />
-        </div>
+        </div> */}
 
         {/* container for booking status */}
         <div className="admin-terminal-users-isadmin">

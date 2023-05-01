@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './security.css'
 import axios from 'axios'
 import { Modal, Form, Input, notification } from 'antd';
@@ -38,7 +38,7 @@ function Security() {
   const [changePassLoading, setChangePassLoading] = useState(false);
   const [formValid, setFormValid] = useState(false);
   const formRef = React.useRef(null);
-  const[password,setPassword]=useState('');
+  const [password, setPassword] = useState('');
 
 
   const onReset = () => {
@@ -60,7 +60,7 @@ function Security() {
         const response = await axios.post('http://localhost:5000/api/users/getuserbyid', { userid: user._id });
         const data = response.data[0];
         setPassword(data.password);
-        
+
       } catch (error) {
         console.log('error');
       }
@@ -73,29 +73,21 @@ function Security() {
   };
 
   const handleChangePassOk = () => {
-    changePassword(
-      formRef.current.getFieldValue("currentPassword"),
-      formRef.current.getFieldValue("newPassword"),
-      formRef.current.getFieldValue("confirmPassword"))
+    changePassword(formRef.current.getFieldValue("currentPassword"), formRef.current.getFieldValue("newPassword"), formRef.current.getFieldValue("confirmPassword"))
     setChangePassLoading(true);
-    setChangePassOpen(false);
-    setChangePassLoading(false);
+    setTimeout(() => {
+      setChangePassOpen(false);
+      setChangePassLoading(false);
+    }, 2000);
+    notification.open({
+      message: 'Your Name is Updated',
+      description: '',
+      placement: 'topRight',
+      className: "style-noti-personal-details",
+      icon: <CheckCircleOutlined />
+    });
 
-    
-    if (formRef.current.getFieldValue("newPassword") === formRef.current.getFieldValue("confirmPassword") && formRef.current.getFieldValue("currentPassword") === user.password) {
-      notification.open({
-        message: 'Password Changed',
-        description: '',
-        placement: 'topRight',
-        icon: <CheckCircleOutlined />
-      });
-    }
-    else {
-      Swal.fire('Oops!', 'Password not match or current password is incorrect', 'error')
-    }
-    
-
-  };
+  }
 
   const handleChangePassCancel = () => {
     setChangePassOpen(false);
@@ -173,7 +165,20 @@ function Security() {
                     }}
                     name="confirmPassword"
                     label="Confirm Password"
-                    rules={[{ required: true, message: 'Please confirm  Password!' }]}
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please confirm your password!',
+                      },
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (!value || getFieldValue('newPassword') === value) {
+                            return Promise.resolve();
+                          }
+                          return Promise.reject(new Error('The two passwords do not match.'));
+                        },
+                      }),
+                    ]}
                   >
                     <Input.Password placeholder="  Confirm Password" className="no-border" />
                   </Form.Item>

@@ -27,6 +27,7 @@ function Bookings() {
     setcustomerid(e.target.value);
   };
 
+  
   const handleBookingStatus = (value) => {
     setbookigstatus(value);
   };

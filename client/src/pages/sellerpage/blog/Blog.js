@@ -11,6 +11,8 @@ function Blog() {
   const [blogs, setblogs] = useState([])
   const [loading, setloading] = useState(false)
   const [error, seterror] = useState()
+  const [rooms, setRooms] = useState([]);
+
 
   const columns = [
     {
@@ -25,13 +27,17 @@ function Blog() {
     },
     {
       title: 'Room Name',
-      dataIndex: 'roomname',
+      dataIndex: 'roomid',
       key: 'roomname',
+      render: (roomId) => {
+        const room = rooms.find((r) => r._id === roomId);
+        return room ? room.title : '';
+      },
     },
     {
       title: 'Edit',
       dataIndex: 'edit',
-      width:'5%',
+      width:'9%',
       key:'x',
       render: (_,blogs) => {
             return <button className='btn-edit-blogs-by-seller' onClick={() => {
@@ -65,7 +71,7 @@ function Blog() {
     {
       title: 'Delete',
       dataIndex: ' ',
-      width: '5%',
+      width: '9%',
       key: 'x',
       render: (_, blogs) => (
         <button className='btn-delete-blogs-by-seller' onClick={() => {
@@ -118,18 +124,14 @@ function Blog() {
     })();
   }, []);
 
+
   async function updateBlog(_id) {
   
-
-
-
   }
 
 
 
   async function deleteBlog(_id) {
-
-
     try {
       const res = (await axios.patch('http://localhost:5000/api/blogs/deleteblog', { _id })).data;
       console.log("Blog Deleted Successfully");
@@ -138,6 +140,26 @@ function Blog() {
     }
   }
 
+
+  useEffect(() => {
+    (async () => {
+
+      try {
+
+        setloading(true)
+        const data = (await axios.get("http://localhost:5000/api/rooms/getallrooms")).data
+        setRooms(data.rooms)
+        setloading(false)
+
+
+      } catch (error) {
+        console.log(error)
+        setloading(false)
+        seterror(error)
+
+      }
+    })();
+  }, []);
   return (
     <div className='seller-central-blogs'>
       <div className='seller-central-blogs-container'>
@@ -168,7 +190,9 @@ function Blog() {
             <Table
               columns={columns}
               dataSource={blogs}
-              className='seller-cental-table-for-blog' />
+              className='seller-cental-table-for-blog'
+              rowKey="_id"
+              footer={() => <div className="no-of-blogs">{`Total  ${blogs.length} blogs `}</div>}/>
           </div>
         )}
       </div>

@@ -135,7 +135,6 @@ function Payments() {
 
       localStorage.setItem("currentUser", JSON.stringify({
         _id: currentUser._id,
-        // stripename: stripename ? stripename : currentUser.stripename,
         stripeemail: stripeemail ? stripeemail : currentUser.stripeemail
 
       }));
@@ -227,6 +226,12 @@ function Payments() {
                       size='large'
                       initialValues={{ Name: user.stripename }}>
                       <Form.Item
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please Enter a Stripe Name"
+                          }
+                        ]}
                         className='form-name'
                         labelCol={{ span: 24 }}
                         wrapperCol={{ span: 24 }}
@@ -268,6 +273,12 @@ function Payments() {
                       size='large'
                       initialValues={{ Email: user.stripeemail }}>
                       <Form.Item
+                        rules={[
+                          {
+                            required: true,
+                            message: "Please Enter a Email"
+                          }
+                        ]}
                         className='form-email'
                         labelCol={{ span: 24 }}
                         wrapperCol={{ span: 24 }}

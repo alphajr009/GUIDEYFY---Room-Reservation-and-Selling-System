@@ -12,10 +12,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 
 
-
-
-
-
 library.add(faSpinner);
 
 
@@ -125,6 +121,7 @@ function Registermodal() {
       fname,
       lname,
       birthday: [umonth, uday, uyear],
+      
     };
 
 

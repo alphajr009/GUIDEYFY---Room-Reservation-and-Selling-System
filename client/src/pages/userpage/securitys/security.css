@@ -119,3 +119,9 @@
   font-family: "Sansation-Bold", sans-serif;
     font-size: 14px;
  } 
+
+ .style-noti-personal-details .anticon-check-circle {
+  color: #52c41a;
+  font-size: 24px;
+  margin-right: 8px;
+}

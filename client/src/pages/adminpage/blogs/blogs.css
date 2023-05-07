@@ -40,7 +40,7 @@
     display: flex;
     align-items: center;
     height: 38px;
-    width: 250px;
+    width: 380px;
     background-color: white;
     color: black;
     border: 1px solid #ccc;
@@ -157,16 +157,15 @@
     border: 1px solid #4444AA;
     background-color: #4444AA;
     position: absolute;
-    left: 50%;
     margin-top: 100px;
-    transform: translateX(-50%)
+
 }
 
 
 .admin-blogs-table{
     margin-top: 250px;
     width: 90%;
-    border-collapse: collapse
+    border-collapse: collapse;
 }
 
 .admin-blogs-table{

@@ -271,7 +271,6 @@
     font-family: "Sansation-Bold", sans-serif;
     font-size: 15px;
     display: flex;
-  
     text-align: start;
   }
   
@@ -295,13 +294,13 @@
   }
   
 
-  :where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary {
+  .payment-modal :where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary {
     color: #fff;
     background-color: #4444AA;
     box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-modal {
+.payment-modal:where(.css-dev-only-do-not-override-1vtf12y).ant-modal {
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
@@ -319,19 +318,15 @@
 }
 
 
-element.style {
-}
-
-user agent stylesheet
-:not(svg) {
+.payment-modal:not(svg) {
     transform-origin: 0px 0px;
 }
 
-.anticon > * {
+.payment-modal.anticon > * {
     line-height: 1;
 }
 
-.anticon {
+.payment-modal.anticon {
     display: inline-block;
     color: inherit;
     font-style: oblique;
@@ -344,7 +339,7 @@ user agent stylesheet
     -moz-osx-font-smoothing: grayscale;
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-close-x {
+.payment-modal:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-close-x {
     display: block;
     font-size: 16px;
     font-style: normal;
@@ -354,7 +349,7 @@ user agent stylesheet
     text-rendering: auto;
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-close {
+.payment-modal:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-close {
     position: absolute;
     top: 17px;
     inset-inline-end: 17px;
@@ -375,7 +370,7 @@ user agent stylesheet
 }
 
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
+.payment-modal:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
     position: relative;
     background-color: #ffffff;
     background-clip: padding-box;
@@ -387,7 +382,7 @@ user agent stylesheet
 
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label >label {
+.payment-modal:where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label >label {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -397,7 +392,7 @@ user agent stylesheet
     font-size: 16px;
     font-weight: bold;
 }
-:where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary:not(:disabled):hover {
+.payment-modal:where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary:not(:disabled):hover {
     color: #fff;
     background-color: #3e3ea4;
 }
@@ -417,3 +412,16 @@ user agent stylesheet
     margin-right: 8px;
   }
    
+
+.payment-modal :where(.css-dev-only-do-not-override-1vtf12y).ant-btn-default:not(:disabled):hover{
+    background-color: #ffffff;
+    border-color: #29298a;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+    color:  #29298a;
+  }
+  
+.payment-modal.payment-modal:where(.css-dev-only-do-not-override-1vtf12y).ant-btn-primary:not(:disabled):hover {
+    color: #fff;
+    background-color: #29298a;
+}
+

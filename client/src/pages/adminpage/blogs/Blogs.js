@@ -1,24 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { Table } from 'antd';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIdBadge, faNewspaper, faSearch, faPenSquare } from '@fortawesome/free-solid-svg-icons'
 import './blogs.css'
-
+import Swal from 'sweetalert2'
+import axios from 'axios';
 function Blogs() {
 
 
   const [blogid, setblogid] = useState('');
-  const [blogname, setblogname] = useState('');
   const [sellerid, setsellerid] = useState('');
+  const [loading, setloading] = useState(false)
+  const [error, seterror] = useState()
+  const [blogs, setblogs] = useState([])
+  const [rooms, setRooms] = useState([]);
+  const [title, settitle] = useState('');
+  const [filteredBlogs, setFilteredBlogs] = useState([])
+  const[users,setusers]=useState([]);
+  const [displayName, setDisplayname] = useState('');
 
-
-
-  const handleblogid = (e) => {
-    setblogid(e.target.value);
+  const handlesellername = (e) => {
+    setDisplayname(e.target.value);
   };
 
   const handleblogname = (e) => {
-    setblogname(e.target.value);
+    settitle(e.target.value);
   };
 
 
@@ -26,10 +32,16 @@ function Blogs() {
     setsellerid(e.target.value);
   };
 
-  const handlesearchbookings = () => {
-    window.location.assign('/blogs');
-  };
 
+
+  const handleFilterBlogs = () => {
+    let tempBlogs = [...blogs];
+    if (title !== '') {
+      tempBlogs = tempBlogs.filter(blog => blog.title.toLowerCase().includes(title.toLowerCase()));
+    }
+  
+    setFilteredBlogs(tempBlogs)
+  }
 
   const columns = [
     {
@@ -42,45 +54,167 @@ function Blogs() {
       dataIndex: 'title',
       key: 'title',
     },
+    // {
+    //   title: 'Seller ID',
+    //   dataIndex: '_id',
+    //   key: '_id',
+    //   render: (text, record) => {
+    //     return `${record.sellerid}`;
+    //   }
+    // },
     {
-      title: 'Seller ID',
-      dataIndex: '_id',
-      key: 'sellerid',
+      title: 'Seller Name',
+      dataIndex: 'displayName',
+      key: 'displayName',
+      render: (sellerid) => {
+        const sellername = users.find((u) => u.id === sellerid)
+          return sellername ? `${sellername.fname} ${sellername.lname}`: '';
+      }
     },
-    {
-      title: 'Room ID',
-      dataIndex: 'roomid',
-      key: 'roomid',
-    },
+    // {
+    //   title: 'Room ID',
+    //   dataIndex: 'roomid',
+    //   key: 'roomid',
+    // },
     {
       title: 'Room Name',
-      dataIndex: 'title',
-      key: 'title',
+      dataIndex: 'roomid',
+      key: 'roomname',
+      render: (roomId) => {
+        const room = rooms.find((r) => r._id === roomId);
+        return room ? room.title : '';
+      },
     },
     {
-      title: 'Action',
-      dataIndex: 'action',
-      key: 'action',
+      title: 'Delete',
+      dataIndex: ' ',
+      width: '7%',
+      key: 'x',
+      render: (_, blogs) => (
+        <button className='btn-delete-blogs-by-seller' onClick={() => {
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to delete the blog",
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#4444AA',
+            cancelButtonColor: '#B8252A',
+            confirmButtonText: 'Yes, Blog is Deleted!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              deleteBlog(blogs._id)
+              Swal.fire(
+                'Deleted!',
+                'Blog has been deleted.',
+                'success'
+              ).then(result => {
+                window.location.reload();
+              })
+            }
+          })
+        }}>Delete</button>
+      )
 
-    },
-
+    }
   ];
+
+
+
+  async function deleteBlog(_id) {
+    try {
+      const res = (await axios.patch('http://localhost:5000/api/blogs/deleteblog', { _id })).data;
+      console.log("Blog Deleted Successfully");
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+
+      try {
+
+        setloading(true)
+        const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data
+        setblogs(data.blogs)
+        setFilteredBlogs(data.blogs)
+        setloading(false)
+
+
+      } catch (error) {
+        console.log(error)
+        setloading(false)
+        seterror(error)
+
+      }
+    })();
+  }, []);
+
+  
+
+  useEffect(() => {
+    (async () => {
+
+      try {
+
+        setloading(true)
+        const data = (await axios.get("http://localhost:5000/api/rooms/getallrooms")).data
+        setRooms(data.rooms)
+        setloading(false)
+
+
+      } catch (error) {
+        console.log(error)
+        setloading(false)
+        seterror(error)
+
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+
+      try {
+        setloading(true)
+        const data = (await axios.get('http://localhost:5000/api/sellers/getallsellers')).data
+        setusers(data.users)
+        setloading(false)
+
+
+      } catch (error) {
+        console.log(error)
+        setloading(false)
+        seterror(error)
+
+      }
+    })();
+  }, []);
+
+
+  useEffect(() => {
+    handleFilterBlogs();
+  }, [title,displayName])
+
+
   return (
+
     // container for table and searchbar
     <div className="admin-terminal-blogs">
       {/* container for search bar */}
       <div className="admin-terminal-blog-id-blog-name-seller-id">
         {/* container for booking id */}
-        <div className="admin-terminal-search-bar-blogs-blog-id">
+        {/* <div className="admin-terminal-search-bar-blogs-blog-id">
           <FontAwesomeIcon icon={faPenSquare} className="blogs-blogid-icon" />
           <input
             type="text"
-            placeholder="Blog ID"
+            placeholder="Seller Name"
             className="admin-terminal-blogs-blog-id"
-            value={blogid}
-            onChange={handleblogid}
+            value={displayName}
+            onChange={handlesellername}
           />
-        </div>
+        </div> */}
         {/* container for customer name */}
         <div className="admin-terminal-blogs-bname">
           <FontAwesomeIcon icon={faNewspaper} className="blogs-name" />
@@ -88,12 +222,12 @@ function Blogs() {
             type="text"
             placeholder="Blog Name"
             className="admin-terminal-blogs-b-name"
-            value={blogname}
+            value={title}
             onChange={handleblogname}
           />
         </div>
         {/* container for customer id */}
-        <div className="admin-terminal-blogs-seller-id">
+        {/* <div className="admin-terminal-blogs-seller-id">
           <FontAwesomeIcon icon={faIdBadge} className="blogs-sid" />
           <input
             type="text"
@@ -102,17 +236,23 @@ function Blogs() {
             value={sellerid}
             onChange={handlesellerid}
           />
-        </div>
+        </div> */}
 
         {/* container fors search*/}
         <div className='admin-blogs-filter-search'>
-          <button className='btn-blogs-search-admin-terminal' onClick={handlesearchbookings}>
+          <button className='btn-blogs-search-admin-terminal' onClick={handleFilterBlogs}>
             <FontAwesomeIcon icon={faSearch} className="blogs-search" />
           </button>
         </div>
       </div>
       <div className='admin-blogs-table'>
-        <Table  columns={columns} className='admin-terminal-blogs-table' />
+        <Table  
+        columns={columns} 
+        className='admin-terminal-blogs-table'
+        dataSource={filteredBlogs}
+        rowKey="_id"
+        footer={() => <div className="no-of-blogs">{`Total  ${blogs.length} blogs `}</div>} 
+        />
       </div>
     </div>
   )

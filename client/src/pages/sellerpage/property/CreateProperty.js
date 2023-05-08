@@ -181,17 +181,17 @@ function CreateProperty() {
         formData.append("phonenumber",phonenumber);
         formData.append("description",description);
         formData.append("sellerid", user._id);
-        formData.append("address", JSON.stringify({ 
+        formData.append("address", JSON.stringify([
             addressline1,
             addressline2,
             city,
             province,
             district
-          }));
-          formData.append("services", JSON.stringify({ 
-            services1,
-            services2
-          }));
+        ]));
+        formData.append("services", JSON.stringify([
+            ...services1,
+            ...services2
+        ]));
         
        
         imageurls.forEach((image, index) => {
@@ -212,9 +212,9 @@ function CreateProperty() {
             console.log(response.status);
         } catch (error) {
             if (error.response) {
-                console.log("Error1:");
+                console.log("Error1:", error.response.data);
             } else {
-                console.log("Error2:");
+                console.log("Error2:",error.message);
             }
         }
         

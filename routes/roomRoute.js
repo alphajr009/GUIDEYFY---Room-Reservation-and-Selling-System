@@ -1,6 +1,62 @@
 const express = require("express");
 const router = express.Router();
 const Room = require("../models/room");
+const multer = require("multer");
+const fs = require("fs");
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "uploads/");
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+  });
+  const upload = multer({ storage });
+
+  router.post("/addproperty", upload.array("images", 5), async (req, res) => {
+
+    console.log("Request body:", req.body);
+
+    const newroom = new Room({
+      title: req.body.title,
+      type: req.body.category,
+      rentperday: req.body.rentperday,
+      maxcount: req.body.maxcount,
+      phonenumber: req.body.phonenumber,
+      description: req.body.description,
+      address: JSON.parse(req.body.address),
+      services: JSON.parse(req.body.services),
+      sellerid: req.body.sellerid,
+    });
+  
+    try {
+      const savedRoom = await newroom.save();
+  
+   
+      const updatedFiles = req.files.map((file, index) => {
+        const oldPath = file.path;
+        const newFilename = `${savedRoom._id}-${index}.jpg`;
+        const newPath = `uploads/${newFilename}`;
+        fs.renameSync(oldPath, newPath);
+        return newPath;
+      });
+  
+   
+      const imageUrls = updatedFiles.map((path) => "/uploads/" + path.split("/").pop());
+      savedRoom.images = imageUrls;
+      await savedRoom.save();
+  
+      return res.send("Room Created Successfully");
+    } catch (error) {
+      console.log("error in route");
+      console.log(newroom);
+      return res.status(400).json({ error });
+    }
+  });
+  
+
+
 
 router.get("/getallrooms", async(req,res)=>{
 

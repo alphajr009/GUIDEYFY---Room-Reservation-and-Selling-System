@@ -11,19 +11,24 @@ import Payments from './payments/Payments'
 import Blog from './blog/Blog'
 import Analytics from './analytics/Analytics'
 import Promotion from './promotion/Promotion'
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 function Sellerscreen() {
 
-  const [activeTab, setActiveTab] = useState("home");
   const navigate = useNavigate();
+  const location = useLocation();
 
+  // Extract the active tab from the location pathname
+  const initialActiveTab = location.pathname.split('/').pop();
+
+  // Set the initial state of activeTab
+  const [activeTab, setActiveTab] = useState(initialActiveTab || "home");
 
   const handleTabChange = (newTab) => {
     setActiveTab(newTab);
     navigate(`/seller/${newTab}`);
   };
-
   return (
     <div className='sellerscreen'>
     <div className='sellercontainer'>

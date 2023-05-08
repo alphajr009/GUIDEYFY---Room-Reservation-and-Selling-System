@@ -107,9 +107,18 @@ router.patch('/deleteblog', async (req, res) => {
 
   try {
 
-      const  blog = await Blog.findByIdAndRemove(_id);
+      const blog = await Blog.findByIdAndRemove(_id);
 
       if (!blog) return res.status(404).send('Blog not found');
+
+      // Delete associated images
+      for (let index = 0; index < 4; index++) {
+          const imagePath = `uploads/${blog._id}-${index}.jpg`;
+          if (fs.existsSync(imagePath)) {
+              fs.unlinkSync(imagePath);
+          }
+      }
+
       res.send('Room deleted successfully');
 
   } catch (error) {

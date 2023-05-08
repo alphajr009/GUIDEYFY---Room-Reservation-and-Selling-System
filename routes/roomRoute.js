@@ -69,7 +69,7 @@ router.get("/getallrooms", async(req,res)=>{
 
 
 });
-module.exports = router
+
 
 
 router.patch('/deleteroom', async (req, res) => {
@@ -119,3 +119,8 @@ router.post("/getroombyid", async(req,res)=>{
 
 
 });
+
+
+
+
+module.exports = router

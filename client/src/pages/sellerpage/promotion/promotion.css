@@ -1,31 +1,18 @@
-@font-face {
-    font-family: "Sansation-Bold";
-    font-style: normal;
-    font-weight: 700;
-    src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
-}
-
-@font-face {
-    font-family: "Sansation-Regular";
-    font-style: normal;
-    font-weight: 700;
-    src: url("https://fonts.animaapp.com/Sansation-Regular") format('truetype');
-}
-
-.seller-central-promotion-container {
+.promotion-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 }
 
-.seller-central-promotion-tab {
-    font-family: "Sansation-Bold", sans-serif;
+.promotion-container-tab{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
     padding: 13px 10px 3px 10px;
     border-radius: 10px;
+    border-radius: 20px;
     border: 1px solid #4444AA;
     background-color: #4444AA;
     position: absolute;
@@ -38,6 +25,13 @@
 
 .seller-central-promotion-tab-container,
 .seller-central-current-promotion-container {
+    cursor: pointer;  
+}
+
+
+.create-promotion-tab,
+.current-promotion-tab{
+    font-family: "Sansation-Bold", sans-serif;
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -72,4 +66,42 @@
 
 .create-promotion-and-current-promotion {
     margin-top: 250px;
+}
+
+.create-promotion-tab.active{
+    color: black;
+}
+
+.create-promotion-tab:not(.active){
+    background-color: white;
+    color: darkgray;
+}
+
+.current-promotion-tab.active{
+    color: black;
+}
+
+.current-promotion-tab:not(.active){
+    background-color: white;
+    color: darkgray;
+}
+
+/* .create-promotion-and-current-promotion{
+    margin-top:250px;
+} */
+
+
+.current-promotion-table{
+    margin-top: 250px;
+    width: 90%;
+    font-family: "Sansation-Bold", sans-serif;
+}
+.create-promotion-table th{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.create-promotion-table td{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
 }

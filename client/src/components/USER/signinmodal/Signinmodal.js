@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'
 import { Modal, Input, Form, Select } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import './signinmodal.css';
@@ -18,10 +19,45 @@ function Signinmodal() {
 
     const onFinishModal = () => {
         handleCancel();
-      };
+    };
+
+
+    const [email, setemail] = useState('')
+    const [password, setpassword] = useState('')
+    const [error, seterror] = useState()
+
+
+    async function Login() {
+
+        console.log('Register function called');
+        const user = {
+            email,
+            password,
+
+        };
 
 
 
+        try {
+      
+            const { data, status } = await axios.post('http://localhost:5000/api/users/login', user);
+
+            if (status === 200) {
+                localStorage.setItem('currentUser', JSON.stringify(data));
+                window.location.href = '/home'
+            } else {
+                seterror(true);
+            }
+
+        } catch (error) {
+            if (error.response) {
+                console.log('Error1:');
+            } else {
+                console.log('Error2:');
+            }
+
+        }
+    }
 
     return (
         <>
@@ -30,7 +66,7 @@ function Signinmodal() {
             </button>
 
             <Modal
-                visible={isModalVisible}
+                open={isModalVisible}
                 closable={false}
                 onCancel={handleCancel}
                 footer={null}
@@ -51,7 +87,10 @@ function Signinmodal() {
                             wrapperCol={{ span: 24 }}
                             rules={[{ required: true, message: 'Please input your email!' }]}
                         >
-                            <Input className="signinmodal-custom-input" />
+                            <Input className="signinmodal-custom-input"
+                                value={email}
+                                onChange={(e) => {setemail(e.target.value) }}
+                            />
                         </Form.Item>
                         <Form.Item
                             className='formsigninto-txt-custom'
@@ -64,6 +103,8 @@ function Signinmodal() {
                             <Input.Password
                                 className="signinmodal-custom-input"
                                 iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                                value={password}
+                                onChange={(e) => {setpassword(e.target.value) }}
                             />
                         </Form.Item>
 
@@ -84,7 +125,12 @@ function Signinmodal() {
 
                         <Form.Item className="modal-signin-button">
                             <div className="signinmodal-button-container">
-                                <button className='signinmodal-btn-signin' type="primary" htmlType="submit">
+                                <button
+                                    className='signinmodal-btn-signin'
+                                    type="primary"
+                                    htmlType="submit"
+                                    onClick={Login}
+                                >
                                     Sign In
                                 </button>
                             </div>

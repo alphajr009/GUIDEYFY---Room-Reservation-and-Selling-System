@@ -1,0 +1,134 @@
+.userp-help{
+    display: flex;
+    flex-direction: column;
+    width: 780px;
+    height: 575px;
+    padding-top: 34px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 60px;
+    border-radius: 17px;
+    box-shadow: 0 0 3px 3px #dad9d9 ;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.userp-help-boxall{
+    margin-top: 40px;
+}
+
+
+.userp-help-namebox{
+    width: 780px;
+    height: 68px;
+    border-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color:#F8F8F8 ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.userp-help-emailbox{
+    width: 780px;
+    height: 68px;
+    border-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color:#F8F8F8 ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.userp-help-messagebox{
+    width: 780px;
+    height: 290px;
+    border-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color:#F8F8F8 ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+
+.userp-help-namebox-conatiner-p .ant-form-item-label>label {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+
+}
+
+.serp-help-namebox-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.userp-help-namebox-conatiner-p{
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    margin-left: 20px;
+}
+
+.userp-help-custom-input{
+    font-family: "Sansation-Regular", sans-serif;
+    background-color: #EBEBEB !important;
+    font-size: 15px;
+    height: 40px;
+    width: 630px;
+    margin-left: 30px;
+}
+
+
+.userp-helpmsg-custom-input{
+    font-family: "Sansation-Regular", sans-serif;
+    background-color: #EBEBEB !important;
+    font-size: 15px;
+    height: 240px;
+    width: 615px;
+    margin-left: 10px;
+    border-color: #d9d9d9;
+    border-radius: 6px;
+    padding-top: 15px;
+    padding-left: 10px;
+  
+}
+
+
+
+.ant-input-textarea-affix-wrapper.ant-input-affix-wrapper >textarea.ant-input{
+    background-color: #EBEBEB !important;
+    font-family: "Sansation-Regular", sans-serif;
+}
+
+
+.userp-help-btn-container{
+    margin-top: 30px;
+    margin-right: 45px;
+    text-align: right;
+}  
+
+.user-help-bc-send-btn{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 17px;
+    background-color: #4444AA;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 128px;
+    height: 40px;
+    
+  }
+
+.user-help-bc-send-btn:hover{
+    background-color: #28309b;
+  }
+  
+
+  
+
+
+
+

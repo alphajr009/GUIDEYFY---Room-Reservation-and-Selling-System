@@ -15,7 +15,7 @@ function Footer() {
                 <h1 className="button-txt">Join our network and
                     grow your business
                 </h1>
-                <button className='button-list'>List your property</button>
+                <button className='button-list' onClick={() => window.location.href = "/registerseller"}>List your property</button>
             </div>
             <div className="line">
                 <hr />

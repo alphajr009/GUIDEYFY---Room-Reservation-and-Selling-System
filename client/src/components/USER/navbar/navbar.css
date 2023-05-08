@@ -1,9 +1,3 @@
-@font-face {
-  font-family: "Sansation-Bold";
-  font-style: normal;
-  font-weight: 700;
-  src: url("https://fonts.animaapp.com/Sansation-Bold") format('truetype');
-}
 
 .navbar {
   display: flex;
@@ -70,7 +64,7 @@
 
 .navbar-buttons {
   display: flex;
-  align-items: right;
+  flex-direction: row;
   margin: 15px 20px 0px 0px;
 }
 
@@ -85,6 +79,7 @@
   cursor: pointer;
   font-family: "Sansation-Bold", sans-serif;
   font-size: 16px;
+  max-height: 34px;
 }
 
 .btn-reg {

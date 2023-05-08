@@ -1,0 +1,213 @@
+.admin-terminal-sellers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-terminal-sellersname-sid-level{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.seller-name,.sellers-seller-id,.sellers-isadmin{
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+.admin-terminal-search-bar-sellers-seller-name.seller-name,
+.admin-terminal-sellers-id.sellers-seller-id
+{
+    display: inline-block;
+    vertical-align: middle
+}
+
+.admin-terminal-search-bar-sellers-seller-name{
+    display: flex;
+    align-items: center;
+    height: 38px;
+    width: 300px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+}
+
+.admin-terminal-search-bar-sellers-seller-name input{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+.admin-terminal-sellers-id{
+    display: flex;
+    align-items: center;
+    height: 38px;
+    width: 220px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+}
+
+.admin-terminal-sellers-id input{
+    border: none;
+    outline: none;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+.admin-sellers-filter-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 40px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin: 0 10px 10px 10px;
+}
+
+.admin-sellers-filter-search .r-sellers-search {
+    height: 18px;
+    width: 18px;
+  }
+
+.btn-sellers-search-admin-terminal{
+    display: flex;
+    align-items: center;
+    background-color:white;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 11px;
+    cursor: pointer;
+}  
+
+.admin-terminal-level-seller{
+    display: flex;
+    align-items: center;
+    background-color:#E1E1E1;
+    color: black;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px
+}
+
+
+.admin-terminal-sellersname-sid-level{
+    display: flex;
+    padding: 13px 10px 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #4444AA;
+    background-color: #4444AA;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+   
+}
+
+.admin-sellers-table{
+    margin-top: 250px;
+    width: 90%;
+    border-collapse: collapse;
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+.admin-sellers-table td {
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.admin-sellers-table td {
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+  
+  }
+
+  .ant-table-wrapper .ant-table-thead >tr>th, :where(.css-dev-only-do-not-override-1vtf12y).ant-table-wrapper .ant-table-thead >tr>td {
+    position: relative;
+    color: rgba(0, 0, 0, 0.88);
+    font-weight: 600;
+    text-align: start;
+    background: #30379B;
+    border-bottom: 1px solid #f0f0f0;
+    color: #fafafa;
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+
+  }  
+
+
+.admin-terminal-sellers-as-gold{
+    font-family: "Sansation-Bold", sans-serif;
+    color: #FFFFFF;
+    height:30px;
+    width:80px;
+    background-color: #EBA64C;
+    border: #EBA64C;
+    border-radius: 3px;
+}
+
+
+.admin-terminal-sellers-as-silver{
+    font-family: "Sansation-Bold", sans-serif;
+    color: black;
+    height:30px;
+    width:80px;
+    background-color: #747474;
+    border: #747474;
+    border-radius: 3px;
+}
+
+.admin-terminal-sellers-as-platinum{
+    font-family: "Sansation-Bold", sans-serif;
+    color: #FFFFFF;
+    height:30px;
+    width:80px;
+    background-color: #0E847F;
+    border: #0E847F;
+    border-radius: 3px;
+}
+
+
+:root {
+    --red-2: rgba(299,4,4,0.108);
+    --harlequin-2: rgba(68,213,0,0.109);
+  }
+
+.seller-is-suspend{
+    font-family: "Sansation-Bold", sans-serif;
+    color: red;
+    height:30px;
+    width:80px;
+    background-color: var(--red-2);
+    border-color: red;
+    border-radius: 4px;
+}  
+
+.seller-is-not-suspend{
+    font-family: "Sansation-Bold", sans-serif;
+    color: green;
+    height:30px;
+    width:80px;
+    background-color:var(--harlequin-2);
+    border-color: lightgreen;
+    border-radius: 4px;
+}
+.no-of-sellers{
+    font-size: 16px;
+    font-family: "Sansation-Bold", sans-serif;
+    color:rgb(170, 42, 42);
+}

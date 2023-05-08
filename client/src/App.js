@@ -26,6 +26,7 @@ function App() {
           <Route path="/room" element={<Roomscreen />} exact />
           <Route path="/admin" element={<Adminscreen />} exact />
           <Route path="/seller" element={<Sellerscreen />} exact />
+          <Route path="/seller/:tab" element={<Sellerscreen />} />
           <Route path="/profile" element={<Userscreen />} exact />
           <Route path="/registerseller" element={<SellerRegister />} exact />
           <Route path="/blog" element={<Blogscreen />} exact />

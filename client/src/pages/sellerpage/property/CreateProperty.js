@@ -455,7 +455,7 @@ function CreateProperty() {
                                             showCount maxLength={1000}
                                             style={{ height: '300px', width: '550px', marginLeft: '0px' }}
                                             value={description}
-                                            onChange={(e) => {description(e.target.value) }}
+                                            onChange={(e) => {setdescription(e.target.value) }}
                                         />
                                     </Form.Item>
                                 </Form>

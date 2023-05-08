@@ -11,16 +11,23 @@ import Payments from './payments/Payments'
 import Blog from './blog/Blog'
 import Analytics from './analytics/Analytics'
 import Promotion from './promotion/Promotion'
+import { useNavigate } from 'react-router-dom'; 
 
 function Sellerscreen() {
 
   const [activeTab, setActiveTab] = useState("home");
+  const navigate = useNavigate();
 
+
+  const handleTabChange = (newTab) => {
+    setActiveTab(newTab);
+    navigate(`/seller/${newTab}`);
+  };
 
   return (
     <div className='sellerscreen'>
     <div className='sellercontainer'>
-      <Sellernavbar setActiveTab={setActiveTab} activeTab={activeTab} />
+    <Sellernavbar setActiveTab={handleTabChange} activeTab={activeTab} />
       <div className="seller">
         <div className="seller_main">
           <Layout.Content>

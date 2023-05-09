@@ -33,6 +33,8 @@ const roomSchema = mongoose.Schema({
     services: [],
 
     currentbookings: [],
+    
+    address:[],
     type: {
         type: String,
         required: true
@@ -40,6 +42,10 @@ const roomSchema = mongoose.Schema({
     type: {
         type: String,
         required: true
+    },
+    category:{
+        type: String,
+        required: false
     },
    
     sellerid: {

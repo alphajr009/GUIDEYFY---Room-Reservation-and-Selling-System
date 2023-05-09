@@ -27,6 +27,7 @@ function Bookings() {
     setcustomerid(e.target.value);
   };
 
+  
   const handleBookingStatus = (value) => {
     setbookigstatus(value);
   };
@@ -86,7 +87,7 @@ function Bookings() {
       {/* container for search bar */}
       <div className="admin-terminal-bookid-cname-cid-roomname">
         {/* container for booking id */}
-        <div className="admin-terminal-search-bar-bookings-bookingid">
+        {/* <div className="admin-terminal-search-bar-bookings-bookingid">
           <FontAwesomeIcon icon={faSearch} className="bookings-magnifyinglass" />
           <input
             type="text"
@@ -95,7 +96,7 @@ function Bookings() {
             value={bookings}
             onChange={handlebookings}
           />
-        </div>
+        </div> */}
         {/* container for customer name */}
         <div className="admin-terminal-bookings-cname">
           <FontAwesomeIcon icon={faPerson} className="bookings-cperson" />
@@ -108,7 +109,7 @@ function Bookings() {
           />
         </div>
         {/* container for customer id */}
-        <div className="admin-terminal-bookings-cid">
+        {/* <div className="admin-terminal-bookings-cid">
           <FontAwesomeIcon icon={faIdBadge} className="bookings-cid" />
           <input
             type="text"
@@ -117,7 +118,7 @@ function Bookings() {
             value={customerid}
             onChange={handlecustomerid}
           />
-        </div>
+        </div> */}
         {/* container for room name */}
         <div className="admin-terminal-bookings-roomname">
           <FontAwesomeIcon icon={faHotel} className="bookings-roomname" />

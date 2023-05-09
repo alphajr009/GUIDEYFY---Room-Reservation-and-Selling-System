@@ -236,6 +236,27 @@ router.patch("/editngender", async (req, res) => {
 });
 
 
+router.patch('/changepassword', async (req, res) => {
+
+    const { _id, currentPassword, newPassword } = req.body;
+
+    try {
+        const user = await User.findById(_id);
+        if (!user) return res.status(404).send('User not found');
+
+        if (user.password !== currentPassword) {
+            return res.status(400).send('Current password does not match');
+        }
+
+        user.password = newPassword;
+        await user.save();
+        res.send('Password updated successfully');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error updating password');
+    }
+
+});
 
 
 

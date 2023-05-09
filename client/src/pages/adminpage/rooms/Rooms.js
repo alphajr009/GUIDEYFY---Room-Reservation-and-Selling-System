@@ -157,7 +157,7 @@ function Rooms() {
           />
         </div>
         {/* room id container */}
-        <div className="admin-terminal-rooms-room-id">
+        {/* <div className="admin-terminal-rooms-room-id">
           <FontAwesomeIcon icon={faListNumeric} className="rooms-listnumericicon" />
           <input
             type="text"
@@ -166,7 +166,7 @@ function Rooms() {
             value={roomid}
             onChange={handleroomid}
           />
-        </div>
+        </div> */}
         {/* room search icon container */}
         <div className='admin-rooms-filter-search'>
           <button className='btn-search-rooms-admin-terminal' onClick={handleFilterRoom}>

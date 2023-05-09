@@ -236,7 +236,7 @@ function Sellers() {
         </div>
 
         {/* container for customer id */}
-        <div className="admin-terminal-sellers-id">
+        {/* <div className="admin-terminal-sellers-id">
           <FontAwesomeIcon icon={faIdBadge} className="sellers-seller-id" />
           <input
             type="text"
@@ -245,7 +245,7 @@ function Sellers() {
             value={sellerid}
             onChange={handlesellerid}
           />
-        </div>
+        </div> */}
 
         {/* container for bseller level */}
         <div className="admin-terminal-level-seller">

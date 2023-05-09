@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './createproperty.css'
+import axios from 'axios';
 import { Input, Form, Select, Checkbox } from 'antd';
 import ImageUploader from '../../../components/SELLER/ImageUploader/ImageUploader';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -151,7 +152,7 @@ function CreateProperty() {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [rentperday, setrentperday] = useState('')
     const [maxcount, setmaxcount] = useState('')
-    const [contactnumber, setcontactnumber] = useState('')
+    const [phonenumber, setphonenumber] = useState('')
     const [description, setdescription] = useState('')
     const [addressline1, setaddressline1] = useState('')
     const [addressline2, setaddressline2] = useState('')
@@ -171,7 +172,53 @@ function CreateProperty() {
     };
 
 
+    async function createproperty() {
+        const formData = new FormData();
+        formData.append("title",roomname);
+        formData.append("category", selectedCategory);
+        formData.append("rentperday",rentperday);
+        formData.append("maxcount", maxcount);
+        formData.append("phonenumber",phonenumber);
+        formData.append("description",description);
+        formData.append("sellerid", user._id);
+        formData.append("address", JSON.stringify({ 
+            addressline1,
+            addressline2,
+            city,
+            province,
+            district
+          }));
+          formData.append("services", JSON.stringify({ 
+            services1,
+            services2
+          }));
+        
+       
+        imageurls.forEach((image, index) => {
+            if (image) {
+                formData.append("images", image, `${user._id}-${index}.jpg`);
+            }
+        });
 
+        console.log('imageurls:', imageurls);
+
+
+        try {
+            const response = await axios.post("http://localhost:5000/api/rooms/addproperty", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+            console.log(response.status);
+        } catch (error) {
+            if (error.response) {
+                console.log("Error1:");
+            } else {
+                console.log("Error2:");
+            }
+        }
+        
+    }
 
     return (
         <div className="createproperty-slider-container">
@@ -179,8 +226,6 @@ function CreateProperty() {
                 <div className="property-slide-container">
 
                     {/* Slide 1 */}
-
-
                     <div className={`slide ${activeSlide === 1 ? 'active' : 'hidden'}`}>
                         {/* Slide 1 content */}
                         <div className='createproperty-slide1'>
@@ -211,6 +256,7 @@ function CreateProperty() {
                                             className='input-room-name'
                                             placeholder="Enter the Room Name"
                                             showCount maxLength={75}
+                                            value={roomname}
                                             onChange={(e) => { setroomname(e.target.value) }}
                                         />
                                     </Form.Item>
@@ -261,10 +307,14 @@ function CreateProperty() {
                                             style={{ width: '410px' }}
                                             className='input-room-name'
                                             placeholder="Daily rental amount"
+                                            value={rentperday}
                                             onChange={(e) => { setrentperday(e.target.value) }}
 
                                         />
                                     </Form.Item>
+
+
+
                                     {/* Max Count */}
                                     <Form.Item
                                         className='createproperty-slide1-form-custom'
@@ -284,6 +334,7 @@ function CreateProperty() {
                                             style={{ width: '410px' }}
                                             className='input-room-name'
                                             placeholder="How many can stay ?"
+                                            value={maxcount}
                                             onChange={(e) => { setmaxcount(e.target.value) }}
 
                                         />
@@ -298,7 +349,7 @@ function CreateProperty() {
                                             }
                                         ]}
                                         label="Contact Number"
-                                        name="contactnumber"
+                                        name="phonenumber"
                                         labelCol={{ span: 8 }}
                                         wrapperCol={{ span: 8 }}
                                         labelAlign="left"
@@ -307,7 +358,8 @@ function CreateProperty() {
                                             style={{ width: '410px' }}
                                             className='input-room-name'
                                             placeholder="Preferred contact number"
-                                            onChange={(e) => { setcontactnumber(e.target.value) }}
+                                            value=  {phonenumber}
+                                            onChange={(e) => { setphonenumber(e.target.value) }}
 
                                         />
                                     </Form.Item>
@@ -402,7 +454,8 @@ function CreateProperty() {
                                             placeholder="Enter the Room Description"
                                             showCount maxLength={1000}
                                             style={{ height: '300px', width: '550px', marginLeft: '0px' }}
-                                            onChange={(e) => { description(e.target.value) }}
+                                            value={description}
+                                            onChange={(e) => {setdescription(e.target.value) }}
                                         />
                                     </Form.Item>
                                 </Form>
@@ -454,7 +507,8 @@ function CreateProperty() {
                                         style={{ width: '380px' }}
                                         className='input-room-name'
                                         placeholder="Address Line 1"
-                                        onChange={(e) => { setaddressline1(e.target.value) }}
+                                        value={addressline1}
+                                        onChange={(e) => {setaddressline1(e.target.value) }}
 
                                     />
                                 </Form.Item>
@@ -477,6 +531,7 @@ function CreateProperty() {
                                         style={{ width: '380px' }}
                                         className='input-room-name'
                                         placeholder="Address Line 2"
+                                        value={addressline2}
                                         onChange={(e) => { setaddressline2(e.target.value) }}
 
                                     />
@@ -500,6 +555,7 @@ function CreateProperty() {
                                         style={{ width: '380px' }}
                                         className='input-room-name'
                                         placeholder="Name of Province"
+                                        value={province}
                                         onChange={(e) => { setprovince(e.target.value) }}
 
                                     />
@@ -523,6 +579,7 @@ function CreateProperty() {
                                         style={{ width: '380px' }}
                                         className='input-room-name'
                                         placeholder="Name of District"
+                                        value={district}
                                         onChange={(e) => { setdistrict(e.target.value) }}
 
                                     />
@@ -546,6 +603,7 @@ function CreateProperty() {
                                         style={{ width: '380px' }}
                                         className='input-room-name'
                                         placeholder="Name of City"
+                                        value={city}
                                         onChange={(e) => { setcity(e.target.value) }}
 
                                     />
@@ -630,7 +688,7 @@ function CreateProperty() {
 
                             <button
                                 className="createprop-down-btn-continue"
-
+                                onClick={createproperty}
                             >
                                 Create Property
                             </button>

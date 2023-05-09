@@ -4,7 +4,6 @@ import axios from 'axios'
 import { Modal, Form, Input, notification, } from 'antd';
 import {
   CheckCircleOutlined,
-  DeleteFilled
 } from '@ant-design/icons';
 
 
@@ -147,6 +146,12 @@ function Payments() {
     window.location.href = '/seller'
   }
 
+  const validateStripeEmail = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
+
 
   return (
     // container for tab,funds,payments methods
@@ -235,7 +240,7 @@ function Payments() {
                         className='form-name'
                         labelCol={{ span: 24 }}
                         wrapperCol={{ span: 24 }}
-                        
+
                         name="Name"
                         label="Name"
                       >
@@ -268,17 +273,13 @@ function Payments() {
                     width="500px"
                     className="payment-modal"
                     bodyStyle={{ borderRadius: '17px' }}
+
                   >
                     <Form ref={formRef} stripeemail="control-ref" onFinish={(values) => changeUserEmailDetails(values.Email)}
                       size='large'
                       initialValues={{ Email: user.stripeemail }}>
                       <Form.Item
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please Enter a Email"
-                          }
-                        ]}
+                        rules={[{ required: true, message: "Please Enter a Valid Email" }, { validator: (_, value) => validateStripeEmail(value) ? Promise.resolve() : Promise.reject("Invalid email address"), },]}
                         className='form-email'
                         labelCol={{ span: 24 }}
                         wrapperCol={{ span: 24 }}

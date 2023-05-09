@@ -21,6 +21,7 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
+    "regex": "^0.1.1",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.7.3",
     "web-vitals": "^2.1.4"

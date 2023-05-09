@@ -110,8 +110,6 @@ function Registermodal() {
 
 
 
-
-
   async function register() {
     setIsLoading(true);
     console.log('Register function called');

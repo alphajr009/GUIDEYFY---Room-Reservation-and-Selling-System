@@ -14,7 +14,6 @@ router.post("/register", async (req, res) => {
             birthday:req.body.birthday,
             displayName: req.body.fname,
             gender: req.body.gender,
-            address:req.body.address,
             nationality:req.body.nationality
         });
 
@@ -246,6 +245,7 @@ router.patch('/changepassword', async (req, res) => {
 
         if (user.password !== currentPassword) {
             return res.status(400).send('Current password does not match');
+            
         }
 
         user.password = newPassword;

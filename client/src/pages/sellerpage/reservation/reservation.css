@@ -144,3 +144,34 @@
 .seller-central-cancel-reservation:not(.active){
     color: darkgray;
 }
+
+
+.seller-central-review-reservation-table th{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.seller-central-review-reservation-table td{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.seller-central-confirm-table th{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.seller-central-confirm-table td{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.seller-central-cancel-table th{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.seller-central-cancel-table td{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}

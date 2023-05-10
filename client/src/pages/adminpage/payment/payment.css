@@ -277,3 +277,25 @@
     width:90%;
     margin-top:350px
 }
+
+.table-of-review-payment th{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+.table-of-review-payment td{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+
+.table-of-payment-history th{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}
+
+
+.table-of-payment-history td{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+}

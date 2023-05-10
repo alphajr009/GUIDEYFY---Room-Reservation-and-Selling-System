@@ -3,7 +3,7 @@ import './rooms.css'
 import axios from 'axios';
 import { Table } from 'antd';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHotel, faListNumeric, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faHotel,faSearch } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'
 
 

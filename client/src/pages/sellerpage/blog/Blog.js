@@ -73,7 +73,7 @@ function Blog() {
       dataIndex: ' ',
       width: '9%',
       key: 'x',
-      render: (_, blogs) => (
+      render: (_, rooms) => (
         <button className='btn-delete-blogs-by-seller' onClick={() => {
           Swal.fire({
             title: 'Are you sure?',
@@ -86,7 +86,7 @@ function Blog() {
             confirmButtonText: 'Yes, Blog is Deleted!'
           }).then((result) => {
             if (result.isConfirmed) {
-              deleteBlog(blogs._id)
+              deleteBlog(rooms._id)
               Swal.fire(
                 'Deleted!',
                 'Blog has been deleted.',

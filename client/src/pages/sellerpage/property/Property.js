@@ -1,11 +1,14 @@
 import { React, useState } from 'react'
 import './property.css';
 import CreateProperty from './CreateProperty'
+import CurrentProperty from './CurrentProperty'
+
 
 function Property() {
 
   const [activeTab, setActiveTab] = useState('create property');
   return (
+    <div className='con'>
     <div className='seller-central-properties'>
     <div className='seller-central-properties-container'>
       {/* tab container */}
@@ -30,12 +33,16 @@ function Property() {
             <CreateProperty/>
           </div>
         )}
-        {activeTab === 'current property' && (
+      </div>
+     
+  </div>
+  {activeTab === 'current property' && (
           <div className='seller-central-current-property'>
-              current property
+            <div classe="seller-central-tables">
+             <CurrentProperty/>
+             </div>
           </div>
         )}
-      </div>
   </div>
   );
 }

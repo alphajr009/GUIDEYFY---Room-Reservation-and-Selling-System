@@ -1,35 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const promotionSchema = mongoose.Schema({
+  promotioncode: {
+    type: String,
+    required: true,
+  },
+  attemptUse: {
+    type: String,
+    required: true,
+  },
+  maxAmount: {
+    type: String,
+    required: true,
+  },
+  fromdate: {
+    type: Date,
+    required: true,
+  },
+  todate: {
+    type: Date,
+    required: true,
+  },
+}, {
+  timestamps: true,
+});
 
-    promotionuse: {
-        type: String,
-        required: true
-    },
-    
-    date :{
-        type: String, 
-        required: true
-    },
+const Promotion = mongoose.model("Promotion", promotionSchema);
 
-    type : {
-        type: String,
-        required: false 
-    },
-    
-    value:{
-        type: String, 
-        required: false
-    },
-
-    action : {
-        type: String,
-        required: true 
-    }
-},{
-    timestamps: true,
-})
-
-const promotionModel = mongoose.model('promotions',promotionSchema)
-
-module.exports = promotionModel
+module.exports = Promotion;

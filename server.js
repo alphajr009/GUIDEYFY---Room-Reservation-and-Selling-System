@@ -10,6 +10,7 @@ const roomsRoute = require('./routes/roomRoute')
 const userRoute = require('./routes/usersRoute')
 const sellerRoute = require('./routes/sellerRoute')
 const blogRoute = require('./routes/blogRoute')
+const paymentRoute = require('./routes/paymentRoute')
 
 
 const corsOptions = {
@@ -29,6 +30,7 @@ app.use('/api/rooms', roomsRoute)
 app.use('/api/users', userRoute)
 app.use('/api/sellers', sellerRoute)
 app.use('/api/blogs', blogRoute)
+app.use('/api/payments', paymentRoute)
 
 
 

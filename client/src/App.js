@@ -7,6 +7,7 @@ import Userscreen from './pages/userpage/Userscreen';
 import SellerRegister from './components/SELLER/sellerRegsiter/SellerRegister';
 import BlogPage from './pages/blogpage/blogscreenPage/BlogPage';
 import Blogscreen from './pages/blogpage/blogScreen';
+import Roomdetails from './pages/roompage/roomdetails/Roomdetails';
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/profile" element={<Userscreen />} exact />
           <Route path="/registerseller" element={<SellerRegister />} exact />
           <Route path="/blog" element={<Blogscreen />} exact />
+          <Route path="/roomdetails" element={<Roomdetails />} exact />
           <Route path="/blog/:blogid" element={<BlogPage />} exact />
 
         </Routes>

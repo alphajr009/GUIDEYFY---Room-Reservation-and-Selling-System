@@ -1,0 +1,121 @@
+
+.navbar {
+    display: flex;
+    padding: 20px 28px 165px 24px;
+    background-color: white;
+    background-image: url('../../../images/navbg-1.png');
+    background-size: cover;
+  }
+  
+  .navContainer {
+    width: 100%;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .navbar-logo-container {
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .searchbar-wrapper {
+    position: absolute;
+    left: 52%;
+    top: 230px;
+    transform: translateX(-50%);
+  }
+  
+  .navbar-logo {
+    margin-top: 20px;
+    margin-left: 40px;
+    height: 61px;
+    width: 217px;
+  }
+  
+  .navbar-text {
+    margin-top: 80px;
+    margin-left: 40px;
+    text-align: left;
+  }
+  
+  .navbar-text h1 {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 45px;
+  }
+  
+  .navbar-text p {
+    font-family: "Sansation-Regular", sans-serif;
+    font-size: 25px;
+  }
+  
+  .navbar-text h1,
+  .navbar-text p {
+    margin: 0;
+    text-align: left;
+  }
+  
+  .navbar-text p {
+    margin-top: 0;
+  }
+  
+  .navbar-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 20px 0px 0px;
+  }
+  
+  .btn-list {
+    background-color: #4444AA;
+    color: white;
+    border: 1px solid;
+    border-color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-left: 0.8rem;
+    cursor: pointer;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    max-height: 34px;
+  }
+  
+  .btn-reg {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-left: 0.8rem;
+    cursor: pointer;
+  }
+  
+  .btn-sign {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-left: 0.8rem;
+    cursor: pointer;
+  }
+  
+  .btn-list:hover {
+    background-color: #4e86c2;
+  }
+  
+  .btn-sign:hover {
+    background-color: #3c87d7;
+  }
+  
+  
+  .btn-reg:hover {
+    background-color: #3a7cc2;
+  }
+  

@@ -34,7 +34,6 @@
     color: darkgray;
     border: 1px solid #ccc;
     border-radius: 12px;
-
     padding: 0 15px;
     margin: 0 10px 10px 10px;
     text-align: center;
@@ -59,6 +58,24 @@
     cursor: pointer;
 }
 
+.seller-central-total-funds-tab{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+
+}
 
 .funds-and-payments-methods {
     margin-top: 250px;
@@ -82,7 +99,14 @@
     color: darkgray;
 }
 
+.seller-central-total-funds-tab.active{
+    color: Black;
+}
 
+.seller-central-total-funds-tab:not(.active){
+    background-color: white;
+    color: darkgray;
+}
 .total-box-1 {
     display: flex;
     flex-direction: column;
@@ -425,3 +449,108 @@
     background-color: #29298a;
 }
 
+
+
+/* */
+.summary-of-payment-seller {
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.summary-of-total-funds-seller,
+.total-funds-of-payment-summary-seller,
+.total-fees-of-payment-fee-seller {
+    display: block;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.summary-of-total-fees-seller,
+.total-fees-of-payment-summary-seller,
+.summary-of-payout-fees-seller
+ {
+    display: block;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+
+.summary-of-total-fees-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    margin-bottom: 70px;
+    font-size: 30px;
+}
+
+.total-fees-of-payment-summary-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    margin-bottom: 70px;
+    font-size: 24px;
+}
+.total-funds-of-payment-summary-seller {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 24px;
+
+}
+
+.summary-of-total-funds-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    margin-bottom: 70px;
+    font-size: 30px;
+}
+.summary-of-payment-box-1-seller {
+    margin-right: 0px;
+    width: 817px;
+    height: 180px;
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 34px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.summary-of-payment-box-2-seller {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    width: 817px;
+    height: 180px;
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 34px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.summary-of-payment-box-3-seller{
+    margin-top: 40px;
+    margin-bottom: 50px;
+    width: 817px;
+    height: 180px;
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 34px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.summary-of-payout-fees-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    margin-bottom: 70px;
+    font-size: 30px;
+}
+
+.total-fees-of-payment-fee-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 24px;
+}

@@ -183,6 +183,15 @@ function Payments() {
         >
           <span className='seller-central-payments-tab-text'>Payments Methods</span>
         </div>
+
+
+          {/* container for total funds */}
+          <div className={`seller-central-total-funds-tab
+          ${activeTab === 'total funds' ? 'active' : ''}`}
+          onClick={() => setActiveTab('total funds')}
+        >
+          <span className='seller-central-payments-tab-text'>Total funds</span>
+        </div>
       </div>
 
       {/* both funds and modal container */}
@@ -310,6 +319,39 @@ function Payments() {
         </div>
       )
       }
+                 {activeTab === 'total funds' && (
+                <div className='summary-of-payment-seller'>
+                    <div className='summary-of-payment-boxes-container-seller'>
+                        <div className='summary-of-payment-box-1-seller'>
+                            <span className='summary-of-total-funds-seller'>
+                                Total Funds
+                            </span>
+                            <span className='total-funds-of-payment-summary-seller'>
+                                Rs.600000
+                            </span>
+                        </div>
+                        <div className='summary-of-payment-box-2-seller'>
+                            <span className='summary-of-total-fees-seller'>
+                                Your salary fees
+                            </span>
+                            <span className='total-fees-of-payment-summary-seller'>
+                                Rs6000
+                            </span>
+                        </div>
+
+                        <div className='summary-of-payment-box-3-seller'>
+                            <span className='summary-of-payout-fees-seller'>
+                                Payout Amount
+                            </span>
+                            <span className='total-fees-of-payment-fee-seller'>
+                                Rs6000
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            )}
+
     </div>
   )
 }

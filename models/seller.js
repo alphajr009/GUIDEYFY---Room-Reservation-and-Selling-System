@@ -46,6 +46,36 @@ const sellerSchema = mongoose.Schema({
         type: String,
         default: 'Silver'
     },
+    
+    displayName : {
+        type: String,
+        required: false 
+    },
+ 
+    birthday: {
+        type: Array,
+        required: false
+    },
+    address: {
+        type: Array,
+        required: false
+    },
+    
+    isAdmin:{
+        type: Boolean, default:false
+    },
+    
+    isUser:{
+        type: Boolean, default:true
+    },
+    nationality :{
+        type: String, 
+        required: false
+    },
+    gender :{
+        type: String, 
+        required: false
+    }
 }, {
     timestamps: true,
 })

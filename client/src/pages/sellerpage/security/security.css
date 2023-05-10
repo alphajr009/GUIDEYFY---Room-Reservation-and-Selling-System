@@ -1,0 +1,127 @@
+.user-p-security{
+    display: flex;
+    flex-direction: column;
+    width: 870px;
+    height: 455px;
+    padding-top: 34px;
+    padding-bottom: 40px;
+    padding-left: 36px;
+    padding-right: 60px;
+    border-radius: 17px;
+    box-shadow: 0 0 3px 3px #dad9d9 ;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.user-p-boxall{
+    margin-top: 40px;
+}
+
+
+.user-p-password-box{
+  width: 870px;
+  height: 90px;
+  border-radius: 13px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color:#F8F8F8 ;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.user-p-deleteacc-box{
+  width: 870px;
+  height: 150px;
+  border-radius: 13px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color:#F8F8F8 ;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.user-p-activesession-box{
+    width: 870px;
+    height: 90px;
+    border-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color:#F8F8F8 ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+
+  .user-psecure-box-container{
+    display: flex;
+    flex-direction: row;
+    padding-left: 25px;
+    gap: 90px;
+  }
+
+  .user-psecure-box-containerp{
+    padding-top: 20px;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    width: 114px;
+  }
+
+  .user-psecure-box-containerp-activesession{
+    padding-top: 20px;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    width: 155px;
+  }
+
+  .user-psecure-box-containerp-deleteacc{
+    padding-top: 20px;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    width: 322px;
+  }
+
+
+  .user-psecure-bc-passwordbc-name{
+    padding-top: 14px;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 15px;
+    color: #727171;
+  }
+
+  .user-psecure-bc-password-btn{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 14px;
+    background-color: #4444AA;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 128px;
+    height: 34px;
+    
+  }
+
+.userp-secure-btn-container{
+    margin-top: 30px;
+    margin-right: 20px;
+}  
+
+.user-psecure-bc-password-btn:hover{
+    background-color: #28309b;
+  }
+  
+.swal2-container.swal2-center>.swal2-popup{
+  font-family: "Sansation-Bold", sans-serif;
+  font-size: 17px;
+  border-radius: 12px;
+ } 
+
+ .swal2-title{
+  font-family: "Sansation-Bold", sans-serif;
+    font-size: 14px;
+ } 
+
+ .style-noti-personal-details .anticon-check-circle {
+  color: #52c41a;
+  font-size: 24px;
+  margin-right: 8px;
+}

@@ -1,0 +1,73 @@
+.BlogButtonContainerAvi{
+    margin-top: 50px;
+    margin-left: 175px;
+    text-align: left;
+    
+}  
+
+.BlogButtonAvi{
+    font-family: "Sansation-Bold";
+    font-size: 28px;
+    background-color: #4444AA;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 250px;
+    height: 50px;
+    
+  }
+
+.BlogButtonAvi::shadow{
+    background-color: #616163;
+  }
+  
+.GetStartedAvi {
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    padding: 5px;
+    vertical-align: center;
+    font-family: "Sansation-regular";
+    width: 280px;
+    height: 280px;
+    margin-top: 70px;
+    margin-left: 175px;
+    margin-right: 50px;
+
+}
+
+.GetStartedAvi a {
+    color: black;
+}
+
+/* Add right arrow to every link */
+.GetStartedAvi a::after {
+    content: " >";
+}
+
+/* Align all arrow signs */
+.GetStartedAvi a::after {
+    display: inline-block;
+    margin-left: 270px;
+    /* adjust this value to your preference */
+    top: 50%;
+}
+
+.GetStartedAvi td {
+    border-bottom: 1px solid #B2A7A7;
+    border-collapse: collapse;
+    position: relative;
+
+}
+
+.GetStartedAvi tr:last-child td {
+    border-bottom: none;
+}
+
+
+.GetStartedAvi th {
+    font-family: "Sansation-Bold", sans-serif;
+    font-weight: bold;
+    text-align: left;
+    font-size: 16px;
+}

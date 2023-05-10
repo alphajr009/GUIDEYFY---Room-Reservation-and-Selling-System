@@ -13,8 +13,6 @@ import SuccessAnimation from '../../STYLES/SuccessAnimation'
 
 
 
-
-
 const SlidingPanel1 = ({ email, setEmail, onNext, className, onSign }) => {
 
     const formRef = useRef();

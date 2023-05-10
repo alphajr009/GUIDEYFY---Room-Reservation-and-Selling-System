@@ -129,6 +129,177 @@ router.patch("/editseller", async (req, res) => {
     }
 });
 
+router.patch('/changepassword', async (req, res) => {
+
+    const { _id, currentPassword, newPassword } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).send('User not found');
+
+        if (user.password !== currentPassword) {
+            return res.status(400).send('Current password does not match');
+        }
+
+        user.password = newPassword;
+        await user.save();
+        res.send('Password updated successfully');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error updating password');
+    }
+
+});
+
+router.patch('/deleteseller', async (req, res) => {
+
+    const { _id } = req.body;
+
+    try {
+
+        const user = await Seller.findByIdAndRemove(_id);
+
+        if (!user) return res.status(404).send('User not found');
+        res.send('User deleted successfully');
+    } catch (error) {
+        console.log(error);
+        res.status(400).send('Error deleting User');
+    }
+
+});
+
+router.patch("/editusername", async (req, res) => {
+    const { _id, fname, lname } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        if (fname) user.fname = fname;
+        if (lname) user.lname = lname;
+
+        await user.save();
+        return res.json({ message: 'User details updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+router.patch("/edituseremail", async (req, res) => {
+    const { _id,email } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        if (email) user.email = email;
+        
+
+        await user.save();
+        return res.json({ message: 'User email details updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+router.patch("/edituserdisplayname", async (req, res) => {
+    const { _id, displayName } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        if (displayName) user.displayName = displayName; 
+
+        await user.save();
+        return res.json({ message: 'User display name updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+router.patch("/editbirthday", async (req, res) => {
+    const { _id, birthday } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        if (birthday) user.birthday = birthday; 
+
+        await user.save();
+        return res.json({ message: 'User display name updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+router.patch("/editaddress", async (req, res) => {
+    const { _id, address } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        if (address) user.address =address ; 
+
+        await user.save();
+        return res.json({ message: 'User display name updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+router.patch("/editnationality", async (req, res) => {
+    const { _id,nationality } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        if (nationality) user.nationality =nationality; 
+
+        await user.save();
+        return res.json({ message: 'User display name updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+router.patch("/editngender", async (req, res) => {
+    const { _id,gender } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).json({ message: 'User not found' });
+        if (gender) user.gender =gender; 
+
+        await user.save();
+        return res.json({ message: 'User display name updated successfully' });
+    } catch (error) {
+        return res.status(400).json({ error });
+    }
+});
+
+
+router.patch('/changepassword', async (req, res) => {
+
+    const { _id, currentPassword, newPassword } = req.body;
+
+    try {
+        const user = await Seller.findById(_id);
+        if (!user) return res.status(404).send('User not found');
+
+        if (user.password !== currentPassword) {
+            return res.status(400).send('Current password does not match');
+        }
+
+        user.password = newPassword;
+        await user.save();
+        res.send('Password updated successfully');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error updating password');
+    }
+
+});
+
+
 
 
 module.exports = router

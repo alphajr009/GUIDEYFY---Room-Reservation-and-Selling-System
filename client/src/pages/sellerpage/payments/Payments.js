@@ -122,6 +122,14 @@ function Payments() {
     window.location.href = '/seller'
   }
 
+  const validateName = (rule, value) => {
+    const regex = /^[A-Za-z\s]{2,}$/; 
+    if (!regex.test(value)) {
+      return Promise.reject('Please enter a two names');
+    }
+    return Promise.resolve();
+  };
+  
 
   async function changeUserEmailDetails(stripeemail) {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"))
@@ -235,8 +243,12 @@ function Payments() {
                           {
                             required: true,
                             message: "Please Enter a Stripe Name"
-                          }
+                          },
+                          {
+                            validator: validateName,
+                          },
                         ]}
+                      
                         className='form-name'
                         labelCol={{ span: 24 }}
                         wrapperCol={{ span: 24 }}
@@ -279,7 +291,7 @@ function Payments() {
                       size='large'
                       initialValues={{ Email: user.stripeemail }}>
                       <Form.Item
-                        rules={[{ required: true, message: "Please Enter a Valid Email" }, { validator: (_, value) => validateStripeEmail(value) ? Promise.resolve() : Promise.reject("Invalid email address"), },]}
+                        rules={[{ required: true, message: "Please Enter a Valid Stripe Email" }, { validator: (_, value) => validateStripeEmail(value) ? Promise.resolve() : Promise.reject("Invalid stripe email address"), },]}
                         className='form-email'
                         labelCol={{ span: 24 }}
                         wrapperCol={{ span: 24 }}

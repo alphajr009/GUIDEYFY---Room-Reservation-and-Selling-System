@@ -9,6 +9,7 @@ import Sellers from './sellers/Sellers'
 import Blogs from './blogs/Blogs'
 import Footeradmin from '../../components/ADMIN/adminfooter/Footeradmin';
 import Payment from './payment/Payment';
+import Report from './report/Report';
 
 
 
@@ -31,6 +32,7 @@ function Adminscreen() {
               {activeTab === "users" && <Users />}
               {activeTab === "sellers" && <Sellers />}
               {activeTab === "blogs" && <Blogs />}
+              {activeTab === "reports" && <Report />}
             </Layout.Content>
           </div>
         </div>  

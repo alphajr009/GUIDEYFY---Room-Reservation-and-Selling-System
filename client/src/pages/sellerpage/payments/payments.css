@@ -107,76 +107,7 @@
     background-color: white;
     color: darkgray;
 }
-.total-box-1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative
-}
 
-.total-box-2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative
-}
-
-
-.total-box-text-1 {
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 24px;
-    color: black;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-    width: 550px;
-}
-
-.total-box-text-2 {
-    margin-top: 100px;
-    font-size: 22px;
-    font-family: "Sansation-Bold", sans-serif;
-    color: black;
-}
-
-.seller-central-funds-box-container {
-    width: 640px;
-    height: 250px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn-btn-review-payment {
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 18px;
-    margin-top: 50px;
-    margin-left: 200px;
-    width: 40%;
-    height: 50px;
-    padding: 14px 0px;
-    border-radius: 9px;
-    border: none;
-    border-color: #30379B;
-    background-color: #30379B;
-    color: azure;
-    cursor: pointer;
-}
-
-.btn-btn-review-payment:hover {
-
-    border-color: #3c42a1;
-    background-color: #3c42a1;
-    color: azure;
-}
 
 .seller-central-payments-methods-box-container {
     display: flex;
@@ -478,36 +409,27 @@
 
 .summary-of-total-fees-seller{
     font-family: "Sansation-Bold", sans-serif;
-    margin-bottom: 70px;
-    font-size: 30px;
+    margin-bottom: 30px;
+    font-size: 21px;
 }
 
 .total-fees-of-payment-summary-seller{
     font-family: "Sansation-Bold", sans-serif;
-    margin-bottom: 70px;
-    font-size: 24px;
-}
-.total-funds-of-payment-summary-seller {
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 24px;
-
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
-.summary-of-total-funds-seller{
-    font-family: "Sansation-Bold", sans-serif;
-    margin-bottom: 70px;
-    font-size: 30px;
-}
+
 .summary-of-payment-box-1-seller {
-    margin-right: 0px;
     width: 817px;
-    height: 180px;
+    height: 230px;
     display: block;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     border: 1px solid #ccc;
     border-radius: 34px;
+    background-color: #D9D9D9;
     padding: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -515,14 +437,14 @@
 
 .summary-of-payment-box-2-seller {
     margin-top: 40px;
-    margin-bottom: 50px;
     width: 817px;
-    height: 180px;
+    height: 200px;
     display: block;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     border: 1px solid #ccc;
+    background-color: #D9D9D9;
     border-radius: 34px;
     padding: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -532,25 +454,36 @@
     margin-top: 40px;
     margin-bottom: 50px;
     width: 817px;
-    height: 180px;
+    height: 200px;
     display: block;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     border: 1px solid #ccc;
+    background-color: #D9D9D9;
     border-radius: 34px;
     padding: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
-.summary-of-payout-fees-seller{
+
+.review-payment {
     font-family: "Sansation-Bold", sans-serif;
-    margin-bottom: 70px;
-    font-size: 30px;
+    font-size: 16px;
+    background-color: #30379B;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 9px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    margin-left: 50px;
 }
 
-.total-fees-of-payment-fee-seller{
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 24px;
+.review-payment:hover {
+    border-color: #3c42a1;
+    background-color: #3c42a1;
+    color: azure;
 }

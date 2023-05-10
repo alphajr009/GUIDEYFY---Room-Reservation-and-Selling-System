@@ -294,66 +294,6 @@ function Personaldetail() {
     }
   }
 
-  //for birthday
-  const showBirthdayModal = () => {
-    setOpenBirthday(true);
-  };
-
-
-  const handleBirthdayCancel = () => {
-    console.log('Clicked cancel button');
-    setOpenBirthday(false);
-  }
-
-  const handleBirthday = async () => {
-    const month = formRef.current.getFieldValue("month");
-    const day = formRef.current.getFieldValue("day");
-    const year = formRef.current.getFieldValue("year");
-
-    try {
-      await changeBirthdayDetails(month, year, day);
-      setConfirmLoading(true);
-      setTimeout(() => {
-        setBirthday(false);
-        setConfirmLoading(false);
-      }, 2000);
-      notification.open({
-        message: 'Your Birthday is Updated',
-        description: '',
-        placement: 'topRight',
-        className: "style-noti-personal-details",
-        icon: <CheckCircleOutlined />
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
-  async function changeBirthdayDetails(month, year, day) {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-    if (!currentUser) throw new Error('User not found in local storage');
-
-    const _id = currentUser._id;
-    const birthday = [month, day, year];
-    try {
-      const res = (await axios.patch('http://localhost:5000/api/sellers/editbirthday', { _id, birthday })).data;
-      console.log(res);
-
-      localStorage.setItem("currentUser", JSON.stringify({
-        _id: currentUser._id,
-        birthday: birthday ? birthday : currentUser.birthday
-
-      }));
-
-      location.reload();
-
-    } catch (error) {
-      console.log(error)
-      setloading(false)
-    }
-  }
-
   //for nationality
   const showOpenNationality = () => {
     setOpenNationality(true);
@@ -498,7 +438,7 @@ function Personaldetail() {
   return (
 
     <div className='user-profile-personal-details'>
-      <div className="user-profile-main-txt">Personal Details</div>
+      <div className="user-profile-main-txt">Seller Personal Details</div>
       <div className='user-profile-box-con'>
 
 
@@ -741,111 +681,6 @@ function Personaldetail() {
 
           </div>
         </div>
-
-
-        {/* Birthday Box Container */}
-        <div className="user-profile-box">
-          <div className="user-profile-box-container-p-5">
-            <div className='user-profile-box-container-birthday'>
-              <p className='user-profile-box-container-text-birthday'>Birthday</p>
-            </div>
-            <div className='use-rp-bc-b-day'>
-              <p className='user-profile-bc-b-day'>{birthday}</p>
-            </div>
-            <p className='user-pro-bc-edit-popup' onClick={showBirthdayModal}>Edit</p>
-
-            <Modal
-              title="Enter Your Birthday"
-              className="edit-model"
-              open={openBirthday}
-              onOk={handleBirthday}
-              confirmLoading={confirmLoading}
-              onCancel={handleBirthdayCancel}
-              okText="Save"
-            >
-              <Form ref={formRef} name="control-ref" onFinish={(values) => changeBirthdayDetails(values.month, values.day, values.year)}
-                rules={[
-                  {
-                    required: true,
-                    message: "Please Enter a Email"
-                  }
-                ]}
-                size='large'
-                initialValues={{
-                  month: user.birthday ? user.birthday[0] : undefined,
-                  day: user.birthday ? user.birthday[1] : undefined,
-                  year: user.birthday ? user.birthday[2] : undefined,
-                }}>
-
-                <Form.Item
-                  name="month"
-                  label="Month"
-                  labelCol={{ span: 24 }}
-                  wrapperCol={{ span: 24 }}
-                  style={{ display: 'inline-block', width: 'calc(30% - 8px)' }}
-                >
-                  <Select
-                    className="personal-details-birthday-month"
-                    placeholder="Month"
-                    style={{ width: '120px' }}
-                  >
-                    {Array.from({ length: 12 }, (_, i) => i + 1).map(month => (
-                      <Option key={month}>
-                        {month}
-                      </Option>
-                    ))}
-                  </Select>
-                </Form.Item>
-
-
-                <Form.Item
-                  name="day"
-                  label="Day"
-                  labelCol={{ span: 24 }}
-                  wrapperCol={{ span: 24 }}
-                  style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
-                >
-                  <Select
-                    className="personal-details-birthday-day"
-                    placeholder="Day"
-                    style={{ width: '120px', marginLeft: '10px' }}
-                  >
-                    {Array.from({ length: 31 }, (_, i) => i + 1).map(day => (
-                      <Option key={day}>
-                        {day}
-                      </Option>
-                    ))}
-                  </Select>
-                </Form.Item>
-
-
-                <Form.Item
-                  name="year"
-                  label="Year"
-                  labelCol={{ span: 24 }}
-                  wrapperCol={{ span: 24 }}
-                  style={{ display: 'inline-block', width: 'calc(33% - 8px)' }}
-                >
-                  <Select
-                    className="personal-details-birthday-year"
-                    placeholder="Year"
-                    style={{ width: '120px', marginLeft: '5px' }}
-
-                  >
-                    {Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i).map(
-                      year => (
-                        <Option key={year} >
-                          {year}
-                        </Option>
-                      ),
-                    )}
-                  </Select>
-                </Form.Item>
-              </Form>
-            </Modal>
-          </div>
-        </div>
-
 
         {/* Nationality Box Container */}
         <div className="user-profile-box">

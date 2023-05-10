@@ -52,10 +52,6 @@ const sellerSchema = mongoose.Schema({
         required: false 
     },
  
-    birthday: {
-        type: Array,
-        required: false
-    },
     address: {
         type: Array,
         required: false

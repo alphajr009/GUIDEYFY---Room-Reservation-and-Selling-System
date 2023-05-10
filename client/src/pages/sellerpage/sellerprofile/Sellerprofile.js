@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './sellerprofile.css'
-import user_image from '../../../images/user_image.png'
+import user_image from '../../../images/Seller.png'
 import Security from '../security/Security';
 import Help from '../help/Help';
 import axios from 'axios'

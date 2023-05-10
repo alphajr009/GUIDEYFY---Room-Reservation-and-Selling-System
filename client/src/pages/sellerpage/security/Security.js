@@ -80,7 +80,7 @@ function Security() {
       setChangePassLoading(false);
     }, 2000);
     notification.open({
-      message: 'Your Name is Updated',
+      message: 'Your Password is Updated',
       description: '',
       placement: 'topRight',
       className: "style-noti-personal-details",

@@ -54,14 +54,7 @@ function Blogs() {
       dataIndex: 'title',
       key: 'title',
     },
-    // {
-    //   title: 'Seller ID',
-    //   dataIndex: '_id',
-    //   key: '_id',
-    //   render: (text, record) => {
-    //     return `${record.sellerid}`;
-    //   }
-    // },
+  
     {
       title: 'Seller Name',
       dataIndex: 'displayName',
@@ -71,11 +64,7 @@ function Blogs() {
           return sellername ? `${sellername.fname} ${sellername.lname}`: '';
       }
     },
-    // {
-    //   title: 'Room ID',
-    //   dataIndex: 'roomid',
-    //   key: 'roomid',
-    // },
+ 
     {
       title: 'Room Name',
       dataIndex: 'roomid',
@@ -204,17 +193,6 @@ function Blogs() {
     <div className="admin-terminal-blogs">
       {/* container for search bar */}
       <div className="admin-terminal-blog-id-blog-name-seller-id">
-        {/* container for booking id */}
-        {/* <div className="admin-terminal-search-bar-blogs-blog-id">
-          <FontAwesomeIcon icon={faPenSquare} className="blogs-blogid-icon" />
-          <input
-            type="text"
-            placeholder="Seller Name"
-            className="admin-terminal-blogs-blog-id"
-            value={displayName}
-            onChange={handlesellername}
-          />
-        </div> */}
         {/* container for customer name */}
         <div className="admin-terminal-blogs-bname">
           <FontAwesomeIcon icon={faNewspaper} className="blogs-name" />
@@ -226,17 +204,6 @@ function Blogs() {
             onChange={handleblogname}
           />
         </div>
-        {/* container for customer id */}
-        {/* <div className="admin-terminal-blogs-seller-id">
-          <FontAwesomeIcon icon={faIdBadge} className="blogs-sid" />
-          <input
-            type="text"
-            placeholder="Seller ID"
-            className="admin-terminal-blogs-sid"
-            value={sellerid}
-            onChange={handlesellerid}
-          />
-        </div> */}
 
         {/* container fors search*/}
         <div className='admin-blogs-filter-search'>

@@ -10,19 +10,34 @@ import Blogs from './blogs/Blogs'
 import Footeradmin from '../../components/ADMIN/adminfooter/Footeradmin';
 import Payment from './payment/Payment';
 import Report from './report/Report';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 
 
 
 function Adminscreen() {
 
-  const [activeTab, setActiveTab] = useState("booking");
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  // Extract the active tab from the location pathname
+  const initialActiveTab = location.pathname.split('/').pop();
+
+
+    // Set the initial state of activeTab
+    const [activeTab, setActiveTab] = useState(initialActiveTab || "booking");
+
+    
+  const handleTabChange = (newTab) => {
+    setActiveTab(newTab);
+    navigate(`/admin/${newTab}`);
+  };
 
   return (
     <div className='adminscreen'>
       <div className='admincontainer'>
-        <AdminNavbar setActiveTab={setActiveTab} activeTab={activeTab} />
+        <AdminNavbar setActiveTab={handleTabChange} activeTab={activeTab} />
         <div className="admin">
           <div className="admin__main">
             <Layout.Content>

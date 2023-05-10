@@ -17,7 +17,6 @@ function Payments() {
   const [open, setOpen] = useState(false);
   const [openemail, setOpenemail] = useState(false);
   const [loading, setloading] = useState(false);
-  const [error, seterror] = useState();
   const [formValid, setFormValid] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
@@ -119,7 +118,7 @@ function Payments() {
       console.log(error)
       setloading(false)
     }
-    window.location.href = '/seller'
+    window.location.href = '/seller/payments'
   }
 
   const validateName = (rule, value) => {

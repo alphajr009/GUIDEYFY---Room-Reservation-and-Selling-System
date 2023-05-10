@@ -93,7 +93,7 @@ function Rooms() {
                 'User has been deleted.',
                 'success'
               ).then(result => {
-                window.location.reload();
+                window.location.href = 'http://localhost:3000/admin/rooms';
               })
             }
           })

@@ -124,7 +124,7 @@ function Sellers() {
                   'Suspended!',
                   `${users.fname} is now a seller.`
                 ).then(result => {
-                  window.location.reload();
+                  window.location.href = 'http://localhost:3000/admin/sellers';
                 })
                 
               }

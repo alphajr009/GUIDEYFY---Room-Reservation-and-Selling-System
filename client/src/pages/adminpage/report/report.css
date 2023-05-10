@@ -1,0 +1,90 @@
+.report-container-main{
+    margin-top:80px;
+    margin-bottom:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+
+.report-container-box-bar{
+    height: 80px;
+    background-color: #30379B;
+    border-radius: 12px;
+    padding-top: 10px;
+    padding-left: 10px;
+
+}
+
+.report-container{
+    margin-top: 20px;
+    box-shadow: 0 0 3px 3px #dad9d9;
+    width: 680px;
+    height: 473px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+   
+}
+
+.generate-reports-txt{
+    font-family: "Sansation-Regular", sans-serif;
+    font-size: 18px;
+    color: white;
+    margin-left:20px;
+
+}
+
+.report-type-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:100px;
+
+  }
+
+  
+  .select-report-types {
+    margin-bottom: 0;
+    width: 100%;
+
+  }
+  
+  .create-report-type {
+    width: 100%;
+  }  
+
+  .download-receipt{
+
+    margin-top: 40px;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    background-color: #30379B;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 284px;
+    height: 48px;
+
+  }
+
+  .download{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+ .type-of-report:where(.css-dev-only-do-not-override-1vtf12y).ant-form-item .ant-form-item-label>label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    height: 32px;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 16px;
+    font-family: 'Sansation-Bold';
+}

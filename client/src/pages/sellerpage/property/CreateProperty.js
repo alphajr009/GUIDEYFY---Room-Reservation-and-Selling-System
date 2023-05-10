@@ -683,6 +683,10 @@ function CreateProperty() {
                                 </ul>
                             </div>
 
+                            <div className='text-left'>
+                                <span className='charge'>You will be charged Rs.200 </span>
+                            </div>
+
                             <button
                                 className="createprop-down-btn-continue"
                                 onClick={createproperty}

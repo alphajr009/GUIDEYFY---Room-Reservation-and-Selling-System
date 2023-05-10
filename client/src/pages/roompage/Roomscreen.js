@@ -26,8 +26,8 @@ function Room({ room }) {
         <div className="roomconatintile-description-wrapper">
           <div className='roomcontain-button-wrapper-titlenaddescription'>
             <div className="roomconatintile-description-wrapper-title">
-              <Link to={`/room/${room._id}`}>
-                <h3>{room.title}</h3>
+              <Link to={`/room/${room._id}`} style={{ textDecoration: 'none' }}>
+                <h3 className='roomscrnh3'>{room.title}</h3>
               </Link>
             </div>
             <div className="roomconatintile-description-wrapper-description">
@@ -56,13 +56,6 @@ function Room({ room }) {
 
 
 
-
-
-
-
-
-
-
 function Roomscreen() {
 
 
@@ -85,6 +78,14 @@ function Roomscreen() {
   const onClearCategory = () => {
     setValue('');
 
+  };
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const roomsPerPage = 25;
+
+
+  const onPageChange = (page) => {
+    setCurrentPage(page);
   };
 
 
@@ -180,12 +181,23 @@ function Roomscreen() {
 
         </div>
         <div className="roomscreen-property-wrapper">
-          {rooms.map((room) => (
-            <Room key={room.id} room={room} />
-          ))}
+        {rooms
+            .slice((currentPage - 1) * roomsPerPage, currentPage * roomsPerPage)
+            .map((room) => (
+              <Room key={room.id} room={room} />
+            ))}
         </div>
 
       </div>
+      <div className='roomscrn-pagnition'>
+        <Pagination
+          current={currentPage}
+          pageSize={roomsPerPage}
+          total={rooms.length}
+          onChange={onPageChange}
+        />
+      </div>
+      
       <Footer />
     </div>
 

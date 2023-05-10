@@ -225,6 +225,8 @@ function CreateBlog() {
                                     className="rooms-pagination"
                                 />
                             </div>
+
+                            
                             <div className='createblog-slide1-button'>
                                 <button
                                     className="crb-slide1-roomslect-down-btn"

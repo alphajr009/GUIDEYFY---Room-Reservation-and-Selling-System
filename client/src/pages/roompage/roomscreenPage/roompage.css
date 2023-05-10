@@ -1,0 +1,142 @@
+.roompage {
+    display: flex;
+    flex-direction: column;
+    min-height: 220vh;
+    background-color: #f1f1f1;
+}
+
+
+
+.roompage-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.roompage-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-left: 90px;
+    padding-right: 70px;
+    padding-bottom: 120px;
+}
+
+.roompage-container-1 {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.roompage-container-2{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+
+.roompage-c1-img1-photo-sub {
+    width: 360px;
+    height: 210px;
+    border-radius: 11px;
+}
+
+.roompage-c1-img1-photo-main {
+    width: 746px;
+    height: 422px;
+    border-radius: 11px;
+    margin-top: 20px;
+}
+
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.image {
+    display: block;
+    width: 360px;
+    height: 210px;
+    border-radius: 11px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    height: 210px;
+    border-radius: 11px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-text p {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.roompage-c2-reservetab{
+    width: 360px;
+    height: 422px;
+    background-color: #4444AA;
+    box-shadow: 0 0 1px 1px #4444AA;
+    margin-top: 20px;
+    border-radius: 11px;
+}
+
+.roompage-c2-reservetab-container1{
+    background-color: #ffffff;
+    box-shadow: 0 0 1px 1px #ffffff;
+    margin-top: 25px;
+    margin-left: 10px;
+    border-radius: 11px;
+    height: 75px;
+    width:335px ;
+}
+
+.roompage-c2-reservetab-container2{
+    background-color: #ffffff;
+    box-shadow: 0 0 1px 1px #ffffff;
+    margin-top: 25px;
+    margin-left: 10px;
+    border-radius: 11px;
+    height: 75px;
+    width:335px ;
+}
+
+.roompage-c2-reservetab-container{
+    margin-top: 20px;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.roompage-c2-reservetab-container p{
+   text-align: center;
+}
+
+.roompage-c2-reservetab-container3 p{
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    color: white;
+    
+}
+
+
+
+  
+

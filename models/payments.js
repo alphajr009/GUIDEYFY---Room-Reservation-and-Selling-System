@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const paymentsSchema = mongoose.Schema({
 
     fees: {
-        type: String,
+        type: Number,
         required: false
     },
 
     funds: {
-        type: String,
+        type: Number,
         required: false
     },
 

@@ -684,7 +684,7 @@ function CreateProperty() {
                             </div>
 
                             <div className='text-left'>
-                                <span className='charge'>You will be charged Rs.200 </span>
+                                <span className='charge'>You will be charged Rs.500 </span>
                             </div>
 
                             <button

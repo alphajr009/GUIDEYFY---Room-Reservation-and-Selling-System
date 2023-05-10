@@ -20,8 +20,8 @@ router.post("/sregister", async (req, res) => {
         const saveduser = await newuser.save();
 
         const newPayment = new Payment({
-            fees: "0", 
-            funds: "0",
+            fees: 0, 
+            funds: 0,
             sellerid: saveduser._id
         });
 

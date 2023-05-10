@@ -3,6 +3,7 @@ const router = express.Router();
 const Blog = require("../models/blog");
 const multer = require("multer");
 const fs = require("fs");
+const Payment = require("../models/payments");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -46,6 +47,19 @@ router.post("/addblog", upload.array("images", 4), async (req, res) => {
     const imageUrls = updatedFiles.map((path) => "/uploads/" + path.split("/").pop());
     savedBlog.images = imageUrls;
     await savedBlog.save();
+
+    
+    try {
+      const payment = await Payment.findOne({ sellerid: req.body.sellerid });
+      if (payment) {
+        payment.fees += 200;
+        await payment.save();
+      } else {
+        console.log("Payment not found for the given sellerid:", req.body.sellerid);
+      }
+    } catch (paymentError) {
+      console.log("Error in updating payment fees:", paymentError);
+    }
 
     return res.send("Blog Created Successfully");
   } catch (error) {

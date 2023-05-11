@@ -77,8 +77,10 @@
 }
 
 
-.seller-central-current-property{
+.seller-central-current-property {
+    padding-left: 100px;
     margin-top: 250px;
+    padding-right: 100px;
 }
 
 .seller-central-create-property{

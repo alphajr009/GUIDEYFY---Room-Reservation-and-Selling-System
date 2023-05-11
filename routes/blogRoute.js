@@ -142,7 +142,27 @@ router.patch('/deleteblog', async (req, res) => {
 
 });
 
+router.patch('/editblog', async (req, res) => {
+  try {
+    const { _id, title, description1, description2, description3, description4 } = req.body;
+    const updatedBlog = await Blog.findByIdAndUpdate(_id, {
+      title,
+      description1,
+      description2,
+      description3,
+      description4
+    }, { new: true });
 
+    if (!updatedBlog) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    res.status(200).json({ message: 'Blog updated successfully', blog: updatedBlog });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 
 

@@ -107,7 +107,7 @@ function RoomPage() {
                                 </div>
                             </div>
                             <div className="roompage-c2-reservetab-container3"><p>Total fee Rs.120000.00</p></div>
-                            <div className="roompage-c2-reservetab-container4"><button className="blog-page-booknowbtn">
+                            <div className="roompage-c2-reservetab-container4"><button className="blog-page-booknowbtn1">
                                 Book Now
                             </button></div>
                         </div>

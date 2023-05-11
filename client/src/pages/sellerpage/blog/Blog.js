@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './blog.css'
 import axios from 'axios';
-import { Table } from 'antd';
+import { Table, Modal, Form, Input } from 'antd';
 import CreateBlog from './CreateBlog';
 import Swal from 'sweetalert2'
 
@@ -12,6 +12,37 @@ function Blog() {
   const [loading, setloading] = useState(false)
   const [error, seterror] = useState()
   const [rooms, setRooms] = useState([]);
+
+  const [title, settitle] = useState('')
+  const [description1, setdescription1] = useState('')
+  const [description2, setdescription2] = useState('')
+  const [description3, setdescription3] = useState('')
+  const [description4, setdescription4] = useState('')
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [blogToEdit, setBlogToEdit] = useState(null);
+  const [form] = Form.useForm();
+  const [updatedBlogTitle, setUpdatedBlogTitle] = useState('');
+
+  const openEditModal = (blog) => {
+    setBlogToEdit(blog);
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+   
+  };
+
+  async function updateBlog(blog) {
+    openEditModal(blog);
+  }
+
+  const handleEditSubmit = async () => {
+    await editBlog(blogToEdit._id, updatedBlogTitle, description1, description2, description3, description4);
+    closeModal();
+  };
+  
 
 
   const columns = [
@@ -37,35 +68,20 @@ function Blog() {
     {
       title: 'Edit',
       dataIndex: 'edit',
-      width:'9%',
-      key:'x',
-      render: (_,blogs) => {
-            return <button className='btn-edit-blogs-by-seller' onClick={() => {
-                Swal.fire({
-                    title: 'Are you sure you want to edit the blog',
-                    icon: 'question',
-                    showCancelButton: true,
-                    cancelButtonText: 'Cancel',
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, do it!'
-                })
-                    .then((result) => {
-                        if (result.isConfirmed) {
+      width: '9%',
+      key: 'x',
+      render: (_, blogs) => {
+        return (
+          <button
+            className="btn-edit-blogs-by-seller"
+            onClick={() => updateBlog(blogs)}
+          >
+            Edit
+          </button>
+        );
+      }
 
-                            updateBlog(blogs._id, true)
-                            Swal.fire(
-                                "Please waiting"
-                            )
-                                .then(result => {
-                                  window.location.href ="/blog"
-                                })
-                        }
-                    })
-            }}>Edit</button>
-        
-    }
-      
+
 
     },
     {
@@ -103,6 +119,9 @@ function Blog() {
 
   ];
 
+
+  
+
   useEffect(() => {
     (async () => {
 
@@ -111,7 +130,7 @@ function Blog() {
         setloading(true)
         const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data
         setblogs(data.blogs)
-     
+
         setloading(false)
 
 
@@ -125,10 +144,25 @@ function Blog() {
   }, []);
 
 
-  async function updateBlog(_id) {
-  
+  async function editBlog(_id, updatedTitle, updatedDescription1, updatedDescription2, updatedDescription3, updatedDescription4) {
+    try {
+      await axios.patch('http://localhost:5000/api/blogs/editblog', {
+        _id,
+        title: updatedTitle,
+        description1: updatedDescription1,
+        description2: updatedDescription2,
+        description3: updatedDescription3,
+        description4: updatedDescription4
+      });
+      console.log("Blog Updated Successfully");
+      
+      const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data;
+      setblogs(data.blogs);
+    } catch (error) {
+      console.log(error);
+    }
   }
-
+  
 
 
   async function deleteBlog(_id) {
@@ -192,10 +226,78 @@ function Blog() {
               dataSource={blogs}
               className='seller-cental-table-for-blog'
               rowKey="_id"
-              footer={() => <div className="no-of-blogs">{`Total  ${blogs.length} blogs `}</div>}/>
+              footer={() => <div className="no-of-blogs">{`Total  ${blogs.length} blogs `}</div>} />
           </div>
         )}
       </div>
+      <Modal
+        title="Edit Blog"
+        visible={isModalVisible}
+        onCancel={closeModal}
+        onOk={handleEditSubmit}
+      >
+        <Form form={form} layout="vertical">
+          <Form.Item
+            label="Blog Title"
+            name="blogTitle"
+            initialValue={blogToEdit ? blogToEdit.title : ''}
+          >
+            <Input
+              onChange={(e) => setUpdatedBlogTitle(e.target.value)}
+              placeholder="Enter blog title"
+            />
+          </Form.Item>
+
+          <Form.Item
+            className='userp-help-namebox-conatiner-p'
+            label="Discription 1:"
+            name="description1"
+            initialValue={blogToEdit ? blogToEdit.description1 : ''}
+          >
+            <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
+              value={description1}
+              onChange={(e) => { setdescription1(e.target.value) }}
+               />
+          </Form.Item>
+
+          <Form.Item
+            className='userp-help-namebox-conatiner-p'
+            label="Discription 2:"
+            name="description2"
+            initialValue={blogToEdit ? blogToEdit.description2 : ''}
+          >
+            <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
+              value={description2}
+              onChange={(e) => { setdescription2(e.target.value) }}
+               />
+          </Form.Item>
+
+          <Form.Item
+            className='userp-help-namebox-conatiner-p'
+            label="Discription 3:"
+            name="description3"
+            initialValue={blogToEdit ? blogToEdit.description3 : ''}
+          >
+            <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
+              value={description3}
+              onChange={(e) => { setdescription3(e.target.value) }}
+               />
+          </Form.Item>
+
+
+          <Form.Item
+            className='userp-help-namebox-conatiner-p'
+            label="Discription 4:"
+            name="description4"
+            initialValue={blogToEdit ? blogToEdit.description4 : ''}
+          >
+            <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
+              value={description4}
+              onChange={(e) => { setdescription4(e.target.value) }}
+               />
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   )
 }

@@ -80,8 +80,8 @@
 }
 
 .overlay-text p {
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 24px;
+    font-family: "Sansation-Regular", sans-serif;
+    font-size: 21px;
     color: white;
     font-weight: bold;
     text-decoration: underline;
@@ -97,6 +97,8 @@
 }
 
 .roompage-c2-reservetab-container1{
+    display: flex;
+    flex-direction: row;
     background-color: #ffffff;
     box-shadow: 0 0 1px 1px #ffffff;
     margin-top: 25px;
@@ -104,20 +106,82 @@
     border-radius: 11px;
     height: 75px;
     width:335px ;
+}
+
+.reservetab-container1-cin p{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 17px;
+    color: #787878;
+    width: 150px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+.reservetab-container1-cout p{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 17px;
+    color: #787878;
+    width: 165px;
+    margin-left: 18px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+.reservetab-container1-cout h4{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 17px;
+    color: #787878;
+    width: 165px;
+    margin-left: 18px;
+    margin-top: 6px;
+}
+
+.reservetab-container1-cin h4{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 17px;
+    color: #787878;
+    width: 165px;
+    margin-left: 15px;
+    margin-top: 6px;
+    margin-right: 0px;
+    width: fit-content;
 }
 
 .roompage-c2-reservetab-container2{
+    display: flex;
+    flex-direction: row;
     background-color: #ffffff;
     box-shadow: 0 0 1px 1px #ffffff;
-    margin-top: 25px;
+    margin-top: 30px;
     margin-left: 10px;
     border-radius: 11px;
     height: 75px;
     width:335px ;
 }
 
+.roompage-c2-reservetab-container1-wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.roompage-container3-header h1{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 30px;
+    text-align: left;
+    margin-left: 0;
+}
+
+.roompage-container3-header h2{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 23px;
+    text-align: left;
+    margin-left: 0;
+    margin-top: 35px;
+}
+
 .roompage-c2-reservetab-container{
-    margin-top: 20px;
+    margin-top: 25px;
     font-family: "Sansation-Bold", sans-serif;
     font-size: 20px;
     color: white;
@@ -129,14 +193,53 @@
 
 .roompage-c2-reservetab-container3 p{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 38px;
     font-family: "Sansation-Bold", sans-serif;
     font-size: 18px;
     color: white;
-    
 }
 
 
+.blog-page-booknowbtn {
+    margin-top: 10px;
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #4444AA;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 120px;
+    height: 37px;
+}
+
+.roompage-c2-reservetab-container4{
+    margin-top: 25px;
+    margin-left: 120px;
+}
+
+
+.roompage-container-3 {
+    align-self: flex-start;
+    padding-left: 110px;
+    margin-top: 25px;
+    width: 83%;
+}
+
+.roompage-container-services-map {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .service-item {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
 
   
 

@@ -135,7 +135,7 @@
   line-height: 40px;
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
+.user-profile-personal-details :where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
   position: initial;
   background-color: #ffffff;
   background-clip: padding-box;
@@ -280,7 +280,7 @@
 }
 
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
+.user-profile-personal-details :where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
   position: relative;
   background-color: #ffffff;
   background-clip: padding-box;

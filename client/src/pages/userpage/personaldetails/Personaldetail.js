@@ -58,9 +58,9 @@ function Personaldetail() {
   const [gender, setGender] = useState('');
   const [nationality, setnationality] = useState('');
   const [address, setaddress] = useState('');
-  const [address1, setaddress1] = useState('');
-  const [address2, setaddress2] = useState('');
-  const [city, setCity] = useState('');
+  // const [address1, setaddress1] = useState('');
+  // const [address2, setaddress2] = useState('');
+  // const [city, setCity] = useState('');
   const [open, setOpen] = useState(false);
   const [openemail, setOpenemail] = useState(false);
   const [opendisplayName, setOpenDisplayname] = useState(false);
@@ -775,7 +775,8 @@ function Personaldetail() {
                   month: user.birthday ? user.birthday[0] : undefined,
                   day: user.birthday ? user.birthday[1] : undefined,
                   year: user.birthday ? user.birthday[2] : undefined,
-                }}>
+                }}
+                >
 
                 <Form.Item
                   name="month"

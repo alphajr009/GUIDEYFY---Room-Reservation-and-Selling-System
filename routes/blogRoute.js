@@ -3,6 +3,7 @@ const router = express.Router();
 const Blog = require("../models/blog");
 const multer = require("multer");
 const fs = require("fs");
+const Payment = require("../models/payments");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -46,6 +47,19 @@ router.post("/addblog", upload.array("images", 4), async (req, res) => {
     const imageUrls = updatedFiles.map((path) => "/uploads/" + path.split("/").pop());
     savedBlog.images = imageUrls;
     await savedBlog.save();
+
+    
+    try {
+      const payment = await Payment.findOne({ sellerid: req.body.sellerid });
+      if (payment) {
+        payment.fees += 200;
+        await payment.save();
+      } else {
+        console.log("Payment not found for the given sellerid:", req.body.sellerid);
+      }
+    } catch (paymentError) {
+      console.log("Error in updating payment fees:", paymentError);
+    }
 
     return res.send("Blog Created Successfully");
   } catch (error) {
@@ -107,9 +121,18 @@ router.patch('/deleteblog', async (req, res) => {
 
   try {
 
-      const  blog = await Blog.findByIdAndRemove(_id);
+      const blog = await Blog.findByIdAndRemove(_id);
 
       if (!blog) return res.status(404).send('Blog not found');
+
+      // Delete associated images
+      for (let index = 0; index < 4; index++) {
+          const imagePath = `uploads/${blog._id}-${index}.jpg`;
+          if (fs.existsSync(imagePath)) {
+              fs.unlinkSync(imagePath);
+          }
+      }
+
       res.send('Room deleted successfully');
 
   } catch (error) {

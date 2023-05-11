@@ -122,7 +122,7 @@ function CreateBlog() {
 
 
 
-    async function createroom() {
+    async function createblog() {
         const formData = new FormData();
         formData.append("title", title);
         formData.append("description1", description1);
@@ -225,6 +225,8 @@ function CreateBlog() {
                                     className="rooms-pagination"
                                 />
                             </div>
+
+                            
                             <div className='createblog-slide1-button'>
                                 <button
                                     className="crb-slide1-roomslect-down-btn"
@@ -360,7 +362,7 @@ function CreateBlog() {
                                     </div>
                                 </Form>
                                 <div className="crb-s2-blog-create-btn">
-                                    <button className='crb-slide1-roomslect-down-btn' onClick={createroom}>Create</button>
+                                    <button className='crb-slide1-roomslect-down-btn' onClick={createblog}>Create</button>
                                 </div>
                             </div>
 

@@ -1,8 +1,8 @@
-.seller-central-properties-container{
+.seller-central-properties{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: none;
+    /* min-width: none; */
 }
 
 .seller-central-property-tab{

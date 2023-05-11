@@ -1,6 +1,6 @@
 import React from 'react';
 import './adminListItems.css';
-import { faBook, faHotel, faChartLine, faUserGroup, faUsers, faNewspaper } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faHotel, faChartLine, faUserGroup, faUsers, faNewspaper, faReceipt, faFile } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function AdminListItems({ setActiveTab, activeTab }) {
@@ -48,6 +48,14 @@ function AdminListItems({ setActiveTab, activeTab }) {
                 >
                     <FontAwesomeIcon icon={faNewspaper} />
                     <h1>Blogs</h1>
+                </div>
+
+                <div
+                    className={`adminlistItem ${activeTab === 'reports' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('reports')}
+                >
+                    <FontAwesomeIcon icon={faFile} />
+                    <h1>Reports</h1>
                 </div>
                
 

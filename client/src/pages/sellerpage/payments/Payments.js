@@ -4,8 +4,9 @@ import axios from 'axios'
 import { Modal, Form, Input, notification, } from 'antd';
 import {
   CheckCircleOutlined,
-  DeleteFilled
 } from '@ant-design/icons';
+
+
 
 
 function Payments() {
@@ -18,7 +19,6 @@ function Payments() {
   const [open, setOpen] = useState(false);
   const [openemail, setOpenemail] = useState(false);
   const [loading, setloading] = useState(false);
-  const [error, seterror] = useState();
   const [formValid, setFormValid] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
@@ -120,8 +120,16 @@ function Payments() {
       console.log(error)
       setloading(false)
     }
-    window.location.href = '/seller'
+    window.location.href = '/seller/payments'
   }
+
+  const validateName = (rule, value) => {
+    const regex = /^[A-Za-z\s]{2,}$/;
+    if (!regex.test(value)) {
+      return Promise.reject('Please enter a two names');
+    }
+    return Promise.resolve();
+  };
 
 
   async function changeUserEmailDetails(stripeemail) {
@@ -146,6 +154,12 @@ function Payments() {
     }
     window.location.href = '/seller'
   }
+
+  const validateStripeEmail = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
 
 
   return (
@@ -177,19 +191,38 @@ function Payments() {
       <div className='funds-and-payments-methods'>
         {/* modal for funds */}
         {activeTab === 'funds' && (
-          <div className='funds-box-container'>
-            <div className='seller-central-funds-box-container'>
-              <div className='total-box'>
-                <div className='total-box-1'>
-                  <span className='total-box-text-1'>Your Total Funds</span>
-                </div>
-                <div className='total-box-2'>
-                  <span className='total-box-text-2'>470000</span>
-                </div>
+          <div className='summary-of-payment-seller'>
+            <div className='summary-of-payment-boxes-container-seller'>
+              <div className='summary-of-payment-box-1-seller'>
+                <span className='summary-of-total-fees-seller'>
+                  Total Funds
+                </span>
+                <span className='total-fees-of-payment-summary-seller'>
+                  Rs.600000
+                </span>
+                <button className='review-payment'>Pay out</button>
               </div>
+              <div className='summary-of-payment-box-2-seller'>
+                <span className='summary-of-total-fees-seller'>
+                  Available Funds
+                </span>
+                <span className='total-fees-of-payment-summary-seller'>
+                  Rs6000
+                </span>
+              </div>
+
+              <div className='summary-of-payment-box-3-seller'>
+                <span className='summary-of-total-fees-seller'>
+                  On Hold
+                </span>
+                <span className='total-fees-of-payment-summary-seller'>
+                  Rs6000
+                </span>
+              </div>
+
             </div>
-            <button className='btn-btn-review-payment' type="primary" htmlType="submit">Review Payment</button>
           </div>
+
 
         )
         }
@@ -230,12 +263,16 @@ function Payments() {
                           {
                             required: true,
                             message: "Please Enter a Stripe Name"
-                          }
+                          },
+                          {
+                            validator: validateName,
+                          },
                         ]}
+
                         className='form-name'
                         labelCol={{ span: 24 }}
                         wrapperCol={{ span: 24 }}
-                        
+
                         name="Name"
                         label="Name"
                       >
@@ -268,17 +305,13 @@ function Payments() {
                     width="500px"
                     className="payment-modal"
                     bodyStyle={{ borderRadius: '17px' }}
+
                   >
                     <Form ref={formRef} stripeemail="control-ref" onFinish={(values) => changeUserEmailDetails(values.Email)}
                       size='large'
                       initialValues={{ Email: user.stripeemail }}>
                       <Form.Item
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please Enter a Email"
-                          }
-                        ]}
+                        rules={[{ required: true, message: "Please Enter a Valid Stripe Email" }, { validator: (_, value) => validateStripeEmail(value) ? Promise.resolve() : Promise.reject("Invalid stripe email address"), },]}
                         className='form-email'
                         labelCol={{ span: 24 }}
                         wrapperCol={{ span: 24 }}

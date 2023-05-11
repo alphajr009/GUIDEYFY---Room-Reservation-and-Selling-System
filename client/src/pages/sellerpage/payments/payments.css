@@ -34,7 +34,6 @@
     color: darkgray;
     border: 1px solid #ccc;
     border-radius: 12px;
-
     padding: 0 15px;
     margin: 0 10px 10px 10px;
     text-align: center;
@@ -59,6 +58,24 @@
     cursor: pointer;
 }
 
+.seller-central-total-funds-tab{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    width: 200px;
+    background-color: white;
+    color: darkgray;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 0 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+
+}
 
 .funds-and-payments-methods {
     margin-top: 250px;
@@ -82,77 +99,15 @@
     color: darkgray;
 }
 
-
-.total-box-1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative
+.seller-central-total-funds-tab.active{
+    color: Black;
 }
 
-.total-box-2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative
+.seller-central-total-funds-tab:not(.active){
+    background-color: white;
+    color: darkgray;
 }
 
-
-.total-box-text-1 {
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 24px;
-    color: black;
-    text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-    width: 550px;
-}
-
-.total-box-text-2 {
-    margin-top: 100px;
-    font-size: 22px;
-    font-family: "Sansation-Bold", sans-serif;
-    color: black;
-}
-
-.seller-central-funds-box-container {
-    width: 640px;
-    height: 250px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.btn-btn-review-payment {
-    font-family: "Sansation-Bold", sans-serif;
-    font-size: 18px;
-    margin-top: 50px;
-    margin-left: 200px;
-    width: 40%;
-    height: 50px;
-    padding: 14px 0px;
-    border-radius: 9px;
-    border: none;
-    border-color: #30379B;
-    background-color: #30379B;
-    color: azure;
-    cursor: pointer;
-}
-
-.btn-btn-review-payment:hover {
-
-    border-color: #3c42a1;
-    background-color: #3c42a1;
-    color: azure;
-}
 
 .seller-central-payments-methods-box-container {
     display: flex;
@@ -425,3 +380,110 @@
     background-color: #29298a;
 }
 
+
+
+/* */
+.summary-of-payment-seller {
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.summary-of-total-funds-seller,
+.total-funds-of-payment-summary-seller,
+.total-fees-of-payment-fee-seller {
+    display: block;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.summary-of-total-fees-seller,
+.total-fees-of-payment-summary-seller,
+.summary-of-payout-fees-seller
+ {
+    display: block;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+
+.summary-of-total-fees-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    margin-bottom: 30px;
+    font-size: 21px;
+}
+
+.total-fees-of-payment-summary-seller{
+    font-family: "Sansation-Bold", sans-serif;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+
+.summary-of-payment-box-1-seller {
+    width: 817px;
+    height: 230px;
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 34px;
+    background-color: #D9D9D9;
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.summary-of-payment-box-2-seller {
+    margin-top: 40px;
+    width: 817px;
+    height: 200px;
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background-color: #D9D9D9;
+    border-radius: 34px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.summary-of-payment-box-3-seller{
+    margin-top: 40px;
+    margin-bottom: 50px;
+    width: 817px;
+    height: 200px;
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background-color: #D9D9D9;
+    border-radius: 34px;
+    padding: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+
+.review-payment {
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 16px;
+    background-color: #30379B;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 9px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    margin-left: 50px;
+}
+
+.review-payment:hover {
+    border-color: #3c42a1;
+    background-color: #3c42a1;
+    color: azure;
+}

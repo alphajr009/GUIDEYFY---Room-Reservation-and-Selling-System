@@ -174,26 +174,23 @@ function CreateProperty() {
 
     async function createproperty() {
         const formData = new FormData();
-        formData.append("title",roomname);
+        formData.append("title", roomname);
         formData.append("category", selectedCategory);
-        formData.append("rentperday",rentperday);
+        formData.append("rentperday", rentperday);
         formData.append("maxcount", maxcount);
-        formData.append("phonenumber",phonenumber);
-        formData.append("description",description);
+        formData.append("phonenumber", phonenumber);
+        formData.append("description", description);
         formData.append("sellerid", user._id);
-        formData.append("address", JSON.stringify({ 
+        formData.append("address", JSON.stringify([
             addressline1,
             addressline2,
             city,
             province,
             district
-          }));
-          formData.append("services", JSON.stringify({ 
-            services1,
-            services2
-          }));
-        
-       
+        ]));
+        formData.append("services", JSON.stringify(checkedServices));
+
+
         imageurls.forEach((image, index) => {
             if (image) {
                 formData.append("images", image, `${user._id}-${index}.jpg`);
@@ -212,12 +209,12 @@ function CreateProperty() {
             console.log(response.status);
         } catch (error) {
             if (error.response) {
-                console.log("Error1:");
+                console.log("Error1:", error.response.data);
             } else {
-                console.log("Error2:");
+                console.log("Error2:", error.message);
             }
         }
-        
+
     }
 
     return (
@@ -358,7 +355,7 @@ function CreateProperty() {
                                             style={{ width: '410px' }}
                                             className='input-room-name'
                                             placeholder="Preferred contact number"
-                                            value=  {phonenumber}
+                                            value={phonenumber}
                                             onChange={(e) => { setphonenumber(e.target.value) }}
 
                                         />
@@ -455,7 +452,7 @@ function CreateProperty() {
                                             showCount maxLength={1000}
                                             style={{ height: '300px', width: '550px', marginLeft: '0px' }}
                                             value={description}
-                                            onChange={(e) => {setdescription(e.target.value) }}
+                                            onChange={(e) => { setdescription(e.target.value) }}
                                         />
                                     </Form.Item>
                                 </Form>
@@ -508,7 +505,7 @@ function CreateProperty() {
                                         className='input-room-name'
                                         placeholder="Address Line 1"
                                         value={addressline1}
-                                        onChange={(e) => {setaddressline1(e.target.value) }}
+                                        onChange={(e) => { setaddressline1(e.target.value) }}
 
                                     />
                                 </Form.Item>
@@ -684,6 +681,10 @@ function CreateProperty() {
                                         User's use of the website or listing of properties on the website. </li>
                                     <li>GUIDIFY may terminate this Agreement and User's access to the website at any time without prior notice.</li>
                                 </ul>
+                            </div>
+
+                            <div className='text-left'>
+                                <span className='charge'>You will be charged Rs.500 </span>
                             </div>
 
                             <button

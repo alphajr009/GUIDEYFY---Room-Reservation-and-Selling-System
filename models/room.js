@@ -12,8 +12,6 @@ const roomSchema = mongoose.Schema({
         required: true
     },
 
-    location: [],
-
     maxcount: {
         type: Number,
         required: true
@@ -39,14 +37,7 @@ const roomSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    type: {
-        type: String,
-        required: true
-    },
-    category:{
-        type: String,
-        required: false
-    },
+
    
     sellerid: {
         type: String,

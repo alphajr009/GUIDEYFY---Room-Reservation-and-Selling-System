@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Seller = require("../models/seller");
+const Payment = require("../models/payments");
 
 router.post("/sregister", async (req, res) => {
 
@@ -16,7 +17,17 @@ router.post("/sregister", async (req, res) => {
         });
 
     try {
-        const user = await newuser.save();
+        const saveduser = await newuser.save();
+
+        const newPayment = new Payment({
+            fees: 0, 
+            funds: 0,
+            sellerid: saveduser._id
+        });
+
+        await newPayment.save();
+
+
         return res.send('Seller Registered Successfully');
     } catch (error) {
         console.log("error in route")
@@ -128,7 +139,6 @@ router.patch("/editseller", async (req, res) => {
         return res.status(400).json({ error });
     }
 });
-
 
 
 module.exports = router

@@ -199,3 +199,13 @@
     border-color: red;
     border-radius: 4px;
   }
+
+  .admin-terminal-blogs-table th{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+  }
+
+  .admin-terminal-blogs-table td{
+    font-size: 15px;
+    font-family: "Sansation-Bold", sans-serif;
+  }

@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import './createpromotion.css'
-
+import { useParams  } from 'react-router-dom'
 import { Input, Form, DatePicker, Radio } from 'antd';
+import moment from 'moment'
+import axios from 'axios'
+
 
 function Createpromotion() {
+
+  let params = useParams();
+  console.log(params.fromdate);
+  console.log(params.todate);
+
 
   const [reduceType, setReduceType] = React.useState("amount");
   const [promotioncode, setpromotioncode] = useState('');
@@ -12,12 +20,38 @@ function Createpromotion() {
   const [percentage, setpercentage] = useState('');
   const [maximumAmount, setmaximunAmount] = useState('');
 
+  let fromdate = moment(params.fromdate, 'DD-MM-YYYY')
+  let todate = moment(params.todate, 'DD-MM-YYYY')
+
+  console.log(params.fromdate);
+  console.log(params.todate);
+
   const handleReduceTypeChange = e => {
     setReduceType(e.target.value);
   };
 
-
   const { RangePicker } = DatePicker;
+
+
+  async function promotion(){
+    const promotion = {
+      promotioncode,
+      attemptUse,
+      fromdate,
+      todate,
+      reduceType,
+      reduceamount
+    }
+    try{
+      const result = await axios.post("http://localhost:5000/api/promotions/addpromotion", promotion);
+      console.log(result.data)
+  
+    }catch(error){
+      console.log(error)
+   
+ }
+  }
+
 
   return (
     <div className="create-promotion-container">
@@ -224,6 +258,7 @@ function Createpromotion() {
             className='create-pro-btn'
             type="primary"
             htmlType="submit"
+            onClick={promotion}
           >
             Create Promotion
           </button>

@@ -54,8 +54,6 @@ function Room({ room }) {
 
 
 
-
-
 function Roomscreen() {
 
 
@@ -173,7 +171,6 @@ function Roomscreen() {
               </div>
 
               <div>
-
               </div>
             </div>
 

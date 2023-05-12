@@ -195,7 +195,7 @@ function Payments() {
             <div className='summary-of-payment-boxes-container-seller'>
               <div className='summary-of-payment-box-1-seller'>
                 <span className='summary-of-total-fees-seller'>
-                  Total Funds
+                  Payout Amount
                 </span>
                 <span className='total-fees-of-payment-summary-seller'>
                   Rs.600000
@@ -204,19 +204,19 @@ function Payments() {
               </div>
               <div className='summary-of-payment-box-2-seller'>
                 <span className='summary-of-total-fees-seller'>
-                  Available Funds
+                  Selling Fees
                 </span>
                 <span className='total-fees-of-payment-summary-seller'>
-                  Rs6000
+                  Rs.4000
                 </span>
               </div>
 
               <div className='summary-of-payment-box-3-seller'>
                 <span className='summary-of-total-fees-seller'>
-                  On Hold
+                  Total funds
                 </span>
                 <span className='total-fees-of-payment-summary-seller'>
-                  Rs6000
+                  Rs64000
                 </span>
               </div>
 

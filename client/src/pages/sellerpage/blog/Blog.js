@@ -229,6 +229,7 @@ function Blog() {
         visible={isModalVisible}
         onCancel={closeModal}
         onOk={handleEditSubmit}
+        wrapClassName='editblogmodal'
       >
         <Form form={form} layout="vertical">
           <Form.Item

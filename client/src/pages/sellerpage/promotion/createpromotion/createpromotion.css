@@ -12,6 +12,10 @@
   src: url("https://fonts.animaapp.com/Sansation-Regular") format('truetype');
 }
 
+.promotion-Rupee{
+  font-family: "Sansation-Bold", sans-serif;
+}
+
 .PromotionForm {
   max-width: 800px;
   width: 100%;

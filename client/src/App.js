@@ -6,7 +6,8 @@ import Sellerscreen from './pages/sellerpage/Sellerscreen'
 import Userscreen from './pages/userpage/Userscreen';
 import SellerRegister from './components/SELLER/sellerRegsiter/SellerRegister';
 import BlogPage from './pages/blogpage/blogscreenPage/BlogPage';
-import Blogscreen from './pages/blogpage/blogScreen';
+import Blogscreen from './pages/blogpage/blogscreen';
+import Editpromotion from './pages/sellerpage/promotion/editpromotion/Editpromotion';
 
 
 

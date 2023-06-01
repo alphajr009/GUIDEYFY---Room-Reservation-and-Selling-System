@@ -12,7 +12,12 @@ const blogRoute = require('./routes/blogRoute')
 const paymentRoute = require('./routes/paymentRoute')
 const promotionRoute = require('./routes/promotionRoute')
 
-app.use(cors()); // Allow requests from all origins
+const corsOptions = {
+  origin: ["http://localhost:3000", "https://guideyfy.herokuapp.com"],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use(express.json())
@@ -32,9 +37,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
   // Serve the index.html file for all non-API routes
-  app.get("*", (req, res) => {
+  app.get(/^\/(?!api).*/, (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+
 
 app.listen(port, () => console.log('Node Server Started using Nodemon!'));

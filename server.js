@@ -4,26 +4,25 @@ const path = require("path");
 
 const app = express();
 
-const dbconfig = require('./db');
-const roomsRoute = require('./routes/roomRoute');
-const userRoute = require('./routes/usersRoute');
-const sellerRoute = require('./routes/sellerRoute');
-const blogRoute = require('./routes/blogRoute');
-const paymentRoute = require('./routes/paymentRoute');
-const promotionRoute = require('./routes/promotionRoute');
+const dbconfig = require('./db')
+const roomsRoute = require('./routes/roomRoute')
+const userRoute = require('./routes/usersRoute')
+const sellerRoute = require('./routes/sellerRoute')
+const blogRoute = require('./routes/blogRoute')
+const paymentRoute = require('./routes/paymentRoute')
+const promotionRoute = require('./routes/promotionRoute')
 
-app.use(cors());
-
+app.use(cors()); // Allow requests from all origins
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.use(express.json());
+app.use(express.json())
 
-app.use('/api/rooms', roomsRoute);
-app.use('/api/users', userRoute);
-app.use('/api/sellers', sellerRoute);
-app.use('/api/blogs', blogRoute);
-app.use('/api/payments', paymentRoute);
-app.use('/api/promotions', promotionRoute);
+app.use('/api/rooms', roomsRoute)
+app.use('/api/users', userRoute)
+app.use('/api/sellers', sellerRoute)
+app.use('/api/blogs', blogRoute)
+app.use('/api/payments', paymentRoute)
+app.use('/api/promotions', promotionRoute)
 
 const port = process.env.PORT || 5000;
 
@@ -31,13 +30,6 @@ const port = process.env.PORT || 5000;
 if (process.env.NODE_ENV === "production") {
   // Set the static folder
   app.use(express.static("client/build"));
-
-  // Allow requests from specific origins
-  app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://guideyfy.herokuapp.com");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
 
   // Serve the index.html file for all non-API routes
   app.get("*", (req, res) => {

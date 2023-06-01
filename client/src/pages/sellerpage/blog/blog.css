@@ -159,7 +159,7 @@
 }
 
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
+.editblogmodal :where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
   position: relative;
   background-color: #ffffff;
   background-clip: padding-box;

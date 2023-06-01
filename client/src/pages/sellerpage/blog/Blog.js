@@ -51,11 +51,7 @@ function Blog() {
       dataIndex: 'title',
       key: 'blogtitle',
     },
-    {
-      title: 'Room ID ',
-      dataIndex: '_id',
-      key: '_id',
-    },
+    ,
     {
       title: 'Room Name',
       dataIndex: 'roomid',
@@ -118,8 +114,6 @@ function Blog() {
     }
 
   ];
-
-
   
 
   useEffect(() => {
@@ -235,6 +229,7 @@ function Blog() {
         visible={isModalVisible}
         onCancel={closeModal}
         onOk={handleEditSubmit}
+        wrapClassName='editblogmodal'
       >
         <Form form={form} layout="vertical">
           <Form.Item

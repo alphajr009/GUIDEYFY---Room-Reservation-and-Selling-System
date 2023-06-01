@@ -40,7 +40,7 @@ function Room({ room }) {
             <div className="roomcontain-button-review"></div>
             <div className="roomcontain-button-wrapper">
               <button className="show-availabel-button">
-              Check availability
+                Check availability
               </button>
             </div>
           </div>
@@ -54,8 +54,6 @@ function Room({ room }) {
 
 
 
-
-
 function Roomscreen() {
 
 
@@ -63,22 +61,28 @@ function Roomscreen() {
   const [value, setValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('')
   const [rooms, setrooms] = useState([])
+  const [filteredRooms, setFilteredRooms] = useState([])
 
   const onChange = (e) => {
     console.log('radio checked', e.target.value);
-    if (value === e.target.value) {
-      setValue('');
-
+    setValue(e.target.value);
+    if (e.target.value) {
+      const filtered = rooms.filter(room => room.type === e.target.value); // Filter the rooms based on type
+      setFilteredRooms(filtered); // Update the filteredRooms state
     } else {
-      setValue(e.target.value);
-
+      setFilteredRooms(rooms); // Clear the filter when the value is empty
     }
   };
 
+
   const onClearCategory = () => {
     setValue('');
-
+    setMinPrice('');
+    setMaxPrice('');
+    setFilteredRooms(rooms);
   };
+
+
 
   const [currentPage, setCurrentPage] = useState(1);
   const roomsPerPage = 25;
@@ -88,15 +92,40 @@ function Roomscreen() {
     setCurrentPage(page);
   };
 
+  const filterByPrice = () => {
+    // Convert the price range to numbers
+    const min = minPrice ? Number(minPrice) : null;
+    const max = maxPrice ? Number(maxPrice) : null;
+
+    // Filter the rooms based on the price range
+    let filtered = rooms;
+    if (min != null && max != null) {
+      filtered = rooms.filter(room => room.rentperday >= min && room.rentperday <= max);
+    } else if (min != null) {
+      filtered = rooms.filter(room => room.rentperday >= min);
+    } else if (max != null) {
+      filtered = rooms.filter(room => room.rentperday <= max);
+    }
+
+    // Update the filteredRooms state
+    setFilteredRooms(filtered);
+  };
+
+
+
 
 
   const types = [
-    'Hotels',
-    'Apartments',
-    'Resorts',
-    'Villas',
+    'Hotel',
+    'Apartment',
+    'Resort',
+    'Villa',
 
   ];
+
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+
 
 
   useEffect(() => {
@@ -104,6 +133,7 @@ function Roomscreen() {
       try {
         const data = (await axios.get("http://localhost:5000/api/rooms/getallrooms")).data;
         setrooms(data.rooms);
+        setFilteredRooms(data.rooms); // Set filteredRooms to all rooms initially
       } catch (error) {
         console.log(error);
       }
@@ -151,9 +181,12 @@ function Roomscreen() {
               <div className="roomscrn-filter-input-wrapper">
                 <div className='roomscreen-filter-input-wrapper'>
                   <p>Rs.</p>
-                  <input type="text"
+                  <input
+                    type="number"
                     className="roomscreen-filter-price-input"
                     placeholder='Min'
+                    value={minPrice}
+                    onChange={(e) => setMinPrice(e.target.value)}
                   />
                 </div>
 
@@ -161,19 +194,25 @@ function Roomscreen() {
 
                 <div className='roomscreen-filter-input-wrapper'>
                   <p>Rs.</p>
-                  <input type="text"
+                  <input
+                    type="number"
                     className="roomscreen-filter-price-input"
-                    placeholder='Max' />
+                    placeholder='Max'
+                    value={maxPrice}
+                    onChange={(e) => setMaxPrice(e.target.value)}
+                  />
                 </div>
               </div>
               <div className='clear-cat-btn-container'>
-                <button onClick={onClearCategory} className="go-price-button-roomscreen">
+                <button
+                  onClick={filterByPrice}
+                  className="go-price-button-roomscreen">
                   <FontAwesomeIcon icon={faArrowRight} className="searchIcon" />
                 </button>
+
               </div>
 
               <div>
-
               </div>
             </div>
 
@@ -181,7 +220,7 @@ function Roomscreen() {
 
         </div>
         <div className="roomscreen-property-wrapper">
-        {rooms
+          {filteredRooms
             .slice((currentPage - 1) * roomsPerPage, currentPage * roomsPerPage)
             .map((room) => (
               <Room key={room.id} room={room} />
@@ -193,11 +232,11 @@ function Roomscreen() {
         <Pagination
           current={currentPage}
           pageSize={roomsPerPage}
-          total={rooms.length}
+          total={filteredRooms.length}
           onChange={onPageChange}
         />
       </div>
-      
+
       <Footer />
     </div>
 

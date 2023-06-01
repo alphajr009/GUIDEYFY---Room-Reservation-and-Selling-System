@@ -50,6 +50,17 @@
     margin-top: 20px;
 }
 
+.modal-slide1-booking-details-roomname{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.roompage-ms-rdetilas{
+    width: 122px;
+    height: 86px;
+    border-radius: 8px;
+}
 
 .image-container {
     position: relative;
@@ -85,6 +96,12 @@
     color: white;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.roompage-modal-slide-img-name p{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 17px;
+    margin-left: 22px;
 }
 
 .roompage-c2-reservetab{
@@ -241,5 +258,205 @@
   }
   
 
-  
+  .modal-slide-1,
+.modal-slide-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.modal-button {
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 120px;
+  height: 37px;
+  background-color: #4444aa;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-buttony {
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 120px;
+    height: 37px;
+    background-color: #4444aa;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+.modal-button:hover {
+  background-color: #5050aa;
+}
+
+.modal-slide1-booking-details{
+    width: 400px;
+    height: 200px;
+}
+
+.roompage-modal .ant-modal-header .ant-modal-title {
+    text-align: center;
+    font-size: 23px
+  }
+
+.roompage-modal .ant-modal .ant-modal-content{
+height: 500px;
+}
+  
+.msbd-roomdetails-all{
+ padding: 2px;
+}
+
+.msbd-roomdetails-all h4{
+    font-size: 16px;
+    color: #787878;
+}
+ 
+.msbd-roomdetails-all h4{
+    font-size: 16px;
+    color: #787878;
+}
+
+.msbd-roomdetails-all h5{
+    font-size: 18px;
+    color: #000000;
+}
+
+.modal-slide1-booking-details-roomdetails{
+    margin-top: 10px;
+}
+
+
+.msbd-roomdetails-all-text{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -25px;
+}
+
+.msbd-roomdetails-all-price{
+    display: flex;
+    flex-direction: row;
+}
+
+.roomdetailsh5{
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.roomdetailsh4{
+    width: 85px;
+}
+
+.msbd-roomdetails-all-price h4{
+    font-size: 19px;
+}
+
+
+.roomdetailsh7{
+    margin-left: 9px;
+}
+
+.roomdetailsh6{
+    margin-left: 9px;
+}
+.modal-slide1-booking-details-confrim-btn{
+    text-align: center;
+}
+
+.roompage-container-title{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    align-self:flex-start ;
+    margin-left: 118px;
+}
+
+.room-modal-slide2-title{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 18px;
+    align-self: flex-start;
+    margin-top: 10px;
+ 
+}
+
+.modal-slide-2{
+    width: 400px;
+}
+
+.room-modal-slide2-contain{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.modal-button2 {
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 90px;
+    height: 37px;
+    background-color: #4444aa;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  .modal-button3{
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 130px;
+    height: 37px;
+    background-color: #4444aa;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  .modal-btn-finaldown{
+    display: flex;
+    flex-direction: row;
+    margin-top: 35px;
+    margin-left: -0px;
+  }
+
+  .roompagemoda-slide2-agreemnet-Reservationh1{
+    font-family: "Sansation-Bold", sans-serif;
+    font-size: 13px;
+    margin-top: 10px;
+    
+  }
+
+  .roompagemoda-slide2-agreemnet-Reservationp{
+    font-family: "Sansation-Regular", sans-serif;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .anticon{
+    color: #000000;
+  } 
+  .roompage-modal :where(.css-dev-only-do-not-override-1vtf12y).ant-modal .ant-modal-content {
+    position: relative;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    pointer-events: auto;
+    padding: 20px 24px;
+    width: fit-content;
+  }

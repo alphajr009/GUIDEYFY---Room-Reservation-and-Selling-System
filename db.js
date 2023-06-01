@@ -3,7 +3,7 @@ mongoose.set('strictQuery', true);
 
 var mongoURL = 'mongodb+srv://guideyfy09:alphareyna119@guideyfy.ufno6ke.mongodb.net/guideyfy-db'
 
-mongoose.connect(mongoURL ,{useUnifiedTopology : true ,useNewUrlParser : true ,})
+mongoose.connect(process.env.MONGODB_URI || mongoURL ,{useUnifiedTopology : true ,useNewUrlParser : true ,})
 
 
 

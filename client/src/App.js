@@ -25,7 +25,7 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-          <Route path="/home" element={<Homescreen />} exact />
+          <Route path="/" element={<Homescreen />} exact />
           <Route path="/room" element={<Roomscreen />} exact />
           <Route path="/room/:roomid" element={<RoomPage />} exact />
           <Route path="/admin" element={<Adminscreen />} exact />

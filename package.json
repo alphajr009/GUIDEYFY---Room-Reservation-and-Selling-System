@@ -1,6 +1,13 @@
 {
+  "main": "index.js",
   "scripts": {
-    "start": "concurrently \"nodemon server\" \"cd client && npm start\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"cd client && npm install",
+    "build2":"cd client && npm install react-scripts",
+    "install-client":"cd client && npm run build",
+    "heroku-postbuild":"npm run build2 && npm run install-client && npm run build",
+    "start" : "node server.js",
+    "client" : "cd client && npm start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

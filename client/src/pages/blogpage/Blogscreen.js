@@ -20,7 +20,7 @@ function Blog({ blog }) {
     <div className="blogcontain-tile">
       <Link to={`/blog/${blog._id}`}>
         <h3>{blog.title}</h3>
-        <img className='blog-contain-image-tile' src={`http://localhost:5000/uploads/${blog._id}-0.jpg`} alt={blog.title} />
+        <img className='blog-contain-image-tile' src={`/uploads/${blog._id}-0.jpg`} alt={blog.title} />
         <div className='blogcontain-tile-description-wrapper'>
           <p className='blogcontain-tile-description'>{shortDescription}...<a>Read More »</a></p>
         </div>

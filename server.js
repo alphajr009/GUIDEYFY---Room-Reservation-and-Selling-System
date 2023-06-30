@@ -16,7 +16,7 @@ const paymentRoute = require('./routes/paymentRoute')
 const promotionRoute = require('./routes/promotionRoute')
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://guideyfy.herokuapp.com/',
   optionsSuccessStatus: 200,
 };
 

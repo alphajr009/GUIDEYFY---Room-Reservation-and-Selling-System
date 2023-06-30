@@ -16,7 +16,7 @@ function Blogs() {
   const [rooms, setRooms] = useState([]);
   const [title, settitle] = useState('');
   const [filteredBlogs, setFilteredBlogs] = useState([])
-  const[users,setusers]=useState([]);
+  const [users, setusers] = useState([]);
   const [displayName, setDisplayname] = useState('');
 
   const handlesellername = (e) => {
@@ -39,7 +39,7 @@ function Blogs() {
     if (title !== '') {
       tempBlogs = tempBlogs.filter(blog => blog.title.toLowerCase().includes(title.toLowerCase()));
     }
-  
+
     setFilteredBlogs(tempBlogs)
   }
 
@@ -54,17 +54,17 @@ function Blogs() {
       dataIndex: 'title',
       key: 'title',
     },
-  
+
     {
       title: 'Seller Name',
       dataIndex: 'displayName',
       key: 'displayName',
       render: (sellerid) => {
         const sellername = users.find((u) => u.id === sellerid)
-          return sellername ? `${sellername.fname} ${sellername.lname}`: '';
+        return sellername ? `${sellername.fname} ${sellername.lname}` : '';
       }
     },
- 
+
     {
       title: 'Room Name',
       dataIndex: 'roomid',
@@ -112,7 +112,7 @@ function Blogs() {
 
   async function deleteBlog(_id) {
     try {
-      const res = (await axios.patch('http://localhost:5000/api/blogs/deleteblog', { _id })).data;
+      const res = (await axios.patch('/api/blogs/deleteblog', { _id })).data;
       console.log("Blog Deleted Successfully");
     } catch (error) {
       console.log(error)
@@ -125,7 +125,7 @@ function Blogs() {
       try {
 
         setloading(true)
-        const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data
+        const data = (await axios.get("/api/blogs/getallblogs")).data
         setblogs(data.blogs)
         setFilteredBlogs(data.blogs)
         setloading(false)
@@ -140,7 +140,7 @@ function Blogs() {
     })();
   }, []);
 
-  
+
 
   useEffect(() => {
     (async () => {
@@ -148,7 +148,7 @@ function Blogs() {
       try {
 
         setloading(true)
-        const data = (await axios.get("http://localhost:5000/api/rooms/getallrooms")).data
+        const data = (await axios.get("/api/rooms/getallrooms")).data
         setRooms(data.rooms)
         setloading(false)
 
@@ -167,7 +167,7 @@ function Blogs() {
 
       try {
         setloading(true)
-        const data = (await axios.get('http://localhost:5000/api/sellers/getallsellers')).data
+        const data = (await axios.get('/api/sellers/getallsellers')).data
         setusers(data.users)
         setloading(false)
 
@@ -184,7 +184,7 @@ function Blogs() {
 
   useEffect(() => {
     handleFilterBlogs();
-  }, [title,displayName])
+  }, [title, displayName])
 
 
   return (
@@ -213,12 +213,12 @@ function Blogs() {
         </div>
       </div>
       <div className='admin-blogs-table'>
-        <Table  
-        columns={columns} 
-        className='admin-terminal-blogs-table'
-        dataSource={filteredBlogs}
-        rowKey="_id"
-        footer={() => <div className="no-of-blogs">{`Total  ${blogs.length} blogs `}</div>} 
+        <Table
+          columns={columns}
+          className='admin-terminal-blogs-table'
+          dataSource={filteredBlogs}
+          rowKey="_id"
+          footer={() => <div className="no-of-blogs">{`Total  ${blogs.length} blogs `}</div>}
         />
       </div>
     </div>

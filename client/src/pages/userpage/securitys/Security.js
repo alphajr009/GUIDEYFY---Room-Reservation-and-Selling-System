@@ -24,7 +24,7 @@ function Security() {
 
     const _id = user._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/deleteuser', { _id })).data;
+      const res = (await axios.patch('/api/users/deleteuser', { _id })).data;
       console.log("User Deleted Successfully");
       logout();
       window.location.href = '/home'
@@ -57,7 +57,7 @@ function Security() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post('http://localhost:5000/api/users/getuserbyid', { userid: user._id });
+        const response = await axios.post('/api/users/getuserbyid', { userid: user._id });
         const data = response.data[0];
         setPassword(data.password);
 
@@ -104,7 +104,7 @@ function Security() {
 
     }
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/changepassword', { _id, currentPassword, newPassword })).data;
+      const res = (await axios.patch('/api/users/changepassword', { _id, currentPassword, newPassword })).data;
       console.log("Password updated successfully");
     } catch (error) {
       console.log(error)

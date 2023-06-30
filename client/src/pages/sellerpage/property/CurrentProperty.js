@@ -105,7 +105,7 @@ function CurrentProperty() {
 
 
     try {
-      const res = (await axios.patch('http://localhost:5000/api/rooms/deleteroom', { _id })).data;
+      const res = (await axios.patch('/api/rooms/deleteroom', { _id })).data;
       console.log("Room Deleted Successfully");
     } catch (error) {
       console.log(error)
@@ -117,15 +117,15 @@ function CurrentProperty() {
 
       try {
 
-        
-        const data = (await axios.get("http://localhost:5000/api/rooms/getallrooms")).data
+
+        const data = (await axios.get("/api/rooms/getallrooms")).data
         setrooms(data.rooms)
-     
-        
+
+
 
       } catch (error) {
         console.log(error)
-        
+
 
       }
     })();
@@ -138,15 +138,15 @@ function CurrentProperty() {
 
   return (
     <div className='seller-central'>
-    <div className='seller-rooms-table'>
-      <Table
-      dataSource={rooms}
-        columns={columns}
-        className='seller-central-room-table'
-        rowKey="_id"
-        footer={() => <div className="no-of-rooms">{`Total  ${rooms.length} rooms `}</div>}
-      />
-    </div>
+      <div className='seller-rooms-table'>
+        <Table
+          dataSource={rooms}
+          columns={columns}
+          className='seller-central-room-table'
+          rowKey="_id"
+          footer={() => <div className="no-of-rooms">{`Total  ${rooms.length} rooms `}</div>}
+        />
+      </div>
     </div>
   )
 }

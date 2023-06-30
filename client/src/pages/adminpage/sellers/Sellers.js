@@ -104,8 +104,7 @@ function Sellers() {
       key: 'isSuspend',
       render: (_, users) => {
         if (users.isSuspend) {
-          return <button className='seller-is-suspend'onClick={() =>
-             {
+          return <button className='seller-is-suspend' onClick={() => {
 
             Swal.fire({
               title: 'Confirm making this user as Seller?',
@@ -119,20 +118,20 @@ function Sellers() {
             }).then((result) => {
               if (result.isConfirmed) {
 
-                updateAsSeller(users._id,false)
+                updateAsSeller(users._id, false)
                 Swal.fire(
                   'Suspended!',
                   `${users.fname} is now a seller.`
                 ).then(result => {
                   window.location.href = 'http://localhost:3000/admin/sellers';
                 })
-                
+
               }
             })
-            
+
           }}
-         
-          
+
+
           >Yes</button>
         } else {
           return <button className='seller-is-not-suspend' onClick={() => {
@@ -149,12 +148,12 @@ function Sellers() {
             }).then((result) => {
               if (result.isConfirmed) {
 
-                updateSuspend(users._id,true)
+                updateSuspend(users._id, true)
                 Swal.fire(
                   'Suspended!',
                   `${users.fname} Suspended Successfully.`
                 ).then(result => {
-                     window.location.reload();
+                  window.location.reload();
                 })
               }
             })
@@ -172,7 +171,7 @@ function Sellers() {
 
       try {
         setloading(true)
-        const data = (await axios.get('http://localhost:5000/api/sellers/getallsellers')).data
+        const data = (await axios.get('/api/sellers/getallsellers')).data
         setusers(data.users)
         setFilteredUsers(data.users);
         setloading(false)
@@ -187,12 +186,12 @@ function Sellers() {
     })();
   }, []);
 
-  
 
-  async function updateSuspend(_id,isSuspend) {
+
+  async function updateSuspend(_id, isSuspend) {
 
     try {
-      const res = (await axios.patch('http://localhost:5000/api/sellers/changesuspend', { _id,isSuspend })).data;
+      const res = (await axios.patch('/api/sellers/changesuspend', { _id, isSuspend })).data;
     } catch (error) {
       console.log(error)
       setloading(false)
@@ -200,10 +199,10 @@ function Sellers() {
   }
 
 
-  async function updateAsSeller(_id,isSuspend) {
+  async function updateAsSeller(_id, isSuspend) {
 
     try {
-      const res = (await axios.patch('http://localhost:5000/api/sellers/changeasseller', { _id,isSuspend })).data;
+      const res = (await axios.patch('/api/sellers/changeasseller', { _id, isSuspend })).data;
     } catch (error) {
       console.log(error)
       setloading(false)

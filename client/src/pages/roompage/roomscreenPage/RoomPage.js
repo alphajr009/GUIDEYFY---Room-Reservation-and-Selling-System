@@ -52,7 +52,7 @@ function RoomPage() {
             }
 
             try {
-                const data = (await axios.post("http://localhost:5000/api/rooms/getroombyid", { roomid: params.roomid })).data
+                const data = (await axios.post("/api/rooms/getroombyid", { roomid: params.roomid })).data
                 setroom(data.room[0]);
 
             } catch (error) {
@@ -73,16 +73,16 @@ function RoomPage() {
                     </div>
                     <div className="roompage-container-1">
                         <div className="roompage-c1-img1">
-                            <img className='roompage-c1-img1-photo-sub' src={`http://localhost:5000/uploads/${params.roomid}-1.jpg`} />
+                            <img className='roompage-c1-img1-photo-sub' src={`/uploads/${params.roomid}-1.jpg`} />
                         </div>
                         <div className="roompage-c1-img1">
-                            <img className='roompage-c1-img1-photo-sub' src={`http://localhost:5000/uploads/${params.roomid}-2.jpg`} />
+                            <img className='roompage-c1-img1-photo-sub' src={`/uploads/${params.roomid}-2.jpg`} />
                         </div>
                         <div className="roompage-c1-img1">
                             <div className="image-container">
                                 <img
                                     className="image"
-                                    src={`http://localhost:5000/uploads/${params.roomid}-3.jpg`}
+                                    src={`/uploads/${params.roomid}-3.jpg`}
                                     alt="Your Image"
                                 />
                                 <div className="overlay">
@@ -93,7 +93,7 @@ function RoomPage() {
                     </div>
                     <div className="roompage-container-2">
                         <div className="roompage-c1-img1">
-                            <img className='roompage-c1-img1-photo-main' src={`http://localhost:5000/uploads/${params.roomid}-0.jpg`} />
+                            <img className='roompage-c1-img1-photo-main' src={`/uploads/${params.roomid}-0.jpg`} />
                         </div>
 
                         <div className="roompage-c2-reservetab">
@@ -166,7 +166,7 @@ function RoomPage() {
                                 <div className="modal-slide1-booking-details">
                                     <div className="modal-slide1-booking-details-roomname">
                                         <div className="roompage-modal-slide-img">
-                                            <img className='roompage-ms-rdetilas' src={`http://localhost:5000/uploads/${params.roomid}-0.jpg`} />
+                                            <img className='roompage-ms-rdetilas' src={`/uploads/${params.roomid}-0.jpg`} />
                                         </div>
                                         <div className="roompage-modal-slide-img-name">
                                             <p>{room.title}</p>

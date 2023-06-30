@@ -122,7 +122,7 @@ function Personaldetail() {
 
     const _id = currentUser._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/editusername', { _id, fname, lname })).data;
+      const res = (await axios.patch('/api/users/editusername', { _id, fname, lname })).data;
       console.log(res);
 
       localStorage.setItem("currentUser", JSON.stringify({
@@ -171,7 +171,7 @@ function Personaldetail() {
 
     const _id = currentUser._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/edituseremail', { _id, email })).data;
+      const res = (await axios.patch('/api/users/edituseremail', { _id, email })).data;
       console.log(res);
 
       localStorage.setItem("currentUser", JSON.stringify({
@@ -221,7 +221,7 @@ function Personaldetail() {
 
     const _id = currentUser._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/edituserdisplayname', { _id, displayName })).data;
+      const res = (await axios.patch('/api/users/edituserdisplayname', { _id, displayName })).data;
       console.log(res);
 
       localStorage.setItem("currentUser", JSON.stringify({
@@ -279,7 +279,7 @@ function Personaldetail() {
     const _id = currentUser._id;
     const address = [address1, address2, city, country];
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/editaddress', { _id, address })).data;
+      const res = (await axios.patch('/api/users/editaddress', { _id, address })).data;
       console.log(res);
 
       localStorage.setItem("currentUser", JSON.stringify({
@@ -337,7 +337,7 @@ function Personaldetail() {
     const _id = currentUser._id;
     const birthday = [month, day, year];
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/editbirthday', { _id, birthday })).data;
+      const res = (await axios.patch('/api/users/editbirthday', { _id, birthday })).data;
       console.log(res);
 
       localStorage.setItem("currentUser", JSON.stringify({
@@ -386,7 +386,7 @@ function Personaldetail() {
 
     const _id = currentUser._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/editnationality', { _id, nationality })).data;
+      const res = (await axios.patch('/api/users/editnationality', { _id, nationality })).data;
       console.log(res);
 
       localStorage.setItem("currentUser", JSON.stringify({
@@ -436,7 +436,7 @@ function Personaldetail() {
 
     const _id = currentUser._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/editngender', { _id, gender })).data;
+      const res = (await axios.patch('/api/users/editngender', { _id, gender })).data;
       console.log(res);
 
       localStorage.setItem("currentUser", JSON.stringify({
@@ -471,7 +471,7 @@ function Personaldetail() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post('http://localhost:5000/api/users/getuserbyid', { userid: user._id });
+        const response = await axios.post('/api/users/getuserbyid', { userid: user._id });
         const data = response.data[0];
         setFname(data.fname);
         setLname(data.lname);
@@ -776,7 +776,7 @@ function Personaldetail() {
                   day: user.birthday ? user.birthday[1] : undefined,
                   year: user.birthday ? user.birthday[2] : undefined,
                 }}
-                >
+              >
 
                 <Form.Item
                   name="month"

@@ -55,7 +55,7 @@ function Registermodal() {
 
   const onFinishModal = () => {
     handleCancel();
-};
+  };
 
 
   const [fname, setfname] = useState('')
@@ -81,32 +81,32 @@ function Registermodal() {
   async function Login() {
 
     const user = {
-        email,
-        password,
+      email,
+      password,
 
     };
 
 
     try {
-  
-        const { data, status } = await axios.post('http://localhost:5000/api/users/login', user);
 
-        if (status === 200) {
-            localStorage.setItem('currentUser', JSON.stringify(data));
-            window.location.href = '/home'
-        } else {
-            seterror(true);
-        }
+      const { data, status } = await axios.post('/api/users/login', user);
+
+      if (status === 200) {
+        localStorage.setItem('currentUser', JSON.stringify(data));
+        window.location.href = '/home'
+      } else {
+        seterror(true);
+      }
 
     } catch (error) {
-        if (error.response) {
-            console.log('Error1:');
-        } else {
-            console.log('Error2:');
-        }
+      if (error.response) {
+        console.log('Error1:');
+      } else {
+        console.log('Error2:');
+      }
 
     }
-}
+  }
 
 
 
@@ -119,12 +119,12 @@ function Registermodal() {
       fname,
       lname,
       birthday: [umonth, uday, uyear],
-      
+
     };
 
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/register', user);
+      const response = await axios.post('/api/users/register', user);
     } catch (error) {
       if (error.response) {
         console.log('Error1:');
@@ -406,78 +406,78 @@ function Registermodal() {
         )}
 
         {currentModal === 4 && (
-        <>
-        <h2 className='modal-signintoguidefy-h2'>Sign in to GUIDEFY </h2>
-        <Form onFinish={onFinishModal} >
-            <Form.Item
+          <>
+            <h2 className='modal-signintoguidefy-h2'>Sign in to GUIDEFY </h2>
+            <Form onFinish={onFinishModal} >
+              <Form.Item
                 className='formsigninto-txt-custom'
                 label="Email"
                 name="email"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[{ required: true, message: 'Please input your email!' }]}
-            >
+              >
                 <Input className="signinmodal-custom-input"
-                    value={email}
-                    onChange={(e) => {setemail(e.target.value) }}
+                  value={email}
+                  onChange={(e) => { setemail(e.target.value) }}
                 />
-            </Form.Item>
-            <Form.Item
+              </Form.Item>
+              <Form.Item
                 className='formsigninto-txt-custom'
                 label="Password"
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[{ required: true, message: 'Please input your password!' }]}
-            >
+              >
                 <Input.Password
-                    className="signinmodal-custom-input"
-                    iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                    value={password}
-                    onChange={(e) => {setpassword(e.target.value) }}
+                  className="signinmodal-custom-input"
+                  iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                  value={password}
+                  onChange={(e) => { setpassword(e.target.value) }}
                 />
-            </Form.Item>
+              </Form.Item>
 
-            <Form.Item
+              <Form.Item
                 className="forgot-password-wrapper"
                 wrapperCol={{ offset: 15, span: 15 }}
-            >
+              >
                 <a
-                    className="signin-btn-forget"
+                  className="signin-btn-forget"
+                  type="primary"
+                  htmlType="submit"
+                  href="/forgotpassword"
+                >
+                  Forgot Password?
+                </a>
+              </Form.Item>
+
+
+              <Form.Item className="modal-signin-button">
+                <div className="signinmodal-button-container">
+                  <button
+                    className='signinmodal-btn-signin'
                     type="primary"
                     htmlType="submit"
-                    href="/forgotpassword"
-                >
-                    Forgot Password?
-                </a>
-            </Form.Item>
-
-
-            <Form.Item className="modal-signin-button">
-                <div className="signinmodal-button-container">
-                    <button
-                        className='signinmodal-btn-signin'
-                        type="primary"
-                        htmlType="submit"
-                        onClick={Login}
-                    >
-                        Sign In
-                    </button>
+                    onClick={Login}
+                  >
+                    Sign In
+                  </button>
                 </div>
-            </Form.Item>
+              </Form.Item>
 
-        </Form>
-        <p className="regmodal-terms-text">
-            By signing in or creating an account, you agree with our{' '}
-            <a href="/terms" target="_blank" rel="noopener noreferrer">
+            </Form>
+            <p className="regmodal-terms-text">
+              By signing in or creating an account, you agree with our{' '}
+              <a href="/terms" target="_blank" rel="noopener noreferrer">
                 Terms & conditions
-            </a>{' '}
-            and{' '}
-            <a href="/privacy" target="_blank" rel="noopener noreferrer">
+              </a>{' '}
+              and{' '}
+              <a href="/privacy" target="_blank" rel="noopener noreferrer">
                 Privacy statement
-            </a>
-        </p>
-    </>
+              </a>
+            </p>
+          </>
         )}
 
 

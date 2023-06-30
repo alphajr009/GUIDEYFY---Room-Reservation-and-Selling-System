@@ -86,7 +86,7 @@ function Payments() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post('http://localhost:5000/api/sellers/getsellerbyid', { userid: user._id });
+        const response = await axios.post('/api/sellers/getsellerbyid', { userid: user._id });
         const data = response.data[0];
         setStripename(data.stripename);
         setstripeemail(data.stripeemail)
@@ -105,7 +105,7 @@ function Payments() {
 
     const _id = currentUser._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/sellers/editseller', { _id, stripename })).data;
+      const res = (await axios.patch('/api/sellers/editseller', { _id, stripename })).data;
       console.log("User details updated successfully");
 
       localStorage.setItem("currentUser", JSON.stringify({
@@ -138,7 +138,7 @@ function Payments() {
 
     const _id = currentUser._id;
     try {
-      const res = (await axios.patch('http://localhost:5000/api/sellers/editseller', { _id, stripeemail })).data;
+      const res = (await axios.patch('/api/sellers/editseller', { _id, stripeemail })).data;
       console.log("User details updated successfully");
 
       localStorage.setItem("currentUser", JSON.stringify({

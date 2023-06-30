@@ -3,7 +3,7 @@ import './rooms.css'
 import axios from 'axios';
 import { Table } from 'antd';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHotel,faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faHotel, faSearch } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'
 
 
@@ -110,7 +110,7 @@ function Rooms() {
       try {
 
         setloading(true)
-        const data = (await axios.get("http://localhost:5000/api/rooms/getallrooms")).data
+        const data = (await axios.get("/api/rooms/getallrooms")).data
         setrooms(data.rooms)
         setFilteredRooms(data.rooms);
         setloading(false)
@@ -130,7 +130,7 @@ function Rooms() {
 
 
     try {
-      const res = (await axios.patch('http://localhost:5000/api/rooms/deleteroom', { _id })).data;
+      const res = (await axios.patch('/api/rooms/deleteroom', { _id })).data;
       console.log("Room Deleted Successfully");
     } catch (error) {
       console.log(error)

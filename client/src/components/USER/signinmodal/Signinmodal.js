@@ -39,8 +39,8 @@ function Signinmodal() {
 
 
         try {
-      
-            const { data, status } = await axios.post('http://localhost:5000/api/users/login', user);
+
+            const { data, status } = await axios.post('/api/users/login', user);
 
             if (status === 200) {
                 localStorage.setItem('currentUser', JSON.stringify(data));
@@ -89,7 +89,7 @@ function Signinmodal() {
                         >
                             <Input className="signinmodal-custom-input"
                                 value={email}
-                                onChange={(e) => {setemail(e.target.value) }}
+                                onChange={(e) => { setemail(e.target.value) }}
                             />
                         </Form.Item>
                         <Form.Item
@@ -104,7 +104,7 @@ function Signinmodal() {
                                 className="signinmodal-custom-input"
                                 iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                                 value={password}
-                                onChange={(e) => {setpassword(e.target.value) }}
+                                onChange={(e) => { setpassword(e.target.value) }}
                             />
                         </Form.Item>
 

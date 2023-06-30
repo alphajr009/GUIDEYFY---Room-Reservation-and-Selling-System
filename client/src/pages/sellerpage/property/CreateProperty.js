@@ -201,7 +201,7 @@ function CreateProperty() {
 
 
         try {
-            const response = await axios.post("http://localhost:5000/api/rooms/addproperty", formData, {
+            const response = await axios.post("/api/rooms/addproperty", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },

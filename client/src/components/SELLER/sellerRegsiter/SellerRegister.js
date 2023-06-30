@@ -559,7 +559,7 @@ function SellerRegister() {
 
 
         try {
-            const response = await axios.post('http://localhost:5000/api/sellers/sregister', user);
+            const response = await axios.post('/api/sellers/sregister', user);
             setIsModalVisible(true);
         } catch (error) {
             if (error.response) {
@@ -586,7 +586,7 @@ function SellerRegister() {
 
         try {
 
-            const { data, status } = await axios.post('http://localhost:5000/api/sellers/slogin', user);
+            const { data, status } = await axios.post('/api/sellers/slogin', user);
 
             if (status === 200) {
                 await localStorage.removeItem('currentUser');
@@ -682,10 +682,10 @@ function SellerRegister() {
                 >
                     <>
                         <>
-                        <div className="srheaer-title-5">
-                        <h1>Welcome to GUIDEYFY </h1>
-                    </div>
-                           
+                            <div className="srheaer-title-5">
+                                <h1>Welcome to GUIDEYFY </h1>
+                            </div>
+
                             <SuccessAnimation />
                             <div className='sellr-reg-modal-btn-footer'>
                                 <h2>Your account setup successful</h2>

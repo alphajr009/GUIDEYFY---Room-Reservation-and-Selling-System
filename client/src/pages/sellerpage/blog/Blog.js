@@ -31,7 +31,7 @@ function Blog() {
 
   const closeModal = () => {
     setIsModalVisible(false);
-   
+
   };
 
   async function updateBlog(blog) {
@@ -42,7 +42,7 @@ function Blog() {
     await editBlog(blogToEdit._id, updatedBlogTitle, description1, description2, description3, description4);
     closeModal();
   };
-  
+
 
 
   const columns = [
@@ -114,7 +114,7 @@ function Blog() {
     }
 
   ];
-  
+
 
   useEffect(() => {
     (async () => {
@@ -122,7 +122,7 @@ function Blog() {
       try {
 
         setloading(true)
-        const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data
+        const data = (await axios.get("/api/blogs/getallblogs")).data
         setblogs(data.blogs)
 
         setloading(false)
@@ -140,7 +140,7 @@ function Blog() {
 
   async function editBlog(_id, updatedTitle, updatedDescription1, updatedDescription2, updatedDescription3, updatedDescription4) {
     try {
-      await axios.patch('http://localhost:5000/api/blogs/editblog', {
+      await axios.patch('/api/blogs/editblog', {
         _id,
         title: updatedTitle,
         description1: updatedDescription1,
@@ -149,19 +149,19 @@ function Blog() {
         description4: updatedDescription4
       });
       console.log("Blog Updated Successfully");
-      
-      const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data;
+
+      const data = (await axios.get("/api/blogs/getallblogs")).data;
       setblogs(data.blogs);
     } catch (error) {
       console.log(error);
     }
   }
-  
+
 
 
   async function deleteBlog(_id) {
     try {
-      const res = (await axios.patch('http://localhost:5000/api/blogs/deleteblog', { _id })).data;
+      const res = (await axios.patch('/api/blogs/deleteblog', { _id })).data;
       console.log("Blog Deleted Successfully");
     } catch (error) {
       console.log(error)
@@ -175,7 +175,7 @@ function Blog() {
       try {
 
         setloading(true)
-        const data = (await axios.get("http://localhost:5000/api/rooms/getallrooms")).data
+        const data = (await axios.get("/api/rooms/getallrooms")).data
         setRooms(data.rooms)
         setloading(false)
 
@@ -252,7 +252,7 @@ function Blog() {
             <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
               value={description1}
               onChange={(e) => { setdescription1(e.target.value) }}
-               />
+            />
           </Form.Item>
 
           <Form.Item
@@ -264,7 +264,7 @@ function Blog() {
             <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
               value={description2}
               onChange={(e) => { setdescription2(e.target.value) }}
-               />
+            />
           </Form.Item>
 
           <Form.Item
@@ -276,7 +276,7 @@ function Blog() {
             <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
               value={description3}
               onChange={(e) => { setdescription3(e.target.value) }}
-               />
+            />
           </Form.Item>
 
 
@@ -289,7 +289,7 @@ function Blog() {
             <Input.TextArea style={{ height: "245px", width: "626px" }} showCount maxLength={1200} className="userp-helpmsg-custom-input"
               value={description4}
               onChange={(e) => { setdescription4(e.target.value) }}
-               />
+            />
           </Form.Item>
         </Form>
       </Modal>

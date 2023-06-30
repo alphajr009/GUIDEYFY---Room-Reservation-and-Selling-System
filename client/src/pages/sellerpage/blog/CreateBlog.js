@@ -107,7 +107,7 @@ function CreateBlog() {
             try {
 
                 console.log(user._id)
-                const data = (await axios.post("http://localhost:5000/api/rooms/getroombysellerid", { sellerid: user._id })).data
+                const data = (await axios.post("/api/rooms/getroombysellerid", { sellerid: user._id })).data
                 setrooms(data.room);
                 console.log("Rooms fetched: ", data.rooms);
                 console.log(rooms)
@@ -132,7 +132,7 @@ function CreateBlog() {
         formData.append("room_id", selectedRoomId);
         formData.append("category", selectedCategory);
         formData.append("sellerid", user._id);
-       
+
         imageurls.forEach((image, index) => {
             if (image) {
                 formData.append("images", image, `${user._id}-${index}.jpg`);
@@ -140,10 +140,10 @@ function CreateBlog() {
         });
 
         console.log('imageurls:', imageurls);
-        
+
 
         try {
-            const response = await axios.post("http://localhost:5000/api/blogs/addblog", formData, {
+            const response = await axios.post("/api/blogs/addblog", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -226,7 +226,7 @@ function CreateBlog() {
                                 />
                             </div>
 
-                            
+
                             <div className='createblog-slide1-button'>
                                 <button
                                     className="crb-slide1-roomslect-down-btn"
@@ -266,27 +266,27 @@ function CreateBlog() {
 
                                 <Form>
                                     <div className="crb-s2-blog-title-wrap">
-                                    <div className='createblog-dis-select'>
-                                    <Form.Item
-                                    className='createblog-dis-namebox-conatiner-p'
-                                    label="Category:"
-                                    name="category"
-                                    rules={[{ required: true, message: 'Please input your Title!' }]}>
-                                        <Select
-                                            className="createblog-category-select"
-                                            placeholder="Category"
-                                            style={{ width: '175px' ,marginLeft:'30px'}}
-                                            value={selectedCategory}
-                                            onChange={handleCategoryChange}
-                                        >
-                                            {categories.map(category => (
-                                                <Option key={category}>
-                                                    {category}
-                                                </Option>
-                                            ))}
-                                        </Select>
-                                    </Form.Item>
-                                </div>
+                                        <div className='createblog-dis-select'>
+                                            <Form.Item
+                                                className='createblog-dis-namebox-conatiner-p'
+                                                label="Category:"
+                                                name="category"
+                                                rules={[{ required: true, message: 'Please input your Title!' }]}>
+                                                <Select
+                                                    className="createblog-category-select"
+                                                    placeholder="Category"
+                                                    style={{ width: '175px', marginLeft: '30px' }}
+                                                    value={selectedCategory}
+                                                    onChange={handleCategoryChange}
+                                                >
+                                                    {categories.map(category => (
+                                                        <Option key={category}>
+                                                            {category}
+                                                        </Option>
+                                                    ))}
+                                                </Select>
+                                            </Form.Item>
+                                        </div>
                                         <div className="createblog-dis-namebox">
                                             <div className="createblog-dis-namebox-container">
                                                 <Form.Item
@@ -315,7 +315,7 @@ function CreateBlog() {
                                                         value={description1}
                                                         onChange={(e) => { setdescription1(e.target.value) }} />
                                                 </Form.Item>
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div className="userp-help-messagebox">
                                             <div className="userp-help-namebox-container">
@@ -329,7 +329,7 @@ function CreateBlog() {
                                                         value={description2}
                                                         onChange={(e) => { setdescription2(e.target.value) }} />
                                                 </Form.Item>
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div className="userp-help-messagebox">
                                             <div className="userp-help-namebox-container">
@@ -343,7 +343,7 @@ function CreateBlog() {
                                                         value={description3}
                                                         onChange={(e) => { setdescription3(e.target.value) }} />
                                                 </Form.Item>
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div className="userp-help-messagebox">
                                             <div className="userp-help-namebox-container">
@@ -357,7 +357,7 @@ function CreateBlog() {
                                                         value={description4}
                                                         onChange={(e) => { setdescription4(e.target.value) }} />
                                                 </Form.Item>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                 </Form>

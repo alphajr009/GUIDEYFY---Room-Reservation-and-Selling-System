@@ -37,7 +37,7 @@ function BlogPage() {
       }
 
       try {
-        const data = (await axios.post("http://localhost:5000/api/blogs/getblogbyid", { blogid: params.blogid })).data
+        const data = (await axios.post("/api/blogs/getblogbyid", { blogid: params.blogid })).data
         setblog(data.blog[0]);
 
       } catch (error) {
@@ -51,7 +51,7 @@ function BlogPage() {
   useEffect(() => {
     (async () => {
       try {
-        const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data;
+        const data = (await axios.get("/api/blogs/getallblogs")).data;
         const sortedBlogs = data.blogs.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         const latestFiveBlogs = sortedBlogs.slice(0, 5);
         setblogs(latestFiveBlogs);
@@ -75,25 +75,25 @@ function BlogPage() {
               </div>
               <div className="blogpage-description1">
                 <div className='blog-img-wrapper'>
-                  <img className='blogimage-photo4' src={`http://localhost:5000/uploads/${params.blogid}-0.jpg`} />
+                  <img className='blogimage-photo4' src={`/uploads/${params.blogid}-0.jpg`} />
                 </div>
                 <p>{formatDescription(blog.description1)}</p>
               </div>
               <div className="blogpage-description1">
                 <div className='blog-img-wrapper'>
-                  <img className='blogimage-photo4' src={`http://localhost:5000/uploads/${params.blogid}-1.jpg`} />
+                  <img className='blogimage-photo4' src={`/uploads/${params.blogid}-1.jpg`} />
                 </div>
                 <p>{formatDescription(blog.description1)}</p>
               </div>
               <div className="blogpage-description1">
                 <div className='blog-img-wrapper'>
-                  <img className='blogimage-photo4' src={`http://localhost:5000/uploads/${params.blogid}-2.jpg`} />
+                  <img className='blogimage-photo4' src={`/uploads/${params.blogid}-2.jpg`} />
                 </div>
                 <p>{formatDescription(blog.description1)}</p>
               </div>
               <div className="blogpage-description1">
                 <div className='blog-img-wrapper'>
-                  <img className='blogimage-photo4' src={`http://localhost:5000/uploads/${params.blogid}-3.jpg`} />
+                  <img className='blogimage-photo4' src={`/uploads/${params.blogid}-3.jpg`} />
                 </div>
                 <p>{formatDescription(blog.description1)}</p>
               </div>
@@ -124,7 +124,7 @@ function BlogPage() {
             {blogs.map((recentBlog, index) => (
               <Link to={`/blog/${recentBlog._id}`} className='nounderline-blogpage'>
                 <div key={index} className="recent-post"  >
-                  <img className='recentplog-photo' src={`http://localhost:5000/uploads/${recentBlog._id}-0.jpg`} />
+                  <img className='recentplog-photo' src={`/uploads/${recentBlog._id}-0.jpg`} />
                   <h3>{recentBlog.title}</h3>
                 </div>
               </Link>

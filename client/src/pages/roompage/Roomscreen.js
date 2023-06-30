@@ -20,7 +20,7 @@ function Room({ room }) {
   return (
     <div className="roomcontain-tile">
       <div className="roomconatin-main-image-wrapper">
-        <img className='room-contain-image-tile' src={`http://localhost:5000/uploads/${room._id}-0.jpg`} alt={room.title} />
+        <img className='room-contain-image-tile' src={`/uploads/${room._id}-0.jpg`} alt={room.title} />
       </div>
       <div className="roomconatintile-description-wrapper-up">
         <div className="roomconatintile-description-wrapper">
@@ -131,7 +131,7 @@ function Roomscreen() {
   useEffect(() => {
     (async () => {
       try {
-        const data = (await axios.get("http://localhost:5000/api/rooms/getallrooms")).data;
+        const data = (await axios.get("/api/rooms/getallrooms")).data;
         setrooms(data.rooms);
         setFilteredRooms(data.rooms); // Set filteredRooms to all rooms initially
       } catch (error) {

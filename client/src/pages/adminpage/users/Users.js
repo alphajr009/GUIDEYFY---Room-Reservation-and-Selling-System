@@ -97,7 +97,7 @@ function Users() {
                     'success'
                   )
                     .then(result => {
-                      window.location.href ='http://localhost:3000/admin/users';
+                      window.location.href = 'http://localhost:3000/admin/users';
                     })
                 }
               })
@@ -114,7 +114,7 @@ function Users() {
 
       try {
         setloading(true)
-        const data = (await axios.get('http://localhost:5000/api/users/getallusers')).data
+        const data = (await axios.get('/api/users/getallusers')).data
         setusers(data.users)
         setFilteredUsers(data.users);
         setloading(false)
@@ -135,7 +135,7 @@ function Users() {
 
 
     try {
-      const res = (await axios.patch('http://localhost:5000/api/users/changeadmin', { _id, isAdmin })).data;
+      const res = (await axios.patch('/api/users/changeadmin', { _id, isAdmin })).data;
       console.log("Admin update Successfully");
     } catch (error) {
       console.log(error)

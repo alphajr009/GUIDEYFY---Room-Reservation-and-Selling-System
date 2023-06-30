@@ -108,7 +108,7 @@ function Homescreen() {
         <div className="hsc-getinsp-blog">
           <h1>Get inspiration for your next accommodation</h1>
           <div className="hsc-getinsp-b-carousel">
-          <button className="hsc-getins-b-button-lft" onClick={handlePrevious} >
+            <button className="hsc-getins-b-button-lft" onClick={handlePrevious} >
               <img className='hsc-getins-b-button-img-lft' src={arrowLeft} />
             </button>
             <Carousel ref={carouselRef} autoplaySpeed={90000} pauseOnHover={true} dots={false} autoplay className="homescreen-carousel">
@@ -129,48 +129,48 @@ function Homescreen() {
                 <img className="hsc-bbptw-b-cw-img" src={carouselBlog2} alt="Blog2" />
                 <div>
                   <p className="hsc-bbptw-b-cw-para">For years, Jaffna was not included in a typical tour of Sri Lanka. This was partly
-                  due to the region’s remote location, and also its importance in the island’s long-fought civil war. Jaffna is also
-                  aligned with the north-eastern monsoon pattern and receives  its annual deluge between December and March when the 
-                  popular south-west coast and central hills are enjoying the stable sunshine of peak season.   </p>
+                    due to the region’s remote location, and also its importance in the island’s long-fought civil war. Jaffna is also
+                    aligned with the north-eastern monsoon pattern and receives  its annual deluge between December and March when the
+                    popular south-west coast and central hills are enjoying the stable sunshine of peak season.   </p>
                   <button className='hsc-bbptw-Read-More' onClick={() => window.location.href = "/blog"} >
-                      Read More
-                    </button>
+                    Read More
+                  </button>
                 </div>
               </div>
               <div className="hsc-getins-b-carousel-wrapper">
                 <img className="hsc-bbptw-b-cw-img" src={carouselBlog3} alt="Blog3" />
                 <div>
                   <p className="hsc-bbptw-b-cw-para">Who doesn’t love a beach? If you are seeking sun, sea, look no further than Tangalle.
-                  This town on the south coast is known as the most romantic destination in the island due to its picture-perfect beaches
-                  lined with swaying coconut palms. Choose between charming boutique hotels like luxury villas. You can either stay right
-                   on the edge of the ocean or further inland in idyllic rural countryside.</p>
+                    This town on the south coast is known as the most romantic destination in the island due to its picture-perfect beaches
+                    lined with swaying coconut palms. Choose between charming boutique hotels like luxury villas. You can either stay right
+                    on the edge of the ocean or further inland in idyllic rural countryside.</p>
                   <button className='hsc-bbptw-Read-More' onClick={() => window.location.href = "/blog"} >
-                      Read More
-                    </button>
+                    Read More
+                  </button>
                 </div>
               </div>
               <div className="hsc-getins-b-carousel-wrapper">
                 <img className="hsc-bbptw-b-cw-img" src={carouselBlog4} alt="Blog4" />
                 <div>
                   <p className="hsc-bbptw-b-cw-para">One of the most notable expeditions in Sri Lanka only came
-                   into being in recent years. The Pekoe Trail extends across the entirety of the island’s central tea country, from 
-                   the mist-shrouded mountains on the outskirts of Kandy to the vast valleys on Ella on the south-eastern fringes. 
-                   Spend a holiday hiking the whole route, or choose to do a selection of sections which best fit your itinerary. </p>
+                    into being in recent years. The Pekoe Trail extends across the entirety of the island’s central tea country, from
+                    the mist-shrouded mountains on the outskirts of Kandy to the vast valleys on Ella on the south-eastern fringes.
+                    Spend a holiday hiking the whole route, or choose to do a selection of sections which best fit your itinerary. </p>
                   <button className='hsc-bbptw-Read-More' onClick={() => window.location.href = "/blog"} >
-                      Read More
-                    </button>
+                    Read More
+                  </button>
                 </div>
               </div>
               <div className="hsc-getins-b-carousel-wrapper">
                 <img className="hsc-bbptw-b-cw-img" src={carouselBlog5} alt="Blog4" />
                 <div>
-                  <p className="hsc-bbptw-b-cw-para">Despite its small size, Sri Lanka is one of the best places in the world for a 
-                  birdwatching holiday. Almost 500 species call this island home Two monsoon seasons and a flourishing central hill 
-                  country mean that there are opportunities for birdwatching in Sri Lanka , nesting in the 
-                  southern national parks to spotting  species of birds of prey in north-west Wilpattu.</p>
+                  <p className="hsc-bbptw-b-cw-para">Despite its small size, Sri Lanka is one of the best places in the world for a
+                    birdwatching holiday. Almost 500 species call this island home Two monsoon seasons and a flourishing central hill
+                    country mean that there are opportunities for birdwatching in Sri Lanka , nesting in the
+                    southern national parks to spotting  species of birds of prey in north-west Wilpattu.</p>
                   <button className='hsc-bbptw-Read-More' onClick={() => window.location.href = "/blog"} >
-                      Read More
-                    </button>
+                    Read More
+                  </button>
                 </div>
               </div>
             </Carousel>

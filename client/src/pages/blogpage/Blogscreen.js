@@ -97,9 +97,9 @@ function Blogscreen() {
   useEffect(() => {
     (async () => {
       try {
-        const data = (await axios.get("http://localhost:5000/api/blogs/getallblogs")).data;
+        const data = (await axios.get("/api/blogs/getallblogs")).data;
         setblogs(data.blogs);
-        setFilteredBlogs(data.blogs); 
+        setFilteredBlogs(data.blogs);
       } catch (error) {
         console.log(error);
       }
@@ -148,7 +148,7 @@ function Blogscreen() {
           </div>
         </div>
         <div className="blogscreen-content">
-        {filteredBlogs
+          {filteredBlogs
             .slice((currentPage - 1) * blogsPerPage, currentPage * blogsPerPage)
             .map((blog) => (
               <Blog key={blog.id} blog={blog} />

@@ -15,7 +15,7 @@ function Searchbar() {
 
     const handleSearch = () => {
 
-        window.location.assign('/home');
+        window.location.assign('/');
     };
 
     const [openOptions, setOpenOptions] = useState(false);

@@ -10,7 +10,7 @@ function NavbarToggler() {
 
     function logout() {
         localStorage.removeItem('currentUser');
-        window.location.href = '/home'
+        window.location.href = '/'
     }
 
     const items = [

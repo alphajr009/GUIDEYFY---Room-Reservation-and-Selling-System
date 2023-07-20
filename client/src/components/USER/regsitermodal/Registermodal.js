@@ -93,7 +93,7 @@ function Registermodal() {
 
       if (status === 200) {
         localStorage.setItem('currentUser', JSON.stringify(data));
-        window.location.href = '/home'
+        window.location.href = '/'
       } else {
         seterror(true);
       }

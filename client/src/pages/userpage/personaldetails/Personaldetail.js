@@ -58,9 +58,6 @@ function Personaldetail() {
   const [gender, setGender] = useState('');
   const [nationality, setnationality] = useState('');
   const [address, setaddress] = useState('');
-  // const [address1, setaddress1] = useState('');
-  // const [address2, setaddress2] = useState('');
-  // const [city, setCity] = useState('');
   const [open, setOpen] = useState(false);
   const [openemail, setOpenemail] = useState(false);
   const [opendisplayName, setOpenDisplayname] = useState(false);

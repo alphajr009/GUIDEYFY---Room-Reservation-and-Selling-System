@@ -14,7 +14,7 @@ function Userprofile({ setActiveButton, activeButton }) {
     useEffect(() => {
         (async () => {
           try {
-            const response = await axios.post('http://localhost:5000/api/users/getuserbyid', { userid: user._id });
+            const response = await axios.post('/api/users/getuserbyid', { userid: user._id });
             const data = response.data[0];
             setFname(data.fname);
             setLname(data.lname);    

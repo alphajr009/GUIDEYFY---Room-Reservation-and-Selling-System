@@ -1,4 +1,4 @@
-![Project Logo](https://imgur.com/BcEBDFm) 
+![Project Logo](https://i.imgur.com/uu02zdv.png) 
 
 
 # GUIDEYFY- Rooms Reservation System
